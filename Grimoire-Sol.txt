@@ -1,0 +1,176 @@
+﻿Sol (Light and Darkness) Spells
+Blur
+Keywords: Buff.
+Rune/Effect: Sól/Light [3] + Control (−1).
+Full Cost: 10 points.
+Casting Roll: None.
+Range: Self.
+Duration: 30 seconds.
+  The subject and all of his carried equipment become blurred for the duration of the spell. This gives a −3 penalty to Vision rolls to see the subject with normal vision and −3 penalty to attacks against the subject that rely on normal vision.
+  Statistics: Obscure 3 (Vision; Defensive, +50%; No Area of Effect, −50%; Stealthy, +100%; Reduced Duration, 1/6, −15%; Runecasting, −30%) [10]. 
+Bright Vision
+Keywords: Buff.
+Rune/Effect: Sól/Light [3] + Control (−1).
+Full Cost: 4 points.
+Casting Roll: None.
+Range: Self.
+Duration: 30 minutes.
+  The subject’s vision is protected against overload. It rapidly adapts to the most intense of stimuli, allowing him to function normally after a maximum of two seconds of impairment. He will never suffer permanent damage to vision as a result of excessive sensory input, and he gets +5 to rolls to resist temporary damage and Vision-Based attacks. This spell resists glare and eye damage from lasers, and lets Dark Vision, Infravision, and Night Vision adjust instantly from bright light to darkness.
+  Statistics: Protected Vision (Runecasting, −30%) [4].
+Color Spray
+Keywords: Obvious, Resisted (HT).
+Rune/Effect: Sól/Light [3] + Create (−2).
+Full Cost: 30 points.
+Casting Roll: Use Innate Attack (Beam) to hit.
+Range: 10 yards.
+Duration: Instantaneous. 
+  You create a spray of flashing colors. The spell spreads to affect everyone in a cone-shaped area. Cones use special rules; see Area and Spreading Attacks (Exploits, p. 45). The cone has a maximum width of 6 yards at the spell’s maximum range. This spell has no 1/2D range. Each sighted creature in the area resists with its HT and is stunned on a failed resistance roll. Should a creature fail by 5 or more or roll a critical failure, it is additionally blinded for 5 seconds. Creatures with Protected Vision resist at +5.
+  Statistics: Affliction 1 (HT; Cone 6, +110%; Fixed Duration, +0%; Increased 1/2D, x10, +15%; Reduced Duration on Blindness, 1/30, −30%; Reduced Range, 1/10, −30%; Secondary Blindness, +10%; Runecasting, −30%; Vision-Based, +150%) [30]. 
+Continual Light
+Keywords: None.
+Rune/Effect: Sól/Light [3] + Create (−2).
+Full Cost: 19 points.
+Casting Roll: None.
+Range: Touch.
+Duration: 2d days. 
+  When cast on a small object (up to fist-sized or 1 pound) or a small part of a larger object, makes that object glow with white light equivalent to a torch. The light lasts for 2d days (the GM rolls in secret). Does not count as an ‘on’ spell.
+  Statistics: Affliction (Advantage, Continual Light, +10%; Melee Attack, Reach C, −30%; Extended Duration, 1,000×, +120%; No Signature, +20%; Runecasting, −30%) [19]. 
+  Notes: “Continual Light” is Illumination (Magical, −10%) [1].
+Dark Vision
+Keywords: Buff.
+Rune/Effect: Sól/Light [3] + Control (−1).
+Full Cost: 34 points for level 1; +10 points per additional level (maximum of 5).
+Casting Roll: Innate Attack (Gaze) to aim.
+Range: 100 yards.
+Duration: 3 minutes*. 
+  This spell allows the subject to see even in pitch darkness, as if he had the Dark Vision advantage.
+  Statistics: Affliction 1 (HT; Advantage, Dark Vision, +230%; Variable Duration, +20%; Increased 1/2D, 10x, +15%; Runecasting, −30%) [34]. 
+   * Additional levels add duration: at level 2, the duration is 9 minutes; level 3, 30 minutes; level 4, 90 minutes; level 5 (the maximum), 5 hours.
+  Notes: “Dark Vision” is Dark Vision (Magical, −10%) [23]. 
+Dark Vision (Self)
+Keywords: Buff.
+Rune/Effect: Sól/Light [3] + Control (−1).
+Full Cost: 18 points for level 1; +5 points per additional level (max of 5 levels).
+Casting Roll: None.
+Range: Self.
+Duration: 3 minutes*.
+  This spell allows the caster to see even in pitch darkness, as if he had the Dark Vision advantage. 
+  * Additional levels add duration: at level 2, the duration is 9 minutes; level 3, 30 minutes; level 4, 90 minutes; level 5 (the maximum), 5 hours.
+  Statistics: Dark Vision (Runecasting, −30%) [18]. 
+Darkness
+Keywords: Area, Leveled.
+Rune/Effect: Sól/Light [3] + Destroy (−1).
+Full Cost: 19 points for level 1; +10 points per additional level.
+Casting Roll: None.
+Range: Self.
+Duration: 10 seconds. 
+  You may fill a two-yard radius area centered on yourself with darkness. A person inside the area can see out normally but can see nothing else within the area. Those outside the area can see only darkness within. Thus, attacks out of darkness suffer no penalty, but attacks into darkness are at a penalty. The Dark Vision advantage lets you see through a Darkness spell, but Night Vision does not.
+  The basic (19-point) version of this spell covers a two-yard radius. For each additional 10 points, you may double this radius; e.g., four yards for 29 points, 8 yards for 39 points, or 16 yards for 49 points. The GM must determine the maximum level allowed; 128 yards is recommended. You may always choose to affect a lesser area.
+  Statistics: Obscure Vision 10 (Defensive, Limited, +20%; Runecasting, −30%; Variable, Area, +5%) [19]. 
+  Further levels add Area Effect (+50%) to the advantage [+10].
+Darkness, Improved
+Keywords: Area, Leveled.
+Rune/Effect: Sól/Light [3] + Destroy (−1).
+Full Cost: 33 points for level 1; +10 points per additional level.
+Casting Roll: Innate Attack (Gaze) to aim.
+Range: 100 yards.
+Duration: 10 seconds. 
+  Exactly like the Darkness spell, except that the Dark Vision advantage does not allow you see through an Improved Darkness spell! Runecasters who already have the Darkness spell can upgrade to this version by paying the difference.
+  Statistics: Obscure Vision 10 (Defensive, Limited, +20%; Extended, Dark Vision, +20%; Runecasting, −30%; Variable, Area, +5%) [33]. 
+  Further levels add Area Effect (+50%) to the advantage [+10].
+Faerie Fire
+Keywords: Resisted (Will).
+Rune/Effect: Sól/Light [3] + Create (−2).
+Full Cost: 28 points.
+Casting Roll: Use Innate Attack (Gaze) to hit.
+Range: 100 yards.
+Duration: One minute.
+  This spell causes the subject to emit blue, green, or purple (chosen by the caster) light equivalent to a torch. This light makes the subject very obvious – the spell gives +10 to Vision rolls to see him (negating penalties to low lighting, for example) or −10 to his Stealth rolls, as the situation warrants. If the Innate Attack (Gaze) succeeds (penalized by range from the Speed and Size/Range Table), the caster must win a Quick Contest of Will.
+  Statistics: Affliction 1 (Will; Advantage, Faerie Fire, +10%; Based on Will, +20%; Disadvantage, Noisy 5, Visual, +10%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%) [28]. 
+  Notes: “Faerie Fire” is Illumination (Magical, −10%) [1].
+Hawk Vision
+Keywords: Buff.
+Rune/Effect: Sól/Light [3] + Control (−1).
+Full Cost: 16 points for level 1; +5 points/additional level.
+Casting Roll: Use Innate Attack (Gaze) to hit.
+Range: 100 yards.
+Duration: 3 minutes.
+  Grants the subject Telescopic Vision at a level equal to the level of the spell for 3 minutes exactly as if he had the Scout ability of the same name. 
+   You can “zoom in” with your eyes! Each level lets you ignore −1 in range penalties to Vision rolls at all times, or −2 in range penalties if you take a second to survey a specific target. In combat, add an extra +1/level with ranged attacks if you take a number of Aim maneuvers equal to the bonus; e.g., Heroic Archer lets you add Accuracy at all times and another +1 or +2 after one or two turns of Aim, but with Telescopic Vision 1, those Aim bonuses would become +2 or +3, and with Telescopic Vision 2, +2 or +4.
+  Statistics: Affliction (Advantage, Telescopic Vision 1, +50%; Fixed Duration, +0%; Increased 1/2D, 10x, +15%; No Signature, +20%; Runecasting, −30%) [17]. 
+  Notes: Additional levels add further Hawk Vision to the Advantage enhancement (+40%) [+4]. 
+  Notes: Each level of “Hawk Vision” is Telescopic Vision 1 (Magical, −10%) [5]. 
+Hawk Vision (Self)
+Keywords: Buff.
+Rune/Effect: Sól/Light [3] + Control (−1).
+Full Cost: 4 points per level.
+Casting Roll: None.
+Range: Self.
+Duration: 3 minutes.
+  Exactly like Hawk Vision (above), except only on the caster.
+  Statistics: Telescopic Vision (Fixed Duration, +0%; Runecasting, −30%) [4]. 
+Hide
+Keywords: Buff.
+Rune/Effect: Sól/Light [3] + Control (−1).
+Full Cost: 14 points.
+Casting Roll: Use Innate Attack (Gaze) to hit.
+Range: 100 yards.
+Duration: 3 minutes.
+  This spell makes the subject harder to find. A Vision roll is necessary to see a subject in plain sight; Vision rolls to detect a subject already hidden are at −1 per level of this spell. These effects only apply while the subject remains still, but if he moves and then stops moving before the spell expires, the effects resume.
+  Statistics: Affliction 1 (HT; Advantage, Hide, +30%; Fixed Duration, +0%; Increased 1/2D, 10x, +15%; No Signature, +20%; Sorcery, −30%) [14]. 
+  Note: Each level of “Hide” is Obscure 1 (Vision; Accessibility, Only while standing still, −40%; Defensive, +50%; Magical, −10%; No Area of Effect, −50%; Stealthy, +100%) [3]. 
+  Notes: Additional levels add further levels of Hide (+30%) [+3].
+Hide Self
+Keywords: Buff.
+Rune/Effect: Sól/Light [3] + Control (−1).
+Full Cost: 3 points.
+Casting Roll: None.
+Range: Self.
+Duration: 3 minutes.
+  This spell makes the caster harder to find. A Vision roll is necessary to see a subject in plain sight; Vision rolls to detect a subject already hidden are at −1 per level of this spell. These effects only apply while the subject remains still, but if he moves and then stops moving before the spell expires, the effects resume.
+  Statistics: Obscure 1 (Vision; Accessibility, Only while standing still, −40%; Defensive, +50%; Magical, −30%; No Area of Effect, −50%; Stealthy, +100%) [3]. 
+  Notes: Additional levels add further levels of Hide (+30%) [+3].
+Light
+Keywords: None.
+Rune/Effect: Sól/Light [3] + Create (−2).
+Full Cost: 9 pts for level 1 + 3 pts/additional level.
+Casting Roll: Use Innate Attack (Gaze) to aim.
+Range: 100 yards.
+Duration: One minute.
+  You can summon light equivalent to full daylight; you may make this light manifest anywhere within 100 yards. The light is bright enough to eliminate all darkness penalties in a 10-yard radius. By concentrating, you can move this “zone of light” at up to (spell level) yards per second. Does not count as an ‘on’ spell.
+  Statistics: Create Visible Light 1 (Accessibility, Limited to a 10-yard radius for one minute, −40%; Runecasting, −30%; Ranged, +40%; Reduced Fatigue Cost 1, +20%) [9]. 
+  Additional levels add Mobile (+40%) [+3].
+Night Vision (Group)
+Keywords: Buff.
+Rune/Effect: Sól/Light [3] + Control (−1).
+Full Cost: 40 points for level 1; +1 per additional level.
+Casting Roll: Innate Attack (Gaze).
+Range: 100 yards.
+Duration: 30 minutes.
+  The caster selects a location within range to cast this spell. Once cast, everyone the caster designates within 2 yards of the target hex gains the ability to negate up to +3 points in Vision penalties due to darkness as if they had the Night Vision advantage, up to a maximum of +9 (seven levels). The caster’s Innate Attack roll is at +4 (for Area Effect) and uses the Speed and Size/Range Table for range penalties.
+  Statistics: Affliction (Advantage, Night Vision 3, +30%; Area Effect, 2 yards, +50%; Extended duration, 10x, +40%; Fixed duration, +0%; Increased 1/2D, 10x, +15%; Malediction 2, +150%; No signature, +20%; Selective Area, +20%; Runecasting, −30%) [40].
+  Additional levels add Night Vision +1 [1].
+  Center on caster: remove Increased 1/2D, +15%, and add Melee Attack, Reach C, -30%.
+Night Vision (Self)
+Keywords: Buff.
+Rune/Effect: Sól/Light [3] + Control (−1).
+Full Cost: 3 points for level 1; +1 per additional level.
+Casting Roll: None.
+Range: Self.
+Duration: Three minutes.
+  The caster can negate up to 4 points in darkness penalties for vision rolls as if he had the advantage of the same name at level 4. Each additional level adds another +1 to his vision rolls for negating darkness penalties, up to level 6 (+9 total).
+  Statistics: Night Vision 4 (Fixed duration, +0%; Runecasting, −30%) [3]. 
+  Additional levels add Night Vision +1 [1].
+Sunbolt
+Keywords: Missile, Obvious.
+Rune/Effect: Sól/Light [3] + Create (−2).
+Full Cost: 3 points/level.
+Casting Roll: Use Innate Attack (Beam) to hit.
+Range: 100 yards.
+Duration: Instantaneous.
+  Shoots a bolt of concentrated sunlight from one fingertip. This missile does 1d burn damage per level, and has Acc 2, 1/2D 75, Max 150. Roll against Innate Attack (Projectile) to hit. The Sunbolt spell must win a Quick Contest against Darkness or Blackout to cross such a spell’s area. The sunbolt is blockable, but the burning damage will be applied to the shield if successful.
+  Increase a mirrored shield’s DB against Sunbolt by 50% (round down). A successful block with such a shield – or with a mirror – allows an immediate Shield roll to redirect the bolt at anyone within its remaining range. Standard ranged combat penalties apply.
+  Sunbolt does burning damage, may ignite flammable targets, and counts as sunlight against creatures susceptible to such. Anyone struck in the face must roll vs. HT, even if no damage penetrates armor; those hit in the eyes must roll at a penalty equal to any injury caused. Failure means being blinded, which counts as a crippling injury; see Duration of Crippling (Exploits, p. 61).
+  Statistics: Burning Damage (Blockable, −5%; Nuisance Effect, Reflective, −5%; Runecasting, −30%) [3/level]. 
+  
+  
