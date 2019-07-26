@@ -1,7 +1,9 @@
 import 'dart:io';
 
-Future main() async {
-  var config = File('Grimoire Sol.txt');
+import 'package:sorcery_parser/src/trait.dart';
+
+Future main(List<String> args) async {
+  var config = File('Grimoire-Sol.txt');
 
   // Put each line of the file into its own string.
   var contents = await config.readAsLines();
@@ -16,30 +18,30 @@ Future main() async {
     'Duration:'
   ];
 
-  var traits = <String, double>{
-    'Absolute Direction': 5,
-    'Affliction': 10,
-    'Burning': 5,
-    'Control': 20,
-    'Create Rock': 10,
-    'Create': 20,
-    'Crushing': 5,
-    'Dark Vision': 25,
-    'Detect': 5,
-    'Insubstantiality': 80,
-    'Jumper': 100,
-    'Magic Resistance': 2,
-    'Neutralize': 50,
-    'Night Vision': 1,
-    'Obscure': 6,
-    'Payload': 1,
-    'Penetrating Vision': 10,
-    'Permeation': 40,
-    'Protected Vision': 5,
-    'Static': 30,
-    'Telescopic Vision': 5,
-    'Warp': 100,
-  };
+  // var traits = <String, double>{
+  //   'Absolute Direction': 5,
+  //   'Affliction': 10,
+  //   'Burning': 5,
+  //   'Control': 20,
+  //   'Create Rock': 10,
+  //   'Create': 20,
+  //   'Crushing': 5,
+  //   'Dark Vision': 25,
+  //   'Detect': 5,
+  //   'Insubstantiality': 80,
+  //   'Jumper': 100,
+  //   'Magic Resistance': 2,
+  //   'Neutralize': 50,
+  //   'Night Vision': 1,
+  //   'Obscure': 6,
+  //   'Payload': 1,
+  //   'Penetrating Vision': 10,
+  //   'Permeation': 40,
+  //   'Protected Vision': 5,
+  //   'Static': 30,
+  //   'Telescopic Vision': 5,
+  //   'Warp': 100,
+  // };
 
   String p = keywords.reduce((a, b) => '$a|$b');
 
@@ -66,14 +68,15 @@ Future main() async {
           double calculatedCost = 0;
           double statedCost = 0;
 
-          var trait = ability
+          var t = ability
               .substring(ability.indexOf(':') + 1, ability.indexOf(openParen))
               .trim();
 
-          print('  Trait: $trait');
+          Trait trait = Traits.parse(t);
 
-          double traitCost =
-              traits[traits.keys.firstWhere((it) => trait.startsWith(it))];
+          print('  Trait: ${trait.name}');
+
+          int traitCost = trait.cost;
 
           // modifiers include everything between parentheses
           var text = ability
