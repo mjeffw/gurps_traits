@@ -74,7 +74,7 @@ Future main(List<String> args) async {
 
           Trait trait = Traits.parse(t);
 
-          print('  Trait: ${trait.name}');
+          print('  Trait: ${trait.reference}');
 
           int traitCost = trait.cost;
 

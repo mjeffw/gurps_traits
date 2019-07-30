@@ -1,192 +1,136 @@
 enum _Type { simple, leveled }
 
-typedef String AliasParser(String name, String text);
-typedef int LevelParser(String name, String text);
+///
+/// A [Trait] is an instance of a GURPS trait as applied to a character,
+/// ability, or power.
+///
+/// The [Trait] includes any customization necessary to determine its cost
+/// before modifiers. For example, leveled traits will include the number of
+/// levels and traits with variations will have the variation selected.
+///
+class Trait {
+  _Template template;
 
-LevelParser defaultLevelParser = (n, t) => int.tryParse(t);
-AliasParser defaultAliasParser = (n, t) => n;
+  get reference => template.reference;
 
-class Alias {
-  final String name;
-  final int cost;
-  Alias({this.name, this.cost});
+  get cost => template.cost;
+
+  String description;
+
+  Trait({this.template, this.description});
 }
 
-///
-/// A [_TraitTemplate] is the template for a specific instance of a Trait as
-/// applied to a character, ability, or power.
-///
-class _TraitTemplate {
+class LeveledTrait extends Trait {
+  int level = 1;
+
+  get cost => template.cost * level;
+
+  get description => '$reference $level';
+
+  String parentheticalNotes;
+
+  LeveledTrait(
+      {String description,
+      this.level,
+      _Template template,
+      this.parentheticalNotes})
+      : super(template: template, description: description);
+
+  static int _tryParseLevelFromText(String pattern, String text) {
+    if (pattern == null) return 1;
+
+    RegExpMatch match = RegExp(pattern).allMatches(text).first;
+    if (match.groupNames.contains('level')) {
+      return int.tryParse(match.namedGroup('level'));
+    }
+    return 1;
+  }
+
+  static String _tryParseNotesFromText(String pattern, String traitText) {
+    if (pattern == null) return null;
+
+    RegExpMatch match = RegExp(pattern).allMatches(traitText).first;
+    if (match.groupNames.contains('note')) {
+      return match.namedGroup('note');
+    }
+    return null;
+  }
+}
+
+class _Template {
   ///
-  /// A TraitTemplate has a reference name -- the name by which it are listed
+  /// A [_Template] has a reference name -- the name by which it are listed
   /// in the Basic Character book's Trait list (p.B297).
   ///
   final String reference;
-
-  ///
-  /// A TraitTemplate may also have a number of aliases that are used in
-  /// describing an ability or power that differs from the reference name.
-  ///
-  /// E.g., 'Protected Sense' is the reference name, but a specific instance of
-  /// this trait will use the name of the sense that is being protected, such
-  /// as 'Protected Vision'.
-  ///
-  /// 'Protected Vison', 'Protected Hearing', and 'Protected Taste/Smell' all
-  /// map to 'Protected Sense', for example.
-  ///
-  /// Sometimes, the cost of the advantage varies by alias.
-  ///
-  final List<Alias> aliases;
 
   ///
   /// Many traits have a flat cost.
   ///
   final int cost;
 
+  ///
+  /// Some Traits can be referred to via a number of different names
+  ///
+  final List<String> alternateNames;
+
   final _Type type;
 
-  final AliasParser _nameParser;
+  _Template({this.reference, this.cost, this.alternateNames, this.type});
 
-  final LevelParser _levelParser;
+  Trait parse(String traitText) {
+    if (type == _Type.leveled) {
+      String alternateName = _findMatchingAlternateName(traitText);
 
-  _TraitTemplate(
-      {this.reference,
-      this.cost,
-      List<Alias> aliases,
-      this.type = _Type.simple,
-      AliasParser aliasParser,
-      LevelParser levelParser})
-      : aliases = aliases ?? [Alias(name: reference)],
-        _nameParser = aliasParser ?? defaultAliasParser,
-        _levelParser = levelParser ?? defaultLevelParser;
-
-  Trait createTrait({String name, String text}) {
-    switch (this.type) {
-      case _Type.simple:
-        return Trait(template: this, text: name);
-      case _Type.leveled:
-        return LeveledTrait(
-            template: this,
-            name: _nameParser.call(name, text),
-            level: _levelParser.call(name, text));
+      return LeveledTrait(
+          template: this,
+          level: LeveledTrait._tryParseLevelFromText(alternateName, traitText),
+          parentheticalNotes:
+              LeveledTrait._tryParseNotesFromText(alternateName, traitText));
     }
-    return null;
-  }
-}
-
-class Trait {
-  final _TraitTemplate _template;
-  final String text;
-
-  Trait({_TraitTemplate template, this.text})
-      : assert(template != null),
-        _template = template;
-
-  int get cost => templateCost();
-
-  String get name => _template.reference;
-
-  int templateCost() {
-    var alias = _template.aliases.firstWhere((it) => text.startsWith(it.name));
-    return alias.cost ?? _template.cost;
+    return Trait(template: this, description: traitText);
   }
 
-  int get level => null;
+  bool isMatch(String text) {
+    if (text == reference) return true;
 
-  String get reference => _template.reference;
+    return _findMatchingAlternateName(text) != null;
+  }
+
+  String _findMatchingAlternateName(String text) {
+    return alternateNames?.firstWhere((it) => RegExp(it).hasMatch(text),
+        orElse: () => null);
+  }
 }
-
-class LeveledTrait extends Trait {
-  final int level;
-
-  LeveledTrait({_TraitTemplate template, String name, this.level})
-      : assert(level != null),
-        super(template: template, text: name);
-
-  int get cost => level * templateCost();
-}
-
-///
-/// For any whitespace separated list of words, the string that contains all
-/// but the last word.
-///
-String dropLastWord(String t) => t.substring(0, t.lastIndexOf(' ')).trim();
-
-///
-/// Get the last word from the phrase and try to parse it as an integer
-///
-LevelParser createLevelParser = (n, t) => int.tryParse(t.split(' ').last);
-
-LevelParser innateLevelParser = (n, t) {
-  if (t.trim().isEmpty) return 1;
-  // assume t is of the form 'Nd' where N is a number
-  return int.tryParse(t.replaceAll('d', ''));
-};
-
-AliasParser createAliasParser = (n, t) => n + ' ' + dropLastWord(t);
-AliasParser concatAliasParser = (n, t) => n + ' ' + t;
-AliasParser innateAliasParser =
-    (n, t) => '$n ${t.trim().isEmpty ? "1d" : t.trim()}';
 
 class Traits {
-  static Trait parse(String phrase) {
-    var words = phrase.split(' ');
+  static Trait parse(String traitText) {
+    _Template template = _templates.firstWhere((it) => it.isMatch(traitText),
+        orElse: () => null);
 
-    for (var i = 0; i < words.length; i++) {
-      var test = List<String>.generate(i + 1, (index) => words[index])
-          .reduce((a, b) => a + ' ' + b);
-
-      _TraitTemplate template = match(test);
-      if (template != null) {
-        String remaining = phrase.replaceFirst(test, '').trim();
-        return template.createTrait(name: test, text: remaining);
-      }
-    }
-    return null;
+    return template?.parse(traitText);
   }
 
-  static _TraitTemplate match(String phrase) {
-    var template =
-        _traits.firstWhere((it) => it.reference == phrase, orElse: () => null);
-
-    if (template == null) {
-      template = _traits.firstWhere(
-          (it) => it.aliases.map((a) => a.name).contains(phrase),
-          orElse: () => null);
-    }
-    return template;
-  }
-
-  static List<_TraitTemplate> _traits = [
-    _TraitTemplate(reference: 'Affliction', cost: 10, type: _Type.leveled),
-    _TraitTemplate(
-        reference: 'Create',
-        cost: 20,
-        type: _Type.leveled,
-        aliasParser: createAliasParser,
-        levelParser: createLevelParser),
-    _TraitTemplate(reference: 'Dark Vision', cost: 25),
-    _TraitTemplate(
-        reference: 'Innate Attack',
+  static List<_Template> _templates = [
+    _Template(reference: 'Dark Vision', cost: 25, alternateNames: []),
+    _Template(
+        reference: 'Protected Sense',
         cost: 5,
-        aliases: [
-          Alias(name: 'Burning Attack'),
-          Alias(name: 'Corrosion Attack', cost: 10),
-          Alias(name: 'Crushing Attack'),
-          Alias(name: 'Cutting Attack', cost: 7),
-          Alias(name: 'Fatigue Attack', cost: 10),
-          Alias(name: 'Piercing Attack'),
-        ],
-        aliasParser: innateAliasParser,
-        levelParser: innateLevelParser,
-        type: _Type.leveled),
-    _TraitTemplate(reference: 'Obscure', cost: 2, type: _Type.leveled),
-    _TraitTemplate(reference: 'Protected Sense', cost: 5, aliases: [
-      Alias(name: 'Protected Vision'),
-      Alias(name: 'Protected Hearing'),
-      Alias(name: 'Protected Taste/Smell')
-    ]),
-    _TraitTemplate(
-        reference: 'Telescopic Vision', cost: 5, type: _Type.leveled),
+        alternateNames: [r'^Protected (.*)?$']),
+    _Template(
+      reference: 'Obscure',
+      cost: 2,
+      type: _Type.leveled,
+      alternateNames: [
+        r'^Obscure (?:(?<note>.+) )?(?<level>\d+)$',
+        r'^Obscure (?<note>.+)$'
+      ],
+    ),
+    _Template(
+      reference: 'Affliction',
+      cost: 10,
+      type: _Type.leveled,
+      alternateNames: [r'^Affliction (?<level>\d+)$'],
+    )
   ];
 }
