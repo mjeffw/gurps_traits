@@ -1,4 +1,5 @@
 import 'package:sorcery_parser/src/trait.dart';
+import 'package:sorcery_parser/src/util/die_roll.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -98,15 +99,55 @@ void main() {
       expect(t.description, 'Affliction 2');
       expect(t.level, 2);
     });
+  });
 
-    test('Create', () {
-      Trait t = Traits.parse('Create Visible Light 1');
-      expect(t.reference, 'Create');
-      expect(t.cost, 20);
-      expect(t.description, 'Create Visible Light');
-      // expect(t.level, 1);
-    }, skip: true);
-  }, skip: false);
+  group('Innate Attack', () {
+    test('Crushing Attack 1d', () {
+      InnateAttack t = Traits.parse('Crushing Attack 1d') as InnateAttack;
+      expect(t.reference, 'Innate Attack');
+      expect(t.dice, DieRoll(dice: 1, normalize: false));
+      expect(t.description, 'Crushing Attack 1d');
+      expect(t.cost, 5);
+    }, skip: false);
+
+    test('Crushing Attack 3d', () {
+      InnateAttack t = Traits.parse('Crushing Attack 3d') as InnateAttack;
+      expect(t.reference, 'Innate Attack');
+      expect(t.dice, DieRoll(dice: 3, normalize: false));
+      expect(t.description, 'Crushing Attack 3d');
+      expect(t.cost, 15);
+    }, skip: false);
+
+    test('Crushing Attack 3d-1', () {
+      InnateAttack t = Traits.parse('Crushing Attack 3d-1') as InnateAttack;
+      expect(t.reference, 'Innate Attack');
+      expect(t.dice, DieRoll(dice: 3, adds: -1, normalize: false));
+      expect(t.description, 'Crushing Attack 3d-1');
+      expect(t.cost, 14);
+    }, skip: false);
+
+    test('Crushing Attack 3d-2', () {
+      InnateAttack t = Traits.parse('Crushing Attack 3d-2') as InnateAttack;
+      expect(t.dice, DieRoll(dice: 3, adds: -2, normalize: false));
+      expect(t.description, 'Crushing Attack 3d-2');
+      expect(t.cost, 12);
+    }, skip: false);
+
+    test('Crushing Attack 3d+1', () {
+      InnateAttack t = Traits.parse('Crushing Attack 3d+1') as InnateAttack;
+      expect(t.reference, 'Innate Attack');
+      expect(t.dice, DieRoll(dice: 3, adds: 1, normalize: false));
+      expect(t.description, 'Crushing Attack 3d+1');
+      expect(t.cost, 17);
+    }, skip: false);
+
+    test('Crushing Attack 3d+2', () {
+      InnateAttack t = Traits.parse('Crushing Attack 3d+2') as InnateAttack;
+      expect(t.dice, DieRoll(dice: 3, adds: 2, normalize: false));
+      expect(t.description, 'Crushing Attack 3d+2');
+      expect(t.cost, 18);
+    }, skip: false);
+  });
 
   group('Variable', () {
     test('Innate Attack - Burning 1d', () {
