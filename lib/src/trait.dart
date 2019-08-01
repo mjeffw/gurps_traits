@@ -77,9 +77,9 @@ class Trait {
   ///
   /// Any parenthetical notes for this [Trait].
   ///
-  String parentheticalNotes;
+  String specialization;
 
-  Trait({this.template, this.description, this.parentheticalNotes});
+  Trait({this.template, this.description, this.specialization});
 }
 
 ///
@@ -113,7 +113,7 @@ class LeveledTrait extends Trait {
   LeveledTrait({_Template template, int level, String parentheticalNotes})
       : assert(level != null && level > 0),
         _level = level,
-        super(template: template, parentheticalNotes: parentheticalNotes);
+        super(template: template, specialization: parentheticalNotes);
 
   static int _tryParseLevelFromText(String pattern, String text) {
     if (pattern == null) return 1;
@@ -142,13 +142,13 @@ class CategorizedTrait extends Trait {
 
   @override
   get cost => template.categoryLevels
-      .firstWhere((it) => it.items.contains(parentheticalNotes),
+      .firstWhere((it) => it.items.contains(specialization),
           orElse: () => throw ValueNotFoundException(
-              'Element not found in category', parentheticalNotes))
+              'Element not found in category', specialization))
       .cost;
 
-  CategorizedTrait({_Template template, String element})
-      : super(template: template, parentheticalNotes: element);
+  CategorizedTrait({_Template template, String item})
+      : super(template: template, specialization: item);
 }
 
 ///
@@ -172,14 +172,14 @@ class CategorizedLeveledTrait extends LeveledTrait {
   @override
   get cost =>
       template.categoryLevels
-          .firstWhere((it) => it.items.contains(parentheticalNotes),
+          .firstWhere((it) => it.items.contains(specialization),
               orElse: () => throw ValueNotFoundException(
-                  'Element not found in category levels', parentheticalNotes))
+                  'Element not found in category levels', specialization))
           .cost *
       level;
 
-  CategorizedLeveledTrait({_Template template, int level, String element})
-      : super(template: template, level: level, parentheticalNotes: element);
+  CategorizedLeveledTrait({_Template template, int level, String item})
+      : super(template: template, level: level, parentheticalNotes: item);
 }
 
 ///
@@ -321,7 +321,7 @@ class _Template {
   ///
   /// Create the appropriate [Trait] based on the the text.
   ///
-  Trait parse(String traitText) {
+  Trait parse(String traitText, String parentheticalText) {
     if (type == _Type.leveled) {
       String pattern = _findMatchingAlternateName(traitText);
       return LeveledTrait(
@@ -342,7 +342,7 @@ class _Template {
   /// Return [true] if the text matches either the reference name or any of the alternate
   /// regular expressions.
   ///
-  bool isMatch(String text) =>
+  bool _isMatch(String text) =>
       (text == reference) ? true : _findMatchingAlternateName(text) != null;
 
   ///
@@ -371,21 +371,34 @@ class _CategorizedTemplate extends _Template {
       this.categoryLevels})
       : super(reference: reference, alternateNames: alternateNames, type: type);
 
-  Trait parse(String traitText) {
+  @override
+  Trait parse(String traitText, String parentheticalText) {
     String pattern = _findMatchingAlternateName(traitText);
-    if (pattern == null) throw Error();
+    String specialization;
+    if (pattern != null) {
+      specialization = LeveledTrait._tryParseNotesFromText(pattern, traitText);
+    }
+    if (specialization == null) {
+      specialization = _tryParseItemFromParentheticalText(parentheticalText);
+    }
 
     if (type == _Type.categorizedLeveled) {
       return CategorizedLeveledTrait(
           template: this,
           level: LeveledTrait._tryParseLevelFromText(pattern, traitText),
-          element: LeveledTrait._tryParseNotesFromText(pattern, traitText));
+          item: specialization);
     }
 
     // ...else default to CategorizedTrait
-    return CategorizedTrait(
-        template: this,
-        element: LeveledTrait._tryParseNotesFromText(pattern, traitText));
+    return CategorizedTrait(template: this, item: specialization);
+  }
+
+  String _tryParseItemFromParentheticalText(String text) {
+    RegExpMatch match = RegExp(r'^([A-Za-z0-9 ]+);').firstMatch(text);
+    if (match.groupCount > 0) {
+      return match.group(1);
+    }
+    return null;
   }
 }
 
@@ -397,11 +410,11 @@ class Traits {
   /// Given the trait statistics text before the parenthetical notes, create an
   /// appropriate [Trait].
   ///
-  static Trait parse(String traitText) {
-    _Template template = _templates.firstWhere((it) => it.isMatch(traitText),
+  static Trait parse(String traitText, [String parentheticalText = '']) {
+    _Template template = _templates.firstWhere((it) => it._isMatch(traitText),
         orElse: () => null);
 
-    return template?.parse(traitText);
+    return template?.parse(traitText, parentheticalText);
   }
 
   static List<_Template> _templates = [
@@ -412,6 +425,43 @@ class Traits {
       type: _Type.leveled,
       alternateNames: [r'^Affliction (?<level>\d+)$'],
     ),
+    _CategorizedTemplate(
+        reference: 'Control',
+        type: _Type.categorizedLeveled,
+        categoryLevels: [
+          _CategoryLevel(name: 'Common', cost: 20, items: [
+            'Earth',
+            'Fire',
+            'Gravity',
+            'Light',
+            'Metal',
+            'Sound',
+            'Water',
+            'Wood',
+          ]),
+          _CategoryLevel(name: 'Occasional', cost: 15, items: [
+            'Ceramics',
+            'Ferrous Metals',
+            'Ice',
+            'Steam',
+            'Stone',
+            'Infrared',
+            'Ultrasonics',
+          ]),
+          _CategoryLevel(name: 'Rare', cost: 10, items: [
+            'Iron',
+            'Salt',
+            'Water',
+            'Air',
+            'Brine',
+            'Paper',
+            'Rubber',
+          ]),
+        ],
+        alternateNames: [
+          r'^Control (?:(?<note>.+) )?(?<level>\d+)$',
+          r'^Control (?<note>.+)'
+        ]),
     _CategorizedTemplate(
         reference: 'Create',
         type: _Type.categorizedLeveled,

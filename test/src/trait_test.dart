@@ -55,7 +55,7 @@ void main() {
       expect(t.cost, 6);
       expect(t.description, 'Obscure 3');
       expect(t.level, 3);
-      expect(t.parentheticalNotes, null);
+      expect(t.specialization, null);
     });
 
     test('Obscure Vision', () {
@@ -64,7 +64,7 @@ void main() {
       expect(t.cost, 2);
       expect(t.description, 'Obscure 1');
       expect(t.level, 1);
-      expect(t.parentheticalNotes, 'Vision');
+      expect(t.specialization, 'Vision');
     });
 
     test('Obscure Dark Vision 5', () {
@@ -73,7 +73,7 @@ void main() {
       expect(t.cost, 10);
       expect(t.description, 'Obscure 5');
       expect(t.level, 5);
-      expect(t.parentheticalNotes, 'Dark Vision');
+      expect(t.specialization, 'Dark Vision');
     });
 
     test('Obscure 360-Degree Vision 5', () {
@@ -82,7 +82,7 @@ void main() {
       expect(t.cost, 4);
       expect(t.description, 'Obscure 2');
       expect(t.level, 2);
-      expect(t.parentheticalNotes, '360° Vision');
+      expect(t.specialization, '360° Vision');
     });
 
     test('Affliction', () {
@@ -388,7 +388,7 @@ void main() {
   });
 
   group('Variable', () {
-    group('Create', () {
+    group('Categorized trait', () {
       group('Set reference', () {
         test('Create', () {
           expect(() => Traits.parse('Create'), throwsA(isA<Error>()));
@@ -430,22 +430,22 @@ void main() {
       group('Parenthetical notes', () {
         test('Create Rock 1', () {
           LeveledTrait t = Traits.parse('Create Rock 1') as LeveledTrait;
-          expect(t.parentheticalNotes, 'Rock');
+          expect(t.specialization, 'Rock');
         });
 
         test('Create Iron 1', () {
           LeveledTrait t = Traits.parse('Create Iron 1') as LeveledTrait;
-          expect(t.parentheticalNotes, 'Iron');
+          expect(t.specialization, 'Iron');
         });
 
         test('Create Solid 1', () {
           LeveledTrait t = Traits.parse('Create Solid 1') as LeveledTrait;
-          expect(t.parentheticalNotes, 'Solid');
+          expect(t.specialization, 'Solid');
         });
 
         test('Create Acid 1', () {
           LeveledTrait t = Traits.parse('Create Acid 1') as LeveledTrait;
-          expect(t.parentheticalNotes, 'Acid');
+          expect(t.specialization, 'Acid');
         });
       }, skip: false);
 
@@ -487,6 +487,15 @@ void main() {
           expect(() => t.cost, throwsA(isA<ValueNotFoundException>()));
         });
       }, skip: false);
+
+      test('Parenthetical text', () {
+        var text = 'Permeation';
+        var parenth =
+            'Earth; Can Carry Objects, Light Encumbrance, +20%; Runecasting, −10%';
+        Trait t = Traits.parse(text, parenth);
+        expect(t.specialization, 'Earth');
+        expect(t.cost, 40);
+      });
     });
   }, skip: false);
 }

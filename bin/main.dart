@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:sorcery_parser/src/trait.dart';
 
 Future main(List<String> args) async {
-  var config = File('Grimoire-Sol.txt');
+  var config = File('Grimoire-Yr.txt');
 
   // Put each line of the file into its own string.
   var contents = await config.readAsLines();
@@ -18,49 +18,28 @@ Future main(List<String> args) async {
     'Duration:'
   ];
 
-  // var traits = <String, double>{
-  //   'Absolute Direction': 5,
-  //   'Affliction': 10,
-  //   'Burning': 5,
-  //   'Control': 20,
-  //   'Create Rock': 10,
-  //   'Create': 20,
-  //   'Crushing': 5,
-  //   'Dark Vision': 25,
-  //   'Detect': 5,
-  //   'Insubstantiality': 80,
-  //   'Jumper': 100,
-  //   'Magic Resistance': 2,
-  //   'Neutralize': 50,
-  //   'Night Vision': 1,
-  //   'Obscure': 6,
-  //   'Payload': 1,
-  //   'Penetrating Vision': 10,
-  //   'Permeation': 40,
-  //   'Protected Vision': 5,
-  //   'Static': 30,
-  //   'Telescopic Vision': 5,
-  //   'Warp': 100,
-  // };
+  // String p = keywords.reduce((a, b) => '$a|$b');
 
-  String p = keywords.reduce((a, b) => '$a|$b');
-
-  var name = '';
+  // var name = '';
   var statistics = '';
 
   contents.forEach((line) {
     if (!isStartsWithKeyword(line, keywords)) {
       if (!line.startsWith(r'*') && !line.startsWith(' ')) {
         print(line);
-        name = line;
+        // name = line;
       }
-      if (line.startsWith(r'  Statistics:')) {
-        statistics = line;
+
+      var statisticsLabel = r'  Statistics:';
+
+      if (line.startsWith(statisticsLabel)) {
+        // remove the label from the start of the line
+        statistics = line.replaceFirst(statisticsLabel, '');
 
         double calculatedTotal = 0;
         double statedTotal = 0;
 
-        // multiple abilities are separated by ' + '
+        // multiple abilities are separated by ' + ' - split them out
         statistics.split(' + ').forEach((ability) {
           var openParen = r'(';
           var closeParen = r')';
@@ -68,11 +47,18 @@ Future main(List<String> args) async {
           double calculatedCost = 0;
           double statedCost = 0;
 
-          var t = ability
-              .substring(ability.indexOf(':') + 1, ability.indexOf(openParen))
-              .trim();
+          // Grab the characters from the start up to the first open parenthesis
+          var traitText =
+              ability.substring(0, ability.indexOf(openParen)).trim();
 
-          Trait trait = Traits.parse(t);
+          print(traitText);
+
+          var parentheticalText = ability.substring(
+              ability.indexOf(openParen) + 1, ability.indexOf(closeParen));
+          print(parentheticalText);
+
+          // create the Trait from the traitText
+          Trait trait = Traits.parse(traitText, parentheticalText);
 
           print('  Trait: ${trait.reference}');
 
@@ -111,9 +97,13 @@ Future main(List<String> args) async {
           if (endIndex == -1) endIndex = text.length;
           statedCost = double.parse(text.substring(0, endIndex).trim());
 
-          print('  ${statedCost} : ${calculatedCost}');
-          print('  ${statedCost.ceil()} : ${calculatedCost.ceil()}');
+          calculatedTotal += calculatedCost;
+          statedTotal += statedCost;
         });
+
+        print('  '
+            '${statedTotal.ceil()} (${statedTotal}) : '
+            '${calculatedTotal.ceil()} (${calculatedTotal})');
       }
     }
   });
