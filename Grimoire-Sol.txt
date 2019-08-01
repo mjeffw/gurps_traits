@@ -47,7 +47,7 @@ Duration: 3 minutes*.
   Statistics: Affliction 1 (HT; Advantage, Dark Vision, +230%; Variable Duration, +20%; Increased 1/2D, 10x, +15%; Runecasting, −30%) [34]. 
    * Additional levels add duration: at level 2, the duration is 9 minutes; level 3, 30 minutes; level 4, 90 minutes; level 5 (the maximum), 5 hours.
   Notes: “Dark Vision” is Dark Vision (Magical, −10%) [23]. 
-Dark Vision (Self)
+Dark Vision, Self
 Keywords: Buff.
 Rune/Effect: Sól/Light [3] + Control (−1).
 Full Cost: 18 points for level 1; +5 points per additional level (max of 5 levels).
@@ -71,12 +71,12 @@ Duration: 10 seconds.
 Darkness, Improved
 Keywords: Area, Leveled.
 Rune/Effect: Sól/Light [3] + Destroy (−1).
-Full Cost: 33 points for level 1; +10 points per additional level.
+Full Cost: 23 points for level 1; +10 points per additional level.
 Casting Roll: Innate Attack (Gaze) to aim.
 Range: 100 yards.
 Duration: 10 seconds. 
   Exactly like the Darkness spell, except that the Dark Vision advantage does not allow you see through an Improved Darkness spell! Runecasters who already have the Darkness spell can upgrade to this version by paying the difference.
-  Statistics: Obscure Vision 10 (Defensive, Limited, +20%; Extended, Dark Vision, +20%; Runecasting, −30%; Variable, Area, +5%) [33]. 
+  Statistics: Obscure Vision 10 (Defensive, Limited, +20%; Extended, Dark Vision, +20%; Runecasting, −30%; Variable, Area, +5%) [23]. 
   Further levels add Area Effect (+50%) to the advantage [+10].
 Faerie Fire
 Keywords: Resisted (Will).
@@ -97,13 +97,13 @@ Range: 100 yards.
 Duration: 3 minutes.
   Grants the subject Telescopic Vision at a level equal to the level of the spell for 3 minutes exactly as if he had the Scout ability of the same name. 
    You can “zoom in” with your eyes! Each level lets you ignore −1 in range penalties to Vision rolls at all times, or −2 in range penalties if you take a second to survey a specific target. In combat, add an extra +1/level with ranged attacks if you take a number of Aim maneuvers equal to the bonus; e.g., Heroic Archer lets you add Accuracy at all times and another +1 or +2 after one or two turns of Aim, but with Telescopic Vision 1, those Aim bonuses would become +2 or +3, and with Telescopic Vision 2, +2 or +4.
-  Statistics: Affliction (Advantage, Telescopic Vision 1, +50%; Fixed Duration, +0%; Increased 1/2D, 10x, +15%; No Signature, +20%; Runecasting, −30%) [17]. 
+  Statistics: Affliction (Advantage, Telescopic Vision 1, +50%; Fixed Duration, +0%; Increased 1/2D, 10x, +15%; No Signature, +20%; Runecasting, −30%) [16]. 
   Notes: Additional levels add further Hawk Vision to the Advantage enhancement (+40%) [+4]. 
   Notes: Each level of “Hawk Vision” is Telescopic Vision 1 (Magical, −10%) [5]. 
-Hawk Vision (Self)
+Hawk Vision, Self
 Keywords: Buff.
 Rune/Effect: Sól/Light [3] + Control (−1).
-Full Cost: 4 points per level.
+Full Cost: 3.5 points per level.
 Casting Roll: None.
 Range: Self.
 Duration: 3 minutes.
@@ -140,7 +140,7 @@ Duration: One minute.
   You can summon light equivalent to full daylight; you may make this light manifest anywhere within 100 yards. The light is bright enough to eliminate all darkness penalties in a 10-yard radius. By concentrating, you can move this “zone of light” at up to (spell level) yards per second. Does not count as an ‘on’ spell.
   Statistics: Create Visible Light 1 (Accessibility, Limited to a 10-yard radius for one minute, −40%; Runecasting, −30%; Ranged, +40%; Reduced Fatigue Cost 1, +20%) [9]. 
   Additional levels add Mobile (+40%) [+3].
-Night Vision (Group)
+Night Vision, Group
 Keywords: Buff.
 Rune/Effect: Sól/Light [3] + Control (−1).
 Full Cost: 40 points for level 1; +1 per additional level.
@@ -151,7 +151,7 @@ Duration: 30 minutes.
   Statistics: Affliction (Advantage, Night Vision 3, +30%; Area Effect, 2 yards, +50%; Extended duration, 10x, +40%; Fixed duration, +0%; Increased 1/2D, 10x, +15%; Malediction 2, +150%; No signature, +20%; Selective Area, +20%; Runecasting, −30%) [40].
   Additional levels add Night Vision +1 [1].
   Center on caster: remove Increased 1/2D, +15%, and add Melee Attack, Reach C, -30%.
-Night Vision (Self)
+Night Vision, Self
 Keywords: Buff.
 Rune/Effect: Sól/Light [3] + Control (−1).
 Full Cost: 3 points for level 1; +1 per additional level.
@@ -171,6 +171,6 @@ Duration: Instantaneous.
   Shoots a bolt of concentrated sunlight from one fingertip. This missile does 1d burn damage per level, and has Acc 2, 1/2D 75, Max 150. Roll against Innate Attack (Projectile) to hit. The Sunbolt spell must win a Quick Contest against Darkness or Blackout to cross such a spell’s area. The sunbolt is blockable, but the burning damage will be applied to the shield if successful.
   Increase a mirrored shield’s DB against Sunbolt by 50% (round down). A successful block with such a shield – or with a mirror – allows an immediate Shield roll to redirect the bolt at anyone within its remaining range. Standard ranged combat penalties apply.
   Sunbolt does burning damage, may ignite flammable targets, and counts as sunlight against creatures susceptible to such. Anyone struck in the face must roll vs. HT, even if no damage penetrates armor; those hit in the eyes must roll at a penalty equal to any injury caused. Failure means being blinded, which counts as a crippling injury; see Duration of Crippling (Exploits, p. 61).
-  Statistics: Burning Damage (Blockable, −5%; Nuisance Effect, Reflective, −5%; Runecasting, −30%) [3/level]. 
+  Statistics: Burning Attack (Blockable, −5%; Nuisance Effect, Reflective, −5%; Runecasting, −30%) [3/level]. 
   
   

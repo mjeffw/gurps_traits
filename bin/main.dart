@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:sorcery_parser/src/trait.dart';
 
 Future main(List<String> args) async {
-  var config = File('Grimoire-Yr.txt');
+  var config = File('Grimoire-Sol.txt');
 
   // Put each line of the file into its own string.
   var contents = await config.readAsLines();

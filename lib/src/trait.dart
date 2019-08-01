@@ -577,6 +577,11 @@ class Traits {
       r'^Neutralize (?<note>.+)$'
     ]),
     _Template(
+        reference: 'Night Vision',
+        cost: 1,
+        type: _Type.leveled,
+        alternateNames: [r'^Night Vision (?<level>\d+)$']),
+    _Template(
       reference: 'Obscure',
       cost: 2,
       type: _Type.leveled,
@@ -630,6 +635,11 @@ class Traits {
         reference: 'Protected Sense',
         cost: 5,
         alternateNames: [r'^Protected (.*)?$']),
+    _Template(
+        reference: 'Telescopic Vision',
+        cost: 5,
+        type: _Type.leveled,
+        alternateNames: [r'^Telescopic Vision (?<level>\d+)?$']),
     _Template(reference: 'Warp', cost: 100),
   ];
 }
