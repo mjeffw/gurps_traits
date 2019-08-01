@@ -18,7 +18,7 @@ const String regexPoints = r'(\d+) point(?:s)?';
 /// Enumeration of the types of [Trait]s handled by this code. The string
 /// value of a [_Type] is used when externalizing the list of Traits.
 ///
-enum _Type { simple, leveled, innateAttack, categorizedLeveled }
+enum _Type { simple, leveled, innateAttack, categorizedLeveled, categorized }
 
 // Helper functions.
 
@@ -74,7 +74,12 @@ class Trait {
   ///
   String description;
 
-  Trait({this.template, this.description});
+  ///
+  /// Any parenthetical notes for this [Trait].
+  ///
+  String parentheticalNotes;
+
+  Trait({this.template, this.description, this.parentheticalNotes});
 }
 
 ///
@@ -105,15 +110,10 @@ class LeveledTrait extends Trait {
   ///
   get level => _level;
 
-  ///
-  /// Any parenthetical notes for this [Trait].
-  ///
-  String parentheticalNotes;
-
-  LeveledTrait({_Template template, int level, this.parentheticalNotes})
+  LeveledTrait({_Template template, int level, String parentheticalNotes})
       : assert(level != null && level > 0),
         _level = level,
-        super(template: template);
+        super(template: template, parentheticalNotes: parentheticalNotes);
 
   static int _tryParseLevelFromText(String pattern, String text) {
     if (pattern == null) return 1;
@@ -134,6 +134,21 @@ class LeveledTrait extends Trait {
     }
     return null;
   }
+}
+
+class CategorizedTrait extends Trait {
+  @override
+  _CategorizedTemplate get template => super.template as _CategorizedTemplate;
+
+  @override
+  get cost => template.categoryLevels
+      .firstWhere((it) => it.items.contains(parentheticalNotes),
+          orElse: () => throw ValueNotFoundException(
+              'Element not found in category', parentheticalNotes))
+      .cost;
+
+  CategorizedTrait({_Template template, String element})
+      : super(template: template, parentheticalNotes: element);
 }
 
 ///
@@ -159,9 +174,8 @@ class CategorizedLeveledTrait extends LeveledTrait {
       template.categoryLevels
           .firstWhere((it) => it.items.contains(parentheticalNotes),
               orElse: () => throw ValueNotFoundException(
-                  'Element not found in category levels',
-                  parentheticalNotes))
-          .costPerLevel *
+                  'Element not found in category levels', parentheticalNotes))
+          .cost *
       level;
 
   CategorizedLeveledTrait({_Template template, int level, String element})
@@ -341,10 +355,10 @@ class _Template {
 
 class _CategoryLevel {
   final String name;
-  final int costPerLevel;
+  final int cost;
   final List<String> items;
 
-  _CategoryLevel({this.name, this.costPerLevel, this.items});
+  _CategoryLevel({this.name, this.cost, this.items});
 }
 
 class _CategorizedTemplate extends _Template {
@@ -361,9 +375,16 @@ class _CategorizedTemplate extends _Template {
     String pattern = _findMatchingAlternateName(traitText);
     if (pattern == null) throw Error();
 
-    return CategorizedLeveledTrait(
+    if (type == _Type.categorizedLeveled) {
+      return CategorizedLeveledTrait(
+          template: this,
+          level: LeveledTrait._tryParseLevelFromText(pattern, traitText),
+          element: LeveledTrait._tryParseNotesFromText(pattern, traitText));
+    }
+
+    // ...else default to CategorizedTrait
+    return CategorizedTrait(
         template: this,
-        level: LeveledTrait._tryParseLevelFromText(pattern, traitText),
         element: LeveledTrait._tryParseNotesFromText(pattern, traitText));
   }
 }
@@ -384,6 +405,7 @@ class Traits {
   }
 
   static List<_Template> _templates = [
+    _Template(reference: 'Absolute Direction', cost: 5),
     _Template(
       reference: 'Affliction',
       cost: 10,
@@ -394,7 +416,7 @@ class Traits {
         reference: 'Create',
         type: _Type.categorizedLeveled,
         categoryLevels: [
-          _CategoryLevel(name: 'Large', costPerLevel: 40, items: [
+          _CategoryLevel(name: 'Large', cost: 40, items: [
             'Solid',
             'Liquid',
             'Gas',
@@ -403,7 +425,7 @@ class Traits {
             'Electomagnetic Waves',
             'Physical Waves'
           ]),
-          _CategoryLevel(name: 'Medium', costPerLevel: 20, items: [
+          _CategoryLevel(name: 'Medium', cost: 20, items: [
             'Acid',
             'Biochemicals',
             'Drugs',
@@ -416,7 +438,7 @@ class Traits {
             'Short-Wave EM',
             'Radiation'
           ]),
-          _CategoryLevel(name: 'Small', costPerLevel: 10, items: [
+          _CategoryLevel(name: 'Small', cost: 10, items: [
             'Ferrous Metals',
             'Fire',
             'Rock',
@@ -427,7 +449,7 @@ class Traits {
             'Ultrasonics',
             'Visible Light'
           ]),
-          _CategoryLevel(name: 'Specific Item', costPerLevel: 5, items: [
+          _CategoryLevel(name: 'Specific Item', cost: 5, items: [
             'Iron',
             'Salt',
             'Water',
@@ -439,7 +461,48 @@ class Traits {
           r'^Create (?:(?<note>.+) )?(?<level>\d+)$',
           r'^Create (?<note>.+)'
         ]),
-    _Template(reference: 'Dark Vision', cost: 25, alternateNames: []),
+    _Template(reference: 'Dark Vision', cost: 25),
+    _CategorizedTemplate(
+        reference: 'Detect',
+        type: _Type.categorizedLeveled,
+        categoryLevels: [
+          _CategoryLevel(name: 'Very Common', cost: 30, items: [
+            'Life',
+            'Supernatural Phenomena and Beings',
+            'Minerals',
+            'Energy',
+          ]),
+          _CategoryLevel(name: 'Common', cost: 20, items: [
+            'Humans',
+            'Supernatural Phenomena',
+            'Supernatural Beings',
+            'Metals',
+            'Electromagnetic Fields',
+          ]),
+          _CategoryLevel(name: 'Occasional', cost: 10, items: [
+            'Spellcasters',
+            'Magic',
+            'Undead',
+            'Precious Metals',
+            'Electric Fields',
+            'Magnetic Fields',
+            'Radar and Radio',
+          ]),
+          _CategoryLevel(name: 'Rare', cost: 5, items: [
+            'Sorceresses',
+            'Fire Magic',
+            'Zombies',
+            'Gold',
+            'Radar',
+            'Radio',
+            'Gate',
+            'Pass',
+          ]),
+        ],
+        alternateNames: [
+          r'^Detect (?:(?<note>.+) )?(?<level>\d+)$',
+          r'^Detect (?<note>.+)'
+        ]),
     _Template(
       reference: 'Innate Attack',
       type: _Type.innateAttack,
@@ -457,6 +520,12 @@ class Traits {
         r'^Toxic Attack(?: .*)?$',
       ],
     ),
+    _Template(reference: 'Insubstantiality', cost: 80),
+    _Template(reference: 'Jumper', cost: 100),
+    _Template(reference: 'Neutralize', cost: 50, alternateNames: [
+      r'^Neutralize (?:(?<note>.+) )?(?<level>\d+)$',
+      r'^Neutralize (?<note>.+)$'
+    ]),
     _Template(
       reference: 'Obscure',
       cost: 2,
@@ -466,6 +535,47 @@ class Traits {
         r'^Obscure (?<note>.+)$'
       ],
     ),
+    _Template(
+        reference: 'Payload',
+        cost: 1,
+        type: _Type.leveled,
+        alternateNames: [r'^Payload (?<level>\d+)?$']),
+    _Template(
+        reference: 'Penetrating Vision',
+        cost: 10,
+        type: _Type.leveled,
+        alternateNames: [r'^Penetrating Vision (?<level>\d+)?$']),
+    _CategorizedTemplate(
+        reference: 'Permeation',
+        type: _Type.categorized,
+        categoryLevels: [
+          _CategoryLevel(name: 'Very Common', cost: 40, items: [
+            'Earth',
+            'Metal',
+            'Stone',
+            'Wood',
+          ]),
+          _CategoryLevel(name: 'Common', cost: 20, items: [
+            'Concrete',
+            'Plastic',
+            'Steel',
+          ]),
+          _CategoryLevel(name: 'Occasional', cost: 10, items: [
+            'Glass',
+            'Ice',
+            'Sand',
+            'Aluminum',
+            'Copper',
+          ]),
+          _CategoryLevel(name: 'Rare', cost: 5, items: [
+            'Bone',
+            'Flesh',
+            'Paper',
+          ]),
+        ],
+        alternateNames: [
+          r'^Permeation (?<note>.+)'
+        ]),
     _Template(
         reference: 'Protected Sense',
         cost: 5,

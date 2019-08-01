@@ -427,7 +427,7 @@ void main() {
         });
       });
 
-      group('Set element', () {
+      group('Parenthetical notes', () {
         test('Create Rock 1', () {
           LeveledTrait t = Traits.parse('Create Rock 1') as LeveledTrait;
           expect(t.parentheticalNotes, 'Rock');
@@ -446,6 +446,18 @@ void main() {
         test('Create Acid 1', () {
           LeveledTrait t = Traits.parse('Create Acid 1') as LeveledTrait;
           expect(t.parentheticalNotes, 'Acid');
+        });
+      }, skip: false);
+
+      group('Description', () {
+        test('Create Rock 1', () {
+          LeveledTrait t = Traits.parse('Create Rock 1') as LeveledTrait;
+          expect(t.description, 'Create 1');
+        });
+
+        test('Create Iron 2', () {
+          LeveledTrait t = Traits.parse('Create Iron 2') as LeveledTrait;
+          expect(t.description, 'Create 2');
         });
       }, skip: false);
 
