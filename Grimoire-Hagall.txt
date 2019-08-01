@@ -49,7 +49,7 @@ Duration: Instantaneous. 
   Statistics: Neutralize Magic (Accessibility, Must target subject, not caster, −10%; Area Effect, 2 yards, +50%; Interruption, −50%; Runecasting, −30%; Variable, Area, +5%) [33]. 
 * And Leon’s Getting Larger!: For every 25 points, double the area of effect. (Increase level of Area Effect, +50%/level.) [+25/level].
 * Spooky Action at a Distance: Use this spell on a distant target. Range is unlimited, but the Will roll is modified for range from the Size and Speed/Range table. (Ranged, +40%). [+20 points].
-Magic Resistance (Self)
+Magic Resistance, Self
 Keywords: Buff. 
 Rune/Effect: Hagall/Metamagic [3] + Destroy (−1).
 Full Cost: 4.8 per level.
@@ -82,7 +82,7 @@ Duration: Instantaneous.
   Treat the resistance roll as for Dispel Magic (above). Remove Curse differs from Dispel Magic primarily in that it cannot counter all magic in the area, just one spell, but it can remove powerful magic such as Lesser Geas, Flesh to Stone, and Suspend Time. It cannot end Truly Permanent effects, such as the magic of enchanted items. 
   Statistics: Neutralize Magic (Accessibility, Must target subject, not caster, -10%; Accessibility, One spell at a time, -5%; Cosmic, Can dispel spells that are immune to Dispel Magic, +50%; Interruption, -50%; Precise, +20%; Runecasting, -30%) [38]. 
 * Spooky Action at a Distance: Use this spell on a distant target. Range is unlimited, but the Will roll is modified for range from the Size and Speed/Range table. (Ranged, +40%). [+20 points].
-Scryguard (Self)
+Scryguard, Self
 Keywords: Buff.
 Rune/Effect: Hagall/Metamagic [3] + Destroy (−1).
 Full Cost: 60 points.

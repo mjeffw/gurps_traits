@@ -3,10 +3,13 @@ import 'dart:io';
 import 'package:sorcery_parser/src/trait.dart';
 
 Future main(List<String> args) async {
-  var config = File('Grimoire-Sol.txt');
+  var files = ['Grimoire-Hagall.txt', 'Grimoire-Sol.txt', 'Grimoire-Yr.txt'];
 
-  // Put each line of the file into its own string.
-  var contents = await config.readAsLines();
+  List<String> contents = files
+      .map((file) => File(file).readAsLinesSync())
+      .expand((string) => string)
+      .toList();
+
   print('The file is ${contents.length} lines long.');
 
   var keywords = <String>[
@@ -54,7 +57,7 @@ Future main(List<String> args) async {
           print(traitText);
 
           var parentheticalText = ability.substring(
-              ability.indexOf(openParen) + 1, ability.indexOf(closeParen));
+              ability.indexOf(openParen) + 1, ability.lastIndexOf(closeParen));
           print(parentheticalText);
 
           // create the Trait from the traitText

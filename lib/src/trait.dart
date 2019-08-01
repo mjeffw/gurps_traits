@@ -572,6 +572,9 @@ class Traits {
     ),
     _Template(reference: 'Insubstantiality', cost: 80),
     _Template(reference: 'Jumper', cost: 100),
+    _Template(reference: 'Magic Resistance', cost: 2, alternateNames: [
+      r'^Magic Resistance (?<level>\d+)$',
+    ]),
     _Template(reference: 'Neutralize', cost: 50, alternateNames: [
       r'^Neutralize (?:(?<note>.+) )?(?<level>\d+)$',
       r'^Neutralize (?<note>.+)$'
@@ -635,6 +638,7 @@ class Traits {
         reference: 'Protected Sense',
         cost: 5,
         alternateNames: [r'^Protected (.*)?$']),
+    _Template(reference: 'Static', cost: 30),
     _Template(
         reference: 'Telescopic Vision',
         cost: 5,
