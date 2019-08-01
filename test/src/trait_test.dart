@@ -1,5 +1,6 @@
 import 'package:sorcery_parser/src/trait.dart';
 import 'package:sorcery_parser/src/util/die_roll.dart';
+import 'package:sorcery_parser/src/util/exceptions.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -102,84 +103,378 @@ void main() {
   });
 
   group('Innate Attack', () {
-    test('Crushing Attack 1d', () {
-      InnateAttack t = Traits.parse('Crushing Attack 1d') as InnateAttack;
+    group('Resolve by alternate name', () {
+      test('Burning', () {
+        InnateAttack t = Traits.parse('Burning Attack') as InnateAttack;
+        expect(t.reference, 'Innate Attack');
+        expect(t.type, InnateAttackType.burning);
+      }, skip: false);
+
+      test('Corrosion', () {
+        InnateAttack t = Traits.parse('Corrosion Attack') as InnateAttack;
+        expect(t.reference, 'Innate Attack');
+        expect(t.type, InnateAttackType.corrosion);
+      }, skip: false);
+
+      test('Crushing', () {
+        InnateAttack t = Traits.parse('Crushing Attack') as InnateAttack;
+        expect(t.reference, 'Innate Attack');
+        expect(t.type, InnateAttackType.crushing);
+      }, skip: false);
+
+      test('Cutting', () {
+        InnateAttack t = Traits.parse('Cutting Attack') as InnateAttack;
+        expect(t.reference, 'Innate Attack');
+        expect(t.type, InnateAttackType.cutting);
+      }, skip: false);
+
+      test('Fatigue', () {
+        InnateAttack t = Traits.parse('Fatigue Attack') as InnateAttack;
+        expect(t.reference, 'Innate Attack');
+        expect(t.type, InnateAttackType.fatigue);
+      }, skip: false);
+
+      test('Impaling', () {
+        InnateAttack t = Traits.parse('Impaling Attack') as InnateAttack;
+        expect(t.reference, 'Innate Attack');
+        expect(t.type, InnateAttackType.impaling);
+      }, skip: false);
+
+      test('Small Piercing', () {
+        InnateAttack t = Traits.parse('Small Piercing Attack') as InnateAttack;
+        expect(t.reference, 'Innate Attack');
+        expect(t.type, InnateAttackType.small_piercing);
+      }, skip: false);
+
+      test('Piercing', () {
+        InnateAttack t = Traits.parse('Piercing Attack') as InnateAttack;
+        expect(t.reference, 'Innate Attack');
+        expect(t.type, InnateAttackType.piercing);
+      }, skip: false);
+
+      test('Large Piercing', () {
+        InnateAttack t = Traits.parse('Large Piercing Attack') as InnateAttack;
+        expect(t.reference, 'Innate Attack');
+        expect(t.type, InnateAttackType.large_piercing);
+      }, skip: false);
+
+      test('Huge Piercing', () {
+        InnateAttack t = Traits.parse('Huge Piercing Attack') as InnateAttack;
+        expect(t.reference, 'Innate Attack');
+        expect(t.type, InnateAttackType.huge_piercing);
+      }, skip: false);
+
+      test('Toxic', () {
+        InnateAttack t = Traits.parse('Toxic Attack') as InnateAttack;
+        expect(t.reference, 'Innate Attack');
+        expect(t.type, InnateAttackType.toxic);
+      }, skip: false);
+    });
+
+    group('Cost per die', () {
+      test('Burning', () {
+        InnateAttack t = Traits.parse('Burning Attack 1d') as InnateAttack;
+        expect(t.cost, 5);
+        t.dice = DieRoll.fromString('2d');
+        expect(t.cost, 10);
+      }, skip: false);
+
+      test('Corrosion', () {
+        InnateAttack t = Traits.parse('Corrosion Attack') as InnateAttack;
+        expect(t.cost, 10);
+        t.dice = DieRoll.fromString('2d');
+        expect(t.cost, 20);
+      }, skip: false);
+
+      test('Crushing', () {
+        InnateAttack t = Traits.parse('Crushing Attack') as InnateAttack;
+        expect(t.cost, 5);
+        t.dice = DieRoll.fromString('2d');
+        expect(t.cost, 10);
+      }, skip: false);
+
+      test('Cutting', () {
+        InnateAttack t = Traits.parse('Cutting Attack') as InnateAttack;
+        expect(t.cost, 7);
+        t.dice = DieRoll.fromString('2d');
+        expect(t.cost, 14);
+      }, skip: false);
+
+      test('Fatigue', () {
+        InnateAttack t = Traits.parse('Fatigue Attack') as InnateAttack;
+        expect(t.cost, 10);
+        t.dice = DieRoll.fromString('2d');
+        expect(t.cost, 20);
+      }, skip: false);
+
+      test('Impaling', () {
+        InnateAttack t = Traits.parse('Impaling Attack') as InnateAttack;
+        expect(t.cost, 8);
+        t.dice = DieRoll.fromString('2d');
+        expect(t.cost, 16);
+      }, skip: false);
+
+      test('Small Piercing', () {
+        InnateAttack t = Traits.parse('Small Piercing Attack') as InnateAttack;
+        expect(t.cost, 3);
+        t.dice = DieRoll.fromString('2d');
+        expect(t.cost, 6);
+      }, skip: false);
+
+      test('Piercing', () {
+        InnateAttack t = Traits.parse('Piercing Attack') as InnateAttack;
+        expect(t.cost, 5);
+        t.dice = DieRoll.fromString('2d');
+        expect(t.cost, 10);
+      }, skip: false);
+
+      test('Large Piercing', () {
+        InnateAttack t = Traits.parse('Large Piercing Attack') as InnateAttack;
+        expect(t.cost, 6);
+        t.dice = DieRoll.fromString('2d');
+        expect(t.cost, 12);
+      }, skip: false);
+
+      test('Huge Piercing', () {
+        InnateAttack t = Traits.parse('Huge Piercing Attack') as InnateAttack;
+        expect(t.cost, 8);
+        t.dice = DieRoll.fromString('2d');
+        expect(t.cost, 16);
+      }, skip: false);
+
+      test('Toxic', () {
+        InnateAttack t = Traits.parse('Toxic Attack') as InnateAttack;
+        expect(t.cost, 4);
+        t.dice = DieRoll.fromString('2d');
+        expect(t.cost, 8);
+      }, skip: false);
+    });
+
+    test('No dice specified defaults to 1d', () {
+      InnateAttack t = Traits.parse('Fatigue Attack') as InnateAttack;
       expect(t.reference, 'Innate Attack');
-      expect(t.dice, DieRoll(dice: 1, normalize: false));
-      expect(t.description, 'Crushing Attack 1d');
-      expect(t.cost, 5);
+      expect(t.dice, DieRoll(dice: 1));
     }, skip: false);
 
-    test('Crushing Attack 3d', () {
-      InnateAttack t = Traits.parse('Crushing Attack 3d') as InnateAttack;
-      expect(t.reference, 'Innate Attack');
-      expect(t.dice, DieRoll(dice: 3, normalize: false));
-      expect(t.description, 'Crushing Attack 3d');
-      expect(t.cost, 15);
-    }, skip: false);
+    group('Description is <type> + <unnormalized-dice>', () {
+      test('No dice specified defaults to 1d', () {
+        InnateAttack t = Traits.parse('Corrosion Attack') as InnateAttack;
+        expect(t.description, 'Corrosion Attack 1d');
+      }, skip: false);
 
-    test('Crushing Attack 3d-1', () {
-      InnateAttack t = Traits.parse('Crushing Attack 3d-1') as InnateAttack;
-      expect(t.reference, 'Innate Attack');
-      expect(t.dice, DieRoll(dice: 3, adds: -1, normalize: false));
-      expect(t.description, 'Crushing Attack 3d-1');
-      expect(t.cost, 14);
-    }, skip: false);
+      test('Shows dice plus adds', () {
+        InnateAttack t = Traits.parse('Fatigue Attack 2d-1') as InnateAttack;
+        expect(t.description, 'Fatigue Attack 2d-1');
+      }, skip: false);
 
-    test('Crushing Attack 3d-2', () {
-      InnateAttack t = Traits.parse('Crushing Attack 3d-2') as InnateAttack;
-      expect(t.dice, DieRoll(dice: 3, adds: -2, normalize: false));
-      expect(t.description, 'Crushing Attack 3d-2');
-      expect(t.cost, 12);
-    }, skip: false);
+      test('Handles multi-word types', () {
+        InnateAttack t =
+            Traits.parse('Huge Piercing Attack 3d') as InnateAttack;
+        expect(t.description, 'Huge Piercing Attack 3d');
+      }, skip: false);
+    });
 
-    test('Crushing Attack 3d+1', () {
-      InnateAttack t = Traits.parse('Crushing Attack 3d+1') as InnateAttack;
-      expect(t.reference, 'Innate Attack');
-      expect(t.dice, DieRoll(dice: 3, adds: 1, normalize: false));
-      expect(t.description, 'Crushing Attack 3d+1');
-      expect(t.cost, 17);
-    }, skip: false);
+    group('Calculates dice', () {
+      test('Crushing Attack', () {
+        InnateAttack t = Traits.parse('Crushing Attack') as InnateAttack;
+        expect(t.reference, 'Innate Attack');
+        expect(t.dice, DieRoll(dice: 1, normalize: false));
+        expect(t.description, 'Crushing Attack 1d');
+        expect(t.cost, 5);
+      }, skip: false);
 
-    test('Crushing Attack 3d+2', () {
-      InnateAttack t = Traits.parse('Crushing Attack 3d+2') as InnateAttack;
-      expect(t.dice, DieRoll(dice: 3, adds: 2, normalize: false));
-      expect(t.description, 'Crushing Attack 3d+2');
-      expect(t.cost, 18);
-    }, skip: false);
+      test('Crushing Attack 1d', () {
+        InnateAttack t = Traits.parse('Crushing Attack 1d') as InnateAttack;
+        expect(t.dice, DieRoll(dice: 1, normalize: false));
+        expect(t.description, 'Crushing Attack 1d');
+        expect(t.cost, 5);
+      }, skip: false);
+
+      test('2d', () {
+        InnateAttack t = Traits.parse('Crushing Attack 2d') as InnateAttack;
+        expect(t.dice, DieRoll.fromString('2d'));
+      }, skip: false);
+
+      test('3d-1', () {
+        InnateAttack t = Traits.parse('Crushing Attack 3d-1') as InnateAttack;
+        expect(t.dice, DieRoll.fromString('3d-1'));
+      }, skip: false);
+
+      test('3d-2 unnormalized', () {
+        InnateAttack t = Traits.parse('Crushing Attack 3d-2') as InnateAttack;
+        expect(t.dice, DieRoll.fromString('3d-2', normalize: false));
+      }, skip: false);
+
+      test('4d+1', () {
+        InnateAttack t = Traits.parse('Crushing Attack 4d+1') as InnateAttack;
+        expect(t.dice, DieRoll.fromString('4d+1'));
+      }, skip: false);
+
+      test('4d+2', () {
+        InnateAttack t = Traits.parse('Crushing Attack 4d+2') as InnateAttack;
+        expect(t.dice, DieRoll.fromString('4d+2'));
+      }, skip: false);
+    });
+
+    group('Partial dice', () {
+      test('3d-4', () {
+        InnateAttack t = Traits.parse('Fatigue Attack 3d-4') as InnateAttack;
+        expect(t.cost, 18);
+      }, skip: false);
+
+      test('3d-3', () {
+        InnateAttack t = Traits.parse('Fatigue Attack 3d-3') as InnateAttack;
+        expect(t.cost, 21);
+      }, skip: false);
+
+      test('3d-2', () {
+        InnateAttack t = Traits.parse('Fatigue Attack 3d-2') as InnateAttack;
+        expect(t.cost, 24);
+      }, skip: false);
+
+      test('3d-1', () {
+        InnateAttack t = Traits.parse('Fatigue Attack 3d-1') as InnateAttack;
+        expect(t.cost, 27);
+      }, skip: false);
+
+      test('3d+1', () {
+        InnateAttack t = Traits.parse('Fatigue Attack 3d+1') as InnateAttack;
+        expect(t.cost, 33);
+      }, skip: false);
+
+      test('3d+2', () {
+        InnateAttack t = Traits.parse('Fatigue Attack 3d+2') as InnateAttack;
+        expect(t.cost, 36);
+      }, skip: false);
+
+      test('3d+3', () {
+        InnateAttack t = Traits.parse('Fatigue Attack 3d+3') as InnateAttack;
+        expect(t.cost, 39);
+      }, skip: false);
+
+      test('3d+4', () {
+        InnateAttack t = Traits.parse('Fatigue Attack 3d+4') as InnateAttack;
+        expect(t.cost, 42);
+      }, skip: false);
+
+      test('1 point', () {
+        InnateAttack t =
+            Traits.parse('Huge Piercing Attack 1 point') as InnateAttack;
+        expect(t.cost, 2);
+        expect(t.dice, DieRoll(adds: 1));
+      });
+
+      test('2 points', () {
+        InnateAttack t =
+            Traits.parse('Huge Piercing Attack 2 points') as InnateAttack;
+        expect(t.cost, 4);
+        expect(t.dice, DieRoll(adds: 2));
+      });
+
+      test('3 points', () {
+        InnateAttack t =
+            Traits.parse('Huge Piercing Attack 3 points') as InnateAttack;
+        expect(t.cost, 6);
+        expect(t.dice, DieRoll(adds: 3, normalize: false));
+      });
+
+      test('4 points', () {
+        InnateAttack t =
+            Traits.parse('Huge Piercing Attack 4 points') as InnateAttack;
+        expect(t.cost, 8);
+        expect(t.dice, DieRoll(adds: 4, normalize: false));
+      });
+    });
   });
 
   group('Variable', () {
-    test('Innate Attack - Burning 1d', () {
-      Trait t = Traits.parse('Burning Attack 1d');
-      expect(t.reference, 'Innate Attack');
-      expect(t.cost, 5);
-      expect(t.description, 'Burning Attack 1d');
-      // expect(t.level, 1);
-    });
+    group('Create', () {
+      group('Set reference', () {
+        test('Create', () {
+          expect(() => Traits.parse('Create'), throwsA(isA<Error>()));
+        });
 
-    test('Innate Attack - Burning', () {
-      Trait t = Traits.parse('Burning Attack');
-      expect(t.reference, 'Innate Attack');
-      expect(t.cost, 5);
-      expect(t.description, 'Burning Attack 1d');
-      // expect(t.level, 1);
-    });
+        test('Create Rock', () {
+          LeveledTrait t = Traits.parse('Create Rock') as LeveledTrait;
+          expect(t.reference, 'Create');
+        });
 
-    test('Innate Attack - Corrosion 1d', () {
-      Trait t = Traits.parse('Corrosion Attack 1d');
-      expect(t.reference, 'Innate Attack');
-      expect(t.cost, 10);
-      expect(t.description, 'Corrosion Attack 1d');
-      // expect(t.level, 1);
-    });
+        test('Create Solid', () {
+          LeveledTrait t = Traits.parse('Create Solid 1') as LeveledTrait;
+          expect(t.reference, 'Create');
+        });
 
-    test('Innate Attack - Cutting 2d', () {
-      Trait t = Traits.parse('Cutting Attack 2d');
-      expect(t.reference, 'Innate Attack');
-      expect(t.cost, 14);
-      expect(t.description, 'Cutting Attack 2d');
-      // expect(t.level, 2);
+        test('Create Acid', () {
+          LeveledTrait t = Traits.parse('Create Acid 2') as LeveledTrait;
+          expect(t.reference, 'Create');
+        });
+      });
+
+      group('Set level', () {
+        test('Create Rock', () {
+          LeveledTrait t = Traits.parse('Create Rock') as LeveledTrait;
+          expect(t.level, 1);
+        });
+
+        test('Create Rock 1', () {
+          LeveledTrait t = Traits.parse('Create Rock 1') as LeveledTrait;
+          expect(t.level, 1);
+        });
+
+        test('Create Rock 2', () {
+          LeveledTrait t = Traits.parse('Create Rock 2') as LeveledTrait;
+          expect(t.level, 2);
+        });
+      });
+
+      group('Set element', () {
+        test('Create Rock 1', () {
+          LeveledTrait t = Traits.parse('Create Rock 1') as LeveledTrait;
+          expect(t.parentheticalNotes, 'Rock');
+        });
+
+        test('Create Iron 1', () {
+          LeveledTrait t = Traits.parse('Create Iron 1') as LeveledTrait;
+          expect(t.parentheticalNotes, 'Iron');
+        });
+
+        test('Create Solid 1', () {
+          LeveledTrait t = Traits.parse('Create Solid 1') as LeveledTrait;
+          expect(t.parentheticalNotes, 'Solid');
+        });
+
+        test('Create Acid 1', () {
+          LeveledTrait t = Traits.parse('Create Acid 1') as LeveledTrait;
+          expect(t.parentheticalNotes, 'Acid');
+        });
+      }, skip: false);
+
+      group('Cost per level', () {
+        test('Solid', () {
+          LeveledTrait t = Traits.parse('Create Solid 1') as LeveledTrait;
+          expect(t.cost, 40);
+        });
+
+        test('Earth', () {
+          LeveledTrait t = Traits.parse('Create Earth 1') as LeveledTrait;
+          expect(t.cost, 20);
+        });
+
+        test('Rock', () {
+          LeveledTrait t = Traits.parse('Create Rock 1') as LeveledTrait;
+          expect(t.cost, 10);
+        });
+
+        test('Iron', () {
+          LeveledTrait t = Traits.parse('Create Iron 1') as LeveledTrait;
+          expect(t.cost, 5);
+        });
+
+        test('Missing', () {
+          LeveledTrait t = Traits.parse('Create Missing 1') as LeveledTrait;
+          expect(() => t.cost, throwsA(isA<ValueNotFoundException>()));
+        });
+      }, skip: false);
     });
-  }, skip: true);
+  }, skip: false);
 }
