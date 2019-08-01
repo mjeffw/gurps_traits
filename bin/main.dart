@@ -10,7 +10,7 @@ Future main(List<String> args) async {
       .expand((string) => string)
       .toList();
 
-  print('The file is ${contents.length} lines long.');
+  mayPrint('The file is ${contents.length} lines long.');
 
   var keywords = <String>[
     'Keywords:',
@@ -21,16 +21,12 @@ Future main(List<String> args) async {
     'Duration:'
   ];
 
-  // String p = keywords.reduce((a, b) => '$a|$b');
-
-  // var name = '';
   var statistics = '';
 
   contents.forEach((line) {
     if (!isStartsWithKeyword(line, keywords)) {
       if (!line.startsWith(r'*') && !line.startsWith(' ')) {
-        print(line);
-        // name = line;
+        mayPrint(line);
       }
 
       var statisticsLabel = r'  Statistics:';
@@ -54,16 +50,16 @@ Future main(List<String> args) async {
           var traitText =
               ability.substring(0, ability.indexOf(openParen)).trim();
 
-          print(traitText);
+          mayPrint(traitText);
 
           var parentheticalText = ability.substring(
               ability.indexOf(openParen) + 1, ability.lastIndexOf(closeParen));
-          print(parentheticalText);
+          mayPrint(parentheticalText);
 
           // create the Trait from the traitText
           Trait trait = Traits.parse(traitText, parentheticalText);
 
-          print('  Trait: ${trait.reference}');
+          mayPrint('  Trait: ${trait.reference}');
 
           int traitCost = trait.cost;
 
@@ -83,7 +79,7 @@ Future main(List<String> args) async {
               var x =
                   mod.substring(lastIndexOf + 1).trim().replaceAll('−', '-');
               int value = int.parse(x.replaceAll('%', ''));
-              print('    Modifier: ${name}, $value');
+              mayPrint('    Modifier: ${name}, $value');
               modifierTotal += value;
             }
           });
@@ -104,9 +100,14 @@ Future main(List<String> args) async {
           statedTotal += statedCost;
         });
 
-        print('  '
+        mayPrint('  '
             '${statedTotal.ceil()} (${statedTotal}) : '
             '${calculatedTotal.ceil()} (${calculatedTotal})');
+
+        if (calculatedTotal.ceil() != statedTotal.ceil()) {
+          output.forEach((line) => print(line));
+        }
+        output.clear();
       }
     }
   });
@@ -120,4 +121,10 @@ bool isStartsWithKeyword(String line, List<String> keywords) {
     }
   });
   return found;
+}
+
+List<String> output = [];
+
+void mayPrint(String line) {
+  output.add(line);
 }

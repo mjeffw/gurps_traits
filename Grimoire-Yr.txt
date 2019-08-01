@@ -151,7 +151,7 @@ Casting Roll: None*.
 Range: Touch*. 
 Duration: 18 seconds*. 
   Turns the surface of a metallic weapon into orichalcum, giving it a brassy tinge. This spell adds +2 to swing damage and +1 to thrust damage of the weapon. In addition, this spell increases the weapon’s DR by 4. The GM should impose a level cap on this spell. 
-  Statistics: Affliction 1 (HT; Accessibility, Only on metal weapons, −30%; Advantage, Orichalcum Edge, +210%; Fixed Duration, +0%; Melee Attack, C, −30%; No Signature, +20%; Reduced Duration, 1/10, −20%; Runecasting, −30%) [24].
+  Statistics: Affliction 1 (HT; Accessibility, Only on metal weapons, −30%; Advantage, Orichalcum Edge, +210%; Fixed Duration, +0%; Melee Attack, C, −30%; No Signature, +20%; Reduced Duration, 1/10, −20%; Runecasting, −30%) [22].
 * Increase duration to 3 minutes. Remove Reduced Duration, 1/10. [+2 points].
 * Add Range: Use this spell on a subject up to 100 yards away using modifiers from the Size and Speed/Range table. Use Innate Attack (Gaze) to aim. (Remove Melee Attack, Reach C, −30%, and add Increased 1/2D, 10×, +15%.). [+5 points].
   Notes: “Orichalcum Edge” is Striking ST 2 (Magical, −10%; One Attack, This weapon, −60%) [3] + DR 4 (Magical, -10%) [18].
@@ -181,14 +181,14 @@ Duration: Indefinite.
 Purify Earth
 Keywords: None.
 Rune/Effect: Yr/Earth [3] + Restore (+0).
-Full Cost: 2 points per level.
+Full Cost: 4 points per level.
 Casting Roll: IQ.
 Range: Touch.
 Duration: Instantaneous.
   This spell removes foreign objects, poisons, and harmful elements from soil, rendering it fit to support growing plants. This spell also remedies any deficiencies in the soil’s composition. Small foreign objects (coins, nails) underground are destroyed; medium ones (swords, artillery shells, chests, statuettes) “float” to the surface. Large objects (coffins, walls, large statues) will cause the spell to fail, but the caster gets a general idea of the reason.
   To cast the spell, the caster touches the earth he wishes to purify, takes a Concentrate maneuver and rolls vs. IQ. Success means he purifies it successfully. Failure means nothing happens. Critical failure means the transformation happens, but in a way that’s inconvenient or dangerous – the GM should be creative!
   The caster can purify an amount of earth weighing up to 10 × (level squared) lbs.: 10 lbs. at level 1, 40 lbs. at level 2, 90 lbs. at level 3, and so on.
-  Statistics: Create Earth (Accessibility, only to transform into normal soil, −20%; Transmute Earth to Earth, +50%; Transmutation Only, −100%; Runecasting, −30%) [2/level].
+  Statistics: Create Earth (Accessibility, only to transform into normal soil, −20%; Transmute Earth to Earth, +50%; Transmutation Only, −100%; Runecasting, −30%) [4/level].
 Rain of Stones R
 Keywords: Area (Leveled).
 Rune/Effect: Yr/Earth [3] + Create (−2).
@@ -196,8 +196,8 @@ Full Cost: 10+ points per level.
 Casting Roll: Innate Attack (Gaze).
 Range: 100 yards.
 Duration: 10 seconds.
-  You cause stones to rain down upon a 2-yard radius area. Use Innate Attack (Gaze), at +4, to center the area. Everyone who spends even part of their turn in the area is attacked with an effective skill of 12, modified only for their SM. Anyone hit takes 1d crushing damage per level. Victims may raise their shields as cover, at the risk of damaging them. 
-  Statistics: Crushing Attack 1d (Area Effect, 2 yards, +50%; Bombardment, Skill-12, −10%; Extended Duration, 3x, +20%; Overhead, +30%; Persistent, +40%; Runecasting, −30%; Variable, Area, +5%; Variable, Damage, +5%) [10].
+  You cause stones to rain down upon a 2-yard radius area. Use Innate Attack (Gaze), at +4, to center the area. Everyone who spends even part of their turn in the area is attacked with an effective skill of 14, modified only for their SM. Anyone hit takes 1d crushing damage per level. Victims may raise their shields as cover, at the risk of damaging them. 
+  Statistics: Crushing Attack 1d (Area Effect, 2 yards, +50%; Bombardment, Skill-14, −5%; Overhead, +30%; Persistent, +40%; Runecasting, −30%; Variable, Area, +5%; Variable, Damage, +5%) [10].
 * Better Late than Never: Extend duration to 30 seconds. (Add Extended Duration, 3×, 20%). [+2 points]. 
 * And Leon’s Getting Larger!: Increase Area Effect: [+2.5 points] per doubled area rounded up (i.e., 2-yard radius costs 10, 4 yards is 15, 8 yards is 18, etc.).
 Sand Jet
