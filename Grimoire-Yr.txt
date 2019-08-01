@@ -1,310 +1,3 @@
-﻿Grimoire of Ýr (ᛦ)
-Earth/Gate Spells
-  As a reminder, any spell with a duration of Indefinite has a base duration of 3 minutes, which may be extended for an additional 3 minutes per FP spent (no roll necessary), unless otherwise noted. The runecaster doesn’t have to decide up front how long to extend the spell, they can wait until the spell is about to end and then extend it for another three minutes. This can be continued indefinitely until the caster allows the spell to end normally, he loses consciousness, or runs out of FP.
-  To make it easier to optimize some spells either to lower the cost or increase its efficacy, this version introduces Variable spells. For an example, see Rain of Stones.
-  Variable spells allow the player to either buy a bare-bones version of the spell for a relatively low point cost, or to modify the base version of the spell to make it more powerful and therefore cost more. Options are listed below the spell and marked with the t symbol.
-  In addition, some spells have been rewritten to have a “Self” version, which only affects the caster, in addition to the normal version that can be cast on others.
-  Any spell variation, whether it is moving from a “Self” version to being castable on others, or adding variations or levels, can be bought by paying the difference between the version currently possessed and the one desired.
-  And as always, the runecaster is NOT limited to the spells in this Grimoire. Any spell that they can imagine that involves earth and metal, or interdimensional gates, can be created with this system. Use the existing spells as guidelines. For example, Blink could be cast on a person other than the caster for additional cost. Collaborate with the GM to create new spells.
-  
-  
-Adamant Hail A
-Keywords: Area (Leveled). 
-Rune/Effect: Yr/Earth [3] + Create (−2).
-Full Cost: 18 points (or more). 
-Casting Roll: Use Innate Attack (Gaze) to aim. 
-Range: 100 yards. 
-Duration: 30 seconds. 
-  You cause chunks of adamant to rain down upon an area. Use Innate Attack (Gaze), at +4, to center the area; see Scatter (p. B414) if you miss. Everyone who spends even part of their turn in the area is attacked with an effective skill of 12, modified only for their SM. Anyone hit takes 1d(2) crushing armor-piercing damage – the victim’s DR is halved for this attack! 
-  Victims may raise their shields as cover, at the risk of damaging them. You may always choose (when casting) to scale back the damage or the area affected. 
-  Statistics: Crushing Attack 1d (Armor Divisor (2), +50%; Area Effect, 8 yards, +150%; Bombardment, Skill-12, −10%; Extended Duration, 3x, +20%; Overhead, +30%; Persistent, +40%; Runecasting, −30%; Variable, +5%; Variable, Area, +5%) [18]. 
-* Increase Area Effect: [+2.5 points] per doubled area, rounded up.
-* Increase damage to 2d-1: [+4 points].
-Adamant Missile 
-Keywords: Missile, Obvious. 
-Rune/Effect: Yr/Earth [3] + Create (−2).
-Full Cost: 6 points/level. 
-Casting Roll: Use Innate Attack (Projectile) to hit. 
-Range: 100 yards. 
-Duration: Instantaneous. 
-  You throw a ball of adamant at a single target. Use Innate Attack (Projectile) to hit, applying normal range penalties. It does 1d(2) crushing damage per level of this spell.  This is armor-piercing damage – the victim’s DR is halved for this attack! The missile can be blocked. The GM must determine what the maximum level available in the campaign is. 
-  Statistics: Crushing Attack (Armor Divisor (2), +50%; Blockable, −5%; Runecasting, −30%) [6/level]. 
-Blink
-Keywords: None.
-Rune/Effect: Yr/Gate [3] + Create (−2).
-Full Cost: 20 points.
-Casting Roll: Will/2 + 3.
-Range: Self.
-Duration: Indefinite.
-  While this spell is active, once per turn, you can “dodge” an incoming attack by teleporting away from it to any space within 10 yards of you.
-  Statistics: Warp (Blink Only, −60%; Gyroscopic, +10%; Runecasting, −30%) [20].
-Break Rock 
-Keywords: None. 
-Rune/Effect: Yr/Earth [3] + Destroy (−1).
-Full Cost: 9 points/level. 
-Casting Roll: IQ. 
-Range: Touch. 
-Duration: Instantaneous. 
-  This spell allows you to reduce a volume of rock to smaller pieces. To break rock, you must touch it, take a Concentrate maneuver, and pay 1 FP. Then make an IQ roll. Success means the target is reduced to smaller boulders (averaging one cubic foot and 150 lbs.), rubble suitable for construction, or gravel; only gravel can be shoveled out. The mass of rock will collapse naturally after it breaks. This spell only affects inanimate objects. 
-  The destroyed rock can weigh up to 10 × (level squared) lbs.: 10 lbs. at level 1, 40 lbs. at level 2, 90 lbs. at level 3, and so on. 
-  Statistics: Create Rock (Destruction Only, Variant, +0%; Runecasting, -30%; Reduced Fatigue Cost 1, +20%) [9/level].
-Create Door C
-Keywords: None. 
-Rune/Effect: Yr/Gate [3] + Create (−2).
-Full Cost: 25* points. 
-Casting Roll: IQ. 
-Range: Touch. 
-Duration: 3d seconds. 
-  When cast at the near side of a solid obstruction (wall, hedge, cliff, etc.), this spell creates a short-term, short-range gate leading to the other side. The intervening distance is not actually traversed by the door’s users – they are simultaneously teleported from the near side to the far one. The travelers can carry up to Medium Encumbrance (but see below) when they traverse the door. The obstacle must not be thicker than 10 yards. 
-  Others cannot pass through the door until the caster has gone through.
-  As a Concentrate maneuver make an IQ + Rune Talent roll* to cast this spell, modified as follows: 
-  On a success, you appear at your target destination. On a failure, you go nowhere and strain your teleporting ability: you are at -5 to cast this spell again in the next 10 minutes. On a critical failure, you arrive at the wrong destination. This can be anywhere the GM wishes! It need not be dangerous, but it should seriously inconvenience you. In addition, your spell temporarily “burns out” and will not function again for 1d hours. 
-  Statistics: Warp (Accessibility, Only to create a door through an obstacle, −20%; Blind Only, −50%; Cannot Spend Extra FP, −10%; Extra Carrying Capacity, Heavy, +30%; No Preparation, −20%; Range Limit, 10 yards, −50%; Reliable 10, +50%; Requires Concentrate, −15%; Runecasting, −30%; Tunnel, +40%) [25].
-* Allow others to pass through the door before or instead of the caster: (Replace Tunnel, +40% with Tunnel, Forms Before, +100%) [+60] points.
-* Extra Encumbrance: Raises the limit on what a person can carry through the portal to Extra-Heavy. (Replace Extra Carrying Capacity, Heavy, +30% with Extra Carrying Capacity, Extra-Heavy, +50%.) [+20 points].
-* Takes Extra Time: Requires the caster to Concentrate for 1 minute before the portal opens. This also gives the caster +1 to the required IQ roll. (Replace No Preparation, −20% with Preparation, 1 minute, +0%; and removes Reliable 10, +50%.) [−30 points]; cannot take total cost below 20.
-Distant Blow 
-Keywords: Weapon Buff. 
-Rune/Effect: Yr/Gate [3] + Create (−2).
-Full Cost: 123 points. 
-Casting Roll: Use Innate Attack (Gaze) to aim. 
-Range: 100 yards. 
-Duration: Three minutes. 
-  The subject melee weapon delivers its usual damage from a distance by magically projecting force. This ranged attack has Acc 3, Range 10/100, RoF 1, Shots N/A, Bulk -2, and Recoil 1. Use the usual melee combat skill for the attack, not a ranged combat skill. Distant Blow doesn’t unready the weapon for melee use. 
-  Statistics: Affliction 1 (HT; Accessibility, Only on weapons, −20%; Advantage, Distant Blow, +1140%; Fixed Duration, +0%; Increased 1/2D, 10×, +15%; No Signature, +20%; Runecasting, −30%) [123]. 
-  Notes: “Distant Blow” is 114 points, per Enhances or Transforms an Existing Attack (GURPS Thaumatology - Sorcery, p. 11).
-Earthquake 
-Keywords: Area (Leveled). 
-Rune/Effect: Yr/Earth [3] + Control (−1).
-Full Cost: 44 for level 1 + 5 points/additional level. 
-Casting Roll: Use Innate Attack (Gaze) to aim. 
-Range: 100 yards. 
-Duration: 10 seconds. 
-  The caster causes the ground to shake for 10 seconds. Any creatures standing in the area of effect, must make a DX roll each second to remain standing. A fallen creature can do nothing for the remaining duration of the spell.
-  The first level of this spell affects an area of 64-yard radius. Each additional level doubles the area. The caster may affect a smaller area, if he wishes, but not smaller than an area of 64-yard radius. 
-  Statistics: Affliction 1 (DX; Accessibility, Legs and similar supportive body parts only, −20%; Area Effect, 64 yards, +300%; Based on DX, +20%; Environmental, Ground, −10%; Fixed Duration, +0%; No fatigue loss, loss of speech, or thinking from Seizure, −30%; Persistent, +40%; Seizure, +100%; Runecasting, −30%; Reduced Duration, 1/180, -40%; Variable, Area, +5%) [44]. 
-  Additional levels add further levels of Area Effect (+50%) to the advantage [+5].
-Earth Vision
-Keywords: Buff.
-Rune/Effect: Yr/Gate [3] + Sense (+2).
-Full Cost: 3 points per level.
-Casting Roll: None.
-Range: Self.
-Duration: Three minutes.
-  This spell lets the subject see through solid earth and stone. Each level of this spell allows the subject to see through up to six inches of earth and stone. The subject can just barely see the outline of the substance he is looking through – not enough to impair vision in any way. This spell automatically works in conjunction with all of the subject’s other vision advantages (Infravision, Ultravision, etc.).
-  Statistics: Penetrating Vision 1 (Runecasting, −30%; Specific, Earth, −40%) [3/level].
-Ethereal Body, Self
-Keywords: Buff. 
-Rune/Effect: Yr/Gate [3] + Create (−2).
-Full Cost: 24 points. 
-Casting Roll: None. 
-Range: Self. 
-Duration: 3 minutes. 
-  You slip into the space between worlds and becomes intangible, passing through solid objects as though they weren’t there. In this state the subject makes no noise when he moves. The caster can perceive the tangible world, and speak normally to those within it, but he cannot pick up normal objects or affect them in any way. 
-  Physical and energy attacks cannot harm the subject, but he is still vulnerable to psionic and (nonmaterial) magical attacks. Likewise, his physical and energy attacks cannot affect physical opponents. His psi abilities and magic spells can affect the physical world. 
-  Although the subject can pass through solids, he must still breathe. When moving through a solid object, treat this as if he was swimming underwater for purposes of suffocation. He cannot materialize inside a solid object. 
-  The caster can carry objects up to his light encumbrance while insubstantial, including clothing and armor. They become physical if dropped. He cannot materialize these objects inside other objects or characters. 
-  The caster can’t disregard gravity. He must move across a horizontal surface, or along a slope that wouldn’t require Climbing rolls. He still weighs nothing, so he doesn’t leave footprints and can walk on surfaces that wouldn’t support a solid body, such as the surface of a body of water. 
-  Statistics: Insubstantiality (Always On, −50%; Can Carry Objects, Light Encumbrance, +20%; No Vertical Move, −10%; Runecasting, −30%) [24].
-Ethereal Body E
-Keywords: Buff. 
-Rune/Effect: Yr/Gate [3] + Create (−2).
-Full Cost: 46 points. 
-Casting Roll: None. 
-Range: Touch. 
-Duration: 3 minutes. 
-  This version of Ethereal Body can be cast on a subject other than the runecaster.
-  Statistics: Affliction 1 (HT; Advantage, Ethereal Body, +400%; Fixed Duration, +0%; Melee Attack, C, −30%; No Signature, +20%; Runecasting, −30%) [46]. 
-  Notes: “Ethereal Body” is Insubstantiality (Always On, −50%; Can Carry Objects, Light Encumbrance, +20%; No Vertical Move, −10%; Magical, −10%) [40].
-* Extend Duration: For 9 minutes, add Extended Duration, 3×, 20% [+2 points]. 
-* Reduce Duration to 1 minute: add Reduced Duration, 1/3, -10%. [−1 point].
-* Add Range: Use this spell on a subject up to 100 yards away using modifiers from the Size and Speed/Range table. Use Innate Attack (Gaze) to aim. (Remove Melee Attack, Reach C, −30%, and add Increased 1/2D, 10×, +15%.). [+5 points].
-Hide Object
-Keywords: None.
-Rune/Effect: Yr/Gate [3] + Create (−2).
-Full Cost: 1.2 points per level*.
-Casting Roll: None.
-Range: Touch.
-Duration: Indefinite.
-  You can place objects in an extraplanar space whose access travels with you. Each level provides space for (Will × Will)/1,000 cubic feet of possessions. While you can multiply by 20 lbs./cubic foot to estimate weight, the contents aren’t affected by gravity and capacity doesn’t depend on your ST. Rather than being protected by your defensive advantages, your possessions are in another dimension entirely and can’t be affected by any normal attack.
-  If your cargo is a single object, getting it out takes one second or a Fast-Draw roll (aided by Rune Talent). When carrying multiple objects, extracting a specific item requires 1d seconds per level of spell and a DX roll at −5 for working by touch (also aided by Rune Talent).
-  When the spell ends, all contents are expelled.
-  Statistics: Payload 1 (Cosmic, Extraplanar, +50%; Runecasting, −30%) [1.2/level*].
-  * Calculate the total cost then round up.
-Mud Jet
-Keywords: Jet, Obvious. 
-Rune/Effect: Yr/Earth [3] + Create (−2).
-Full Cost: 29 points for level 1 + plus 6 points per additional level. 
-Casting Roll: None. Use Innate Attack (Beam) to hit. 
-Range: 10 yards. 
-Duration: Instantaneous. 
-  You shoot a thin jet of mud from your fingertip, which can strike any target up to 10 yards away (without range or speed penalties). It can be dodged or blocked, but not parried. This jet does 1d crushing damage per level, doubled for the purposes of knockback only. It will extinguish a one-yard-radius area of normal fire. 
-  Against enemies with Injury Tolerance (Diffuse), such as gaseous beings and swarms, this becomes a much more potent attack, doing full damage – including the doubling! Ignore the usual injury cap of 2 HP (Injury to Unliving, Homogenous, and Diffuse Targets). 
-  If the spell strikes the face, it causes no injury, but blinds the target for 3 seconds unless he makes a HT roll. Thick goggles, closed helmets, ultra-tech visors protect against this spell. 
-  Statistics: Crushing Attack 1d (Blockable, −5%; Can extinguish fire, +10%; Cosmic, Does knockback-based damage against diffuse targets, +50%; Double Knockback, +20%; Increased 1/2D, 2x, +5%; Jet, +0%; Link, +10%; No Blunt Trauma, −20%; No Wounding*, −25%; Runecasting, −30%) [6/level] + Affliction 1 (HT; Accessibility, Must hit unprotected face, −20%; Blockable, −5%; Disadvantage, Blindness, +50%; Fixed Duration, +0%; Increased 1/2D, 2x, +5%; Jet, +0%; Link, +10%; Runecasting, −30%; Reduced Duration, 1/60, −35%; Vision-Based, +150%) [23]. 
-  * Except versus diffuse targets, an exception which halves the value of this limitation.
-Orichalcum Edge O
-Keywords: Weapon Buff. 
-Rune/Effect: Yr/Earth [3] + Transform (−4).
-Full Cost: 22* points. 
-Casting Roll: None*.
-Range: Touch*. 
-Duration: 18 seconds*. 
-  Turns the surface of a metallic weapon into orichalcum, giving it a brassy tinge. This spell adds +2 to swing damage and +1 to thrust damage of the weapon. In addition, this spell increases the weapon’s DR by 4. The GM should impose a level cap on this spell. 
-  Statistics: Affliction 1 (HT; Accessibility, Only on metal weapons, −30%; Advantage, Orichalcum Edge, +210%; Fixed Duration, +0%; Melee Attack, C, −30%; No Signature, +20%; Reduced Duration, 1/10, −20%; Runecasting, −30%) [22].
-* Increase duration to 3 minutes. Remove Reduced Duration, 1/10. [+2 points].
-* Add Range: Use this spell on a subject up to 100 yards away using modifiers from the Size and Speed/Range table. Use Innate Attack (Gaze) to aim. (Remove Melee Attack, Reach C, −30%, and add Increased 1/2D, 10×, +15%.). [+5 points].
-  Notes: “Orichalcum Edge” is Striking ST 2 (Magical, −10%; One Attack, This weapon, −60%) [3] + DR 4 (Magical, -10%) [18].
-Phase
-Keywords: None.
-Rune/Effect: Yr/Gate [3] + Create (−2).
-Full Cost: 20 points.
-Casting Roll: Will/2 + 3.
-Range: Self.
-Duration: Indefinite.
-  While this spell is active you can “dodge” an incoming attack by phasing out to the Ethereal Plane for a moment. You can carry up to your Heavy encumbrance when you phase. 
-  Phase differs from Blink in that Phase allows (requires) you to remain in the same location, while Blink requires you to appear in a different hex. 
-  Statistics: Jumper (World; Active Defense, −40%; Extra Carrying Capacity, Heavy, +30%; Faster Concentration 5, +25%; Improved, +10%; Limited Access, Ethereal Plane for a moment, −80%; Runecasting, −30%) [20]. 
-  Note: The Improved enhancement removes the auto-fail on 14+.
-Planar Visit
-Keywords: None.
-Rune/Effect: Ýr/Gate [3] + Create (−2).
-Full Cost: 20 (basic) or 40 (improved) points.
-Casting Roll: IQ. Special casting time (see below). 
-Range: Self.
-Duration: Indefinite. 
-  You leave your body behind, unconscious, while your spirit visits another plane of existence. While there, you cannot cast spells or otherwise affect the world in any meaningful way. Your spirit form is visible, but insubstantial. This spell can be maintained indefinitely, but your body’s need to eat, drink, sleep, etc. effectively limits the duration to a day or so – longer if your body is left with friends, in a hospital, or otherwise cared for. 
-  The basic version of this spell allows you to visit one other plane, chosen when you learn the spell. The improved version opens this up to any dimension you are familiar with. You can become familiar with new planes by hitching a ride there – with another sorcerer using this spell, a magician using an equivalent spell, a creature with an innate ability, etc. – or via tomes of knowledge which contain detailed instructions on where and how to travel. 
-  Unlike most spells, Planar Visit takes 10 or 11 seconds to activate instead of one or two. You can speed this up by taking −1 to skill for each second omitted (maximum −10). 
-  Statistics: Jumper (World; Improved, +10%; Limited Access (specified world), −20%; Runecasting, −30%; Projection, cannot affect new world, −50%) [20]. 
-  Note: The improved version removes Limited Access [+20] and removes the auto-fail on 14+. 
-Purify Earth
-Keywords: None.
-Rune/Effect: Yr/Earth [3] + Restore (+0).
-Full Cost: 4 points per level.
-Casting Roll: IQ.
-Range: Touch.
-Duration: Instantaneous.
-  This spell removes foreign objects, poisons, and harmful elements from soil, rendering it fit to support growing plants. This spell also remedies any deficiencies in the soil’s composition. Small foreign objects (coins, nails) underground are destroyed; medium ones (swords, artillery shells, chests, statuettes) “float” to the surface. Large objects (coffins, walls, large statues) will cause the spell to fail, but the caster gets a general idea of the reason.
-  To cast the spell, the caster touches the earth he wishes to purify, takes a Concentrate maneuver and rolls vs. IQ. Success means he purifies it successfully. Failure means nothing happens. Critical failure means the transformation happens, but in a way that’s inconvenient or dangerous – the GM should be creative!
-  The caster can purify an amount of earth weighing up to 10 × (level squared) lbs.: 10 lbs. at level 1, 40 lbs. at level 2, 90 lbs. at level 3, and so on.
-  Statistics: Create Earth (Accessibility, only to transform into normal soil, −20%; Transmute Earth to Earth, +50%; Transmutation Only, −100%; Runecasting, −30%) [4/level].
-Rain of Stones R
-Keywords: Area (Leveled).
-Rune/Effect: Yr/Earth [3] + Create (−2).
-Full Cost: 10+ points per level.
-Casting Roll: Innate Attack (Gaze).
-Range: 100 yards.
-Duration: 10 seconds.
-  You cause stones to rain down upon a 2-yard radius area. Use Innate Attack (Gaze), at +4, to center the area. Everyone who spends even part of their turn in the area is attacked with an effective skill of 14, modified only for their SM. Anyone hit takes 1d crushing damage per level. Victims may raise their shields as cover, at the risk of damaging them. 
-  Statistics: Crushing Attack 1d (Area Effect, 2 yards, +50%; Bombardment, Skill-14, −5%; Overhead, +30%; Persistent, +40%; Runecasting, −30%; Variable, Area, +5%; Variable, Damage, +5%) [10].
-* Better Late than Never: Extend duration to 30 seconds. (Add Extended Duration, 3×, 20%). [+2 points]. 
-* And Leon’s Getting Larger!: Increase Area Effect: [+2.5 points] per doubled area rounded up (i.e., 2-yard radius costs 10, 4 yards is 15, 8 yards is 18, etc.).
-Sand Jet
-Keywords: Jet, Obvious.
-Rune/Effect: Yr/Earth [3] + Create (−2).
-Full Cost: 22 points.
-Casting Roll: Innate Attack (Beam).
-Range: 10 yards.
-Duration: Instantaneous.
-  You shoot a thin jet of sand particles from your fingertip, which can strike any target up to 10 yards away (without range or speed penalties). It can be dodged or blocked, but not parried.
-  If the spell strikes the face, it causes no injury, but blinds the target for 3 seconds unless he makes a HT roll. Thick goggles, closed helmets, ultra-tech visors protect against this spell.
-  Statistics: Affliction 1 (HT; Accessibility, Must hit unprotected face, −20%; Blockable, −5%; Disadvantage, Blindness, +50%; Fixed Duration, +0%; Increased 1/2D, 2×, +5%; Jet, +0%; Reduced Duration, 1/60, −35%; Runecasting, −30%; Vision-Based, +150%) [22].
-Seek Gate 
-Keywords: Information. 
-Rune/Effect: Ýr/Earth [3] + Sense (+1).
-Full Cost: 10 points (basic) or 12 (improved). 
-Casting Roll: Per. Use IQ for analysis. 
-Range: Unlimited. 
-Duration: Instantaneous. 
-  After casting, the GM rolls against the sorcerer’s Per, with a penalty based on the distance to the nearest gate of any sort. The basic (10-point) version of this spell takes standard range penalties. The improved (12-point) one uses long-distance modifiers. If successful, the caster knows the exact distance and direction to the gate and may make a follow-up IQ roll (at no penalty) to learn basic details about it (e.g., “it’s a one-way gate” or “it’s a two-way gate to Hell”). 
-  Any known gates may be excluded if the caster mentions them before casting. 
-  Statistics: Detect Gate (Precise, +100%; Selective Effect, +20%; Runecasting, −30%) [10]. 
-  The improved version adds Long-Range 1 (+50%) [+2].
-Seek Pass 
-Keywords: Information. 
-Rune/Effect: Yr/Earth [3] + Sense (+1).
-Full Cost: 12 points. 
-Casting Roll: Per. Use IQ for analysis. 
-Range: Unlimited. 
-Duration: Instantaneous. 
-  After casting, the GM rolls against the sorcerer’s Per, with a penalty based on the distance to the nearest pass through a mountain range. Use the long-distance modifiers. If successful, the caster knows the exact distance and direction to the pass and may make a follow-up IQ roll (at no penalty) to learn basic details about it. 
-  Any known passes may be excluded if the caster mentions them before casting. 
-  Statistics: Detect Pass (Long-Range 1, +50%; Precise, +100%; Selective Effect, +20%; Runecasting, −30%) [12].
-Shape Earth  
-Keywords: None. 
-Rune/Effect: Yr/Earth [3] + Control (−2).
-Full Cost: 22 points/level. 
-Casting Roll: IQ. 
-Range: 100 yards. 
-Duration: Indefinite. 
-  You can shape and move earth, including brick, ceramic, and rock, but not purified metals. The higher your level of Shape Earth, the larger the quantity you can affect. You can affect up to 10 × (level squared) lbs. of earth in the form of a single object or amorphous mass. 
-  Forming a simple shape (blob, column, sphere, etc.) requires a Concentrate maneuver but no die roll. If the result is meant to be beautiful or functional, though, the GM may deem the effort a long task and require skill rolls against Armoury, Artist, Machinist, and so on. You can work without tools, but you must know what you’re doing. 
-  You can also cause the target to elongate or flow at a Move equal to your Shape Earth level. This requires constant concentration. You can make a solid stone object ooze, roll, or seep along the ground or a surface, and even reshape it in ways that defy gravity. 
-  When you stop concentrating, you immediately give up control. Stable forms become permanent, while unstable ones collapse instantly. 
-  Defensively, Shape Earth lets you move or shape earth to obstruct attacks. This requires a Concentrate maneuver. Such barriers give whatever cover the material normally provides. For instance, it might let you shape a stone slab into armor with the DR of stone by making an Armoury roll. 
-  Offensively, Shape Earth is more limited. By concentrating, you can move an existing stone object to impede your enemy’s movement, like any object of that weight. In all cases, your foe can dodge. 
-  If a foe is standing in an area where you control earth, – or if you can move earth onto him – you may inflict combat penalties on him. This requires flexibility on the GM’s part: Shape Earth 10 might cause a mini-earthquake good for −10 to attack rolls. Tricks like this require a Concentrate maneuver and an IQ or Tactics roll. 
-  Statistics: Control Earth (Ranged, +40%; Runecasting, −30%) [22/level].
-* The Magic Touch: Remove ranged, such that the caster must touch the target to reshape it: (Remove Ranged, +40%.) [−8 points].
-Stone to Flesh S
-Keywords: Resisted (Will or spell). 
-Rune/Effect: Yr/Earth [3] + Transform (−4).
-Full Cost: 20* points. 
-Casting Roll: Will. 
-Range: Unlimited. 
-Duration: Instantaneous. 
-  Attempts to reverse the effects of Flesh to Stone (or any similar petrification spell or ability) and bring the victim back to life (stunned). Cannot be used to animate a statue that was never alive. 
-  Treat the resistance roll as for Dispel Magic.
-  Statistics: Neutralize Magic (Accessibility, Must target subject, not caster, −10%; Cosmic, Can dispel spells that are immune to Dispel Magic, +50%; Interruption, −50%; One Ability, Flesh to Stone, −80%; Precise, +20%; Ranged, +40%; Runecasting, −30%) [20]. 
-* The Magic Touch: Remove ranged, requiring the caster to touch the subject: (Remove Ranged, +40%.) [−20 points] but cannot reduce cost below 10.
-Stone Missile  
-Keywords: Missile, Obvious.
-Rune/Effect: Yr/Earth [3] + Create (−2).
-Full Cost: 3 points per level.
-Casting Roll: Innate Attack (Projectile).
-Range: 5/50.
-Duration: Instantaneous.
-  You throw a ball of stone at a single target. Use Innate Attack (Projectile) to hit, applying normal range penalties. It does 1d crushing damage per level of this spell.
-  Statistics: Crushing Attack 1d (Crushing; Reduced Range, 2, −10%; Runecasting, −30%) [3].
-* Add Injury to Insult: The target takes full damage out to maximum range. (Increased 1/2D, 10×, +30%.) [+1.5] points*.
-* Long Arm of the Law: The range of this attack becomes 10/100 (or simply 100 if taken with “Add Injury to Insult” variation, above). (Remove Reduced Range, 2, -10%.) [+0.5] points*.
-* - Apply additional points due to variations and round up.
-Trace Labyrinth
-Keywords: None.
-Rune/Effect: Ýr/Earth [3] + Sense (+1).
-Full Cost: 3 points.
-Casting Roll: None.
-Range: Self.
-Duration: Indefinite.
-  As long as the spell is active, it will create a magical trace of the caster’s movement, which everyone can see as a faintly glowing line. After the spell lapses, the trace extends no further, but remains visible as long as the caster is underground, and vanishes immediately when he leaves.
-  Statistics: Absolute Direction (Accessibility, Only underground, −30%; Runecasting, −15%; Trace Stays, +15%; Visible, −10%) [3].
-Walk Through Earth, Self
-Keywords: Buff.
-Rune/Effect: Yr/Earth [3] + Control (−1).
-Full Cost: 36 (basic) or 52 (improved) points.
-Casting Roll: None. 
-Range: Self.
-Duration: Indefinite.
-  The basic version of this spell allows the caster to pass through dirt, clay, mud, and sand as if they were not even there. The caster does not automatically sink into the ground; the earth beneath their feet is as solid as desired. The caster will need to hold their breath (this spell does not provide air) and gains no special ability to see through earth. Up to Light encumbrance worth of equipment can be carried while doing this.
-  The improved spell allows walking through stone or metal in addition to earth.
-  Statistics: Permeation (Earth; Can Carry Objects, Light Encumbrance, +20%; Runecasting, −10%) [44]. 
-  “Improved Walk Through Earth” is Permeation (Earth; Can Carry Objects, Light Encumbrance, +20%; Extended, Metal and Stone, +40%; Magical, −10%) [60]. 
-Walk Through Earth  
-Keywords: Buff.
-Rune/Effect: Yr/Earth [3] + Control (−1).
-Full Cost: 48* (basic) or 64* (improved) points.
-Casting Roll: None. 
-Range: Touch.
-Duration: Three minutes.
-  This version of Walk Through Earth can be cast on others. It requires the caster to touch the subject (but see below).
-  This spell lasts 3 minutes and cannot be renewed without recasting.
-  Statistics: Affliction 1 (HT; Advantage, Walk Through Earth, +440%; Fixed Duration, +0%; Melee Attack, Reach C, −30%; Runecasting, −30%) [48]. 
-* Better Late than Never: Increase duration to 9 minutes (3×): (Extended Duration, 3×, +20%.) [+2] points.
-* Spooky Action at a Distance: Use this spell on a subject up to 100 yards away using modifiers from the Size and Speed/Range table. Use Innate Attack (Gaze) to aim. (Remove Melee Attack, Reach C, −30%, and add Increased 1/2D, 10×, +15%.). [+5 points].
-  
-  
-  
-  
-
-  
+﻿Grimoire of Ýr (ᛦ)Earth/Gate Spells  As a reminder, any spell with a duration of Indefinite has a base duration of 3 minutes, which may be extended for an additional 3 minutes per FP spent (no roll necessary), unless otherwise noted. The runecaster doesn’t have to decide up front how long to extend the spell, they can wait until the spell is about to end and then extend it for another three minutes. This can be continued indefinitely until the caster allows the spell to end normally, he loses consciousness, or runs out of FP.  To make it easier to optimize some spells either to lower the cost or increase its efficacy, this version introduces Variable spells. For an example, see Rain of Stones.  Variable spells allow the player to either buy a bare-bones version of the spell for a relatively low point cost, or to modify the base version of the spell to make it more powerful and therefore cost more. Options are listed below the spell and marked with the t symbol.  In addition, some spells have been rewritten to have a “Self” version, which only affects the caster, in addition to the normal version that can be cast on others.  Any spell variation, whether it is moving from a “Self” version to being castable on others, or adding variations or levels, can be bought by paying the difference between the version currently possessed and the one desired.  And as always, the runecaster is NOT limited to the spells in this Grimoire. Any spell that they can imagine that involves earth and metal, or interdimensional gates, can be created with this system. Use the existing spells as guidelines. For example, Blink could be cast on a person other than the caster for additional cost. Collaborate with the GM to create new spells.    
+Adamant Hail AKeywords: Area (Leveled). Rune/Effect: Yr/Earth [3] + Create (−2).Full Cost: 18 points (or more). Casting Roll: Use Innate Attack (Gaze) to aim. Range: 100 yards. Duration: 30 seconds.   You cause chunks of adamant to rain down upon an area. Use Innate Attack (Gaze), at +4, to center the area; see Scatter (p. B414) if you miss. Everyone who spends even part of their turn in the area is attacked with an effective skill of 12, modified only for their SM. Anyone hit takes 1d(2) crushing armor-piercing damage – the victim’s DR is halved for this attack!   Victims may raise their shields as cover, at the risk of damaging them. You may always choose (when casting) to scale back the damage or the area affected.   Statistics: Crushing Attack 1d (Armor Divisor (2), +50%; Area Effect, 8 yards, +150%; Bombardment, Skill-12, −10%; Extended Duration, 3x, +20%; Overhead, +30%; Persistent, +40%; Runecasting, −30%; Variable, +5%; Variable, Area, +5%) [18]. * And Leon’s Getting Larger!: Increase Area Effect: [+2.5 points] per doubled area, rounded up.* Rocks Fall, Everyone Dies: Increase damage to 2d-1: [+4 points].Adamant Missile Keywords: Missile, Obvious. Rune/Effect: Yr/Earth [3] + Create (−2).Full Cost: 6 points/level. Casting Roll: Use Innate Attack (Projectile) to hit. Range: 100 yards. Duration: Instantaneous.   You throw a ball of adamant at a single target. Use Innate Attack (Projectile) to hit, applying normal range penalties. It does 1d(2) crushing damage per level of this spell.  This is armor-piercing damage – the victim’s DR is halved for this attack! The missile can be blocked. The GM must determine what the maximum level available in the campaign is.   Statistics: Crushing Attack (Armor Divisor (2), +50%; Blockable, −5%; Runecasting, −30%) [6/level]. BlinkKeywords: None.Rune/Effect: Yr/Gate [3] + Create (−2).Full Cost: 20 points.Casting Roll: Will/2 + 3.Range: Self.Duration: Indefinite.  While this spell is active, once per turn, you can “dodge” an incoming attack by teleporting away from it to any space within 10 yards of you.  Statistics: Warp (Blink Only, −60%; Gyroscopic, +10%; Runecasting, −30%) [20].Break Rock Keywords: None. Rune/Effect: Yr/Earth [3] + Destroy (−1).Full Cost: 9 points/level. Casting Roll: IQ. Range: Touch. Duration: Instantaneous.   This spell allows you to reduce a volume of rock to smaller pieces. To break rock, you must touch it, take a Concentrate maneuver, and pay 1 FP. Then make an IQ roll. Success means the target is reduced to smaller boulders (averaging one cubic foot and 150 lbs.), rubble suitable for construction, or gravel; only gravel can be shoveled out. The mass of rock will collapse naturally after it breaks. This spell only affects inanimate objects.   The destroyed rock can weigh up to 10 × (level squared) lbs.: 10 lbs. at level 1, 40 lbs. at level 2, 90 lbs. at level 3, and so on.   Statistics: Create Rock (Destruction Only, Variant, +0%; Runecasting, -30%; Reduced Fatigue Cost 1, +20%) [9/level].Create Door  Keywords: None. Rune/Effect: Yr/Gate [3] + Create (−2).Full Cost: 25* points. Casting Roll: IQ. Range: Touch. Duration: 3d seconds.   When cast at the near side of a solid obstruction (wall, hedge, cliff, etc.), this spell creates a short-term, short-range gate leading to the other side. The intervening distance is not actually traversed by the door’s users – they are simultaneously teleported from the near side to the far one. The travelers can carry up to Medium Encumbrance (but see below) when they traverse the door. The obstacle must not be thicker than 10 yards.   Others cannot pass through the door until the caster has gone through.  As a Concentrate maneuver make an IQ + Rune Talent roll* to cast this spell, modified as follows:   On a success, you appear at your target destination. On a failure, you go nowhere and strain your teleporting ability: you are at -5 to cast this spell again in the next 10 minutes. On a critical failure, you arrive at the wrong destination. This can be anywhere the GM wishes! It need not be dangerous, but it should seriously inconvenience you. In addition, your spell temporarily “burns out” and will not function again for 1d hours.   Statistics: Warp (Accessibility, Only to create a door through an obstacle, −20%; Blind Only, −50%; Cannot Spend Extra FP, −10%; Extra Carrying Capacity, Heavy, +30%; No Preparation, −20%; Range Limit, 10 yards, −50%; Reliable 10, +50%; Requires Concentrate, −15%; Runecasting, −30%; Tunnel, +40%) [25].* After You: Allow others to pass through the door before or instead of the caster: (Replace Tunnel, +40% with Tunnel, Forms Before, +100%) [+60] points.* He Ain’t Heavy, He’s My Brother: Raises the limit on what a person can carry through the portal to Extra-Heavy. (Replace Extra Carrying Capacity, Heavy, +30% with Extra Carrying Capacity, Extra-Heavy, +50%.) [+20 points].* Slow and Steady: The caster must Concentrate for 1 minute before the portal opens. This also gives the caster +1 to the required IQ roll. (Replace No Preparation, −20% with Preparation, 1 minute, +0%; and removes Reliable 10, +50%.) [−30 points]; cannot take total cost below 20.Distant Blow Keywords: Weapon Buff. Rune/Effect: Yr/Gate [3] + Create (−2).Full Cost: 123 points. Casting Roll: Use Innate Attack (Gaze) to aim. Range: 100 yards. Duration: Three minutes.   The subject melee weapon delivers its usual damage from a distance by magically projecting force. This ranged attack has Acc 3, Range 10/100, RoF 1, Shots N/A, Bulk -2, and Recoil 1. Use the usual melee combat skill for the attack, not a ranged combat skill. Distant Blow doesn’t unready the weapon for melee use.   Statistics: Affliction 1 (HT; Accessibility, Only on weapons, −20%; Advantage, Distant Blow, +1140%; Fixed Duration, +0%; Increased 1/2D, 10×, +15%; No Signature, +20%; Runecasting, −30%) [123].   Notes: “Distant Blow” is 114 points, per Enhances or Transforms an Existing Attack (GURPS Thaumatology - Sorcery, p. 11).Earthquake Keywords: Area (Leveled). Rune/Effect: Yr/Earth [3] + Control (−1).Full Cost: 44 for level 1 + 5 points/additional level. Casting Roll: Use Innate Attack (Gaze) to aim. Range: 100 yards. Duration: 10 seconds.   The caster causes the ground to shake for 10 seconds. Any creatures standing in the area of effect, must make a DX roll each second to remain standing. A fallen creature can do nothing for the remaining duration of the spell.  The first level of this spell affects an area of 64-yard radius. Each additional level doubles the area. The caster may affect a smaller area, if he wishes, but not smaller than an area of 64-yard radius.   Statistics: Affliction 1 (DX; Accessibility, Legs and similar supportive body parts only, −20%; Area Effect, 64 yards, +300%; Based on DX, +20%; Environmental, Ground, −10%; Fixed Duration, +0%; No fatigue loss, loss of speech, or thinking from Seizure, −30%; Persistent, +40%; Seizure, +100%; Runecasting, −30%; Reduced Duration, 1/180, -40%; Variable, Area, +5%) [44].   Additional levels add further levels of Area Effect (+50%) to the advantage [+5].Earth VisionKeywords: Buff.Rune/Effect: Yr/Gate [3] + Sense (+2).Full Cost: 3 points per level.Casting Roll: None.Range: Self.Duration: Three minutes.  This spell lets the subject see through solid earth and stone. Each level of this spell allows the subject to see through up to six inches of earth and stone. The subject can just barely see the outline of the substance he is looking through – not enough to impair vision in any way. This spell automatically works in conjunction with all of the subject’s other vision advantages (Infravision, Ultravision, etc.).  Statistics: Penetrating Vision 1 (Runecasting, −30%; Specific, Earth, −40%) [3/level].Ethereal Body (Self)Keywords: Buff. Rune/Effect: Yr/Gate [3] + Create (−2).Full Cost: 24 points. Casting Roll: None. Range: Self. Duration: 3 minutes.   You slip into the space between worlds and becomes intangible, passing through solid objects as though they weren’t there. In this state the subject makes no noise when he moves. The caster can perceive the tangible world, and speak normally to those within it, but he cannot pick up normal objects or affect them in any way.   Physical and energy attacks cannot harm the subject, but he is still vulnerable to psionic and (nonmaterial) magical attacks. Likewise, his physical and energy attacks cannot affect physical opponents. His psi abilities and magic spells can affect the physical world.   Although the subject can pass through solids, he must still breathe. When moving through a solid object, treat this as if he was swimming underwater for purposes of suffocation. He cannot materialize inside a solid object.   The caster can carry objects up to his light encumbrance while insubstantial, including clothing and armor. They become physical if dropped. He cannot materialize these objects inside other objects or characters.   The caster can’t disregard gravity. He must move across a horizontal surface, or along a slope that wouldn’t require Climbing rolls. He still weighs nothing, so he doesn’t leave footprints and can walk on surfaces that wouldn’t support a solid body, such as the surface of a body of water.   Statistics: Insubstantiality (Always On, −50%; Can Carry Objects, Light Encumbrance, +20%; No Vertical Move, −10%; Runecasting, −30%) [24].Ethereal Body EKeywords: Buff. Rune/Effect: Yr/Gate [3] + Create (−2).Full Cost: 46 points. Casting Roll: None. Range: Touch. Duration: 3 minutes.   This version of Ethereal Body can be cast on a subject other than the runecaster.  Statistics: Affliction 1 (HT; Advantage, Ethereal Body, +400%; Fixed Duration, +0%; Melee Attack, C, −30%; No Signature, +20%; Runecasting, −30%) [46].   Notes: “Ethereal Body” is Insubstantiality (Always On, −50%; Can Carry Objects, Light Encumbrance, +20%; No Vertical Move, −10%; Magical, −10%) [40].* Better Late than Never: Extend duration to 9 minutes. (Extended Duration, 3×, 20%.) [+2 points]. * New York Minute: Reduce Duration to 1 minute: add Reduced Duration, 1/3, -10%. [−1 point].* Spooky Action at a Distance: Use this spell on a subject up to 100 yards away using modifiers from the Size and Speed/Range table. Use Innate Attack (Gaze) to aim. (Remove Melee Attack, Reach C, −30%, and add Increased 1/2D, 10×, +15%.). [+5 points].Hide ObjectKeywords: None.Rune/Effect: Yr/Gate [3] + Create (−2).Full Cost: 1.2 points per level*.Casting Roll: None.Range: Touch.Duration: Indefinite.  You can place objects in an extraplanar space whose access travels with you. Each level provides space for (Will × Will)/1,000 cubic feet of possessions. While you can multiply by 20 lbs./cubic foot to estimate weight, the contents aren’t affected by gravity and capacity doesn’t depend on your ST. Rather than being protected by your defensive advantages, your possessions are in another dimension entirely and can’t be affected by any normal attack.  If your cargo is a single object, getting it out takes one second or a Fast-Draw roll (aided by Rune Talent). When carrying multiple objects, extracting a specific item requires 1d seconds per level of spell and a DX roll at −5 for working by touch (also aided by Rune Talent).  When the spell ends, all contents are expelled.  Statistics: Payload 1 (Cosmic, Extraplanar, +50%; Runecasting, −30%) [1.2/level*].  * Calculate the total cost then round up.Mud JetKeywords: Jet, Obvious. Rune/Effect: Yr/Earth [3] + Create (−2).Full Cost: 29 for level 1 + plus 6/additional level. Casting Roll: Use Innate Attack (Beam) to hit. Range: 10 yards. Duration: Instantaneous.   You shoot a thin jet of mud from your fingertip, which can strike any target up to 10 yards away (without range or speed penalties). It can be dodged or blocked, but not parried. This jet does 1d crushing damage per level, doubled for the purposes of knockback only. It will extinguish a one-yard-radius area of normal fire.   Against enemies with Injury Tolerance (Diffuse), such as gaseous beings and swarms, this becomes a much more potent attack, doing full damage – including the doubling! Ignore the usual injury cap of 2 HP (Injury to Unliving, Homogenous, and Diffuse Targets).   If the spell strikes the face, it causes no injury, but blinds the target for 3 seconds unless he makes a HT roll. Thick goggles, closed helmets, ultra-tech visors protect against this spell.   Statistics: Crushing Attack 1d (Blockable, −5%; Can extinguish fire, +10%; Cosmic, Does knockback-based damage against diffuse targets, +50%; Double Knockback, +20%; Increased 1/2D, 2x, +5%; Jet, +0%; Link, +10%; No Blunt Trauma, −20%; No Wounding*, −25%; Runecasting, −30%) [6/level] + Affliction 1 (HT; Accessibility, Must hit unprotected face, −20%; Blockable, −5%; Disadvantage, Blindness, +50%; Fixed Duration, +0%; Increased 1/2D, 2x, +5%; Jet, +0%; Link, +10%; Runecasting, −30%; Reduced Duration, 1/60, −35%; Vision-Based, +150%) [23].   * Except versus diffuse targets, an exception which halves the value of this limitation.Orichalcum Edge OKeywords: Weapon Buff. Rune/Effect: Yr/Earth [3] + Transform (−4).Full Cost: 22* points. Casting Roll: None*.Range: Touch*. Duration: 18 seconds*.   Turns the surface of a metallic weapon into orichalcum, giving it a brassy tinge. This spell adds +2 to swing damage and +1 to thrust damage of the weapon. In addition, this spell increases the weapon’s DR by 4. The GM should impose a level cap on this spell.   Statistics: Affliction 1 (HT; Accessibility, Only on metal weapons, −30%; Advantage, Orichalcum Edge, +210%; Fixed Duration, +0%; Melee Attack, C, −30%; No Signature, +20%; Reduced Duration, 1/10, −20%; Runecasting, −30%) [22].* Better Late than Never: Increase duration to 3 minutes. Remove Reduced Duration, 1/10. [+2 points].* Spooky Action at a Distance: Add Range: Use this spell on a weapon up to 100 yards away using modifiers from the Size and Speed/Range table. Use Innate Attack (Gaze) to aim. (Remove Melee Attack, Reach C, −30%, and add Increased 1/2D, 10×, +15%.). [+5 points].  Notes: “Orichalcum Edge” is Striking ST 2 (Magical, −10%; One Attack, This weapon, −60%) [3] + DR 4 (Magical, -10%) [18].PhaseKeywords: None.Rune/Effect: Yr/Gate [3] + Create (−2).Full Cost: 20 points.Casting Roll: Will/2 + 3.Range: Self.Duration: Indefinite.  While this spell is active you can “dodge” an incoming attack by phasing out to the Ethereal Plane for a moment. You can carry up to your Heavy encumbrance when you phase.   Phase differs from Blink in that Phase allows (requires) you to remain in the same location, while Blink requires you to appear in a different hex.   Statistics: Jumper (World; Active Defense, −40%; Extra Carrying Capacity, Heavy, +30%; Faster Concentration 5, +25%; Improved, +10%; Limited Access, Ethereal Plane for a moment, −80%; Runecasting, −30%) [20].   Note: The Improved enhancement removes the auto-fail on 14+.Planar VisitKeywords: None.Rune/Effect: Ýr/Gate [3] + Create (−2).Full Cost: 20 (basic) or 40 (improved) points.Casting Roll: IQ. Special casting time (see below). Range: Self.Duration: Indefinite.   You leave your body behind, unconscious, while your spirit visits another plane of existence. While there, you cannot cast spells or otherwise affect the world in any meaningful way. Your spirit form is visible, but insubstantial. This spell can be maintained indefinitely, but your body’s need to eat, drink, sleep, etc. effectively limits the duration to a day or so – longer if your body is left with friends, in a hospital, or otherwise cared for.   The basic version of this spell allows you to visit one other plane, chosen when you learn the spell. The improved version opens this up to any dimension you are familiar with. You can become familiar with new planes by hitching a ride there – with another sorcerer using this spell, a magician using an equivalent spell, a creature with an innate ability, etc. – or via tomes of knowledge which contain detailed instructions on where and how to travel.   Unlike most spells, Planar Visit takes 10 or 11 seconds to activate instead of one or two. You can speed this up by taking −1 to skill for each second omitted (maximum −10).   Statistics: Jumper (World; Improved, +10%; Limited Access (specified world), −20%; Runecasting, −30%; Projection, cannot affect new world, −50%) [20].   Note: The improved version removes Limited Access [+20] and removes the auto-fail on 14+. Purify EarthKeywords: None.Rune/Effect: Yr/Earth [3] + Restore (+0).Full Cost: 2 points per level.Casting Roll: IQ.Range: Touch.Duration: Instantaneous.  This spell removes foreign objects, poisons, and harmful elements from soil, rendering it fit to support growing plants. This spell also remedies any deficiencies in the soil’s composition. Small foreign objects (coins, nails) underground are destroyed; medium ones (swords, artillery shells, chests, statuettes) “float” to the surface. Large objects (coffins, walls, large statues) will cause the spell to fail, but the caster gets a general idea of the reason.  To cast the spell, the caster touches the earth he wishes to purify, takes a Concentrate maneuver and rolls vs. IQ. Success means he purifies it successfully. Failure means nothing happens. Critical failure means the transformation happens, but in a way that’s inconvenient or dangerous – the GM should be creative!  The caster can purify an amount of earth weighing up to 10 × (level squared) lbs.: 10 lbs. at level 1, 40 lbs. at level 2, 90 lbs. at level 3, and so on.  Statistics: Create (Accessibility, only to transform into normal soil, −20%; Transmute Earth to Earth, +50%; Transmutation Only, −100%; Runecasting, −30%) [2/level].Rain of Stones RKeywords: Area (Leveled).Rune/Effect: Yr/Earth [3] + Create (−2).Full Cost: 10+ points per level.Casting Roll: Innate Attack (Gaze).Range: 100 yards.Duration: 10 seconds.  You cause stones to rain down upon a 2-yard radius area. Use Innate Attack (Gaze), at +4, to center the area. Everyone who spends even part of their turn in the area is attacked with an effective skill of 10, modified only for their SM. Anyone hit takes 1d crushing damage per level. Victims may raise their shields as cover, at the risk of damaging them.   Statistics: Crushing Attack 1d (Area Effect, 2 yards, +50%; Bombardment, Skill-10, −15%; Extended Duration, 3x, +20%; Overhead, +30%; Persistent, +40%; Runecasting, −30%; Variable, Area, +5%) [10].* Rocks Fall, Everyone Dies: Increase the chances of a victim being hit. Raise the effective skill of the attack to 14. (Replace Bombardment, Skill-10, -15% with Bombardment, Skill-14, -5%.) [+0.5 points*].* Better Late than Never: Extend duration to 30 seconds. (Add Extended Duration, 3×, 20%). [+2 points]. * And Leon’s Getting Larger!: Increase Area Effect: [+2.5 points*] per doubled area rounded up (i.e., 2-yard radius costs 10, 4 yards is 15, 8 yards is 18, etc.).* - Calculate total value and round up!Sand JetKeywords: Jet, Obvious.Rune/Effect: Yr/Earth [3] + Create (−2).Full Cost: 22 points.Casting Roll: Innate Attack (Beam).Range: 10 yards.Duration: Instantaneous.  You shoot a thin jet of sand particles from your fingertip, which can strike any target up to 10 yards away (without range or speed penalties). It can be dodged or blocked, but not parried.  If the spell strikes the face, it causes no injury, but blinds the target for 3 seconds unless he makes a HT roll. Thick goggles, closed helmets, ultra-tech visors protect against this spell.  Statistics: Affliction 1 (HT; Accessibility, Must hit unprotected face, −20%; Blockable, −5%; Disadvantage, Blindness, +50%; Fixed Duration, +0%; Increased 1/2D, 2×, +5%; Jet, +0%; Reduced Duration, 1/60, −35%; Runecasting, −30%; Vision-Based, +150%) [22].Seek Gate Keywords: Information. Rune/Effect: Ýr/Earth [3] + Sense (+1).Full Cost: 10 points (basic) or 12 (improved). Casting Roll: Per. Use IQ for analysis. Range: Unlimited. Duration: Instantaneous.   After casting, the GM rolls against the sorcerer’s Per, with a penalty based on the distance to the nearest gate of any sort. The basic (10-point) version of this spell takes standard range penalties. The improved (12-point) one uses long-distance modifiers. If successful, the caster knows the exact distance and direction to the gate and may make a follow-up IQ roll (at no penalty) to learn basic details about it (e.g., “it’s a one-way gate” or “it’s a two-way gate to Hell”).   Any known gates may be excluded if the caster mentions them before casting.   Statistics: Detect Gate (Precise, +100%; Selective Effect, +20%; Runecasting, −30%) [10].   The improved version adds Long-Range 1 (+50%) [+2].Seek Pass Keywords: Information. Rune/Effect: Yr/Earth [3] + Sense (+1).Full Cost: 12 points. Casting Roll: Per. Use IQ for analysis. Range: Unlimited. Duration: Instantaneous.   After casting, the GM rolls against the sorcerer’s Per, with a penalty based on the distance to the nearest pass through a mountain range. Use the long-distance modifiers. If successful, the caster knows the exact distance and direction to the pass and may make a follow-up IQ roll (at no penalty) to learn basic details about it.   Any known passes may be excluded if the caster mentions them before casting.   Statistics: Detect Pass (Long-Range 1, +50%; Precise, +100%; Selective Effect, +20%; Runecasting, −30%) [12].Shape Earth  Keywords: None. Rune/Effect: Yr/Earth [3] + Control (−2).Full Cost: 22 points/level. Casting Roll: IQ. Range: 100 yards. Duration: Indefinite.   You can shape and move earth, including brick, ceramic, and rock, but not purified metals. The higher your level of Shape Earth, the larger the quantity you can affect. You can affect up to 10 × (level squared) lbs. of earth in the form of a single object or amorphous mass.   Forming a simple shape (blob, column, sphere, etc.) requires a Concentrate maneuver but no die roll. If the result is meant to be beautiful or functional, though, the GM may deem the effort a long task and require skill rolls against Armoury, Artist, Machinist, and so on. You can work without tools, but you must know what you’re doing.   You can also cause the target to elongate or flow at a Move equal to your Shape Earth level. This requires constant concentration. You can make a solid stone object ooze, roll, or seep along the ground or a surface, and even reshape it in ways that defy gravity.   When you stop concentrating, you immediately give up control. Stable forms become permanent, while unstable ones collapse instantly.   Defensively, Shape Earth lets you move or shape earth to obstruct attacks. This requires a Concentrate maneuver. Such barriers give whatever cover the material normally provides. For instance, it might let you shape a stone slab into armor with the DR of stone by making an Armoury roll.   Offensively, Shape Earth is more limited. By concentrating, you can move an existing stone object to impede your enemy’s movement, like any object of that weight. In all cases, your foe can dodge.   If a foe is standing in an area where you control earth, – or if you can move earth onto him – you may inflict combat penalties on him. This requires flexibility on the GM’s part: Shape Earth 10 might cause a mini-earthquake good for −10 to attack rolls. Tricks like this require a Concentrate maneuver and an IQ or Tactics roll.   Statistics: Control Earth (Ranged, +40%; Runecasting, −30%) [22/level].* The Magic Touch: Remove ranged, such that the caster must touch the target to reshape it: (Remove Ranged, +40%.) [−8 points].Stone to Flesh SKeywords: Resisted (Will or spell). Rune/Effect: Yr/Earth [3] + Transform (−4).Full Cost: 20* points. Casting Roll: Will. Range: Unlimited. Duration: Instantaneous.   Attempts to reverse the effects of Flesh to Stone (or any similar petrification spell or ability) and bring the victim back to life (stunned). Cannot be used to animate a statue that was never alive.   Treat the resistance roll as for Dispel Magic.  Statistics: Neutralize Magic (Accessibility, Must target subject, not caster, −10%; Cosmic, Can dispel spells that are immune to Dispel Magic, +50%; Interruption, −50%; One Ability, Flesh to Stone, −80%; Precise, +20%; Ranged, +40%; Runecasting, −30%) [20]. * The Magic Touch: Remove ranged, requiring the caster to touch the subject: (Remove Ranged, +40%.) [−20 points] but cannot reduce cost below 10.Stone Missile  Keywords: Missile, Obvious.Rune/Effect: Yr/Earth [3] + Create (−2).Full Cost: 3 points per level.Casting Roll: Innate Attack (Projectile).Range: 5/50.Duration: Instantaneous.  You throw a ball of stone at a single target. Use Innate Attack (Projectile) to hit, applying normal range penalties. It does 1d crushing damage per level of this spell.  Statistics: Crushing Attack 1d (Crushing; Reduced Range, 2, −10%; Runecasting, −30%) [3].* Add Injury to Insult: The target takes full damage out to maximum range. (Increased 1/2D, 10×, +30%.) [+1.5] points*.* Long Arm of the Law: The range of this attack becomes 10/100 (or simply 100 if taken with “Add Injury to Insult” variation, above). (Remove Reduced Range, 2, -10%.) [+0.5] points*.* - Apply additional points due to variations and round up.Trace LabyrinthKeywords: None.Rune/Effect: Ýr/Earth [3] + Sense (+1).Full Cost: 3 points.Casting Roll: None.Range: Self.Duration: Indefinite.  As long as the spell is active, it will create a magical trace of the caster’s movement, which everyone can see as a faintly glowing line. After the spell lapses, the trace extends no further, but remains visible as long as the caster is underground, and vanishes immediately when he leaves.  Statistics: Absolute Direction (Accessibility, Only underground, −30%; Runecasting, −15%; Trace Stays, +15%; Visible, −10%) [3].Walk Through Earth (Self)Keywords: Buff.Rune/Effect: Yr/Earth [3] + Control (−1).Full Cost: 36 (basic) or 52 (improved) points.Casting Roll: None. Range: Self.Duration: Indefinite.  The basic version of this spell allows the caster to pass through dirt, clay, mud, and sand as if they were not even there. The caster does not automatically sink into the ground; the earth beneath their feet is as solid as desired. The caster will need to hold their breath (this spell does not provide air) and gains no special ability to see through earth. Up to Light encumbrance worth of equipment can be carried while doing this.  The improved spell allows walking through stone or metal in addition to earth.  Statistics: Permeation (Earth; Can Carry Objects, Light Encumbrance, +20%; Runecasting, −10%) [44].   “Improved Walk Through Earth” is Permeation (Earth; Can Carry Objects, Light Encumbrance, +20%; Extended, Metal and Stone, +40%; Magical, −10%) [60]. Walk Through Earth  Keywords: Buff.Rune/Effect: Yr/Earth [3] + Control (−1).Full Cost: 48* (basic) or 64* (improved) points.Casting Roll: None. Range: Touch.Duration: Three minutes.  This version of Walk Through Earth can be cast on others. It requires the caster to touch the subject (but see below).  This spell lasts 3 minutes and cannot be renewed without recasting.  Statistics: Affliction 1 (HT; Advantage, Walk Through Earth, +440%; Fixed Duration, +0%; Melee Attack, Reach C, −30%; Runecasting, −30%) [48]. * Better Late than Never: Increase duration to 9 minutes (3×): (Extended Duration, 3×, +20%.) [+2] points.* Spooky Action at a Distance: Use this spell on a subject up to 100 yards away using modifiers from the Size and Speed/Range table. Use Innate Attack (Gaze) to aim. (Remove Melee Attack, Reach C, −30%, and add Increased 1/2D, 10×, +15%.). [+5 points].        
+  

@@ -108,7 +108,7 @@ Casting Roll: None.
 Range: Self.
 Duration: 3 minutes.
   Exactly like Hawk Vision (above), except only on the caster.
-  Statistics: Telescopic Vision (Fixed Duration, +0%; Runecasting, −30%) [4]. 
+  Statistics: Telescopic Vision (Fixed Duration, +0%; Runecasting, −30%) [3.5]. 
 Hide
 Keywords: Buff.
 Rune/Effect: Sól/Light [3] + Control (−1).
@@ -140,7 +140,7 @@ Duration: One minute.
   You can summon light equivalent to full daylight; you may make this light manifest anywhere within 100 yards. The light is bright enough to eliminate all darkness penalties in a 10-yard radius. By concentrating, you can move this “zone of light” at up to (spell level) yards per second. Does not count as an ‘on’ spell.
   Statistics: Create Visible Light 1 (Accessibility, Limited to a 10-yard radius for one minute, −40%; Runecasting, −30%; Ranged, +40%; Reduced Fatigue Cost 1, +20%) [9]. 
   Additional levels add Mobile (+40%) [+3].
-Night Vision, Group
+Night Vision
 Keywords: Buff.
 Rune/Effect: Sól/Light [3] + Control (−1).
 Full Cost: 40 points for level 1; +1 per additional level.
@@ -154,7 +154,7 @@ Duration: 30 minutes.
 Night Vision, Self
 Keywords: Buff.
 Rune/Effect: Sól/Light [3] + Control (−1).
-Full Cost: 3 points for level 1; +1 per additional level.
+Full Cost: 3 pts for level 1; +1 per additional level.
 Casting Roll: None.
 Range: Self.
 Duration: Three minutes.
