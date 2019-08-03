@@ -498,4 +498,9 @@ void main() {
       });
     });
   }, skip: false);
+
+  test('Shade, Self', (){
+    var text = 'Immunity to Sunburn [1] + Robust Vision [1] + Temperature Tolerance 1 (Heat; Runecasting, −30%) [3].';
+    Trait t = Traits.parse(text);
+  });
 }

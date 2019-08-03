@@ -1,10 +1,26 @@
-class ValueNotFoundException implements Exception {
-  final String message;
-  final String value;
+class CustomException implements Exception {
+  final message;
 
-  const ValueNotFoundException([this.message = "", this.value]);
+  const CustomException([this.message = ""]);
+}
 
-  String toString() {
-    return 'ValueNotFoundException: $message: $value';
-  }
+class ValueNotFoundException extends CustomException {
+  final value;
+
+  const ValueNotFoundException([String message = "", this.value])
+      : super(message);
+}
+
+class TraitParseException extends CustomException {
+  final String actualText;
+
+  const TraitParseException([this.actualText]);
+
+  @override
+  String toString() => 'TraitParseException: Expected '
+      '"Name {Level} (parenthetical notes) [Point Cost]";'
+      ' got "$actualText"';
+
+  @override
+  get message => this.toString();
 }

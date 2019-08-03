@@ -38,22 +38,40 @@ Future main(List<String> args) async {
         double calculatedTotal = 0;
         double statedTotal = 0;
 
+        if (line.contains('Immunity to Sunburn')) {
+          print('!');
+        }
+
         // multiple abilities are separated by ' + ' - split them out
-        statistics.split(' + ').forEach((ability) {
-          var openParen = r'(';
-          var closeParen = r')';
+        statistics.split(' + ').forEach((String stat) {
+          const openParen = r'(';
+          const closeParen = r')';
+          const openBrace = r'[';
 
           double calculatedCost = 0;
           double statedCost = 0;
 
+          var ability = stat.trim();
+
           // Grab the characters from the start up to the first open parenthesis
-          var traitText =
-              ability.substring(0, ability.indexOf(openParen)).trim();
+          var indexOf = ability.indexOf(openParen);
+          if (indexOf == -1) {
+            indexOf = ability.indexOf(openBrace);
+          }
+          if (indexOf == -1) {
+            indexOf = ability.length;
+          }
+          var traitText = ability.substring(0, indexOf).trim();
 
           mayPrint(traitText);
 
-          var parentheticalText = ability.substring(
-              ability.indexOf(openParen) + 1, ability.lastIndexOf(closeParen));
+          var parentheticalText = '';
+          if (ability.contains(openParen)) {
+            parentheticalText = ability.substring(
+                ability.indexOf(openParen) + 1,
+                ability.lastIndexOf(closeParen));
+          }
+
           mayPrint(parentheticalText);
 
           // create the Trait from the traitText
@@ -64,25 +82,23 @@ Future main(List<String> args) async {
           int traitCost = trait.cost;
 
           // modifiers include everything between parentheses
-          var text = ability
-              .substring(ability.indexOf(openParen) + 1,
-                  ability.lastIndexOf(closeParen))
-              .trim();
 
           double modifierTotal = 0;
 
-          text.split(';').forEach((f) {
-            String mod = f.trim();
-            if (mod.contains(',')) {
-              var lastIndexOf = mod.lastIndexOf(',');
-              var name = mod.substring(0, lastIndexOf);
-              var x =
-                  mod.substring(lastIndexOf + 1).trim().replaceAll('−', '-');
-              int value = int.parse(x.replaceAll('%', ''));
-              mayPrint('    Modifier: ${name}, $value');
-              modifierTotal += value;
-            }
-          });
+          if (parentheticalText != null && parentheticalText.isNotEmpty) {
+            parentheticalText.split(';').forEach((f) {
+              String mod = f.trim();
+              if (mod.contains(',')) {
+                var lastIndexOf = mod.lastIndexOf(',');
+                var name = mod.substring(0, lastIndexOf);
+                var x =
+                    mod.substring(lastIndexOf + 1).trim().replaceAll('−', '-');
+                int value = int.parse(x.replaceAll('%', ''));
+                mayPrint('    Modifier: ${name}, $value');
+                modifierTotal += value;
+              }
+            });
+          }
 
           modifierTotal /= 100.0;
 
@@ -90,7 +106,7 @@ Future main(List<String> args) async {
 
           calculatedCost = traitCost + (traitCost * modifierTotal);
 
-          text = ability.substring(
+          var text = ability.substring(
               ability.indexOf(r'[') + 1, ability.indexOf(r']'));
           var endIndex = text.indexOf(r'/');
           if (endIndex == -1) endIndex = text.length;

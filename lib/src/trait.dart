@@ -395,7 +395,7 @@ class _CategorizedTemplate extends _Template {
 
   String _tryParseItemFromParentheticalText(String text) {
     RegExpMatch match = RegExp(r'^([A-Za-z0-9 ]+);').firstMatch(text);
-    if (match.groupCount > 0) {
+    if (match != null && match.groupCount > 0) {
       return match.group(1);
     }
     return null;
@@ -418,6 +418,7 @@ class Traits {
   }
 
   static List<_Template> _templates = [
+    _Template(reference: '360° Vision', cost: 25),
     _Template(reference: 'Absolute Direction', cost: 5),
     _Template(
       reference: 'Affliction',
@@ -492,6 +493,7 @@ class Traits {
             'Ferrous Metals',
             'Fire',
             'Rock',
+            'Soil',
             'Fossil Fuels',
             'Wood',
             'Gamma Rays',
@@ -553,6 +555,7 @@ class Traits {
           r'^Detect (?:(?<note>.+) )?(?<level>\d+)$',
           r'^Detect (?<note>.+)'
         ]),
+    _Template(reference: 'Immunity to Sunburn', cost: 1),
     _Template(
       reference: 'Innate Attack',
       type: _Type.innateAttack,
@@ -638,6 +641,7 @@ class Traits {
         reference: 'Protected Sense',
         cost: 5,
         alternateNames: [r'^Protected (.*)?$']),
+    _Template(reference: 'Robust Vision', cost: 1),
     _Template(reference: 'Static', cost: 30),
     _Template(
         reference: 'Telescopic Vision',
@@ -645,5 +649,10 @@ class Traits {
         type: _Type.leveled,
         alternateNames: [r'^Telescopic Vision (?<level>\d+)?$']),
     _Template(reference: 'Warp', cost: 100),
+    _Template(
+        reference: 'Temperature Tolerance',
+        cost: 1,
+        type: _Type.leveled,
+        alternateNames: [r'^Temperature Tolerance (?<level>\d+)?$']),
   ];
 }
