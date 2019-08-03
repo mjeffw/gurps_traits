@@ -34,7 +34,7 @@ Casting Roll: None.
 Range: Touch.
 Duration: 2d days. 
   When cast on a small object (up to fist-sized or 1 pound) or a small part of a larger object, makes that object glow with white light equivalent to a torch. The light lasts for 2d days (the GM rolls in secret). Does not count as an ‘on’ spell.
-  Statistics: Affliction (Advantage, Continual Light, +10%; Melee Attack, Reach C, −30%; Extended Duration, 1,000×, +120%; No Signature, +20%; Runecasting, −30%) [19]. 
+  Statistics: Affliction 1 (Advantage, Continual Light, +10%; Melee Attack, Reach C, −30%; Extended Duration, 1,000×, +120%; No Signature, +20%; Runecasting, −30%) [19]. 
   Notes: “Continual Light” is Illumination (Magical, −10%) [1].
 Dark Vision
 Keywords: Buff.
@@ -66,7 +66,7 @@ Range: Self.
 Duration: 10 seconds. 
   You may fill a two-yard radius area centered on yourself with darkness. A person inside the area can see out normally but can see nothing else within the area. Those outside the area can see only darkness within. Thus, attacks out of darkness suffer no penalty, but attacks into darkness are at a penalty. The Dark Vision advantage lets you see through a Darkness spell, but Night Vision does not.
   The basic (19-point) version of this spell covers a two-yard radius. For each additional 10 points, you may double this radius; e.g., four yards for 29 points, 8 yards for 39 points, or 16 yards for 49 points. The GM must determine the maximum level allowed; 128 yards is recommended. You may always choose to affect a lesser area.
-  Statistics: Obscure Vision 10 (Defensive, Limited, +20%; Runecasting, −30%; Variable, Area, +5%) [19]. 
+  Statistics: Obscure 10 (Vision; Defensive, Limited, +20%; Runecasting, −30%; Variable, Area, +5%) [19]. 
   Further levels add Area Effect (+50%) to the advantage [+10].
 Darkness, Improved
 Keywords: Area, Leveled.
@@ -76,7 +76,7 @@ Casting Roll: Innate Attack (Gaze) to aim.
 Range: 100 yards.
 Duration: 10 seconds. 
   Exactly like the Darkness spell, except that the Dark Vision advantage does not allow you see through an Improved Darkness spell! Runecasters who already have the Darkness spell can upgrade to this version by paying the difference.
-  Statistics: Obscure Vision 10 (Defensive, Limited, +20%; Extended, Dark Vision, +20%; Runecasting, −30%; Variable, Area, +5%) [33]. 
+  Statistics: Obscure 10 (Vision; Defensive, Limited, +20%; Extended, Dark Vision, +20%; Runecasting, −30%; Variable, Area, +5%) [33]. 
   Further levels add Area Effect (+50%) to the advantage [+10].
 Faerie Fire
 Keywords: Resisted (Will).
