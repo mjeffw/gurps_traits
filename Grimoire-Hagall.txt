@@ -1,118 +1,2 @@
-﻿Grimoire of Hagall (ᚼ)
-Meta-magic Spells
-  Variable spells (marked with a V) allow the player to either buy a bare-bones version of the spell for a relatively low point cost, or to modify the base version of the spell to make it more powerful and therefore cost more. Options are listed below the spell and marked with the ) symbol.
-  In addition, some spells have been rewritten to have a “Self” version, which only affects the caster, in addition to the normal version that can be cast on others.
-  Any spell variation, whether it is moving from a “Self” version to being castable on others, or adding variations or levels, can be bought by paying the difference between the version currently possessed and the one desired.
-  And as always, the runecaster is NOT limited to the spells in this Grimoire. Any spell that they can imagine that senses, controls, manipulates, creates, or destroys magic can be created with this system. Use the existing spells as guidelines. 
-  
-  
-Analyze Magic  
-Keywords: Information. 
-Rune/Effect: Hagall/Metamagic [3] + Sense (+2).
-Full Cost: 10 points. 
-Casting Roll: None. 
-Range: Touch. 
-Duration: Instantaneous. 
-  Identifies all spells cast on the subject; enchanted items do count. The caster must be able to see or touch the subject. If the sorcerer is familiar with the spells in question, this will reveal them. Otherwise, the GM will provide a clue, for example, “some kind of a protection spell”. 
-  Statistics: Detect (Magic; Analysis, +100%; Analysis Only, −50%; Runecasting, −30%; Touch-Based, −20%) [10]. 
-* Seeing is believing. Add the ability to analyze magic based on sight alone. This avoids having to touch a potentially dangerous artifact! (Change Touch-Based, −20% to Touch- or Vision-based, −15%.) [+1 point].
-Identify Spell 
-Keywords: Information. 
-Rune/Effect: Hagall/Metamagic [3] + Sense (+2).
-Full Cost: 2 points. 
-Casting Roll: IQ. 
-Range: Unlimited. 
-Duration: Instantaneous. 
-  Identifies the spells cast on the subject or by the subject within the last 5 seconds; enchanted items do not count. The GM will secretly roll against the caster’s IQ minus range penalties from the Size and Speed/Range table to the subject, which the caster must be able to see or touch. If the sorcerer is familiar with the spells in question, this will reveal them. Otherwise, the GM will use the margin of success to determine how much information to give the sorcerer. For example, “some kind of a protection spell”. 
-  Statistics: Detect (Magic; Analysis Only, −50%; Runecasting, −30%; Touch- or Vision-Based, −15%) [2]. 
-Counterspell   
-Keywords: Resisted (Will or spell). 
-Rune/Effect: Hagall/Metamagic [3] + Destroy (−1).
-Full Cost: 13 points. 
-Casting Roll: Will. 
-Range: Touch*. 
-Duration: Instantaneous. 
-  Attempts to dispel a single instance of magic. Counterspell must target the subject of the spell, which can be a person, object, or area. For areas, the caster must target the center of the area. The sorcerer must state which spell he is attempting to counter and be able to touch the target.
-  Treat the resistance roll as for Dispel Magic. This spell cannot end Truly Permanent effects, such as the magic of enchanted items. 
-  Statistics: Neutralize Magic (Accessibility, Must target subject, not caster, −10%; Accessibility, One spell at a time, −5%; Interruption, −50%; Precise, +20%; Runecasting, −30%) [13]. 
-* Spooky Action at a Distance: Use this spell on a distant target. Range is unlimited, but the Will roll is modified for range from the Size and Speed/Range table. (Ranged, +40%). [+20 points].
-Dispel Magic  
-Keywords: Area (Leveled), Resisted (Will). 
-Rune/Effect: Hagall/Metamagic [3] + Destroy (−1).
-Full Cost: 33 points. 
-Casting Roll: Will. 
-Range: Touch*.
-Duration: Instantaneous.  
-  Attempts to negate every instance of magic on the area. Dispel Magic does not care if the spell is beneficial or harmful; if the area includes a spell’s effect, Dispel Magic attempts to counter it. Casting Dispel Magic on another magician will remove any Buff spells and such that he’d previously cast upon himself but does not affect any of his more distant ongoing spells nor his spellcasting ability.  
-  Note how much the sorcerer’s Will roll (minus range penalties) succeeds by; every spell on the area resists separately with a Quick Contest. Use the Will + Talent. If the sorcerer wins, the spell dissipates; it may be recast normally.  
-  Dispel Magic has no effect on instantaneous spells (which don’t stick around) or on the secondary effects of lasting spells (e.g., if a mind-controlled bear has mauled people, their wounds don’t go away). Also, some spells explicitly state that they are unaffected by Dispel Magic; such spells require more powerful countermagic, usually Remove Curse (below). It also cannot end Truly Permanent effects, such as the magic of enchanted items.  
-  Statistics: Neutralize Magic (Accessibility, Must target subject, not caster, −10%; Area Effect, 2 yards, +50%; Interruption, −50%; Runecasting, −30%; Variable, Area, +5%) [33]. 
-* And Leon’s Getting Larger!: For every 25 points, double the area of effect. (Increase level of Area Effect, +50%/level.) [+25/level].
-* Spooky Action at a Distance: Use this spell on a distant target. Range is unlimited, but the Will roll is modified for range from the Size and Speed/Range table. (Ranged, +40%). [+20 points].
-Magic Resistance (Self)
-Keywords: Buff. 
-Rune/Effect: Hagall/Metamagic [3] + Destroy (−1).
-Full Cost: 4.8 per level.
-Casting Roll: None.
-Range: Self.
-Duration: 3 minutes. 
-  The caster is less likely to be affected by magic. Subtract your Magic Resistance level from the skill of anyone casting a spell on you. Add it to your roll to resist any spell that offers a resistance roll. For instance, if you have Magic Resistance 3, wizards have −3 to cast spells on you and you get +3 to resist. In addition, you may roll against HT + Magic Resistance to resist the effects of magical elixirs. 
-  Magic Resistance only interferes with spells cast directly on you. It provides no benefit against Missile spells (which are cast on the wizard’s hand and hurled at the subject), attacks by magic weapons, or information-gathering spells that aren’t cast directly on you. It also has no effect on supernatural powers other than magic; e.g., divine miracles, psionics, or the innate powers of spirits. 
-  Magic Resistance, and its precise level, can be recognized by any mage who looks at the target’s aura, or by anyone who casts a spell on the subject. 
-  Statistics: Magic Resistance 1 (Improved, +150%; Fixed Duration, +0%; No Signature, +20%; Runecasting, −30%) [4.8/level]. 
-  * - Determine total cost for the number of levels and then round up.
-Magic Resistance  
-Keywords: Buff.
-Rune/Effect: Hagall/Metamagic [3] + Destroy (−1).
-Full Cost: 15 points per level. 
-Casting Roll: Use Innate Attack (Gaze) to aim. 
-Range: Touch*. 
-Duration: 3 minutes. 
-  The same as Magic Resistance (Self) except that you can cast it on others. 
-  Statistics: Affliction 1 (HT; Advantage, Magic Resistance, +50%; Fixed Duration, +0%; Melee Attack, Reach C, −30%; No Signature, +20%; Runecasting, −30%) [11/level]. 
-* Spooky Action at a Distance: Use this spell on a distant target. Range is 100 yards, modified for range from the Size and Speed/Range table. (Remove Melee Attack, Reach C, −30% and add Increased 1/2D, 10x, +15%). [+4 points].
-Remove Curse  
-Keywords: Resisted (Will). 
-Rune/Effect: Hagall/Metamagic [3] + Destroy (−1).
-Full Cost: 38 points.
-Casting Roll: Will.
-Range: Touch. 
-Duration: Instantaneous. 
-  Attempts to dispel a single instance of magic. Remove Curse must target the subject of the spell, which can be a person, object, or area. For areas, calculate range to the center of the area. The sorcerer must state which spell he is attempting to counter. 
-  Treat the resistance roll as for Dispel Magic (above). Remove Curse differs from Dispel Magic primarily in that it cannot counter all magic in the area, just one spell, but it can remove powerful magic such as Lesser Geas, Flesh to Stone, and Suspend Time. It cannot end Truly Permanent effects, such as the magic of enchanted items. 
-  Statistics: Neutralize Magic (Accessibility, Must target subject, not caster, -10%; Accessibility, One spell at a time, -5%; Cosmic, Can dispel spells that are immune to Dispel Magic, +50%; Interruption, -50%; Precise, +20%; Runecasting, -30%) [38]. 
-* Spooky Action at a Distance: Use this spell on a distant target. Range is unlimited, but the Will roll is modified for range from the Size and Speed/Range table. (Ranged, +40%). [+20 points].
-Scryguard (Self)
-Keywords: Buff.
-Rune/Effect: Hagall/Metamagic [3] + Destroy (−1).
-Full Cost: 60 points.
-Casting Roll: None. 
-Range: None.
-Duration: Five hours. 
-  The caster is nearly impossible to detect, see, or divine with any Information spells, regardless of the magic system used to cast them. Scryguard reduces the diviner’s effective margin of success by 10 for these purposes – so a spell that succeeded by 0-9 completely fails to find the subject, while one that succeeded by 10+ provides less information than normal and is at a huge disadvantage if it’s resisted. 
-  A spell like Detect Magic will reveal the existence of the Scryguard spell, but that’s all – and the caster would have to first see the subject with his own eyes to cast it. 
-  Statistics: Obscure 10 (Information Spells; Defensive, +50%; Extended Duration, 100x, +80%; Runecasting, -30%; Stealthy, +100%) [60]. 
-Scryguard  
-Keywords: Buff.
-Rune/Effect: Hagall/Metamagic [3] + Destroy (−1).
-Full Cost: 67 points.
-Casting Roll: None 
-Range: Touch*.
-Duration: Five hours. 
-  This spell is the same as Scryguard (Self) except that it can be cast on others.
-  Statistics: Affliction 1 (HT; Advantage, Scryguard, +480%; Extended Duration, 100x, +80%; Fixed Duration, +0%; Melee Attack, Reach C, -30%; No Signature, +20%; Runecasting, -30%) [62]. 
-* Spooky Action at a Distance: Cast this spell on a distant target. Use Innate Attack (Gaze) to aim. Range is 100 yards, modified for range from the Size and Speed/Range table. (Remove Melee Attack, Reach C, -30% and add Increased 1/2D, 10x, +15%). [+5 points].
-  Note: “Scryguard” is Obscure 10 (Information Spells; Defensive, +50%; Magical, -10%; Stealthy, +100%) [48]. 
-Spell Shield  
-Keywords: Area (Leveled). 
-Rune/Effect: Hagall/Metamagic [3] + Destroy (−1).
-Full Cost: 50* points. 
-Casting Roll: Innate Attack (Gaze) to aim. 
-Range: None* (centered on caster). 
-Duration: 30 seconds. 
-  This spell creates a transparent blue dome that negates any spell cast through it. Spells can be cast within the dome, but no spell can cross the boundary. Spell Shield does not affect missile and jet spells. 
-  The basic (50-point) version of this spell covers a two-yard radius. For each additional 15 points, you may double this radius; e.g., four yards for 93 points, 8 yards for 108 points, or 16 yards for 123 points. The GM must determine the maximum level allowed; 128 yards is recommended. You may always choose to affect a lesser area. 
-  Statistics: Static (Magic; Accessibility, Not on missile and jet spells, −15%; Area Effect, 2 yards, +100%; Extended Duration, 3x, +20%; Only around the border of the area, +0%; Runecasting, −30%; Visible, −10%) [50]. 
-* Spooky Action at a Distance: Center this spell on a distant target. Use Innate Attack (Gaze) to aim. Range is 100 yards, modified for range from the Size and Speed/Range table. (Ranged, +40%). [+12 points].
-* And Leon’s Getting Larger!: For every 15 points, double the area of effect. (Increase level of Area Effect, +50%/level.) [+15/level].
-* Better Late than Never: Extend duration to 5 minutes. (Replace Extended Duration, 3×, 20% with Extended Duration, 30×, 60%.) [+12 points].  
+﻿Grimoire of Hagall (ᚼ)Meta-magic Spells  Variable spells (marked with a V) allow the player to either buy a bare-bones version of the spell for a relatively low point cost, or to modify the base version of the spell to make it more powerful and therefore cost more. Options are listed below the spell and marked with the ) symbol.  In addition, some spells have been rewritten to have a “Self” version, which only affects the runecaster, in addition to the normal version that can be cast on others in addition to the caster.  Any spell variation, whether it is moving from a “Self” version to being castable on others, or adding variations or levels, can be bought by paying the difference between the version currently possessed and the one desired.  And as always, the runecaster is NOT limited to the spells in this Grimoire. Any spell that they can imagine that senses, controls, manipulates, creates, or destroys magic can be created with this system. Use the existing spells as guidelines.   
+Analyze Magic  Keywords: Information. Rune/Effect: Hagall/Metamagic [3] + Sense (+2).Full Cost: 10 points. Casting Roll: None. Range: Touch. Duration: Instantaneous.   Identifies all spells cast on the subject; enchanted items do count. The caster must be able to see or touch the subject. If the sorcerer is familiar with the spells in question, this will reveal them. Otherwise, the GM will provide a clue, for example, “some kind of a protection spell”.   Statistics: Detect (Magic; Analysis, +100%; Analysis Only, −50%; Runecasting, −30%; Touch-Based, −20%) [10]. * Seeing is believing. Add the ability to analyze magic based on sight alone. This avoids having to touch a potentially dangerous artifact! (Change Touch-Based, −20% to Touch- or Vision-based, −15%.) [+1 point].Identify Spell Keywords: Information. Rune/Effect: Hagall/Metamagic [3] + Sense (+2).Full Cost: 2 points. Casting Roll: IQ. Range: Unlimited. Duration: Instantaneous.   Identifies the spells cast on the subject or by the subject within the last 5 seconds; enchanted items do not count. The GM will secretly roll against the caster’s IQ minus range penalties from the Size and Speed/Range table to the subject, which the caster must be able to see or touch. If the sorcerer is familiar with the spells in question, this will reveal them. Otherwise, the GM will use the margin of success to determine how much information to give the sorcerer. For example, “some kind of a protection spell”.   Statistics: Detect (Magic; Analysis Only, −50%; Runecasting, −30%; Touch- or Vision-Based, −15%) [2]. Counterspell   Keywords: Resisted (Will or spell). Rune/Effect: Hagall/Metamagic [3] + Destroy (−1).Full Cost: 13 points. Casting Roll: Will. Range: Touch*. Duration: Instantaneous.   Attempts to dispel a single instance of magic. Counterspell must target the subject of the spell, which can be a person, object, or area. For areas, the caster must target the center of the area. The sorcerer must state which spell he is attempting to counter and be able to touch the target.  Treat the resistance roll as for Dispel Magic. This spell cannot end Truly Permanent effects, such as the magic of enchanted items.   Statistics: Neutralize Magic (Accessibility, Must target subject, not caster, −10%; Accessibility, One spell at a time, −5%; Interruption, −50%; Precise, +20%; Runecasting, −30%) [13]. * Spooky Action at a Distance: Use this spell on a distant target. Range is unlimited, but the Will roll is modified for range from the Size and Speed/Range table. (Ranged, +40%). [+20 points].Dispel Magic  Keywords: Area (Leveled), Resisted (Will). Rune/Effect: Hagall/Metamagic [3] + Destroy (−1).Full Cost: 33 points. Casting Roll: Will. Range: Touch*.Duration: Instantaneous.    Attempts to negate every instance of magic on the area. Dispel Magic does not care if the spell is beneficial or harmful; if the area includes a spell’s effect, Dispel Magic attempts to counter it. Casting Dispel Magic on another magician will remove any Buff spells and such that he’d previously cast upon himself but does not affect any of his more distant ongoing spells nor his spellcasting ability.    Note how much the sorcerer’s Will roll (minus range penalties) succeeds by; every spell on the area resists separately with a Quick Contest. Use the Will + Talent. If the sorcerer wins, the spell dissipates; it may be recast normally.    Dispel Magic has no effect on instantaneous spells (which don’t stick around) or on the secondary effects of lasting spells (e.g., if a mind-controlled bear has mauled people, their wounds don’t go away). Also, some spells explicitly state that they are unaffected by Dispel Magic; such spells require more powerful countermagic, usually Remove Curse (below). It also cannot end Truly Permanent effects, such as the magic of enchanted items.    Statistics: Neutralize Magic (Accessibility, Must target subject, not caster, −10%; Area Effect, 2 yards, +50%; Interruption, −50%; Runecasting, −30%; Variable, Area, +5%) [33]. * And Leon’s Getting Larger!: For every 25 points, double the area of effect. (Increase level of Area Effect, +50%/level.) [+25/level].* Spooky Action at a Distance: Use this spell on a distant target. Range is unlimited, but the Will roll is modified for range from the Size and Speed/Range table. (Ranged, +40%). [+20 points].Magic Resistance, SelfKeywords: Buff. Rune/Effect: Hagall/Metamagic [3] + Destroy (−1).Full Cost: 4.8 per level.Casting Roll: None.Range: Self.Duration: 3 minutes.   The caster is less likely to be affected by magic. Subtract your Magic Resistance level from the skill of anyone casting a spell on you. Add it to your roll to resist any spell that offers a resistance roll. For instance, if you have Magic Resistance 3, wizards have −3 to cast spells on you and you get +3 to resist. In addition, you may roll against HT + Magic Resistance to resist the effects of magical elixirs.   Magic Resistance only interferes with spells cast directly on you. It provides no benefit against Missile spells (which are cast on the wizard’s hand and hurled at the subject), attacks by magic weapons, or information-gathering spells that aren’t cast directly on you. It also has no effect on supernatural powers other than magic; e.g., divine miracles, psionics, or the innate powers of spirits.   Magic Resistance, and its precise level, can be recognized by any mage who looks at the target’s aura, or by anyone who casts a spell on the subject.   Statistics: Magic Resistance 1 (Improved, +150%; Fixed Duration, +0%; No Signature, +20%; Runecasting, −30%) [4.8/level].   * - Determine total cost for the number of levels and then round up.Magic Resistance  Keywords: Buff.Rune/Effect: Hagall/Metamagic [3] + Destroy (−1).Full Cost: 15 points per level. Casting Roll: Use Innate Attack (Gaze) to aim. Range: Touch*. Duration: 3 minutes.   The same as Magic Resistance (Self) except that you can cast it on others.   Statistics: Affliction 1 (HT; Advantage, Magic Resistance, +50%; Fixed Duration, +0%; Melee Attack, Reach C, −30%; No Signature, +20%; Runecasting, −30%) [11/level]. * Spooky Action at a Distance: Use this spell on a distant target. Range is 100 yards, modified for range from the Size and Speed/Range table. (Remove Melee Attack, Reach C, −30% and add Increased 1/2D, 10×, +15%). [+4 points].Remove Curse  Keywords: Resisted (Will). Rune/Effect: Hagall/Metamagic [3] + Destroy (−1).Full Cost: 38 points.Casting Roll: Will.Range: Touch. Duration: Instantaneous.   Attempts to dispel a single instance of magic. Remove Curse must target the subject of the spell, which can be a person, object, or area. For areas, calculate range to the center of the area. The sorcerer must state which spell he is attempting to counter.   Treat the resistance roll as for Dispel Magic (above). Remove Curse differs from Dispel Magic primarily in that it cannot counter all magic in the area, just one spell, but it can remove powerful magic such as Lesser Geas, Flesh to Stone, and Suspend Time. It cannot end Truly Permanent effects, such as the magic of enchanted items.   Statistics: Neutralize Magic (Accessibility, Must target subject, not caster, -10%; Accessibility, One spell at a time, -5%; Cosmic, Can dispel spells that are immune to Dispel Magic, +50%; Interruption, -50%; Precise, +20%; Runecasting, -30%) [38]. * Spooky Action at a Distance: Use this spell on a distant target. Range is unlimited, but the Will roll is modified for range from the Size and Speed/Range table. (Ranged, +40%). [+20 points].Scryguard, SelfKeywords: Buff.Rune/Effect: Hagall/Metamagic [3] + Destroy (−1).Full Cost: 60 points.Casting Roll: None. Range: None.Duration: Five hours.   The caster is nearly impossible to detect, see, or divine with any Information spells, regardless of the magic system used to cast them. Scryguard reduces the diviner’s effective margin of success by 10 for these purposes – so a spell that succeeded by 0-9 completely fails to find the subject, while one that succeeded by 10+ provides less information than normal and is at a huge disadvantage if it’s resisted.   A spell like Detect Magic will reveal the existence of the Scryguard spell, but that’s all – and the caster would have to first see the subject with his own eyes to cast it.   Statistics: Obscure 10 (Information Spells; Defensive, +50%; Extended Duration, 100x, +80%; Runecasting, −30%; Stealthy, +100%) [60]. Scryguard  Keywords: Buff.Rune/Effect: Hagall/Metamagic [3] + Destroy (−1).Full Cost: 67 points.Casting Roll: None Range: Touch*.Duration: Five hours.   This spell is the same as Scryguard (Self) except that it can be cast on others.  Statistics: Affliction 1 (HT; Advantage, Scryguard, +480%; Extended Duration, 100x, +80%; Fixed Duration, +0%; Melee Attack, Reach C, −30%; No Signature, +20%; Runecasting, −30%) [62]. * Spooky Action at a Distance: Cast this spell on a distant target. Use Innate Attack (Gaze) to aim. Range is 100 yards, modified for range from the Size and Speed/Range table. (Remove Melee Attack, Reach C, −30% and add Increased 1/2D, 10×, +15%). [+5 points].  Note: “Scryguard” is Obscure 10 (Information Spells; Defensive, +50%; Magical, −10%; Stealthy, +100%) [48]. Spell Shield  Keywords: Area (Leveled). Rune/Effect: Hagall/Metamagic [3] + Destroy (−1).Full Cost: 50* points. Casting Roll: Innate Attack (Gaze) to aim. Range: None* (centered on caster). Duration: 30 seconds.   This spell creates a transparent blue dome that negates any spell cast through it. Spells can be cast within the dome, but no spell can cross the boundary. Spell Shield does not affect missile and jet spells.   The basic (50-point) version of this spell covers a two-yard radius. For each additional 15 points, you may double this radius; e.g., four yards for 93 points, 8 yards for 108 points, or 16 yards for 123 points. The GM must determine the maximum level allowed; 128 yards is recommended. You may always choose to affect a lesser area.   Statistics: Static (Magic; Accessibility, Not on missile and jet spells, −15%; Area Effect, 2 yards, +100%; Extended Duration, 3x, +20%; Only around the border of the area, +0%; Runecasting, −30%; Visible, −10%) [50]. * Spooky Action at a Distance: Center this spell on a distant target. Use Innate Attack (Gaze) to aim. Range is 100 yards, modified for range from the Size and Speed/Range table. (Ranged, +40%). [+12 points].* And Leon’s Getting Larger!: For every 15 points, double the area of effect. (Increase level of Area Effect, +50%/level.) [+15/level].* Better Late than Never: Extend duration to 5 minutes. (Replace Extended Duration, 3×, 20% with Extended Duration, 30×, 60%.) [+12 points].  
