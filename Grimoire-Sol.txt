@@ -136,7 +136,7 @@ Casting Roll: Use Innate Attack (Gaze) to hit.
 Range: 100 yards.
 Duration: 3 minutes.
   This spell makes the subject harder to find. A Vision roll is necessary to see a subject in plain sight; Vision rolls to detect a subject already hidden are at −1 per level of this spell. These effects only apply while the subject remains still, but if he moves and then stops moving before the spell expires, the effects resume.
-  Statistics: Affliction 1 (HT; Advantage, Hide, +30%; Fixed Duration, +0%; Increased 1/2D, 10x, +15%; No Signature, +20%; Sorcery, −30%) [14]. 
+  Statistics: Affliction 1 (HT; Advantage, Hide, +30%; Fixed Duration, +0%; Increased 1/2D, 10x, +15%; No Signature, +20%; Runecasting, −30%) [14]. 
   Note: Each level of “Hide” is Obscure 1 (Vision; Accessibility, Only while standing still, −40%; Defensive, +50%; Magical, −10%; No Area of Effect, −50%; Stealthy, +100%) [3]. 
   Notes: Additional levels add further levels of Hide (+30%) [+3].
 Hide Self

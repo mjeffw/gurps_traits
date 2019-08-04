@@ -391,7 +391,8 @@ void main() {
     group('Categorized trait', () {
       group('Set reference', () {
         test('Create', () {
-          expect(() => Traits.parse('Create'), throwsA(isA<Error>()));
+          var t = Traits.parse('Create');
+          expect(t.reference, 'Create');
         });
 
         test('Create Rock', () {
@@ -499,8 +500,9 @@ void main() {
     });
   }, skip: false);
 
-  test('Shade, Self', (){
-    var text = 'Immunity to Sunburn [1] + Robust Vision [1] + Temperature Tolerance 1 (Heat; Runecasting, −30%) [3].';
-    Trait t = Traits.parse(text);
+  test('Shade, Self', () {
+    var text =
+        'Immunity to Sunburn [1] + Robust Vision [1] + Temperature Tolerance 1 (Heat; Runecasting, −30%) [3].';
+    Traits.parse(text);
   });
 }
