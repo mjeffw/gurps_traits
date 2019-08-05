@@ -5,17 +5,6 @@ import 'package:sorcery_parser/src/util/exceptions.dart';
 // Some helper constants and declarations.
 
 ///
-/// A regular expression that matches die rolls, such as 1d, 3d-2, 4d+1, etc.
-///
-const String regexDieRoll = r'(\d+d(?:(?:\+|-)\d+)?)';
-
-///
-/// A regular expression that matches N point(s) -- that is, an integer
-/// followed by the words 'point' or 'points'.
-///
-const String regexPoints = r'(\d+) point(?:s)?';
-
-///
 /// Enumeration of the types of [Trait]s handled by this code. The string
 /// value of a [_Type] is used when externalizing the list of Traits.
 ///
@@ -279,18 +268,20 @@ class InnateAttack extends Trait {
     return null;
   }
 
-  static _tryParseDiceFromText(String traitText) {
-    var regExp = RegExp(r' ' + regexDieRoll);
-    if (regExp.hasMatch(traitText)) {
-      return DieRoll.fromString(regExp.firstMatch(traitText).group(1),
+  static _tryParseDiceFromText(String diceText) {
+    var regExp = RegExp(DICE_PATTERN);
+    if (diceText != null && regExp.hasMatch(diceText)) {
+      return DieRoll.fromString(regExp.firstMatch(diceText).group(1),
           normalize: false);
     }
-    regExp = RegExp(r' ' + regexPoints);
-    if (regExp.hasMatch(traitText)) {
-      var tryParse = int.tryParse(regExp.firstMatch(traitText).group(1));
+
+    regExp = RegExp(r'(\d+)');
+    if (diceText != null && regExp.hasMatch(diceText)) {
+      var tryParse = int.tryParse(regExp.firstMatch(diceText).group(1));
       return DieRoll(adds: tryParse, normalize: false);
     }
-    return DieRoll(dice: 1, adds: 0, normalize: false);
+
+    return DieRoll(dice: 1);
   }
 }
 
@@ -335,9 +326,9 @@ class _Template {
   /// Create the appropriate [Trait] based on the the text.
   ///
   Trait parse(TraitComponents components) {
-    String specialization = components.specialization;
+    String specialization = components.specialties;
     if (isSpecialized) {
-      if (components.specialization == null) {
+      if (components.specialties == null) {
         // see if there are any alternate name formats with specialization
         String pattern = _findMatchingAlternateName(components.name);
         if (pattern != null) {
@@ -358,7 +349,7 @@ class _Template {
       return InnateAttack(
           template: this,
           type: InnateAttack._tryParseTypeFromText(components.name),
-          dice: InnateAttack._tryParseDiceFromText(components.name));
+          dice: InnateAttack._tryParseDiceFromText(components.damage));
     }
     return Trait(
         template: this,
@@ -404,18 +395,20 @@ class _CategorizedTemplate extends _Template {
     String pattern = _findMatchingAlternateName(components.name);
 
     String category;
-    if (components.specialization == null) {
+    if (components.specialties == null) {
       if (pattern != null) {
         category =
             LeveledTrait._tryParseNotesFromText(pattern, components.name);
       }
     } else {
-      category = components.specialization;
+      category = components.specialties;
     }
 
     if (type == _Type.categorizedLeveled) {
       return CategorizedLeveledTrait(
-          template: this, level: components.level, item: category);
+          template: this,
+          level: components.level == null ? 1 : components.level,
+          item: category);
     }
 
     // ...else default to CategorizedTrait

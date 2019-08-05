@@ -325,7 +325,7 @@ void main() {
         expect(t.dice, DieRoll(dice: 1, normalize: false));
         expect(t.description, 'Crushing Attack 1d');
         expect(t.cost, 5);
-      }, skip: true);
+      });
 
       test('Crushing Attack 1d', () {
         InnateAttack t =
@@ -333,92 +333,91 @@ void main() {
         expect(t.dice, DieRoll(dice: 1, normalize: false));
         expect(t.description, 'Crushing Attack 1d');
         expect(t.cost, 5);
-      }, skip: true);
+      });
 
       test('2d', () {
         InnateAttack t =
             Traits.build(Parser().parse('Crushing Attack 2d')) as InnateAttack;
         expect(t.dice, DieRoll.fromString('2d'));
-      }, skip: true);
+      });
 
       test('3d-1', () {
         InnateAttack t = Traits.build(Parser().parse('Crushing Attack 3d-1'))
             as InnateAttack;
         expect(t.dice, DieRoll.fromString('3d-1'));
-      }, skip: true);
+      });
 
       test('3d-2 unnormalized', () {
         InnateAttack t = Traits.build(Parser().parse('Crushing Attack 3d-2'))
             as InnateAttack;
         expect(t.dice, DieRoll.fromString('3d-2', normalize: false));
-      }, skip: true);
+      });
 
       test('4d+1', () {
         InnateAttack t = Traits.build(Parser().parse('Crushing Attack 4d+1'))
             as InnateAttack;
         expect(t.dice, DieRoll.fromString('4d+1'));
-      }, skip: true);
+      });
 
       test('4d+2', () {
         InnateAttack t = Traits.build(Parser().parse('Crushing Attack 4d+2'))
             as InnateAttack;
         expect(t.dice, DieRoll.fromString('4d+2'));
-      }, skip: true);
-    });
+      });
+    }, skip: false);
 
     group('Partial dice', () {
       test('3d-4', () {
         InnateAttack t =
             Traits.build(Parser().parse('Fatigue Attack 3d-4')) as InnateAttack;
         expect(t.cost, 18);
-      }, skip: true);
+      });
 
       test('3d-3', () {
         InnateAttack t =
             Traits.build(Parser().parse('Fatigue Attack 3d-3')) as InnateAttack;
         expect(t.cost, 21);
-      }, skip: true);
+      });
 
       test('3d-2', () {
         InnateAttack t =
             Traits.build(Parser().parse('Fatigue Attack 3d-2')) as InnateAttack;
         expect(t.cost, 24);
-      }, skip: true);
+      });
 
       test('3d-1', () {
         InnateAttack t =
             Traits.build(Parser().parse('Fatigue Attack 3d-1')) as InnateAttack;
         expect(t.cost, 27);
-      }, skip: true);
+      });
 
       test('3d+1', () {
         InnateAttack t =
             Traits.build(Parser().parse('Fatigue Attack 3d+1')) as InnateAttack;
         expect(t.cost, 33);
-      }, skip: true);
+      });
 
       test('3d+2', () {
         InnateAttack t =
             Traits.build(Parser().parse('Fatigue Attack 3d+2')) as InnateAttack;
         expect(t.cost, 36);
-      }, skip: true);
+      });
 
       test('3d+3', () {
         InnateAttack t =
             Traits.build(Parser().parse('Fatigue Attack 3d+3')) as InnateAttack;
         expect(t.cost, 39);
-      }, skip: true);
+      });
 
       test('3d+4', () {
         InnateAttack t =
             Traits.build(Parser().parse('Fatigue Attack 3d+4')) as InnateAttack;
         expect(t.cost, 42);
-      }, skip: true);
+      });
 
       test('1 point', () {
-        InnateAttack t =
-            Traits.build(Parser().parse('Huge Piercing Attack 1 point'))
-                as InnateAttack;
+        var parse = Parser().parse('Huge Piercing Attack 1 point');
+        InnateAttack t = Traits.build(parse) as InnateAttack;
         expect(t.cost, 2);
         expect(t.dice, DieRoll(adds: 1));
       });
@@ -447,7 +446,7 @@ void main() {
         expect(t.dice, DieRoll(adds: 4, normalize: false));
       });
     });
-  }, skip: true);
+  }, skip: false);
 
   group('Variable', () {
     group('Categorized trait', () {
@@ -498,8 +497,8 @@ void main() {
 
       group('Parenthetical notes', () {
         test('Create Rock 1', () {
-          LeveledTrait t =
-              Traits.build(Parser().parse('Create Rock 1')) as LeveledTrait;
+          var parse = Parser().parse('Create Rock 1');
+          LeveledTrait t = Traits.build(parse) as LeveledTrait;
           expect(t.specialization, 'Rock');
         });
 
@@ -520,7 +519,7 @@ void main() {
               Traits.build(Parser().parse('Create Acid 1')) as LeveledTrait;
           expect(t.specialization, 'Acid');
         });
-      }, skip: true);
+      }, skip: false);
 
       group('Description', () {
         test('Create Rock 1', () {
@@ -534,7 +533,7 @@ void main() {
               Traits.build(Parser().parse('Create Iron 2')) as LeveledTrait;
           expect(t.description, 'Create 2');
         });
-      }, skip: true);
+      }, skip: false);
 
       group('Cost per level', () {
         test('Solid', () {
@@ -566,7 +565,7 @@ void main() {
               Traits.build(Parser().parse('Create Missing 1')) as LeveledTrait;
           expect(() => t.cost, throwsA(isA<ValueNotFoundException>()));
         });
-      }, skip: true);
+      }, skip: false);
 
       test('Parenthetical text', () {
         var text = 'Permeation';
@@ -577,11 +576,11 @@ void main() {
         expect(t.cost, 40);
       });
     });
-  }, skip: true);
+  }, skip: false);
 
   test('Shade, Self', () {
     var text =
         'Immunity to Sunburn [1] + Robust Vision [1] + Temperature Tolerance 1 (Heat; Runecasting, −30%) [3].';
     Traits.build(Parser().parse(text));
-  }, skip: true);
+  }, skip: false);
 }

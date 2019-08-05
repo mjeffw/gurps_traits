@@ -9,7 +9,7 @@ void main() {
       try {
         Parser().parse(text);
       } catch (e) {
-        expect(e, isA<TraitParseException>());
+        expect(e, isA<TraitFormatException>());
         expect(e.message,
             'TraitParseException: Expected "Name {Level} (parenthetical notes) [Point Cost]"; got "360° Vision"');
       }
@@ -108,7 +108,7 @@ void main() {
             'Sorcery, −30%'
           ]));
 
-      expect(digest.specialization, 'HT');
+      expect(digest.specialties, 'HT');
     });
   });
 }
