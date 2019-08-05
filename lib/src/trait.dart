@@ -1,3 +1,4 @@
+import 'package:sorcery_parser/src/parser.dart';
 import 'package:sorcery_parser/src/util/die_roll.dart';
 import 'package:sorcery_parser/src/util/exceptions.dart';
 
@@ -58,6 +59,8 @@ class Trait {
   ///
   _Template template;
 
+  String _description;
+
   ///
   /// Return the canonical reference name of the [Trait].
   ///
@@ -72,14 +75,15 @@ class Trait {
   ///
   /// Return the description of the [Trait] as used in a statistics block.
   ///
-  String description;
+  get description => _description ?? reference;
 
   ///
   /// Any parenthetical notes for this [Trait].
   ///
   String specialization;
 
-  Trait({this.template, this.description, this.specialization});
+  Trait({this.template, String description, this.specialization})
+      : this._description = description;
 }
 
 ///
@@ -110,10 +114,10 @@ class LeveledTrait extends Trait {
   ///
   get level => _level;
 
-  LeveledTrait({_Template template, int level, String parentheticalNotes})
+  LeveledTrait({_Template template, int level, String specialization})
       : assert(level != null && level > 0),
         _level = level,
-        super(template: template, specialization: parentheticalNotes);
+        super(template: template, specialization: specialization);
 
   static int _tryParseLevelFromText(String pattern, String text) {
     if (pattern == null) return 1;
@@ -179,7 +183,7 @@ class CategorizedLeveledTrait extends LeveledTrait {
       level;
 
   CategorizedLeveledTrait({_Template template, int level, String item})
-      : super(template: template, level: level, parentheticalNotes: item);
+      : super(template: template, level: level, specialization: item);
 }
 
 ///
@@ -316,26 +320,50 @@ class _Template {
   ///
   final _Type type;
 
-  _Template({this.reference, this.cost, this.alternateNames, this.type});
+  final isSpecialized;
+
+  _Template(
+      {this.reference,
+      this.cost,
+      this.alternateNames,
+      _Type type = _Type.simple,
+      bool isSpecialized = false})
+      : type = type,
+        isSpecialized = isSpecialized;
 
   ///
   /// Create the appropriate [Trait] based on the the text.
   ///
-  Trait parse(String traitText, String parentheticalText) {
+  Trait parse(TraitComponents components) {
+    String specialization = components.specialization;
+    if (isSpecialized) {
+      if (components.specialization == null) {
+        // see if there are any alternate name formats with specialization
+        String pattern = _findMatchingAlternateName(components.name);
+        if (pattern != null) {
+          RegExp r = RegExp(pattern);
+          RegExpMatch match = r.firstMatch(components.name);
+          if (match.groupNames.contains('spec')) {
+            specialization = match.namedGroup('spec');
+          }
+        }
+      }
+    }
     if (type == _Type.leveled) {
-      String pattern = _findMatchingAlternateName(traitText);
       return LeveledTrait(
           template: this,
-          level: LeveledTrait._tryParseLevelFromText(pattern, traitText),
-          parentheticalNotes:
-              LeveledTrait._tryParseNotesFromText(pattern, traitText));
+          level: components.level ?? 1,
+          specialization: specialization);
     } else if (type == _Type.innateAttack) {
       return InnateAttack(
           template: this,
-          type: InnateAttack._tryParseTypeFromText(traitText),
-          dice: InnateAttack._tryParseDiceFromText(traitText));
+          type: InnateAttack._tryParseTypeFromText(components.name),
+          dice: InnateAttack._tryParseDiceFromText(components.name));
     }
-    return Trait(template: this, description: traitText);
+    return Trait(
+        template: this,
+        description: components.name,
+        specialization: specialization);
   }
 
   ///
@@ -372,25 +400,26 @@ class _CategorizedTemplate extends _Template {
       : super(reference: reference, alternateNames: alternateNames, type: type);
 
   @override
-  Trait parse(String traitText, String parentheticalText) {
-    String pattern = _findMatchingAlternateName(traitText);
-    String specialization;
-    if (pattern != null) {
-      specialization = LeveledTrait._tryParseNotesFromText(pattern, traitText);
-    }
-    if (specialization == null) {
-      specialization = _tryParseItemFromParentheticalText(parentheticalText);
+  Trait parse(TraitComponents components) {
+    String pattern = _findMatchingAlternateName(components.name);
+
+    String category;
+    if (components.specialization == null) {
+      if (pattern != null) {
+        category =
+            LeveledTrait._tryParseNotesFromText(pattern, components.name);
+      }
+    } else {
+      category = components.specialization;
     }
 
     if (type == _Type.categorizedLeveled) {
       return CategorizedLeveledTrait(
-          template: this,
-          level: LeveledTrait._tryParseLevelFromText(pattern, traitText),
-          item: specialization);
+          template: this, level: components.level, item: category);
     }
 
     // ...else default to CategorizedTrait
-    return CategorizedTrait(template: this, item: specialization);
+    return CategorizedTrait(template: this, item: category);
   }
 
   String _tryParseItemFromParentheticalText(String text) {
@@ -410,22 +439,25 @@ class Traits {
   /// Given the trait statistics text before the parenthetical notes, create an
   /// appropriate [Trait].
   ///
-  static Trait parse(String traitText, [String parentheticalText = '']) {
-    _Template template = _templates.firstWhere((it) => it._isMatch(traitText),
-        orElse: () => null);
+  // static Trait parse(String traitText, [String parentheticalText = '']) {
+  //   _Template template = _templates.firstWhere((it) => it._isMatch(traitText),
+  //       orElse: () => null);
 
-    return template?.parse(traitText, parentheticalText);
+  //   return template?.parse(traitText, parentheticalText);
+  // }
+
+  static Trait build(TraitComponents components) {
+    _Template template = _templates
+        .firstWhere((it) => it._isMatch(components.name), orElse: () => null);
+
+    return template?.parse(components);
   }
 
   static List<_Template> _templates = [
     _Template(reference: '360° Vision', cost: 25),
     _Template(reference: 'Absolute Direction', cost: 5),
-    _Template(
-      reference: 'Affliction',
-      cost: 10,
-      type: _Type.leveled,
-      alternateNames: [r'^Affliction (?<level>\d+)$'],
-    ),
+    _Template(reference: 'Affliction', cost: 10, type: _Type.leveled),
+    _Template(reference: 'Charisma', cost: 5, type: _Type.leveled),
     _CategorizedTemplate(
         reference: 'Control',
         type: _Type.categorizedLeveled,
@@ -460,8 +492,7 @@ class Traits {
           ]),
         ],
         alternateNames: [
-          r'^Control (?:(?<note>.+) )?(?<level>\d+)$',
-          r'^Control (?<note>.+)'
+          r'^Control (?<note>.+)$'
         ]),
     _CategorizedTemplate(
         reference: 'Create',
@@ -510,7 +541,6 @@ class Traits {
           ]),
         ],
         alternateNames: [
-          r'^Create (?:(?<note>.+) )?(?<level>\d+)$',
           r'^Create (?<note>.+)'
         ]),
     _Template(reference: 'Dark Vision', cost: 25),
@@ -526,6 +556,7 @@ class Traits {
           ]),
           _CategoryLevel(name: 'Common', cost: 20, items: [
             'Humans',
+            'Minds',
             'Supernatural Phenomena',
             'Supernatural Beings',
             'Metals',
@@ -552,7 +583,6 @@ class Traits {
           ]),
         ],
         alternateNames: [
-          r'^Detect (?:(?<note>.+) )?(?<level>\d+)$',
           r'^Detect (?<note>.+)'
         ]),
     _Template(reference: 'Immunity to Sunburn', cost: 1),
@@ -575,37 +605,22 @@ class Traits {
     ),
     _Template(reference: 'Insubstantiality', cost: 80),
     _Template(reference: 'Jumper', cost: 100),
-    _Template(reference: 'Magic Resistance', cost: 2, alternateNames: [
-      r'^Magic Resistance (?<level>\d+)$',
-    ]),
-    _Template(reference: 'Neutralize', cost: 50, alternateNames: [
-      r'^Neutralize (?:(?<note>.+) )?(?<level>\d+)$',
-      r'^Neutralize (?<note>.+)$'
-    ]),
+    _Template(reference: 'Magic Resistance', cost: 2, type: _Type.leveled),
+    _Template(reference: 'Mind Control', cost: 50),
     _Template(
-        reference: 'Night Vision',
-        cost: 1,
-        type: _Type.leveled,
-        alternateNames: [r'^Night Vision (?<level>\d+)$']),
+        reference: 'Neutralize',
+        cost: 50,
+        alternateNames: [r'^Neutralize (?<note>.+)$']),
+    _Template(reference: 'Night Vision', cost: 1, type: _Type.leveled),
     _Template(
       reference: 'Obscure',
       cost: 2,
       type: _Type.leveled,
-      alternateNames: [
-        r'^Obscure (?:(?<note>.+) )?(?<level>\d+)$',
-        r'^Obscure (?<note>.+)$'
-      ],
+      isSpecialized: true,
+      alternateNames: [r'^Obscure (?<spec>.+)$'],
     ),
-    _Template(
-        reference: 'Payload',
-        cost: 1,
-        type: _Type.leveled,
-        alternateNames: [r'^Payload (?<level>\d+)?$']),
-    _Template(
-        reference: 'Penetrating Vision',
-        cost: 10,
-        type: _Type.leveled,
-        alternateNames: [r'^Penetrating Vision (?<level>\d+)?$']),
+    _Template(reference: 'Payload', cost: 1, type: _Type.leveled),
+    _Template(reference: 'Penetrating Vision', cost: 10, type: _Type.leveled),
     _CategorizedTemplate(
         reference: 'Permeation',
         type: _Type.categorized,
@@ -643,16 +658,8 @@ class Traits {
         alternateNames: [r'^Protected (.*)?$']),
     _Template(reference: 'Robust Vision', cost: 1),
     _Template(reference: 'Static', cost: 30),
-    _Template(
-        reference: 'Telescopic Vision',
-        cost: 5,
-        type: _Type.leveled,
-        alternateNames: [r'^Telescopic Vision (?<level>\d+)?$']),
+    _Template(reference: 'Telescopic Vision', cost: 5, type: _Type.leveled),
     _Template(reference: 'Warp', cost: 100),
-    _Template(
-        reference: 'Temperature Tolerance',
-        cost: 1,
-        type: _Type.leveled,
-        alternateNames: [r'^Temperature Tolerance (?<level>\d+)?$']),
+    _Template(reference: 'Temperature Tolerance', cost: 1, type: _Type.leveled),
   ];
 }

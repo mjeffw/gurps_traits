@@ -1,9 +1,15 @@
 import 'dart:io';
 
+import 'package:sorcery_parser/src/parser.dart';
 import 'package:sorcery_parser/src/trait.dart';
 
 Future main(List<String> args) async {
-  var files = ['Grimoire-Hagall.txt', 'Grimoire-Sol.txt', 'Grimoire-Yr.txt'];
+  var files = [
+    'Grimoire Tyr.txt',
+    'Grimoire-Hagall.txt',
+    'Grimoire-Sol.txt',
+    'Grimoire-Yr.txt'
+  ];
 
   List<String> contents = files
       .map((file) => File(file).readAsLinesSync())
@@ -44,85 +50,44 @@ Future main(List<String> args) async {
 
         // multiple abilities are separated by ' + ' - split them out
         statistics.split(' + ').forEach((String stat) {
-          const openParen = r'(';
-          const closeParen = r')';
-          const openBrace = r'[';
-
-          double calculatedCost = 0;
-          double statedCost = 0;
-
           var ability = stat.trim();
 
-          // Grab the characters from the start up to the first open parenthesis
-          var indexOf = ability.indexOf(openParen);
-          if (indexOf == -1) {
-            indexOf = ability.indexOf(openBrace);
-          }
-          if (indexOf == -1) {
-            indexOf = ability.length;
-          }
-          var traitText = ability.substring(0, indexOf).trim();
+          TraitComponents components = Parser().parse(ability);
 
-          mayPrint(traitText);
+          mayPrint(components.name);
+          mayPrint(components.parentheticalNotes);
 
-          var parentheticalText = '';
-          if (ability.contains(openParen)) {
-            parentheticalText = ability.substring(
-                ability.indexOf(openParen) + 1,
-                ability.lastIndexOf(closeParen));
+          if (components.name == 'Charisma') {
+            print('!');
           }
-
-          mayPrint(parentheticalText);
 
           // create the Trait from the traitText
-          Trait trait = Traits.parse(traitText, parentheticalText);
+          Trait trait = Traits.build(components);
 
           mayPrint('  Trait: ${trait.reference}');
 
-          int traitCost = trait.cost;
+          List<int> values = components.modifiers
+              .map((it) => ModifierComponents.parse(it))
+              .map((it) => it.value)
+              .toList();
 
-          // modifiers include everything between parentheses
-
-          double modifierTotal = 0;
-
-          if (parentheticalText != null && parentheticalText.isNotEmpty) {
-            parentheticalText.split(';').forEach((f) {
-              String mod = f.trim();
-              if (mod.contains(',')) {
-                var lastIndexOf = mod.lastIndexOf(',');
-                var name = mod.substring(0, lastIndexOf);
-                var x =
-                    mod.substring(lastIndexOf + 1).trim().replaceAll('−', '-');
-                int value = int.parse(x.replaceAll('%', ''));
-                mayPrint('    Modifier: ${name}, $value');
-                modifierTotal += value;
-              }
-            });
-          }
-
-          modifierTotal /= 100.0;
+          double modifierTotal = values.isEmpty
+              ? 0.0
+              : values.reduce((a, b) => a + b).toDouble() / 100.0;
 
           if (modifierTotal < -0.80) modifierTotal = -0.8;
 
-          calculatedCost = traitCost + (traitCost * modifierTotal);
-
-          var text = ability.substring(
-              ability.indexOf(r'[') + 1, ability.indexOf(r']'));
-          var endIndex = text.indexOf(r'/');
-          if (endIndex == -1) endIndex = text.length;
-          statedCost = double.parse(text.substring(0, endIndex).trim());
-
-          calculatedTotal += calculatedCost;
-          statedTotal += statedCost;
+          calculatedTotal += trait.cost + (trait.cost * modifierTotal);
+          statedTotal += components.cost;
         });
 
         mayPrint('  '
-            '${statedTotal.ceil()} (${statedTotal}) : '
-            '${calculatedTotal.ceil()} (${calculatedTotal})');
+            'Stated Cost: ${statedTotal.ceil()} (${statedTotal}) \n  '
+            'Calculated : ${calculatedTotal.ceil()} (${calculatedTotal})');
 
-        if (calculatedTotal.ceil() != statedTotal.ceil()) {
-          output.forEach((line) => print(line));
-        }
+        // if (calculatedTotal.ceil() != statedTotal.ceil()) {
+        output.forEach((line) => print(line));
+        // }
         output.clear();
       }
     }
