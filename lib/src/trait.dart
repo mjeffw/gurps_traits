@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:sorcery_parser/src/parser.dart';
 import 'package:sorcery_parser/src/util/die_roll.dart';
 import 'package:sorcery_parser/src/util/exceptions.dart';
@@ -6,11 +8,39 @@ import 'package:sorcery_parser/src/util/exceptions.dart';
 
 ///
 /// Enumeration of the types of [Trait]s handled by this code. The string
-/// value of a [_Type] is used when externalizing the list of Traits.
+/// value of a [TemplateType] is used when externalizing the list of Traits.
 ///
-enum _Type { simple, leveled, innateAttack, categorizedLeveled, categorized }
+enum TemplateType {
+  simple,
+  leveled,
+  innateAttack,
+  categorizedLeveled,
+  categorized
+}
 
 // Helper functions.
+
+///
+/// Regrettable that we have to do this because this project is pure Dart.
+/// Flutter has a collection utility package with this method.
+///
+bool _listEquals(List<dynamic> one, List<dynamic> other) {
+  if (identical(one, other)) return true;
+  if (one.runtimeType != other.runtimeType || one.length != other.length) {
+    return false;
+  }
+  for (var i = 0; i < one.length; i++) {
+    if (one[i] != other[i]) return false;
+  }
+  return true;
+}
+
+TemplateType convertToTemplateTypeEnum(String c) => (c == null)
+    ? TemplateType.simple
+    : TemplateType.values.firstWhere((e) => _unqualifiedStringValue(e) == c);
+
+String _unqualifiedStringValue(TemplateType type) =>
+    type.toString().split(r'.')[1];
 
 ///
 /// Converts a string into Title Case.
@@ -44,9 +74,9 @@ String capitalizeWord(String word) =>
 class Trait {
   ///
   /// Some of the behavior or state of a [Trait] is based on the corresponding
-  /// [_Template].
+  /// [TraitTemplate].
   ///
-  _Template template;
+  TraitTemplate template;
 
   String _description;
 
@@ -103,7 +133,7 @@ class LeveledTrait extends Trait {
   ///
   get level => _level;
 
-  LeveledTrait({_Template template, int level, String specialization})
+  LeveledTrait({TraitTemplate template, int level, String specialization})
       : assert(level != null && level > 0),
         _level = level,
         super(template: template, specialization: specialization);
@@ -131,16 +161,16 @@ class LeveledTrait extends Trait {
 
 class CategorizedTrait extends Trait {
   @override
-  _CategorizedTemplate get template => super.template as _CategorizedTemplate;
+  CategorizedTemplate get template => super.template as CategorizedTemplate;
 
   @override
-  get cost => template.categoryLevels
+  get cost => template.categories
       .firstWhere((it) => it.items.contains(specialization),
           orElse: () => throw ValueNotFoundException(
               'Element not found in category', specialization))
       .cost;
 
-  CategorizedTrait({_Template template, String item})
+  CategorizedTrait({TraitTemplate template, String item})
       : super(template: template, specialization: item);
 }
 
@@ -160,18 +190,18 @@ class CategorizedTrait extends Trait {
 ///
 class CategorizedLeveledTrait extends LeveledTrait {
   @override
-  _CategorizedTemplate get template => super.template as _CategorizedTemplate;
+  CategorizedTemplate get template => super.template as CategorizedTemplate;
 
   @override
   get cost =>
-      template.categoryLevels
+      template.categories
           .firstWhere((it) => it.items.contains(specialization),
               orElse: () => throw ValueNotFoundException(
                   'Element not found in category levels', specialization))
           .cost *
       level;
 
-  CategorizedLeveledTrait({_Template template, int level, String item})
+  CategorizedLeveledTrait({TraitTemplate template, int level, String item})
       : super(template: template, level: level, specialization: item);
 }
 
@@ -238,7 +268,7 @@ class InnateAttack extends Trait {
   ///
   InnateAttackType type;
 
-  InnateAttack({_Template template, this.dice, this.type})
+  InnateAttack({TraitTemplate template, this.dice, this.type})
       : super(template: template);
 
   ///
@@ -289,9 +319,9 @@ class InnateAttack extends Trait {
 /// Each instance of a [Trait] of a particular type has a single template,
 /// which defines its cost and its reference name.
 ///
-class _Template {
+class TraitTemplate {
   ///
-  /// A [_Template] has a reference name -- the name by which it are listed
+  /// A [TraitTemplate] has a reference name -- the name by which it are listed
   /// in the Basic Character book's Trait list (p.B297).
   ///
   final String reference;
@@ -309,18 +339,19 @@ class _Template {
   ///
   /// The type of Trait represented by this template.
   ///
-  final _Type type;
+  final TemplateType type;
 
   final isSpecialized;
 
-  _Template(
+  TraitTemplate(
       {this.reference,
       this.cost,
-      this.alternateNames,
-      _Type type = _Type.simple,
+      List<String> alternateNames,
+      TemplateType type = TemplateType.simple,
       bool isSpecialized = false})
       : type = type,
-        isSpecialized = isSpecialized;
+        alternateNames = alternateNames ?? [],
+        isSpecialized = isSpecialized ?? false;
 
   ///
   /// Create the appropriate [Trait] based on the the text.
@@ -340,12 +371,12 @@ class _Template {
         }
       }
     }
-    if (type == _Type.leveled) {
+    if (type == TemplateType.leveled) {
       return LeveledTrait(
           template: this,
           level: components.level ?? 1,
           specialization: specialization);
-    } else if (type == _Type.innateAttack) {
+    } else if (type == TemplateType.innateAttack) {
       return InnateAttack(
           template: this,
           type: InnateAttack._tryParseTypeFromText(components.name),
@@ -370,25 +401,66 @@ class _Template {
   ///
   String _findMatchingAlternateName(String text) => alternateNames
       ?.firstWhere((it) => RegExp(it).hasMatch(text), orElse: () => null);
+
+  static TraitTemplate buildTemplate(Map<String, dynamic> json) {
+    return TraitTemplate(
+        reference: json['reference'],
+        cost: json['cost'],
+        type: convertToTemplateTypeEnum(json['type']),
+        isSpecialized: json['isSpecialized'],
+        alternateNames: json['alternateNames'] == null
+            ? null
+            : (json['alternateNames'] as List<dynamic>)
+                .map((it) => it.toString())
+                .toList());
+  }
 }
 
-class _CategoryLevel {
+class Category {
   final String name;
   final int cost;
   final List<String> items;
 
-  _CategoryLevel({this.name, this.cost, this.items});
+  Category({this.name, this.cost, this.items});
+
+  @override
+  bool operator ==(dynamic other) {
+    if (identical(this, other)) return true;
+    return other is Category &&
+        this.name == other.name &&
+        this.cost == other.cost &&
+        _listEquals(this.items, other.items);
+  }
+
+  @override
+  int get hashCode => name.hashCode ^ cost.hashCode ^ items.hashCode;
+
+  factory Category.fromJSON(Map<String, dynamic> json) {
+    List<String> items =
+        (json['items'] as List<dynamic>).map((it) => it.toString()).toList();
+
+    return Category(name: json['name'], cost: json['cost'], items: items);
+  }
+
+  static List<Category> listFromJSON(List<dynamic> list) {
+    var x = list.map((it) => Category.fromJSON(it)).toList();
+    return x;
+  }
 }
 
-class _CategorizedTemplate extends _Template {
-  final List<_CategoryLevel> categoryLevels;
+class CategorizedTemplate extends TraitTemplate {
+  final List<Category> categories;
 
-  _CategorizedTemplate(
+  CategorizedTemplate(
       {String reference,
-      _Type type,
+      TemplateType type,
       List<String> alternateNames,
-      this.categoryLevels})
-      : super(reference: reference, alternateNames: alternateNames, type: type);
+      this.categories})
+      : super(
+            reference: reference,
+            alternateNames: alternateNames,
+            type: type,
+            isSpecialized: true);
 
   @override
   Trait parse(TraitComponents components) {
@@ -404,7 +476,7 @@ class _CategorizedTemplate extends _Template {
       category = components.specialties;
     }
 
-    if (type == _Type.categorizedLeveled) {
+    if (type == TemplateType.categorizedLeveled) {
       return CategorizedLeveledTrait(
           template: this,
           level: components.level == null ? 1 : components.level,
@@ -415,47 +487,60 @@ class _CategorizedTemplate extends _Template {
     return CategorizedTrait(template: this, item: category);
   }
 
-  String _tryParseItemFromParentheticalText(String text) {
-    RegExpMatch match = RegExp(r'^([A-Za-z0-9 ]+);').firstMatch(text);
-    if (match != null && match.groupCount > 0) {
-      return match.group(1);
-    }
-    return null;
+  static CategorizedTemplate buildTemplate(Map<String, dynamic> json) {
+    List<Category> categories = Category.listFromJSON(json['categories']);
+
+    return CategorizedTemplate(
+        reference: json['reference'],
+        type: convertToTemplateTypeEnum(json['type']),
+        categories: categories,
+        alternateNames: json['alternateNames'] == null
+            ? null
+            : (json['alternateNames'] as List<dynamic>)
+                .map((it) => it.toString())
+                .toList());
   }
 }
+
+typedef TraitTemplate BuildTemplate(Map<String, dynamic> map);
 
 ///
 /// This class acts as the central collection of Traits.
 ///
 class Traits {
-  ///
-  /// Given the trait statistics text before the parenthetical notes, create an
-  /// appropriate [Trait].
-  ///
-  // static Trait parse(String traitText, [String parentheticalText = '']) {
-  //   _Template template = _templates.firstWhere((it) => it._isMatch(traitText),
-  //       orElse: () => null);
+  static Map<TemplateType, BuildTemplate> _router = {
+    TemplateType.simple: TraitTemplate.buildTemplate,
+    TemplateType.leveled: TraitTemplate.buildTemplate,
+    TemplateType.categorized: CategorizedTemplate.buildTemplate,
+    TemplateType.categorizedLeveled: CategorizedTemplate.buildTemplate
+  };
 
-  //   return template?.parse(traitText, parentheticalText);
-  // }
+  static TraitTemplate buildTemplate(String text) {
+    var map = json.decode(text);
+
+    var type = convertToTemplateTypeEnum(map['type']);
+
+    return _router[type].call(map);
+  }
 
   static Trait build(TraitComponents components) {
-    _Template template = _templates
+    TraitTemplate template = _templates
         .firstWhere((it) => it._isMatch(components.name), orElse: () => null);
 
     return template?.parse(components);
   }
 
-  static List<_Template> _templates = [
-    _Template(reference: '360° Vision', cost: 25),
-    _Template(reference: 'Absolute Direction', cost: 5),
-    _Template(reference: 'Affliction', cost: 10, type: _Type.leveled),
-    _Template(reference: 'Charisma', cost: 5, type: _Type.leveled),
-    _CategorizedTemplate(
+  static List<TraitTemplate> _templates = [
+    TraitTemplate(reference: '360° Vision', cost: 25),
+    TraitTemplate(reference: 'Absolute Direction', cost: 5),
+    TraitTemplate(
+        reference: 'Affliction', cost: 10, type: TemplateType.leveled),
+    TraitTemplate(reference: 'Charisma', cost: 5, type: TemplateType.leveled),
+    CategorizedTemplate(
         reference: 'Control',
-        type: _Type.categorizedLeveled,
-        categoryLevels: [
-          _CategoryLevel(name: 'Common', cost: 20, items: [
+        type: TemplateType.categorizedLeveled,
+        categories: [
+          Category(name: 'Common', cost: 20, items: [
             'Earth',
             'Fire',
             'Gravity',
@@ -465,7 +550,7 @@ class Traits {
             'Water',
             'Wood',
           ]),
-          _CategoryLevel(name: 'Occasional', cost: 15, items: [
+          Category(name: 'Occasional', cost: 15, items: [
             'Ceramics',
             'Ferrous Metals',
             'Ice',
@@ -474,7 +559,7 @@ class Traits {
             'Infrared',
             'Ultrasonics',
           ]),
-          _CategoryLevel(name: 'Rare', cost: 10, items: [
+          Category(name: 'Rare', cost: 10, items: [
             'Iron',
             'Salt',
             'Water',
@@ -487,11 +572,11 @@ class Traits {
         alternateNames: [
           r'^Control (?<note>.+)$'
         ]),
-    _CategorizedTemplate(
+    CategorizedTemplate(
         reference: 'Create',
-        type: _Type.categorizedLeveled,
-        categoryLevels: [
-          _CategoryLevel(name: 'Large', cost: 40, items: [
+        type: TemplateType.categorizedLeveled,
+        categories: [
+          Category(name: 'Large', cost: 40, items: [
             'Solid',
             'Liquid',
             'Gas',
@@ -500,7 +585,7 @@ class Traits {
             'Electomagnetic Waves',
             'Physical Waves'
           ]),
-          _CategoryLevel(name: 'Medium', cost: 20, items: [
+          Category(name: 'Medium', cost: 20, items: [
             'Acid',
             'Biochemicals',
             'Drugs',
@@ -513,7 +598,7 @@ class Traits {
             'Short-Wave EM',
             'Radiation'
           ]),
-          _CategoryLevel(name: 'Small', cost: 10, items: [
+          Category(name: 'Small', cost: 10, items: [
             'Ferrous Metals',
             'Fire',
             'Rock',
@@ -525,7 +610,7 @@ class Traits {
             'Ultrasonics',
             'Visible Light'
           ]),
-          _CategoryLevel(name: 'Specific Item', cost: 5, items: [
+          Category(name: 'Specific Item', cost: 5, items: [
             'Iron',
             'Salt',
             'Water',
@@ -536,18 +621,18 @@ class Traits {
         alternateNames: [
           r'^Create (?<note>.+)'
         ]),
-    _Template(reference: 'Dark Vision', cost: 25),
-    _CategorizedTemplate(
+    TraitTemplate(reference: 'Dark Vision', cost: 25),
+    CategorizedTemplate(
         reference: 'Detect',
-        type: _Type.categorizedLeveled,
-        categoryLevels: [
-          _CategoryLevel(name: 'Very Common', cost: 30, items: [
+        type: TemplateType.categorizedLeveled,
+        categories: [
+          Category(name: 'Very Common', cost: 30, items: [
             'Life',
             'Supernatural Phenomena and Beings',
             'Minerals',
             'Energy',
           ]),
-          _CategoryLevel(name: 'Common', cost: 20, items: [
+          Category(name: 'Common', cost: 20, items: [
             'Humans',
             'Minds',
             'Supernatural Phenomena',
@@ -555,7 +640,7 @@ class Traits {
             'Metals',
             'Electromagnetic Fields',
           ]),
-          _CategoryLevel(name: 'Occasional', cost: 10, items: [
+          Category(name: 'Occasional', cost: 10, items: [
             'Spellcasters',
             'Magic',
             'Undead',
@@ -564,7 +649,7 @@ class Traits {
             'Magnetic Fields',
             'Radar and Radio',
           ]),
-          _CategoryLevel(name: 'Rare', cost: 5, items: [
+          Category(name: 'Rare', cost: 5, items: [
             'Sorceresses',
             'Fire Magic',
             'Zombies',
@@ -576,12 +661,12 @@ class Traits {
           ]),
         ],
         alternateNames: [
-          r'^Detect (?<note>.+)'
+          r'^Detect (?<note>.+)$'
         ]),
-    _Template(reference: 'Immunity to Sunburn', cost: 1),
-    _Template(
+    TraitTemplate(reference: 'Immunity to Sunburn', cost: 1),
+    TraitTemplate(
       reference: 'Innate Attack',
-      type: _Type.innateAttack,
+      type: TemplateType.innateAttack,
       alternateNames: [
         r'^Burning Attack(?: .*)?$',
         r'^Corrosion Attack(?: .*)?$',
@@ -596,47 +681,50 @@ class Traits {
         r'^Toxic Attack(?: .*)?$',
       ],
     ),
-    _Template(reference: 'Insubstantiality', cost: 80),
-    _Template(reference: 'Jumper', cost: 100),
-    _Template(reference: 'Magic Resistance', cost: 2, type: _Type.leveled),
-    _Template(reference: 'Mind Control', cost: 50),
-    _Template(
+    TraitTemplate(reference: 'Insubstantiality', cost: 80),
+    TraitTemplate(reference: 'Jumper', cost: 100),
+    TraitTemplate(
+        reference: 'Magic Resistance', cost: 2, type: TemplateType.leveled),
+    TraitTemplate(reference: 'Mind Control', cost: 50),
+    TraitTemplate(
         reference: 'Neutralize',
         cost: 50,
         alternateNames: [r'^Neutralize (?<note>.+)$']),
-    _Template(reference: 'Night Vision', cost: 1, type: _Type.leveled),
-    _Template(
+    TraitTemplate(
+        reference: 'Night Vision', cost: 1, type: TemplateType.leveled),
+    TraitTemplate(
       reference: 'Obscure',
       cost: 2,
-      type: _Type.leveled,
+      type: TemplateType.leveled,
       isSpecialized: true,
       alternateNames: [r'^Obscure (?<spec>.+)$'],
     ),
-    _Template(reference: 'Payload', cost: 1, type: _Type.leveled),
-    _Template(reference: 'Penetrating Vision', cost: 10, type: _Type.leveled),
-    _CategorizedTemplate(
+    TraitTemplate(reference: 'Payload', cost: 1, type: TemplateType.leveled),
+    TraitTemplate(
+        reference: 'Penetrating Vision', cost: 10, type: TemplateType.leveled),
+    CategorizedTemplate(
         reference: 'Permeation',
-        type: _Type.categorized,
-        categoryLevels: [
-          _CategoryLevel(name: 'Very Common', cost: 40, items: [
+        type: TemplateType.categorized,
+        categories: [
+          Category(name: 'Very Common', cost: 40, items: [
             'Earth',
             'Metal',
             'Stone',
             'Wood',
           ]),
-          _CategoryLevel(name: 'Common', cost: 20, items: [
+          Category(name: 'Common', cost: 20, items: [
             'Concrete',
             'Plastic',
             'Steel',
           ]),
-          _CategoryLevel(name: 'Occasional', cost: 10, items: [
+          Category(name: 'Occasional', cost: 10, items: [
             'Glass',
             'Ice',
             'Sand',
             'Aluminum',
             'Copper',
           ]),
-          _CategoryLevel(name: 'Rare', cost: 5, items: [
+          Category(name: 'Rare', cost: 5, items: [
             'Bone',
             'Flesh',
             'Paper',
@@ -645,14 +733,18 @@ class Traits {
         alternateNames: [
           r'^Permeation (?<note>.+)'
         ]),
-    _Template(
+    TraitTemplate(
         reference: 'Protected Sense',
         cost: 5,
         alternateNames: [r'^Protected (.*)?$']),
-    _Template(reference: 'Robust Vision', cost: 1),
-    _Template(reference: 'Static', cost: 30),
-    _Template(reference: 'Telescopic Vision', cost: 5, type: _Type.leveled),
-    _Template(reference: 'Warp', cost: 100),
-    _Template(reference: 'Temperature Tolerance', cost: 1, type: _Type.leveled),
+    TraitTemplate(reference: 'Robust Vision', cost: 1),
+    TraitTemplate(reference: 'Static', cost: 30),
+    TraitTemplate(
+        reference: 'Telescopic Vision', cost: 5, type: TemplateType.leveled),
+    TraitTemplate(reference: 'Warp', cost: 100),
+    TraitTemplate(
+        reference: 'Temperature Tolerance',
+        cost: 1,
+        type: TemplateType.leveled),
   ];
 }
