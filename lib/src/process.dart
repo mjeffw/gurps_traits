@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'parser.dart';
 import 'trait.dart';
 
@@ -22,7 +24,7 @@ class ProcessTraitText {
           mayPrint(line);
         }
 
-        var statisticsLabel = r'  Statistics:';
+        var statisticsLabel = RegExp(r'^\s+Statistics:');
 
         if (line.startsWith(statisticsLabel)) {
           // remove the label from the start of the line
@@ -31,40 +33,26 @@ class ProcessTraitText {
           double calculatedTotal = 0;
           double statedTotal = 0;
 
-          if (line.contains('Immunity to Sunburn')) {
-            print('!');
-          }
-
           // multiple abilities are separated by ' + ' - split them out
           statistics.split(' + ').forEach((String stat) {
             var ability = stat.trim();
 
             TraitComponents components = Parser().parse(ability);
-
             mayPrint(components.name);
             mayPrint(components.parentheticalNotes);
 
             // create the Trait from the traitText
             Trait trait = Traits.buildTrait(components);
-
             mayPrint('  Trait: ${trait.reference}');
 
-            List<ModifierComponents> values = components.modifiers
-                .map((it) => ModifierComponents.parse(it))
-                .toList();
-
-            int x = values.map((it) => it.value).fold(0, (a, b) => a + b);
-
-            double modifierTotal = x.toDouble() / 100.0;
-
-            if (modifierTotal < -0.80) modifierTotal = -0.8;
-
-            calculatedTotal += trait.cost + (trait.cost * modifierTotal);
+            calculatedTotal +=
+                trait.cost + (trait.cost * _getModifierFactor(components));
             statedTotal += components.cost;
           });
 
           mayPrint('  '
-              'Stated Cost: ${statedTotal.ceil()} (${statedTotal}) \n  '
+              'Stated Cost: ${statedTotal.ceil()} (${statedTotal})\n'
+              '  '
               'Calculated : ${calculatedTotal.ceil()} (${calculatedTotal})');
 
           if (calculatedTotal.ceil() != statedTotal.ceil()) {
@@ -74,6 +62,16 @@ class ProcessTraitText {
         }
       }
     });
+  }
+
+  double _getModifierFactor(TraitComponents components) {
+    List<ModifierComponents> values =
+        components.modifiers.map((it) => ModifierComponents.parse(it)).toList();
+
+    int modifierTotal = values.map((it) => it.value).fold(0, (a, b) => a + b);
+
+    double modifierFactor = max(modifierTotal.toDouble() / 100.0, -0.8);
+    return modifierFactor;
   }
 
   bool isStartsWithKeyword(String line, List<String> keywords) {

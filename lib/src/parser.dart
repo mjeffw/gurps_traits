@@ -20,7 +20,7 @@ class ModifierComponents {
   ModifierComponents({this.name, this.value, this.detail});
 
   static final regExpModifier =
-      RegExp(r'^(?<name>.+), (?<sign>[+|-])(?<value>\d+)\%');
+      RegExp(r'^(?<name>.+), (?<sign>[+|-])(?<value>\d+)\%$');
 
   static ModifierComponents parse(String input) {
     if (regExpModifier.hasMatch(input)) {
@@ -35,8 +35,10 @@ class ModifierComponents {
     }
   }
 
-  static bool hasMatch(String s) =>
-      ModifierComponents.regExpModifier.hasMatch(s);
+  static bool hasMatch(String s) {
+    var hasMatch = ModifierComponents.regExpModifier.hasMatch(s);
+    return hasMatch;
+  }
 
   ///
   /// Name is the first comma-separated component of the text.

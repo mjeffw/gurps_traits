@@ -15,9 +15,9 @@ Range: Unlimited.
 Duration: 3 minutes. 
   The subject becomes a two-dimensional shadow. This lets him slip along walls and floors – and through the thinnest cracks (anything wide enough to fit his shoulders through) – at his usual ground Move. He can also defy gravity, creeping up walls and across ceilings at half Move. 
   Physical attacks do half damage to the subject in this form. Energy attacks do normal damage, except for light-based attacks, which do 50% extra damage. Magic, psi, and other purely mental abilities affect the subject normally. 
-  The subject is subject to a few major restrictions while in this form. He cannot walk through three-dimensional space; he must slide along an object. Furthermore, he cannot perform any purely physical attacks or actions, and he cannot carry ordinary items or affect them in any way. He can use magic, psi, and similar abilities, however. 
+  The subject is subject to a few major restrictions while in this form. He cannot walk through three-dimensional space; he must slide along an object. Furthermore, he cannot perform any purely physical attacks or actions, and he cannot carry ordinary items or affect them in any way. He can use magic, psi, and similar abilities, however. 
   The caster’s rune roll uses the range penalties on the Size and Speed/Range Table, and the subject gets to resist using his HT unless he is a willing subject.
-  Statistics: Affliction 1 (HT; Disadvantage, Shadow Form, +20%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%) [26].
+  Statistics: Affliction 1 (HT; Disadvantage, Shadow Form, +20%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%) [26].
 Blur
 Keywords: Buff.
 Rune/Effect: Sól/Light [3] + Control (−1).
@@ -157,7 +157,7 @@ Casting Roll: Use Innate Attack (Gaze) to aim.
 Range: 100 yards.
 Duration: One minute.
   You can summon light equivalent to full daylight; you may make this light manifest anywhere within 100 yards. The light is bright enough to eliminate all darkness penalties in a 10-yard radius. By concentrating, you can move this “zone of light” at up to (spell level) yards per second. Does not count as an ‘on’ spell.
-  Statistics: Create Visible Light 1 (Accessibility, Limited to a 10-yard radius for one minute, −40%; Runecasting, −30%; Ranged, +40%; Reduced Fatigue Cost 1, +20%) [9]. 
+  Statistics: Create Visible Light 1 (Accessibility, Limited to a 10-yard radius for one minute, −40%; Ranged, +40%; Reduced Fatigue Cost 1, +20%; Runecasting, −30%) [9]. 
   Additional levels add Mobile (+40%) [+3].
 Night Vision
 Keywords: Area, Buff.
@@ -189,24 +189,24 @@ Duration: Indefinite.
   The caster becomes able to see all around him, as if he had the 360° Vision advantage (B34). 
   Statistics: 360° Vision (Fixed Duration, +0%; No Signature, +20%; Runecasting, −30%) [23]. 
 Shade
-Keywords: Buff. 
+Keywords: Buff. 
 Rune/Effect: Sól/Light [3] + Control (−1).
-Full Cost:  20 points. 
-Casting Roll:  Use Innate Attack (Gaze) to aim the improved version. 
-Range:  100 yards. 
-Duration: 90 minutes. 
+Full Cost:  20 points. 
+Casting Roll:  Use Innate Attack (Gaze) to aim the improved version. 
+Range:  100 yards. 
+Duration: 90 minutes. 
   The subject is provided with modest shade. This prevents sunburn and reduces effective temperature by 10°F when sunlight is a significant source of heat. It also reduces Vision penalties for glare by −1 and provides +1 to HT rolls to resist flashes, dazzle lasers, etc. 
-  Statistics: Affliction 1 (HT; Advantages, Immunity to Sunburn, Robust Vision, and Temperature Tolerance 1, +30%; Extended Duration, 30×, +60%; Fixed Duration, +0%; Increased 1/2D, 10×, +15%; No Signature, +20%; Runecasting, −30%) [20]. 
-  Notes: Temperature Tolerance reduces heat by a flat 10°F rather than being based on HT.
+  Statistics: Affliction 1 (HT; Advantages, Immunity to Sunburn, Robust Vision, and Temperature Tolerance 1, +30%; Extended Duration, 30×, +60%; Fixed Duration, +0%; Increased 1/2D, 10×, +15%; No Signature, +20%; Runecasting, −30%) [20]. 
+  Notes: Temperature Tolerance reduces heat by a flat 10°F rather than being based on HT.
 Shade, Self
-Keywords: Buff. 
+Keywords: Buff. 
 Rune/Effect: Sól/Light [3] + Control (−1).
-Full Cost: 3 points. 
-Casting Roll: None. 
-Range: Self. 
-Duration: Indefinite. 
+Full Cost: 3 points. 
+Casting Roll: None. 
+Range: Self. 
+Duration: Indefinite. 
   This version of this spell protects only the sorcerer; it has an indefinite duration, which means it must be maintained. 
-  Statistics:  Immunity to Sunburn [1] + Robust Vision [1] + Temperature Tolerance 1 (Heat; Runecasting, −30%) [1]. 3 points.
+  Statistics:  Immunity to Sunburn [1] + Robust Vision [1] + Temperature Tolerance 1 (Heat; Runecasting, −30%) [1]. 3 points.
 Sunbolt
 Keywords: Missile, Obvious.
 Rune/Effect: Sól/Light [3] + Create (−2).

@@ -1,20 +1,75 @@
+import 'dart:io';
+
 import 'package:sorcery_parser/src/process.dart';
 import 'package:test/test.dart';
+
+class CodePointCharacter {
+  String char;
+  int codePoint;
+
+  CodePointCharacter(this.char, this.codePoint);
+
+  bool operator ==(dynamic other) {
+    if (identical(this, other)) return true;
+    if (other is CodePointCharacter) {
+      return char == other.char && codePoint == other.codePoint;
+    }
+    return false;
+  }
+
+  @override
+  int get hashCode => char.hashCode ^ codePoint.hashCode;
+
+  @override
+  String toString() {
+    return '$char:$codePoint';
+  }
+}
 
 main() {
   test('description', () {
     var contents = '''
-Sleep
-Keywords: Resisted (Will).
-Rune/Effect: Tyr/Mind [4] + Control (−1).
-Full Cost: 36 points.
-Casting Roll: Innate Attack (Gaze) to aim. 
-Range: 100 yards. 
-Duration: 3 minutes.
-  The subject falls asleep for 3 minutes, if he fails a Will roll. After this, he can be woken normally, but he will not necessarily wake up right away, especially if already tired. The Innate Attack (Gaze) roll is at −1 per yard distance from caster to subject.
-  Statistics: Affliction 1 (Will; Based on Will, +20%; Fixed Duration, +0%; Malediction, +100%; No Signature, +20%; Sleep, +150%; Runecasting, ‑30%) [36].
+  Statistics: Magic Resistance 1 (Improved, +150%; Fixed Duration, +0%; No Signature, +20%; Runecasting, −30%) [4.8/level]. 
     ''';
 
     ProcessTraitText().process(contents.split('\n'));
+  });
+
+  test('codeunits', () {
+    List<String> files = [
+      'Grimoire-Hagall.txt',
+      'Grimoire-Sol.txt',
+      'Grimoire-Tyr.txt',
+      'Grimoire-Yr.txt',
+    ];
+
+    var r = RegExp(r'(?<name>.+?), (?<sign>.)(?<value>\d+)\%');
+
+    files.forEach((file) {
+      print('${file} ==========================');
+
+      List<String> contents = File(file).readAsLinesSync();
+      Set<CodePointCharacter> codeUnits = {};
+
+      contents.forEach((line) {
+        if (line.startsWith(RegExp(r'^\s*Statistics:'))) {
+          var notes =
+              line.substring(line.indexOf('(') + 1, line.lastIndexOf(')'));
+          var parts = notes.split(';');
+          parts.map((part) => part.trim()).forEach((it) {
+            r.allMatches(it).forEach((match) {
+              int codeUnit = match.namedGroup('sign').codeUnitAt(0);
+              codeUnits
+                  .add(CodePointCharacter(match.namedGroup('sign'), codeUnit));
+
+              if (![43, 8722].contains(codeUnit)) {
+                print('${contents.indexOf(line) + 1}:${match.group(0)}');
+              }
+            });
+          });
+        }
+      });
+      print(codeUnits);
+    });
   });
 }

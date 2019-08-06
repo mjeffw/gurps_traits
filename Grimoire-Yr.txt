@@ -47,7 +47,7 @@ Range: Touch.
 Duration: Instantaneous. 
   This spell allows you to reduce a volume of rock to smaller pieces. To break rock, you must touch it, take a Concentrate maneuver, and pay 1 FP. Then make an IQ roll. Success means the target is reduced to smaller boulders (averaging one cubic foot and 150 lbs.), rubble suitable for construction, or gravel; only gravel can be shoveled out. The mass of rock will collapse naturally after it breaks. This spell only affects inanimate objects. 
   The destroyed rock can weigh up to 10 × (level squared) lbs.: 10 lbs. at level 1, 40 lbs. at level 2, 90 lbs. at level 3, and so on. 
-  Statistics: Create Rock (Destruction Only, Variant, +0%; Runecasting, -30%; Reduced Fatigue Cost 1, +20%) [9/level].
+  Statistics: Create Rock (Destruction Only, Variant, +0%; Runecasting, −30%; Reduced Fatigue Cost 1, +20%) [9/level].
 Create Door  
 Keywords: None. 
 Rune/Effect: Yr/Gate [3] + Create (−2).
@@ -72,7 +72,7 @@ Range: 100 yards.
 Duration: Three minutes. 
   The subject melee weapon delivers its usual damage from a distance by magically projecting force. This ranged attack has Acc 3, Range 10/100, RoF 1, Shots N/A, Bulk -2, and Recoil 1. Use the usual melee combat skill for the attack, not a ranged combat skill. Distant Blow doesn’t unready the weapon for melee use. 
   Statistics: Affliction 1 (HT; Accessibility, Only on weapons, −20%; Advantage, Distant Blow, +1140%; Fixed Duration, +0%; Increased 1/2D, 10×, +15%; No Signature, +20%; Runecasting, −30%) [123]. 
-  Notes: “Distant Blow” is 114 points, per Enhances or Transforms an Existing Attack (GURPS Thaumatology - Sorcery, p. 11).
+  Notes: “Distant Blow” is 114 points, per Enhances or Transforms an Existing Attack (GURPS Thaumatology - Sorcery, p. 11).
 Earthquake 
 Keywords: Area (Leveled). 
 Rune/Effect: Yr/Earth [3] + Control (−1).
@@ -82,7 +82,7 @@ Range: 100 yards.
 Duration: 10 seconds. 
   The caster causes the ground to shake for 10 seconds. Any creatures standing in the area of effect, must make a DX roll each second to remain standing. A fallen creature can do nothing for the remaining duration of the spell.
   The first level of this spell affects an area of 64-yard radius. Each additional level doubles the area. The caster may affect a smaller area, if he wishes, but not smaller than an area of 64-yard radius. 
-  Statistics: Affliction 1 (DX; Accessibility, Legs and similar supportive body parts only, −20%; Area Effect, 64 yards, +300%; Based on DX, +20%; Environmental, Ground, −10%; Fixed Duration, +0%; No fatigue loss, loss of speech, or thinking from Seizure, −30%; Persistent, +40%; Seizure, +100%; Runecasting, −30%; Reduced Duration, 1/180, -40%; Variable, Area, +5%) [44]. 
+  Statistics: Affliction 1 (DX; Accessibility, Legs and similar supportive body parts only, −20%; Area Effect, 64 yards, +300%; Based on DX, +20%; Environmental, Ground, −10%; Fixed Duration, +0%; No fatigue loss, loss of speech, or thinking from Seizure, −30%; Persistent, +40%; Seizure, +100%; Runecasting, −30%; Reduced Duration, 1/180, −40%; Variable, Area, +5%) [44]. 
   Additional levels add further levels of Area Effect (+50%) to the advantage [+5].
 Earth Vision
 Keywords: Buff.
@@ -116,8 +116,8 @@ Duration: 3 minutes.
   This version of Ethereal Body can be cast on a subject other than the runecaster.
   Statistics: Affliction 1 (HT; Advantage, Ethereal Body, +400%; Fixed Duration, +0%; Melee Attack, C, −30%; No Signature, +20%; Runecasting, −30%) [46]. 
   Notes: “Ethereal Body” is Insubstantiality (Always On, −50%; Can Carry Objects, Light Encumbrance, +20%; No Vertical Move, −10%; Magical, −10%) [40].
-* Better Late than Never: Extend duration to 9 minutes. (Extended Duration, 3×, 20%.) [+2 points]. 
-* New York Minute: Reduce Duration to 1 minute: add Reduced Duration, 1/3, -10%. [−1 point].
+* Better Late than Never: Extend duration to 9 minutes. (Extended Duration, 3×, +20%.) [+2 points]. 
+* New York Minute: Reduce Duration to 1 minute: add Reduced Duration, 1/3, −10%. [−1 point].
 * Spooky Action at a Distance: Use this spell on a subject up to 100 yards away using modifiers from the Size and Speed/Range table. Use Innate Attack (Gaze) to aim. (Remove Melee Attack, Reach C, −30%, and add Increased 1/2D, 10×, +15%.). [+5 points].
 Hide Object
 Keywords: None.
@@ -138,8 +138,8 @@ Full Cost: 29 for level 1 + plus 6/additional level.
 Casting Roll: Use Innate Attack (Beam) to hit. 
 Range: 10 yards. 
 Duration: Instantaneous. 
-  You shoot a thin jet of mud from your fingertip, which can strike any target up to 10 yards away (without range or speed penalties). It can be dodged or blocked, but not parried. This jet does 1d crushing damage per level, doubled for the purposes of knockback only. It will extinguish a one-yard-radius area of normal fire. 
-  Against enemies with Injury Tolerance (Diffuse), such as gaseous beings and swarms, this becomes a much more potent attack, doing full damage – including the doubling! Ignore the usual injury cap of 2 HP (Injury to Unliving, Homogenous, and Diffuse Targets). 
+  You shoot a thin jet of mud from your fingertip, which can strike any target up to 10 yards away (without range or speed penalties). It can be dodged or blocked, but not parried. This jet does 1d crushing damage per level, doubled for the purposes of knockback only. It will extinguish a one-yard-radius area of normal fire. 
+  Against enemies with Injury Tolerance (Diffuse), such as gaseous beings and swarms, this becomes a much more potent attack, doing full damage – including the doubling! Ignore the usual injury cap of 2 HP (Injury to Unliving, Homogenous, and Diffuse Targets). 
   If the spell strikes the face, it causes no injury, but blinds the target for 3 seconds unless he makes a HT roll. Thick goggles, closed helmets, ultra-tech visors protect against this spell. 
   Statistics: Crushing Attack 1d (Blockable, −5%; Can extinguish fire, +10%; Cosmic, Does knockback-based damage against diffuse targets, +50%; Double Knockback, +20%; Increased 1/2D, 2x, +5%; Jet, +0%; Link, +10%; No Blunt Trauma, −20%; No Wounding*, −25%; Runecasting, −30%) [6/level] + Affliction 1 (HT; Accessibility, Must hit unprotected face, −20%; Blockable, −5%; Disadvantage, Blindness, +50%; Fixed Duration, +0%; Increased 1/2D, 2x, +5%; Jet, +0%; Link, +10%; Runecasting, −30%; Reduced Duration, 1/60, −35%; Vision-Based, +150%) [23]. 
   * Except versus diffuse targets, an exception which halves the value of this limitation.
@@ -154,7 +154,7 @@ Duration: 18 seconds*.
   Statistics: Affliction 1 (HT; Accessibility, Only on metal weapons, −30%; Advantage, Orichalcum Edge, +210%; Fixed Duration, +0%; Melee Attack, C, −30%; No Signature, +20%; Reduced Duration, 1/10, −20%; Runecasting, −30%) [22].
 * Better Late than Never: Increase duration to 3 minutes. Remove Reduced Duration, 1/10. [+2 points].
 * Spooky Action at a Distance: Add Range: Use this spell on a weapon up to 100 yards away using modifiers from the Size and Speed/Range table. Use Innate Attack (Gaze) to aim. (Remove Melee Attack, Reach C, −30%, and add Increased 1/2D, 10×, +15%.). [+5 points].
-  Notes: “Orichalcum Edge” is Striking ST 2 (Magical, −10%; One Attack, This weapon, −60%) [3] + DR 4 (Magical, -10%) [18].
+  Notes: “Orichalcum Edge” is Striking ST 2 (Magical, −10%; One Attack, This weapon, −60%) [3] + DR 4 (Magical, −10%) [18].
 Phase
 Keywords: None.
 Rune/Effect: Yr/Gate [3] + Create (−2).
@@ -164,7 +164,7 @@ Range: Self.
 Duration: Indefinite.
   While this spell is active you can “dodge” an incoming attack by phasing out to the Ethereal Plane for a moment. You can carry up to your Heavy encumbrance when you phase. 
   Phase differs from Blink in that Phase allows (requires) you to remain in the same location, while Blink requires you to appear in a different hex. 
-  Statistics: Jumper (World; Active Defense, −40%; Extra Carrying Capacity, Heavy, +30%; Faster Concentration 5, +25%; Improved, +10%; Limited Access, Ethereal Plane for a moment, −80%; Runecasting, −30%) [20]. 
+  Statistics: Jumper (World; Active Defense, −40%; Extra Carrying Capacity, Heavy, +30%; Faster Concentration 5, +25%; Improved, +10%; Limited Access, Ethereal Plane for a moment, −80%; Runecasting, −30%) [20]. 
   Note: The Improved enhancement removes the auto-fail on 14+.
 Planar Visit
 Keywords: None.
@@ -198,8 +198,8 @@ Range: 100 yards.
 Duration: 10 seconds.
   You cause stones to rain down upon a 2-yard radius area. Use Innate Attack (Gaze), at +4, to center the area. Everyone who spends even part of their turn in the area is attacked with an effective skill of 10, modified only for their SM. Anyone hit takes 1d crushing damage per level. Victims may raise their shields as cover, at the risk of damaging them. 
   Statistics: Crushing Attack 1d (Area Effect, 2 yards, +50%; Bombardment, Skill-10, −15%; Extended Duration, 3x, +20%; Overhead, +30%; Persistent, +40%; Runecasting, −30%; Variable, Area, +5%) [10].
-* Rocks Fall, Everyone Dies: Increase the chances of a victim being hit. Raise the effective skill of the attack to 14. (Replace Bombardment, Skill-10, -15% with Bombardment, Skill-14, -5%.) [+0.5 points*].
-* Better Late than Never: Extend duration to 30 seconds. (Add Extended Duration, 3×, 20%). [+2 points]. 
+* Rocks Fall, Everyone Dies: Increase the chances of a victim being hit. Raise the effective skill of the attack to 14. (Replace Bombardment, Skill-10, −15% with Bombardment, Skill-14, −5%.) [+0.5 points*].
+* Better Late than Never: Extend duration to 30 seconds. (Add Extended Duration, 3×, +20%). [+2 points]. 
 * And Leon’s Getting Larger!: Increase Area Effect: [+2.5 points*] per doubled area rounded up (i.e., 2-yard radius costs 10, 4 yards is 15, 8 yards is 18, etc.).
 * - Calculate total value and round up!
 Sand Jet
@@ -270,7 +270,7 @@ Duration: Instantaneous.
   You throw a ball of stone at a single target. Use Innate Attack (Projectile) to hit, applying normal range penalties. It does 1d crushing damage per level of this spell.
   Statistics: Crushing Attack 1d (Crushing; Reduced Range, 2, −10%; Runecasting, −30%) [3].
 * Add Injury to Insult: The target takes full damage out to maximum range. (Increased 1/2D, 10×, +30%.) [+1.5] points*.
-* Long Arm of the Law: The range of this attack becomes 10/100 (or simply 100 if taken with “Add Injury to Insult” variation, above). (Remove Reduced Range, 2, -10%.) [+0.5] points*.
+* Long Arm of the Law: The range of this attack becomes 10/100 (or simply 100 if taken with “Add Injury to Insult” variation, above). (Remove Reduced Range, 2, −10%.) [+0.5] points*.
 * - Apply additional points due to variations and round up.
 Trace Labyrinth
 Keywords: None.
