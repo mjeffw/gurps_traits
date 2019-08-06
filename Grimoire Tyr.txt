@@ -65,12 +65,12 @@ Duration: Instantaneous.
 Fascinate
 Keywords: Resisted (Will).
 Rune/Effect: Tyr/Mind [4] + Control (−1).
-Full Cost: 30 points.
+Full Cost: 33 points.
 Casting Roll: Will. 
 Range: Unlimited. 
 Duration: 3 minutes.
   Holds the subject (a sapient being) motionless and unaware of the passage of time as long as the caster maintains eye contact and concentration.
-  Statistics: Affliction 1 (Will; Accessibility, Sapient beings only, −10%; Based on Will, +20%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Nuisance Effect, Have to maintain eye contact, −15%; Daze, Variant, +100%; Requires Concentrate, −15%; Runecasting, ‑30%; Vision-Based, −20%) [30].
+  Statistics: Affliction 1 (Will; Accessibility, Sapient beings only, −10%; Based on Will, +20%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Nuisance Effect, Have to maintain eye contact, −15%; Daze, Variant, +100%; Requires Concentrate, −15%; Runecasting, ‑30%; Vision-Based, −20%) [33].
 Fear
 Keywords: Resisted (Will).
 Rune/Effect: Tyr/Mind [4] + Strengthen (+1).
@@ -90,7 +90,7 @@ Range: Unlimited.
 Duration: 30 minutes or permanent.
   You cause the subject to forget one fact for 30 minutes.  The improved version erases the fact permanently.
   Statistics: Affliction 1 (Will; Accessibility, One fact at a time, −10%; Based on Will, +20%; Disadvantage, Total Amnesia, +25%; Extended Duration, 10x, +40%; Malediction, +100%; No Signature, +20%; Selective Effect, +20%; Runecasting, -30%) [29].
-  The improved version replaces “Extended Duration, 10x” with “Extended Duration, Permanent” [40]. 
+  The improved version replaces “Extended Duration, 10x, +40%” with “Extended Duration, Permanent, +150%”. [40]. 
 Loyalty
 Keywords: Resisted (Will).
 Rune/Effect: Tyr/Mind [4] + Control (−1).
@@ -102,22 +102,22 @@ Duration: 3 minutes.
   Statistics: Mind Control (Accessibility, Only to add Sense of Duty, Caster, −50%; Accessibility, Subject must be immobilized or controlled, −20%; Conditioning Only, −50%; Fixed Duration, +0%; Runecasting, −30%) [10].
 Mass Daze
 Keywords: Area (Leveled), Resisted (Will).
-Full Cost: 40 points for level 1 + 5 points/additional level.
+Full Cost: 41 points for level 1 + 5 points/additional level.
 Casting Roll: Will.
 Range: Unlimited.
 Duration: 3 minutes.
   Creatures in the area are dazed for 3 minutes. If a subject is standing, he remains upright, but can do nothing. If the subject is struck, slapped, or shaken, he recovers on his next turn. After that the subject is stunned (Exploits, p.60) for 3 minutes and may roll vs. Will once per second to recover. You can omit any creatures from the effect.
-  Statistics: Affliction 1 (Will; Area Effect, 2 yards, +50%; Based on Will, +20%; Daze, +50%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Selective Area, +20%; Runecasting, ‑30%) [40]. 
+  Statistics: Affliction 1 (Will; Area Effect, 2 yards, +50%; Based on Will, +20%; Daze, +50%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Selective Area, +20%; Runecasting, ‑30%) [41]. 
   Additional levels add Area Effect (+50%) [+5].
 Mind-Whip
 Keywords: Resisted (Will).
 Rune/Effect: Tyr/Mind [4] + Control (−1).
-Full Cost:  8 points.
+Full Cost: 8 points.
 Casting Roll: Will. 
 Range: Unlimited. 
 Duration: Instantaneous.
   You can deliver a no-frills telepathic stab to a living creature with a mind (IQ 1+), causing actual damage. If the subject fails to resist, he takes damage equal to your margin of victory (maximum 10 points)! DR does not protect against this damage.
-  Statistics: Toxic Attack 10 (Accessibility, Only on living IQ 1+ beings, −10%; Damage cannot exceed margin of victory, −50%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%) [20].
+  Statistics: Toxic Attack 3d-1 (Accessibility, Only on living IQ 1+ beings, −10%; Damage cannot exceed margin of victory, −50%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%) [20].
 Sleep
 Keywords: Resisted (Will).
 Rune/Effect: Tyr/Mind [4] + Control (−1).
@@ -126,7 +126,7 @@ Casting Roll: Innate Attack (Gaze) to aim.
 Range: 100 yards. 
 Duration: 3 minutes.
   The subject falls asleep for 3 minutes, if he fails a Will roll. After this, he can be woken normally, but he will not necessarily wake up right away, especially if already tired. The Innate Attack (Gaze) roll is at −1 per yard distance from caster to subject.
-  Statistics: Affliction 1 (Will; Based on Will, +20%; Fixed Duration, +0%; Malediction, +100%; No Signature, +20%; Sleep, +150%; Runecasting, ‑30%) [36].
+  Statistics: Affliction 1 (Will; Based on Will, +20%; Fixed Duration, +0%; Malediction, +100%; No Signature, +20%; Sleep, +150%; Runecasting, -30%) [36].
 Vigil
 Keywords: Resisted (Will).
 Rune/Effect: Tyr/Mind [4] + Strengthen (+1).
@@ -135,6 +135,6 @@ Casting Roll:
 Range: Touch. 
 Duration: 1 day.
   This spell allows the subject to go without sleep for a day with no ill effects.
-  Statistics: Affliction 1 (HT; Advantage, Vigil, +180%; Extended Duration, 1,000x, +120%; Fixed Duration, +0%; Melee Attack, Range C, −30%; Runecasting, −30%) [40]. 
+  Statistics: Affliction 1 (HT; Advantage, Vigil, +180%; Extended Duration, 1,000x, +120%; Fixed Duration, +0%; Melee Attack, Range C, −30%; Runecasting, −30%) [34]. 
   Notes: “Vigil” is Doesn’t Sleep (Magical, −10%) [18].
 

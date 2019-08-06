@@ -20,7 +20,7 @@ class ModifierComponents {
   ModifierComponents({this.name, this.value, this.detail});
 
   static final regExpModifier =
-      RegExp(r'^(?<name>.+), (?<sign>[+|-|−])(?<value>\d+)\%');
+      RegExp(r'^(?<name>.+), (?<sign>[+|-])(?<value>\d+)\%');
 
   static ModifierComponents parse(String input) {
     if (regExpModifier.hasMatch(input)) {
@@ -56,7 +56,7 @@ class ModifierComponents {
   ///
   static _value(String sign, String value) {
     int result = int.tryParse(value);
-    int x = ['-', '−'].contains(sign) ? -1 : 1;
+    int x = sign == '-' ? -1 : 1;
     return x * result;
   }
 }
@@ -187,7 +187,7 @@ class Parser {
             ? double.tryParse(match.namedGroup('cost'))
             : null,
         parentheticalNotes: match.groupNames.contains('notes')
-            ? match.namedGroup('notes')
+            ? match.namedGroup('notes').replaceAll('−', '-')
             : null);
 
     _updateForLevelsOrDamage(components);

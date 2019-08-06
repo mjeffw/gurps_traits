@@ -44,23 +44,18 @@ class ProcessTraitText {
             mayPrint(components.name);
             mayPrint(components.parentheticalNotes);
 
-            if (components.name == 'Charisma') {
-              print('!');
-            }
-
             // create the Trait from the traitText
             Trait trait = Traits.buildTrait(components);
 
             mayPrint('  Trait: ${trait.reference}');
 
-            List<int> values = components.modifiers
+            List<ModifierComponents> values = components.modifiers
                 .map((it) => ModifierComponents.parse(it))
-                .map((it) => it.value)
                 .toList();
 
-            double modifierTotal = values.isEmpty
-                ? 0.0
-                : values.reduce((a, b) => a + b).toDouble() / 100.0;
+            int x = values.map((it) => it.value).fold(0, (a, b) => a + b);
+
+            double modifierTotal = x.toDouble() / 100.0;
 
             if (modifierTotal < -0.80) modifierTotal = -0.8;
 
@@ -72,9 +67,9 @@ class ProcessTraitText {
               'Stated Cost: ${statedTotal.ceil()} (${statedTotal}) \n  '
               'Calculated : ${calculatedTotal.ceil()} (${calculatedTotal})');
 
-          // if (calculatedTotal.ceil() != statedTotal.ceil()) {
-          output.forEach((line) => print(line));
-          // }
+          if (calculatedTotal.ceil() != statedTotal.ceil()) {
+            output.forEach((line) => print(line));
+          }
           output.clear();
         }
       }
@@ -94,7 +89,6 @@ class ProcessTraitText {
   List<String> output = [];
 
   void mayPrint(String line) {
-    print(line);
     output.add(line);
   }
 }
