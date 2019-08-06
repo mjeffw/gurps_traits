@@ -1,4 +1,4 @@
-String trait_data = r"""{
+{
   "traits": [
     {
       "reference": "360° Vision",
@@ -342,4 +342,4 @@ String trait_data = r"""{
       "type": "leveled"
     }
   ]
-}""";
+}

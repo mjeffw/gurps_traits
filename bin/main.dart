@@ -62,7 +62,7 @@ Future main(List<String> args) async {
           }
 
           // create the Trait from the traitText
-          Trait trait = Traits.build(components);
+          Trait trait = Traits.buildTrait(components);
 
           mayPrint('  Trait: ${trait.reference}');
 
