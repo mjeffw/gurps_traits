@@ -129,7 +129,7 @@ Duration: Indefinite.
   You can place objects in an extraplanar space whose access travels with you. Each level provides space for (Will × Will)/1,000 cubic feet of possessions. While you can multiply by 20 lbs./cubic foot to estimate weight, the contents aren’t affected by gravity and capacity doesn’t depend on your ST. Rather than being protected by your defensive advantages, your possessions are in another dimension entirely and can’t be affected by any normal attack.
   If your cargo is a single object, getting it out takes one second or a Fast-Draw roll (aided by Rune Talent). When carrying multiple objects, extracting a specific item requires 1d seconds per level of spell and a DX roll at −5 for working by touch (also aided by Rune Talent).
   When the spell ends, all contents are expelled.
-  Statistics: Payload 1 (Cosmic, Extraplanar, +50%; Runecasting, −30%) [1.2/level*].
+  Statistics: Payload 1 (Cosmic, Extraplanar, +50%; Runecasting, −30%) [1.2/level]*.
   * Calculate the total cost then round up.
 Mud Jet
 Keywords: Jet, Obvious. 
@@ -176,7 +176,7 @@ Duration: Indefinite.
   You leave your body behind, unconscious, while your spirit visits another plane of existence. While there, you cannot cast spells or otherwise affect the world in any meaningful way. Your spirit form is visible, but insubstantial. This spell can be maintained indefinitely, but your body’s need to eat, drink, sleep, etc. effectively limits the duration to a day or so – longer if your body is left with friends, in a hospital, or otherwise cared for. 
   The basic version of this spell allows you to visit one other plane, chosen when you learn the spell. The improved version opens this up to any dimension you are familiar with. You can become familiar with new planes by hitching a ride there – with another sorcerer using this spell, a magician using an equivalent spell, a creature with an innate ability, etc. – or via tomes of knowledge which contain detailed instructions on where and how to travel. 
   Unlike most spells, Planar Visit takes 10 or 11 seconds to activate instead of one or two. You can speed this up by taking −1 to skill for each second omitted (maximum −10). 
-  Statistics: Jumper (World; Improved, +10%; Limited Access (specified world), −20%; Runecasting, −30%; Projection, cannot affect new world, −50%) [20]. 
+  Statistics: Jumper (World; Improved, +10%; Limited Access, specified world, −20%; Runecasting, −30%; Projection, cannot affect new world, −50%) [20]. 
   Note: The improved version removes Limited Access [+20] and removes the auto-fail on 14+. 
 Purify Earth
 Keywords: None.

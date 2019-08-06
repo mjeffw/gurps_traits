@@ -89,7 +89,7 @@ Casting Roll: None.
 Range: Unlimited. 
 Duration: 30 minutes or permanent.
   You cause the subject to forget one fact for 30 minutes.  The improved version erases the fact permanently.
-  Statistics: Affliction 1 (Will; Accessibility, One fact at a time, −10%; Based on Will, +20%; Disadvantage, Total Amnesia, +25%; Extended Duration, 10x, +40%; Malediction, +100%; No Signature, +20%; Selective Effect, +20%; Runecasting, ‑15%) [29].
+  Statistics: Affliction 1 (Will; Accessibility, One fact at a time, −10%; Based on Will, +20%; Disadvantage, Total Amnesia, +25%; Extended Duration, 10x, +40%; Malediction, +100%; No Signature, +20%; Selective Effect, +20%; Runecasting, -30%) [29].
   The improved version replaces “Extended Duration, 10x” with “Extended Duration, Permanent” [40]. 
 Loyalty
 Keywords: Resisted (Will).
@@ -99,7 +99,7 @@ Casting Roll: Quick Contest of Will vs. Will.
 Range: Unlimited. 
 Duration: 3 minutes.
   You can temporarily make the subject your loyal friend, giving him the Sense of Duty (Caster) disadvantage (see Adventurers, p.65). If the subject is willing, no resistance roll is needed. If not, he resists with Will and must be completely immobilized or otherwise under your control while you cast the spell. Successful casting gets you inside of his head. You must then win a second Quick Contest of Will vs. Will – or make another unopposed Will roll, for a willing subject. 
-  Statistics: Mind Control (Accessibility, Only to add Sense of Duty (Caster), −50%; Accessibility, Subject must be immobilized or controlled, −20%; Conditioning Only, −50%; Fixed Duration, +0%; Runecasting, −30%) [10].
+  Statistics: Mind Control (Accessibility, Only to add Sense of Duty, Caster, −50%; Accessibility, Subject must be immobilized or controlled, −20%; Conditioning Only, −50%; Fixed Duration, +0%; Runecasting, −30%) [10].
 Mass Daze
 Keywords: Area (Leveled), Resisted (Will).
 Full Cost: 40 points for level 1 + 5 points/additional level.

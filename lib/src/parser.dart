@@ -1,5 +1,3 @@
-import 'package:sorcery_parser/src/trait.dart';
-
 import 'util/exceptions.dart';
 
 List<String> _split(String source, String pattern) =>
@@ -123,9 +121,18 @@ class TraitComponents {
       notes.where((s) => ModifierComponents.hasMatch(s)).toList();
 
   ///
-  /// Trait specialties, named varieties or degrees of advantages or disadvantages.
+  /// Trait specialties, named varieties or degrees of advantages or disad-
+  /// vantages. This should be the first note as long as it is not a modifier.
   ///
-  get specialties => parentheticalNotes == null ? null : notes[0];
+  get specialties {
+    if (parentheticalNotes != null) {
+      var note = notes[0];
+      if (!modifiers.contains(note)) {
+        return note;
+      }
+    }
+    return null;
+  }
 
   TraitComponents(
       {this.name,
@@ -138,7 +145,8 @@ class TraitComponents {
 
 const _NAME = r'(?<name>.+)'; // any
 const _NOTES = r' \((?<notes>.*)\)'; // space + ( + any  + )
-const _COST = r'(?: \[(?<cost>\d+)(?:/level)?\])'; // space + [ + digits + ]
+const _COST =
+    r'(?: \[(?<cost>\d+(?:\.\d{0,2})?)(?:/level)?\])'; // space + [ + digits + ]
 
 const String _LEVEL = r'(?<level>\d+)';
 const String DICE_PATTERN = r'(?<dice>\d+d(?:[+|-]\d+)?)';
@@ -192,10 +200,19 @@ class Parser {
   ///
   /// Throw TraitParseException if no match is found.
   ///
-  RegExpMatch firstMatch(List<RegExp> regExps, String source) => regExps
-      .firstWhere((regExp) => regExp.hasMatch(source),
-          orElse: () => throw TraitFormatException(source))
-      .firstMatch(source);
+  RegExpMatch firstMatch(List<RegExp> regExps, String source) {
+    for (RegExp r in regExps) {
+      if (r.hasMatch(source)) {
+        RegExpMatch match = r.firstMatch(source);
+        return match;
+      }
+    }
+
+    return regExps
+        .firstWhere((regExp) => regExp.hasMatch(source),
+            orElse: () => throw TraitFormatException(source))
+        .firstMatch(source);
+  }
 
   ///
   /// Return ```true``` if the match contains a non-null value for cost.
