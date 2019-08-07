@@ -2,7 +2,7 @@
 Mind Spells
   As a reminder, any spell with a duration of Indefinite has a base duration of 3 minutes, which may be extended for an additional 3 minutes per FP spent (no roll necessary), unless otherwise noted. The runecaster doesn’t have to decide up front how long to extend the spell, they can wait until the spell is about to end and then extend it for another three minutes. This can be continued indefinitely until the caster allows the spell to end normally, he loses consciousness, or runs out of FP.
   To make it easier to optimize some spells either to lower the cost or increase its efficacy, this version introduces Variable spells. 
-  Variable spells allow the player to either buy a bare-bones version of the spell for a relatively low point cost, or to modify the base version of the spell to make it more powerful and therefore cost more. Options are listed below the spell and marked with the ♣ symbol.
+  Variable spells allow the player to either buy a bare-bones version of the spell for a relatively low point cost, or to modify the base version of the spell to make it more powerful and therefore cost more. Options are listed below the spell and marked with the o symbol.
   In addition, some spells have been rewritten to have a “Self” version, which only affects the caster, in addition to the normal version that can be cast on others.
   Any spell variation, whether it is moving from a “Self” version to being castable on others, or adding variations or levels, can be bought by paying the difference between the version currently possessed and the one desired.
   And as always, the runecaster is NOT limited to the spells in this Grimoire. Any spell that they can imagine that involves earth and metal, or interdimensional gates, can be created with this system. Use the existing spells as guidelines. For example, Blink could be cast on a person other than the caster for additional cost. Collaborate with the GM to create new spells.
@@ -50,7 +50,7 @@ Duration: 1 second.
   “Wait!” – the subject takes the Wait maneuver on his next turn.
   If you win, your charmed subject will obey your command. If you attempt to force the subject to act against its principles (e.g., commit suicide or harm a loved one), roll another Quick Contest. If the subject wins, the spell has no effect.
   If you lose, you cannot attempt to control that subject again for 24 hours, and he feels a sense of mental coercion emanating from you.
-  Statistics: Mind Control (Accessibility, At most two words, −20%; Accessibility, Must be able to understand command, −20%; Fixed Duration, +0%; Independent, +70%; Reduced Duration, 1/180, −40%; Sense-based, Hearing, −20%; Runecasting, −30%) [20].
+  Statistics: Mind Control (Accessibility, At most two words, −20%; Accessibility, Must be able to understand command, −20%; Fixed Duration, +0%; Independent, +70%; Reduced Duration, 1/180, −40%; Runecasting, −30%; Sense-based, Hearing, −20%) [20].
 Detect Minds
 Keywords: Information.
 Rune/Effect: Tyr/Mind [4] + Sense (+2).
@@ -78,7 +78,7 @@ Full Cost: 3 points.
 Casting Roll: Quick Contest of Will vs. Will. 
 Range: Self. 
 Duration: 3 minutes.
-  The caster can radiate an aura of fear. Everyone he wishes to affect resists with Will, at a bonus based on their distance from the caster (use the Size and Speed/Range Table). If a subject resists, the caster has his attention, but he reacts normally. Those the caster chooses not to affect see nothing special about the caster.
+  The caster can radiate an aura of fear when they actively interact with IQ 6+ beings. Everyone he wishes to affect resists with Will, at a bonus based on their distance from the caster – use the Size and Speed/Range Table (Exploits, p.97). If a subject resists, the caster has his attention, but he reacts normally. Those the caster chooses not to affect see nothing special about the caster.
   Anyone who fails rolls on the Reaction Table with a +3 bonus – or the caster can add +3 to an Influence Roll against that person. All other modifiers, such as situational modifiers, apply. This bonus can be used only in situations where threats are effective (such as potential combat situations). In other situations, it may even provide a −3 penalty!
   Statistics: Charisma 3 (Accessibility, Only in situations where threats are effective, −35%; Accessibility, Only influences via fear – Fearlessness resists, −20%; Nuisance Effect, May provide a penalty in inappropriate situations, −15%; Requires Will vs. Will Roll, −15%; Selective Area, +20%; Short-Range 2, −20%; Runecasting, −30%) [3].
 Forgetfulness
@@ -90,7 +90,7 @@ Range: Unlimited.
 Duration: 30 minutes or permanent.
   You cause the subject to forget one fact for 30 minutes.  The improved version erases the fact permanently.
   Statistics: Affliction 1 (Will; Accessibility, One fact at a time, −10%; Based on Will, +20%; Disadvantage, Total Amnesia, +25%; Extended Duration, 10x, +40%; Malediction, +100%; No Signature, +20%; Selective Effect, +20%; Runecasting, −30%) [29].
-  The improved version replaces “Extended Duration, 10x, +40%” with “Extended Duration, Permanent, +150%”. [40]. 
+  The improved version replaces Extended Duration, 10x, +40% with Extended Duration, Permanent, 150%. [40]. 
 Loyalty
 Keywords: Resisted (Will).
 Rune/Effect: Tyr/Mind [4] + Control (−1).
@@ -102,22 +102,23 @@ Duration: 3 minutes.
   Statistics: Mind Control (Accessibility, Only to add Sense of Duty, Caster, −50%; Accessibility, Subject must be immobilized or controlled, −20%; Conditioning Only, −50%; Fixed Duration, +0%; Runecasting, −30%) [10].
 Mass Daze
 Keywords: Area (Leveled), Resisted (Will).
-Full Cost: 41 points for level 1 + 5 points/additional level.
+Rune/Effect: Tyr/Mind [4] + Destroy (−1).
+Full Cost: 38 points for level 1 + 5 points/additional level.
 Casting Roll: Will.
 Range: Unlimited.
 Duration: 3 minutes.
   Creatures in the area are dazed for 3 minutes. If a subject is standing, he remains upright, but can do nothing. If the subject is struck, slapped, or shaken, he recovers on his next turn. After that the subject is stunned (Exploits, p.60) for 3 minutes and may roll vs. Will once per second to recover. You can omit any creatures from the effect.
-  Statistics: Affliction 1 (Will; Area Effect, 2 yards, +50%; Based on Will, +20%; Daze, +50%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Selective Area, +20%; Runecasting, ‑30%) [41]. 
+  Statistics: Affliction 1 (Will; Area Effect, 2 yards, +50%; Based on Will, +20%; Daze, +50%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Selective Area, +20%; Runecasting, −30%) [38]. 
   Additional levels add Area Effect (+50%) [+5].
 Mind-Whip
 Keywords: Resisted (Will).
 Rune/Effect: Tyr/Mind [4] + Control (−1).
-Full Cost: 8 points.
+Full Cost: 18 points.
 Casting Roll: Will. 
 Range: Unlimited. 
 Duration: Instantaneous.
   You can deliver a no-frills telepathic stab to a living creature with a mind (IQ 1+), causing actual damage. If the subject fails to resist, he takes damage equal to your margin of victory (maximum 10 points)! DR does not protect against this damage.
-  Statistics: Toxic Attack 3d-1 (Accessibility, Only on living IQ 1+ beings, −10%; Damage cannot exceed margin of victory, −50%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%) [20].
+  Statistics: Toxic Attack 10 points (Accessibility, Only on living IQ 1+ beings, −10%; Damage cannot exceed margin of victory, −50%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%) [18].
 Sleep
 Keywords: Resisted (Will).
 Rune/Effect: Tyr/Mind [4] + Control (−1).
@@ -137,4 +138,4 @@ Duration: 1 day.
   This spell allows the subject to go without sleep for a day with no ill effects.
   Statistics: Affliction 1 (HT; Advantage, Vigil, +180%; Extended Duration, 1,000x, +120%; Fixed Duration, +0%; Melee Attack, Range C, −30%; Runecasting, −30%) [34]. 
   Notes: “Vigil” is Doesn’t Sleep (Magical, −10%) [18].
-
+  

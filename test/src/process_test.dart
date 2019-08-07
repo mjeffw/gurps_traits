@@ -29,8 +29,7 @@ class CodePointCharacter {
 main() {
   test('description', () {
     var contents = '''
-  Statistics: Magic Resistance 1 (Improved, +150%; Fixed Duration, +0%; No Signature, +20%; Runecasting, −30%) [4.8/level]. 
-    ''';
+Statistics: Toxic Attack 10 points (Accessibility, On-ly on living IQ 1+ beings, −10%; Damage cannot exceed margin of victory, −50%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%) [20].    ''';
 
     ProcessTraitText().process(contents.split('\n'));
   });

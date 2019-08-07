@@ -24,7 +24,7 @@ class ProcessTraitText {
           mayPrint(line);
         }
 
-        var statisticsLabel = RegExp(r'^\s+Statistics:');
+        var statisticsLabel = RegExp(r'^\s*Statistics:');
 
         if (line.startsWith(statisticsLabel)) {
           // remove the label from the start of the line
@@ -55,9 +55,9 @@ class ProcessTraitText {
               '  '
               'Calculated : ${calculatedTotal.ceil()} (${calculatedTotal})');
 
-          if (calculatedTotal.ceil() != statedTotal.ceil()) {
-            output.forEach((line) => print(line));
-          }
+          // if (calculatedTotal.ceil() != statedTotal.ceil()) {
+          output.forEach((line) => print(line));
+          // }
           output.clear();
         }
       }

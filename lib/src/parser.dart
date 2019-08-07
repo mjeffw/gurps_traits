@@ -145,12 +145,12 @@ class TraitComponents {
       this.damage});
 }
 
-const _NAME = r'(?<name>.+)'; // any
+const _NAME = r'(?<name>.+?)'; // any
 const _NOTES = r' \((?<notes>.*)\)'; // space + ( + any  + )
 const _COST =
     r'(?: \[(?<cost>\d+(?:\.\d{0,2})?)(?:/level)?\])'; // space + [ + digits + ]
 
-const String _LEVEL = r'(?<level>\d+)';
+const String _LEVEL = r'(?<level>\d+?)';
 const String DICE_PATTERN = r'(?<dice>\d+d(?:[+|-]\d+)?)';
 const String POINTS_PATTERN = r'(?:(?<points>\d+) point(?:s)?)';
 
