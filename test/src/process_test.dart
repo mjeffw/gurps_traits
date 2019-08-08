@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:sorcery_parser/src/parser.dart';
 import 'package:sorcery_parser/src/process.dart';
 import 'package:test/test.dart';
 
@@ -34,12 +35,31 @@ Statistics: Toxic Attack 10 points (Accessibility, On-ly on living IQ 1+ beings,
     ProcessTraitText().process(contents.split('\n'));
   });
 
+  test('modifier', () {
+    var content = '''
+Statistics: Affliction 1 (Will; Accessibility, Only sa-pient beings, −10%; Area Effect, 2 yards, +50%; Based on Will, +20%; Disadvantage, Pacifism, Self-Defense Only, +15%; Fixed Duration, +0%; Male-diction 2, +150%; Negated Disadvantage, Berserk, +200%; No Signature, +20%; Reduced Duration, 1/3, −10%; Runecasting, −30%; Terminal Condi-tion, Injury, −10%; Variable Area, +5%) [53]. 
+''';
+    TraitComponents c = Parser().parse(content);
+    expect(c.notes, hasLength(13));
+    String x = c.notes[10];
+    int index = 0;
+    x.codeUnits.forEach((c) {
+      print('${x.substring(index, index + 1)} : $c');
+      index++;
+    });
+
+    expect(c.modifiers, hasLength(12));
+    c.modifiers.forEach((f) => print(f));
+    print(
+        '${c.modifiers.map((it) => ModifierComponents.parse(it)).map((f) => f.value).reduce((a, b) => a + b)}');
+  });
+
   test('codeunits', () {
     List<String> files = [
-      'Grimoire-Hagall.txt',
-      'Grimoire-Sol.txt',
+      // 'Grimoire-Hagall.txt',
+      // 'Grimoire-Sol.txt',
       'Grimoire-Tyr.txt',
-      'Grimoire-Yr.txt',
+      // 'Grimoire-Yr.txt',
     ];
 
     var r = RegExp(r'(?<name>.+?), (?<sign>.)(?<value>\d+)\%');

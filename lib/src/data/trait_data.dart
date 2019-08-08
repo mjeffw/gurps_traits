@@ -196,6 +196,10 @@ String trait_data = r"""{
       ]
     },
     {
+      "reference": "Illusion",
+      "cost": 25
+    },
+    {
       "reference": "Immunity to Sunburn",
       "cost": 1
     },
@@ -333,13 +337,17 @@ String trait_data = r"""{
       "type": "leveled"
     },
     {
-      "reference": "Warp",
-      "cost": 100
-    },
-    {
       "reference": "Temperature Tolerance",
       "cost": 1,
       "type": "leveled"
+    },
+    {
+      "reference": "Terror",
+      "cost": 30
+    },
+    {
+      "reference": "Warp",
+      "cost": 100
     }
   ]
 }""";

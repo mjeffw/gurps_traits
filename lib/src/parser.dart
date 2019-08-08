@@ -20,7 +20,7 @@ class ModifierComponents {
   ModifierComponents({this.name, this.value, this.detail});
 
   static final regExpModifier =
-      RegExp(r'^(?<name>.+), (?<sign>[+|-])(?<value>\d+)\%$');
+      RegExp(r'^(?<name>.+),\s+(?<sign>[+|-])(?<value>\d+)\%$');
 
   static ModifierComponents parse(String input) {
     if (regExpModifier.hasMatch(input)) {
@@ -146,13 +146,13 @@ class TraitComponents {
 }
 
 const _NAME = r'(?<name>.+?)'; // any
-const _NOTES = r' \((?<notes>.*)\)'; // space + ( + any  + )
+const _NOTES = r'\s+\((?<notes>.*)\)'; // space + ( + any  + )
 const _COST =
-    r'(?: \[(?<cost>\d+(?:\.\d{0,2})?)(?:/level)?\])'; // space + [ + digits + ]
+    r'(?:\s+\[(?<cost>\d+(?:\.\d{0,2})?)(?:/level)?\])'; // space + [ + digits + ]
 
 const String _LEVEL = r'(?<level>\d+?)';
 const String DICE_PATTERN = r'(?<dice>\d+d(?:[+|-]\d+)?)';
-const String POINTS_PATTERN = r'(?:(?<points>\d+) point(?:s)?)';
+const String POINTS_PATTERN = r'(?:(?<points>\d+)\s+point(?:s)?)';
 
 ///
 /// A factory that consumes a String and returns an instance of TraitComponents.
