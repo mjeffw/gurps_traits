@@ -50,6 +50,7 @@ class ModifierComponents {
   ///
   static _value(String sign, String value) =>
       (sign == '-' ? -1 : 1) * int.tryParse(value);
+
   String name;
   String detail;
   int value;
@@ -123,21 +124,19 @@ class TraitComponents {
   /// Parse out any modifiers from the parenthetical notes.
   ///
   List<String> get modifiers =>
-      notes.where((s) => ModifierComponents.hasMatch(s)).toList();
+      notes.where(ModifierComponents.hasMatch).toList();
 
   ///
   /// Trait specialties, named varieties or degrees of advantages or disad-
   /// vantages. This should be the first note as long as it is not a modifier.
   ///
-  get specialties {
-    if (parentheticalNotes != null) {
-      var note = notes[0];
-      if (!modifiers.contains(note)) {
-        return note;
-      }
-    }
-    return null;
-  }
+  get specialties =>
+      notes.isEmpty ? null : isModifier(notes[0]) ? null : notes[0];
+
+  ///
+  /// Return ```true``` if text matches the modifier pattern.
+  ///
+  bool isModifier(String text) => ModifierComponents.hasMatch(text);
 }
 
 // == Regular Expression patterns for parsing ==
@@ -184,7 +183,7 @@ class Parser {
     var components = TraitComponents(
         rawText: match.group(0),
         name: match.namedGroup('name').trim(),
-        cost: _matchHasNamedGroup(match)
+        cost: RegExpEx.hasNamedGroup(match, 'cost')
             ? double.tryParse(match.namedGroup('cost'))
             : null,
         parentheticalNotes: match.groupNames.contains('notes')
@@ -205,12 +204,6 @@ class Parser {
       .firstWhere((regExp) => regExp.hasMatch(source),
           orElse: () => throw TraitFormatException(source))
       .firstMatch(source);
-
-  ///
-  /// Return ```true``` if the match contains a non-null value for cost.
-  ///
-  bool _matchHasNamedGroup(RegExpMatch match) =>
-      RegExpEx.hasNamedGroup(match, 'cost') && match.namedGroup('cost') != null;
 
   ///
   /// Sanitize input for processing. This includes replacing the minus symbol with a dash.

@@ -1,5 +1,6 @@
 // Some helper constants and declarations.
 
+import 'package:dart_utils/dart_util.dart';
 import 'package:quiver/collection.dart';
 import 'package:quiver/core.dart';
 
@@ -164,17 +165,28 @@ class Category {
   @override
   int get hashCode => hash3(name, cost, items);
 
+  ///
+  /// Create a [Category] from JSON data
+  ///
   factory Category.fromJSON(Map<String, dynamic> json) => Category(
-      name: json['name'], cost: json['cost'], items: jsonToListOfStrings(json));
+      name: json['name'],
+      cost: json['cost'],
+      items: JsonEx.toListOfStrings(json['items']));
 
-  static List<String> jsonToListOfStrings(Map<String, dynamic> json) =>
-      (json['items'] as List<dynamic>).map((it) => it.toString()).toList();
-
+  ///
+  /// Create a list of [Category] from a JSON list.
+  ///
   static List<Category> listFromJSON(List<dynamic> list) =>
       list.map((it) => Category.fromJSON(it)).toList();
 }
 
+///
+/// A [TraitTemplate] that uses a list of [Category] to determine cost.
+///
 class CategorizedTemplate extends TraitTemplate {
+  ///
+  /// The list of [Category].
+  ///
   final List<Category> categories;
 
   CategorizedTemplate(
@@ -190,46 +202,32 @@ class CategorizedTemplate extends TraitTemplate {
 
   @override
   Trait buildTraitFrom(TraitComponents components) {
-    String pattern = _findMatchingAlternateName(components.name);
+    String category =
+        _getCategory(components, _findMatchingAlternateName(components.name));
 
-    String category;
+    return (type == TemplateType.categorizedLeveled)
+        ? CategorizedLeveledTrait(
+            template: this, level: components.level ?? 1, item: category)
+        : CategorizedTrait(template: this, item: category);
+  }
+
+  String _getCategory(TraitComponents components, String pattern) {
     if (components.specialties == null) {
       if (pattern != null) {
-        category =
-            LeveledTrait.tryParseSpecialization(pattern, components.name);
+        return LeveledTrait.tryParseSpecialization(pattern, components.name);
       }
     } else {
-      category = components.specialties;
+      return components.specialties;
     }
-
-    if (type == TemplateType.categorizedLeveled) {
-      return CategorizedLeveledTrait(
-          template: this,
-          level: components.level == null ? 1 : components.level,
-          item: category);
-    }
-
-    // ...else default to CategorizedTrait
-    return CategorizedTrait(template: this, item: category);
+    return null;
   }
 
-  static CategorizedTemplate buildTemplate(Map<String, dynamic> json) {
-    List<Category> categories = Category.listFromJSON(json['categories']);
-
-    return CategorizedTemplate(
-        reference: json['reference'],
-        type: convertToTemplateTypeEnum(json['type']),
-        categories: categories,
-        alternateNames: json['alternateNames'] == null
-            ? null
-            : (json['alternateNames'] as List<dynamic>)
-                .map((it) => it.toString())
-                .toList());
-  }
+  static CategorizedTemplate buildTemplate(Map<String, dynamic> json) =>
+      CategorizedTemplate(
+          reference: json['reference'],
+          type: convertToTemplateTypeEnum(json['type']),
+          categories: Category.listFromJSON(json['categories']),
+          alternateNames: json['alternateNames'] == null
+              ? null
+              : JsonEx.toListOfStrings(json['alternateNames']));
 }
-
-typedef TraitTemplate BuildTemplate(Map<String, dynamic> map);
-
-///
-/// This class acts as the central collection of Traits.
-///

@@ -84,15 +84,8 @@ class LeveledTrait extends Trait {
         _level = level,
         super(template: template, specialization: specialization);
 
-  static String tryParseSpecialization(String pattern, String traitText) {
-    if (pattern == null) return null;
-
-    RegExpMatch match = RegExp(pattern).firstMatch(traitText);
-    if (match.groupNames.contains('spec')) {
-      return match.namedGroup('spec');
-    }
-    return null;
-  }
+  static String tryParseSpecialization(String pattern, String traitText) =>
+      RegExpEx.getNamedGroup(RegExp(pattern).firstMatch(traitText), 'spec');
 }
 
 class CategorizedTrait extends Trait {
@@ -257,6 +250,11 @@ class InnateAttack extends Trait {
   }
 }
 
+typedef TraitTemplate BuildTemplate(Map<String, dynamic> map);
+
+///
+/// This class acts as the central collection of Traits.
+///
 class Traits {
   static Map<TemplateType, BuildTemplate> _router = {
     TemplateType.simple: TraitTemplate.buildTemplate,
