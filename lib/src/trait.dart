@@ -39,7 +39,7 @@ class Trait {
   /// Return the effective cost of the [Trait], including any levels or
   /// variations.
   ///
-  get cost => template.cost;
+  int get cost => template.cost;
 
   ///
   /// Return the description of the [Trait] as used in a statistics block.
@@ -48,6 +48,8 @@ class Trait {
 
   const Trait({this.template, String description, this.specialization})
       : this._description = description;
+
+  String _getSpecialization() => specialization;
 }
 
 ///
@@ -62,7 +64,7 @@ class LeveledTrait extends Trait {
   /// Return the effective cost of the [Trait], including the level.
   ///
   @override
-  get cost => template.cost * _level;
+  int get cost => template.cost * _level;
 
   ///
   /// Return the description of the [Trait] as used in a statistics block. For
@@ -88,16 +90,26 @@ class LeveledTrait extends Trait {
       RegExpEx.getNamedGroup(RegExp(pattern).firstMatch(traitText), 'spec');
 }
 
-class CategorizedTrait extends Trait {
+abstract class HasCategory {
+  List<Category> _getCategories();
+
+  String _getSpecialization();
+
+  int getCost() => _getCategories()
+      .firstWhere((it) => it.items.contains(_getSpecialization()),
+          orElse: () => throw ValueNotFoundException(
+              'Element not found in category', _getSpecialization()))
+      .cost;
+}
+
+class CategorizedTrait extends Trait with HasCategory {
+  List<Category> _getCategories() => template.categories;
+
   @override
   CategorizedTemplate get template => super.template as CategorizedTemplate;
 
   @override
-  get cost => template.categories
-      .firstWhere((it) => it.items.contains(specialization),
-          orElse: () => throw ValueNotFoundException(
-              'Element not found in category', specialization))
-      .cost;
+  int get cost => getCost();
 
   const CategorizedTrait({TraitTemplate template, String item})
       : super(template: template, specialization: item);
@@ -117,22 +129,18 @@ class CategorizedTrait extends Trait {
 /// 'Create Rock' might be Small and cost 10 per level, and 'Create Quartz'
 /// might be a specific item, and be worth 5 points per level.
 ///
-class CategorizedLeveledTrait extends LeveledTrait {
+class CategorizedLeveledTrait extends LeveledTrait with HasCategory {
   @override
   CategorizedTemplate get template => super.template as CategorizedTemplate;
 
   @override
-  get cost =>
-      template.categories
-          .firstWhere((it) => it.items.contains(specialization),
-              orElse: () => throw ValueNotFoundException(
-                  'Element not found in category levels', specialization))
-          .cost *
-      level;
+  int get cost => getCost();
 
   const CategorizedLeveledTrait(
       {TraitTemplate template, int level, String item})
       : super(template: template, level: level, specialization: item);
+
+  List<Category> _getCategories() => template.categories;
 }
 
 ///
@@ -212,12 +220,9 @@ class InnateAttack extends Trait {
   /// Cost is calculated as cost per die x die including partial dice.
   ///
   @override
-  get cost {
-    if (dice.numberOfDice == null || dice.numberOfDice == 0) {
-      return (_costPerDie[type] * (dice.adds * 0.25)).ceil();
-    }
-    return (_costPerDie[type] * (dice.numberOfDice + dice.adds * 0.3)).ceil();
-  }
+  int get cost => (dice.numberOfDice == 0)
+      ? (_costPerDie[type] * (dice.adds * 0.25)).ceil()
+      : (_costPerDie[type] * (dice.numberOfDice + dice.adds * 0.3)).ceil();
 
   static InnateAttackType tryParseTypeFromText(String traitText) {
     var r = RegExp(r'^(.*) Attack');
