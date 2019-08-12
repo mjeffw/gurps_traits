@@ -1,12 +1,12 @@
 import 'dart:convert';
 
+import 'package:dart_utils/dart_util.dart';
 import 'package:gurps_dice/gurps_dice.dart';
 
 import '../gurps_traits.dart';
 import 'data/trait_data.dart';
 import 'template.dart';
 import 'util/exceptions.dart';
-import 'util/util.dart';
 
 ///
 /// A [Trait] is an instance of a GURPS trait as applied to a character,
@@ -213,7 +213,7 @@ class InnateAttack extends Trait {
   /// [InnateAttack] it consists of the Damage Type plus 'Attack' plus DieRoll.
   ///
   @override
-  get description => '${toTitleCase(enumToString(type))} Attack $dice';
+  get description => '${StringEx.toTitleCase(enumToString(type))} Attack $dice';
 
   ///
   /// Cost is calculated as cost per die x die including partial dice.
@@ -289,7 +289,7 @@ class Traits {
     TraitTemplate template = _templates
         .firstWhere((it) => it.isMatch(components.name), orElse: () => null);
 
-    return template?.parse(components);
+    return template?.buildTraitFrom(components);
   }
 
   static List<TraitTemplate> _templates = [];

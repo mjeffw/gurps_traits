@@ -8,6 +8,7 @@ environment:
   sdk: '>=2.4.0 <3.0.0'
 
 dependencies:
+  quiver: ^2.0.5
   dart_utils: 
     git: 
       url: https://github.com/mjeffw/dart_utils

@@ -1,4 +1,5 @@
 import 'package:dart_utils/dart_util.dart';
+import 'package:gurps_dice/gurps_dice.dart';
 
 import 'util/exceptions.dart';
 
@@ -12,12 +13,6 @@ import 'util/exceptions.dart';
 /// modifier, in percentile form.
 ///
 class ModifierComponents {
-  String name;
-  String detail;
-  int value;
-
-  ModifierComponents({this.name, this.value, this.detail});
-
   static final regExpModifier =
       RegExp('^(?<name>.+),\\s+(?<sign>$R_SIGN)(?<value>$R_DIGITS)%\$');
 
@@ -55,6 +50,11 @@ class ModifierComponents {
   ///
   static _value(String sign, String value) =>
       (sign == '-' ? -1 : 1) * int.tryParse(value);
+  String name;
+  String detail;
+  int value;
+
+  ModifierComponents({this.name, this.value, this.detail});
 }
 
 ///
@@ -104,6 +104,14 @@ class TraitComponents {
   ///
   String damage;
 
+  TraitComponents(
+      {this.name,
+      this.cost,
+      this.level,
+      this.rawText,
+      this.parentheticalNotes,
+      this.damage});
+
   ///
   /// Parenthetical notes are separated by semi-colons.
   ///
@@ -130,15 +138,9 @@ class TraitComponents {
     }
     return null;
   }
-
-  TraitComponents(
-      {this.name,
-      this.cost,
-      this.level,
-      this.rawText,
-      this.parentheticalNotes,
-      this.damage});
 }
+
+// == Regular Expression patterns for parsing ==
 
 const _TRAITONLY = r'(?<name>.+)'; // any
 const _TRAIT = r'(?<name>.+?)'; // any
@@ -147,7 +149,8 @@ const _COST =
     r'(?:\s+\[(?<cost>\d+(?:\.\d{0,2})?)(?:/level)?\])'; // space + [ + digits + ]
 
 const String _LEVEL = '(?<level>$R_DIGITS)';
-const String DICE_PATTERN = '(?<dice>${R_DIGITS}d($R_NUMBER)?)';
+const String DICE_PATTERN = '(?<dieroll>$dieRollPattern)';
+// '(?<dice>${R_DIGITS}d($R_NUMBER)?)';
 const String POINTS_PATTERN = '(?:(?<points>$R_DIGITS)\\s+point(?:s)?)';
 
 ///
@@ -207,7 +210,7 @@ class Parser {
   /// Return ```true``` if the match contains a non-null value for cost.
   ///
   bool _matchHasNamedGroup(RegExpMatch match) =>
-      match.groupNames.contains('cost') && match.namedGroup('cost') != null;
+      RegExpEx.hasNamedGroup(match, 'cost') && match.namedGroup('cost') != null;
 
   ///
   /// Sanitize input for processing. This includes replacing the minus symbol with a dash.
@@ -222,11 +225,11 @@ class Parser {
     if (regExpLevel.hasMatch(components.name)) {
       RegExpMatch match = regExpLevel.firstMatch(components.name);
 
-      if (match.namedGroup('level') != null) {
+      if (RegExpEx.hasNamedGroup(match, 'level')) {
         components.level = int.tryParse(match.namedGroup('level'));
-      } else if (match.namedGroup('dice') != null) {
-        components.damage = match.namedGroup('dice');
-      } else if (match.namedGroup('points') != null) {
+      } else if (RegExpEx.hasNamedGroup(match, 'dieroll')) {
+        components.damage = match.namedGroup('dieroll');
+      } else if (RegExpEx.hasNamedGroup(match, 'points')) {
         components.damage = match.namedGroup('points');
       }
       components.name = match.namedGroup('name');

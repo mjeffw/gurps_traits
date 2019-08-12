@@ -208,8 +208,8 @@ void main() {
 
     group('Cost per die', () {
       test('Burning', () {
-        InnateAttack t = Traits.buildTrait(Parser().parse('Burning Attack 1d'))
-            as InnateAttack;
+        var parse = Parser().parse('Burning Attack 1d');
+        InnateAttack t = Traits.buildTrait(parse) as InnateAttack;
         expect(t.cost, 5);
         t = InnateAttack.copyWith(t, dice: DieRoll.fromString('2d'));
         expect(t.cost, 10);

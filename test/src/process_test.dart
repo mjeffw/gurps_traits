@@ -29,7 +29,7 @@ class CodePointCharacter {
 main() {
   test('modifier', () {
     var content = '''
-Statistics: Affliction 1 (Will; Accessibility, Only sa-pient beings, −10%; Area Effect, 2 yards, +50%; Based on Will, +20%; Disadvantage, Pacifism, Self-Defense Only, +15%; Fixed Duration, +0%; Male-diction 2, +150%; Negated Disadvantage, Berserk, +200%; No Signature, +20%; Reduced Duration, 1/3, −10%; Runecasting, −30%; Terminal Condi-tion, Injury, −10%; Variable Area, +5%) [53]. 
+Statistics: Affliction 1 (Will; Accessibility, Only sapient beings, −10%; Area Effect, 2 yards, +50%; Based on Will, +20%; Disadvantage, Pacifism, Self-Defense Only, +15%; Fixed Duration, +0%; Malediction 2, +150%; Negated Disadvantage, Berserk, +200%; No Signature, +20%; Reduced Duration, 1/3, −10%; Runecasting, −30%; Terminal Condi-tion, Injury, −10%; Variable Area, +5%) [53]. 
 ''';
     TraitComponents c = Parser().parse(content);
     expect(c.notes, hasLength(13));

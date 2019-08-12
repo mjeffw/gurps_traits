@@ -1,7 +1,9 @@
 // Some helper constants and declarations.
 
+import 'package:quiver/collection.dart';
+import 'package:quiver/core.dart';
+
 import '../gurps_traits.dart';
-import 'util/util.dart';
 
 ///
 /// Enumeration of the types of [Trait]s handled by this code. The string
@@ -20,7 +22,7 @@ TemplateType convertToTemplateTypeEnum(String c) => (c == null)
     : TemplateType.values.firstWhere((e) => _unqualifiedStringValue(e) == c);
 
 String _unqualifiedStringValue(TemplateType type) =>
-    type.toString().split(r'.')[1];
+    type.toString().replaceFirst('TemplateType.', '');
 
 ///
 /// Each instance of a [Trait] of a particular type has a single template,
@@ -48,7 +50,10 @@ class TraitTemplate {
   ///
   final TemplateType type;
 
-  final isSpecialized;
+  ///
+  /// True, if this template requires specialization.
+  ///
+  final bool isSpecialized;
 
   const TraitTemplate(
       {this.reference,
@@ -63,21 +68,19 @@ class TraitTemplate {
   ///
   /// Create the appropriate [Trait] based on the the text.
   ///
-  Trait parse(TraitComponents components) {
+  Trait buildTraitFrom(TraitComponents components) {
     String specialization = components.specialties;
-    if (isSpecialized) {
-      if (components.specialties == null) {
-        // see if there are any alternate name formats with specialization
-        String pattern = _findMatchingAlternateName(components.name);
-        if (pattern != null) {
-          RegExp r = RegExp(pattern);
-          RegExpMatch match = r.firstMatch(components.name);
-          if (match.groupNames.contains('spec')) {
-            specialization = match.namedGroup('spec');
-          }
+    if (isSpecialized && components.specialties == null) {
+      // see if there are any alternate name formats with specialization
+      String pattern = _findMatchingAlternateName(components.name);
+      if (pattern != null) {
+        RegExpMatch match = RegExp(pattern).firstMatch(components.name);
+        if (match.groupNames.contains('spec')) {
+          specialization = match.namedGroup('spec');
         }
       }
     }
+
     if (type == TemplateType.leveled) {
       return LeveledTrait(
           template: this,
@@ -109,6 +112,9 @@ class TraitTemplate {
   String _findMatchingAlternateName(String text) => alternateNames
       ?.firstWhere((it) => RegExp(it).hasMatch(text), orElse: () => null);
 
+  ///
+  /// Create a [TraitTemplate] from the given JSON.
+  ///
   static TraitTemplate buildTemplate(Map<String, dynamic> json) {
     return TraitTemplate(
         reference: json['reference'],
@@ -123,9 +129,25 @@ class TraitTemplate {
   }
 }
 
+///
+/// [Category] represents a named group of options or specialties. Each also
+/// determines the cost of the Trait.
+///
 class Category {
+  ///
+  /// Name of the [Category].
+  ///
   final String name;
+
+  ///
+  /// Cost of the [Trait] if its specialties match one of the items in this
+  /// category.
+  ///
   final int cost;
+
+  ///
+  /// The list of items that match this category.
+  ///
   final List<String> items;
 
   Category({this.name, this.cost, this.items});
@@ -136,23 +158,20 @@ class Category {
     return other is Category &&
         this.name == other.name &&
         this.cost == other.cost &&
-        listEquals(this.items, other.items);
+        listsEqual(this.items, other.items);
   }
 
   @override
-  int get hashCode => name.hashCode ^ cost.hashCode ^ items.hashCode;
+  int get hashCode => hash3(name, cost, items);
 
-  factory Category.fromJSON(Map<String, dynamic> json) {
-    List<String> items =
-        (json['items'] as List<dynamic>).map((it) => it.toString()).toList();
+  factory Category.fromJSON(Map<String, dynamic> json) => Category(
+      name: json['name'], cost: json['cost'], items: jsonToListOfStrings(json));
 
-    return Category(name: json['name'], cost: json['cost'], items: items);
-  }
+  static List<String> jsonToListOfStrings(Map<String, dynamic> json) =>
+      (json['items'] as List<dynamic>).map((it) => it.toString()).toList();
 
-  static List<Category> listFromJSON(List<dynamic> list) {
-    var x = list.map((it) => Category.fromJSON(it)).toList();
-    return x;
-  }
+  static List<Category> listFromJSON(List<dynamic> list) =>
+      list.map((it) => Category.fromJSON(it)).toList();
 }
 
 class CategorizedTemplate extends TraitTemplate {
@@ -170,7 +189,7 @@ class CategorizedTemplate extends TraitTemplate {
             isSpecialized: true);
 
   @override
-  Trait parse(TraitComponents components) {
+  Trait buildTraitFrom(TraitComponents components) {
     String pattern = _findMatchingAlternateName(components.name);
 
     String category;
