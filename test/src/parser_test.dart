@@ -60,8 +60,8 @@ void main() {
       expect(digest.name, 'Night Vision');
       expect(digest.cost, 3);
       expect(digest.level, 4);
-      expect(digest.parentheticalNotes, 'Runecasting, −30%');
-      expect(digest.notes, orderedEquals(['Runecasting, −30%']));
+      expect(digest.parentheticalNotes, 'Runecasting, -30%');
+      expect(digest.notes, orderedEquals(['Runecasting, -30%']));
     });
 
     test('Multiple Parenthetical Notes', () {
@@ -85,7 +85,7 @@ void main() {
       expect(digest.cost, 14);
       expect(digest.level, 1);
       expect(digest.parentheticalNotes,
-          'HT; Advantage, Hide, +30%; Fixed Duration, +0%; Increased 1/2D, 10x, +15%; No Signature, +20%; Sorcery, −30%');
+          'HT; Advantage, Hide, +30%; Fixed Duration, +0%; Increased 1/2D, 10x, +15%; No Signature, +20%; Sorcery, -30%');
       expect(
           digest.notes,
           orderedEquals([
@@ -94,7 +94,7 @@ void main() {
             'Fixed Duration, +0%',
             'Increased 1/2D, 10x, +15%',
             'No Signature, +20%',
-            'Sorcery, −30%'
+            'Sorcery, -30%'
           ]));
 
       expect(
@@ -104,7 +104,7 @@ void main() {
             'Fixed Duration, +0%',
             'Increased 1/2D, 10x, +15%',
             'No Signature, +20%',
-            'Sorcery, −30%'
+            'Sorcery, -30%'
           ]));
 
       expect(digest.specialties, 'HT');

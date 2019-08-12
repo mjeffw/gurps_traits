@@ -1,6 +1,6 @@
+import 'package:gurps_dice/gurps_dice.dart';
 import 'package:gurps_traits/src/parser.dart';
 import 'package:gurps_traits/src/trait.dart';
-import 'package:gurps_traits/src/util/die_roll.dart';
 import 'package:gurps_traits/src/util/exceptions.dart';
 import 'package:test/test.dart';
 
@@ -211,7 +211,7 @@ void main() {
         InnateAttack t = Traits.buildTrait(Parser().parse('Burning Attack 1d'))
             as InnateAttack;
         expect(t.cost, 5);
-        t.dice = DieRoll.fromString('2d');
+        t = InnateAttack.copyWith(t, dice: DieRoll.fromString('2d'));
         expect(t.cost, 10);
       });
 
@@ -219,7 +219,7 @@ void main() {
         InnateAttack t = Traits.buildTrait(Parser().parse('Corrosion Attack'))
             as InnateAttack;
         expect(t.cost, 10);
-        t.dice = DieRoll.fromString('2d');
+        t = InnateAttack.copyWith(t, dice: DieRoll.fromString('2d'));
         expect(t.cost, 20);
       });
 
@@ -227,7 +227,7 @@ void main() {
         InnateAttack t = Traits.buildTrait(Parser().parse('Crushing Attack'))
             as InnateAttack;
         expect(t.cost, 5);
-        t.dice = DieRoll.fromString('2d');
+        t = InnateAttack.copyWith(t, dice: DieRoll.fromString('2d'));
         expect(t.cost, 10);
       });
 
@@ -235,7 +235,7 @@ void main() {
         InnateAttack t =
             Traits.buildTrait(Parser().parse('Cutting Attack')) as InnateAttack;
         expect(t.cost, 7);
-        t.dice = DieRoll.fromString('2d');
+        t = InnateAttack.copyWith(t, dice: DieRoll.fromString('2d'));
         expect(t.cost, 14);
       });
 
@@ -243,7 +243,7 @@ void main() {
         InnateAttack t =
             Traits.buildTrait(Parser().parse('Fatigue Attack')) as InnateAttack;
         expect(t.cost, 10);
-        t.dice = DieRoll.fromString('2d');
+        t = InnateAttack.copyWith(t, dice: DieRoll.fromString('2d'));
         expect(t.cost, 20);
       });
 
@@ -251,7 +251,7 @@ void main() {
         InnateAttack t = Traits.buildTrait(Parser().parse('Impaling Attack'))
             as InnateAttack;
         expect(t.cost, 8);
-        t.dice = DieRoll.fromString('2d');
+        t = InnateAttack.copyWith(t, dice: DieRoll.fromString('2d'));
         expect(t.cost, 16);
       });
 
@@ -260,7 +260,7 @@ void main() {
             Traits.buildTrait(Parser().parse('Small Piercing Attack'))
                 as InnateAttack;
         expect(t.cost, 3);
-        t.dice = DieRoll.fromString('2d');
+        t = InnateAttack.copyWith(t, dice: DieRoll.fromString('2d'));
         expect(t.cost, 6);
       });
 
@@ -268,7 +268,7 @@ void main() {
         InnateAttack t = Traits.buildTrait(Parser().parse('Piercing Attack'))
             as InnateAttack;
         expect(t.cost, 5);
-        t.dice = DieRoll.fromString('2d');
+        t = InnateAttack.copyWith(t, dice: DieRoll.fromString('2d'));
         expect(t.cost, 10);
       });
 
@@ -277,7 +277,7 @@ void main() {
             Traits.buildTrait(Parser().parse('Large Piercing Attack'))
                 as InnateAttack;
         expect(t.cost, 6);
-        t.dice = DieRoll.fromString('2d');
+        t = InnateAttack.copyWith(t, dice: DieRoll.fromString('2d'));
         expect(t.cost, 12);
       });
 
@@ -286,7 +286,7 @@ void main() {
             Traits.buildTrait(Parser().parse('Huge Piercing Attack'))
                 as InnateAttack;
         expect(t.cost, 8);
-        t.dice = DieRoll.fromString('2d');
+        t = InnateAttack.copyWith(t, dice: DieRoll.fromString('2d'));
         expect(t.cost, 16);
       });
 
@@ -294,7 +294,7 @@ void main() {
         InnateAttack t =
             Traits.buildTrait(Parser().parse('Toxic Attack')) as InnateAttack;
         expect(t.cost, 4);
-        t.dice = DieRoll.fromString('2d');
+        t = InnateAttack.copyWith(t, dice: DieRoll.fromString('2d'));
         expect(t.cost, 8);
       });
     }, skip: false);
@@ -332,7 +332,7 @@ void main() {
         InnateAttack t = Traits.buildTrait(Parser().parse('Crushing Attack'))
             as InnateAttack;
         expect(t.reference, 'Innate Attack');
-        expect(t.dice, DieRoll(dice: 1, normalize: false));
+        expect(t.dice, DieRoll(dice: 1, normalized: false));
         expect(t.description, 'Crushing Attack 1d');
         expect(t.cost, 5);
       });
@@ -340,7 +340,7 @@ void main() {
       test('Crushing Attack 1d', () {
         InnateAttack t = Traits.buildTrait(Parser().parse('Crushing Attack 1d'))
             as InnateAttack;
-        expect(t.dice, DieRoll(dice: 1, normalize: false));
+        expect(t.dice, DieRoll(dice: 1, normalized: false));
         expect(t.description, 'Crushing Attack 1d');
         expect(t.cost, 5);
       });
@@ -457,7 +457,7 @@ void main() {
             Traits.buildTrait(Parser().parse('Huge Piercing Attack 3 points'))
                 as InnateAttack;
         expect(t.cost, 6);
-        expect(t.dice, DieRoll(adds: 3, normalize: false));
+        expect(t.dice, DieRoll(adds: 3, normalized: false));
       });
 
       test('4 points', () {
@@ -465,7 +465,7 @@ void main() {
             Traits.buildTrait(Parser().parse('Huge Piercing Attack 4 points'))
                 as InnateAttack;
         expect(t.cost, 8);
-        expect(t.dice, DieRoll(adds: 4, normalize: false));
+        expect(t.dice, DieRoll(adds: 4, normalized: false));
       });
     });
   }, skip: false);
@@ -559,8 +559,8 @@ void main() {
 
       group('Cost per level', () {
         test('Solid', () {
-          LeveledTrait t = Traits.buildTrait(Parser().parse('Create Solid 1'))
-              as LeveledTrait;
+          TraitComponents parse = Parser().parse('Create Solid 1');
+          LeveledTrait t = Traits.buildTrait(parse) as LeveledTrait;
           expect(t.cost, 40);
         });
 

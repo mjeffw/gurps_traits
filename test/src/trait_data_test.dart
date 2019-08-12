@@ -1,3 +1,4 @@
+import 'package:gurps_traits/src/template.dart';
 import 'package:gurps_traits/src/trait.dart';
 import 'package:test/test.dart';
 

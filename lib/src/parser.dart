@@ -1,7 +1,6 @@
-import 'util/exceptions.dart';
+import 'package:dart_utils/dart_util.dart';
 
-List<String> _split(String source, String pattern) =>
-    (source == null) ? [] : source.split(pattern);
+import 'util/exceptions.dart';
 
 ///
 /// [ModifierComponents] represent the various components of a modifier, as
@@ -20,7 +19,7 @@ class ModifierComponents {
   ModifierComponents({this.name, this.value, this.detail});
 
   static final regExpModifier =
-      RegExp(r'^(?<name>.+),\s+(?<sign>[+|-])(?<value>\d+)\%$');
+      RegExp('^(?<name>.+),\\s+(?<sign>$R_SIGN)(?<value>$R_DIGITS)%\$');
 
   static ModifierComponents parse(String input) {
     if (regExpModifier.hasMatch(input)) {
@@ -35,10 +34,8 @@ class ModifierComponents {
     }
   }
 
-  static bool hasMatch(String s) {
-    var hasMatch = ModifierComponents.regExpModifier.hasMatch(s);
-    return hasMatch;
-  }
+  static bool hasMatch(String s) =>
+      ModifierComponents.regExpModifier.hasMatch(s);
 
   ///
   /// Name is the first comma-separated component of the text.
@@ -56,11 +53,8 @@ class ModifierComponents {
   /// Value is the final component of the text, and is composed of a sign
   /// character ('+' or '-'), and an integer.
   ///
-  static _value(String sign, String value) {
-    int result = int.tryParse(value);
-    int x = sign == '-' ? -1 : 1;
-    return x * result;
-  }
+  static _value(String sign, String value) =>
+      (sign == '-' ? -1 : 1) * int.tryParse(value);
 }
 
 ///
@@ -113,8 +107,9 @@ class TraitComponents {
   ///
   /// Parenthetical notes are separated by semi-colons.
   ///
-  List<String> get notes =>
-      _split(parentheticalNotes, ';').map((s) => s.trim()).toList();
+  List<String> get notes => StringEx.splitNullSafe(parentheticalNotes, ';')
+      .map((s) => s.trim())
+      .toList();
 
   ///
   /// Parse out any modifiers from the parenthetical notes.
@@ -145,26 +140,27 @@ class TraitComponents {
       this.damage});
 }
 
-const _NAME = r'(?<name>.+?)'; // any
+const _TRAITONLY = r'(?<name>.+)'; // any
+const _TRAIT = r'(?<name>.+?)'; // any
 const _NOTES = r'\s+\((?<notes>.*)\)'; // space + ( + any  + )
 const _COST =
     r'(?:\s+\[(?<cost>\d+(?:\.\d{0,2})?)(?:/level)?\])'; // space + [ + digits + ]
 
-const String _LEVEL = r'(?<level>\d+?)';
-const String DICE_PATTERN = r'(?<dice>\d+d(?:[+|-]\d+)?)';
-const String POINTS_PATTERN = r'(?:(?<points>\d+)\s+point(?:s)?)';
+const String _LEVEL = '(?<level>$R_DIGITS)';
+const String DICE_PATTERN = '(?<dice>${R_DIGITS}d($R_NUMBER)?)';
+const String POINTS_PATTERN = '(?:(?<points>$R_DIGITS)\\s+point(?:s)?)';
 
 ///
 /// A factory that consumes a String and returns an instance of TraitComponents.
 ///
 class Parser {
-  static String namePattern = '^$_NAME';
-  static String nameCostPattern = '^$_NAME$_COST';
-  static String nameNotesPattern = '^$_NAME$_NOTES';
-  static String nameNotesCostPattern = '^$_NAME$_NOTES$_COST';
+  static String namePattern = '^$_TRAITONLY';
+  static String nameCostPattern = '^$_TRAIT$_COST';
+  static String nameNotesPattern = '^$_TRAIT$_NOTES';
+  static String nameNotesCostPattern = '^$_TRAIT$_NOTES$_COST';
 
   static RegExp regExpLevel =
-      RegExp('^$_NAME(?: $_LEVEL|$DICE_PATTERN|$POINTS_PATTERN)\$');
+      RegExp('^$_TRAIT(?:\\s+$_LEVEL|$DICE_PATTERN|$POINTS_PATTERN)\$');
 
   ///
   /// Ordered list of regular expressions to try matching against input.
@@ -202,19 +198,10 @@ class Parser {
   ///
   /// Throw TraitParseException if no match is found.
   ///
-  RegExpMatch firstMatch(List<RegExp> regExps, String source) {
-    for (RegExp r in regExps) {
-      if (r.hasMatch(source)) {
-        RegExpMatch match = r.firstMatch(source);
-        return match;
-      }
-    }
-
-    return regExps
-        .firstWhere((regExp) => regExp.hasMatch(source),
-            orElse: () => throw TraitFormatException(source))
-        .firstMatch(source);
-  }
+  RegExpMatch firstMatch(List<RegExp> regExps, String source) => regExps
+      .firstWhere((regExp) => regExp.hasMatch(source),
+          orElse: () => throw TraitFormatException(source))
+      .firstMatch(source);
 
   ///
   /// Return ```true``` if the match contains a non-null value for cost.

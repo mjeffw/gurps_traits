@@ -1,68 +1,12 @@
 import 'dart:convert';
 
+import 'package:gurps_dice/gurps_dice.dart';
+
 import '../gurps_traits.dart';
 import 'data/trait_data.dart';
-import 'util/die_roll.dart';
+import 'template.dart';
 import 'util/exceptions.dart';
-
-// Some helper constants and declarations.
-
-///
-/// Enumeration of the types of [Trait]s handled by this code. The string
-/// value of a [TemplateType] is used when externalizing the list of Traits.
-///
-enum TemplateType {
-  simple,
-  leveled,
-  innateAttack,
-  categorizedLeveled,
-  categorized
-}
-
-// Helper functions.
-
-///
-/// Regrettable that we have to do this because this project is pure Dart.
-/// Flutter has a collection utility package with this method.
-///
-bool _listEquals(List<dynamic> one, List<dynamic> other) {
-  if (identical(one, other)) return true;
-  if (one.runtimeType != other.runtimeType || one.length != other.length) {
-    return false;
-  }
-  for (var i = 0; i < one.length; i++) {
-    if (one[i] != other[i]) return false;
-  }
-  return true;
-}
-
-TemplateType convertToTemplateTypeEnum(String c) => (c == null)
-    ? TemplateType.simple
-    : TemplateType.values.firstWhere((e) => _unqualifiedStringValue(e) == c);
-
-String _unqualifiedStringValue(TemplateType type) =>
-    type.toString().split(r'.')[1];
-
-///
-/// Converts a string into Title Case.
-///
-String toTitleCase(String text) => RegExp(r'\w+')
-    .allMatches(text)
-    .map(getWord)
-    .map(capitalizeWord)
-    .reduce((a, b) => '$a $b');
-
-///
-/// Return the substring matched by this [RegExpMatch].
-///
-String getWord(RegExpMatch match) =>
-    match.input.substring(match.start, match.end);
-
-///
-/// Convert the first character of this word to UpperCase.
-///
-String capitalizeWord(String word) =>
-    word.replaceRange(0, 1, word.substring(0, 1).toUpperCase());
+import 'util/util.dart';
 
 ///
 /// A [Trait] is an instance of a GURPS trait as applied to a character,
@@ -77,9 +21,14 @@ class Trait {
   /// Some of the behavior or state of a [Trait] is based on the corresponding
   /// [TraitTemplate].
   ///
-  TraitTemplate template;
+  final TraitTemplate template;
 
-  String _description;
+  final String _description;
+
+  ///
+  /// Any parenthetical notes for this [Trait].
+  ///
+  final String specialization;
 
   ///
   /// Return the canonical reference name of the [Trait].
@@ -97,12 +46,7 @@ class Trait {
   ///
   get description => _description ?? reference;
 
-  ///
-  /// Any parenthetical notes for this [Trait].
-  ///
-  String specialization;
-
-  Trait({this.template, String description, this.specialization})
+  const Trait({this.template, String description, this.specialization})
       : this._description = description;
 }
 
@@ -112,7 +56,7 @@ class Trait {
 /// The cost of a level is fixed and is calculated as (CostPerLevel × Levels).
 ///
 class LeveledTrait extends Trait {
-  int _level = 1;
+  final int _level;
 
   ///
   /// Return the effective cost of the [Trait], including the level.
@@ -134,12 +78,13 @@ class LeveledTrait extends Trait {
   ///
   get level => _level;
 
-  LeveledTrait({TraitTemplate template, int level, String specialization})
+  const LeveledTrait(
+      {TraitTemplate template, int level = 1, String specialization})
       : assert(level != null && level > 0),
         _level = level,
         super(template: template, specialization: specialization);
 
-  static String _tryParseSpecialization(String pattern, String traitText) {
+  static String tryParseSpecialization(String pattern, String traitText) {
     if (pattern == null) return null;
 
     RegExpMatch match = RegExp(pattern).firstMatch(traitText);
@@ -161,7 +106,7 @@ class CategorizedTrait extends Trait {
               'Element not found in category', specialization))
       .cost;
 
-  CategorizedTrait({TraitTemplate template, String item})
+  const CategorizedTrait({TraitTemplate template, String item})
       : super(template: template, specialization: item);
 }
 
@@ -192,7 +137,8 @@ class CategorizedLeveledTrait extends LeveledTrait {
           .cost *
       level;
 
-  CategorizedLeveledTrait({TraitTemplate template, int level, String item})
+  const CategorizedLeveledTrait(
+      {TraitTemplate template, int level, String item})
       : super(template: template, level: level, specialization: item);
 }
 
@@ -232,7 +178,7 @@ class InnateAttack extends Trait {
   ///
   /// Map the [InnateAttackType] to a cost per die.
   ///
-  Map<InnateAttackType, int> _costPerDie = {
+  final Map<InnateAttackType, int> _costPerDie = const {
     InnateAttackType.burning: 5,
     InnateAttackType.corrosion: 10,
     InnateAttackType.crushing: 5,
@@ -252,14 +198,14 @@ class InnateAttack extends Trait {
   /// Partial dice translates into adds to the number of dice. For example,
   /// 3d+2 is 3 dice and 2 'partial dice'.
   ///
-  DieRoll dice;
+  final DieRoll dice;
 
   ///
   /// The type of damage of this Innate Attack.
   ///
-  InnateAttackType type;
+  final InnateAttackType type;
 
-  InnateAttack({TraitTemplate template, this.dice, this.type})
+  const InnateAttack({TraitTemplate template, this.dice, this.type})
       : super(template: template);
 
   ///
@@ -274,13 +220,13 @@ class InnateAttack extends Trait {
   ///
   @override
   get cost {
-    if (dice.numberOfDice == null) {
+    if (dice.numberOfDice == null || dice.numberOfDice == 0) {
       return (_costPerDie[type] * (dice.adds * 0.25)).ceil();
     }
     return (_costPerDie[type] * (dice.numberOfDice + dice.adds * 0.3)).ceil();
   }
 
-  static InnateAttackType _tryParseTypeFromText(String traitText) {
+  static InnateAttackType tryParseTypeFromText(String traitText) {
     var r = RegExp(r'^(.*) Attack');
     if (r.hasMatch(traitText)) {
       return InnateAttackType.values.firstWhere((it) =>
@@ -289,7 +235,7 @@ class InnateAttack extends Trait {
     return null;
   }
 
-  static _tryParseDiceFromText(String diceText) {
+  static tryParseDiceFromText(String diceText) {
     var regExp = RegExp(DICE_PATTERN);
     if (diceText != null && regExp.hasMatch(diceText)) {
       return DieRoll.fromString(regExp.firstMatch(diceText).group(1),
@@ -299,205 +245,18 @@ class InnateAttack extends Trait {
     regExp = RegExp(r'(\d+)');
     if (diceText != null && regExp.hasMatch(diceText)) {
       var tryParse = int.tryParse(regExp.firstMatch(diceText).group(1));
-      return DieRoll(adds: tryParse, normalize: false);
+      return DieRoll(adds: tryParse, normalized: false);
     }
 
     return DieRoll(dice: 1);
   }
-}
 
-///
-/// Each instance of a [Trait] of a particular type has a single template,
-/// which defines its cost and its reference name.
-///
-class TraitTemplate {
-  ///
-  /// A [TraitTemplate] has a reference name -- the name by which it are listed
-  /// in the Basic Character book's Trait list (p.B297).
-  ///
-  final String reference;
-
-  ///
-  /// Many traits have a flat cost. For leveled traits this is cost per level.
-  ///
-  final int cost;
-
-  ///
-  /// Some Traits can be referred to via a number of different names
-  ///
-  final List<String> alternateNames;
-
-  ///
-  /// The type of Trait represented by this template.
-  ///
-  final TemplateType type;
-
-  final isSpecialized;
-
-  TraitTemplate(
-      {this.reference,
-      this.cost,
-      List<String> alternateNames,
-      TemplateType type = TemplateType.simple,
-      bool isSpecialized = false})
-      : type = type,
-        alternateNames = alternateNames ?? [],
-        isSpecialized = isSpecialized ?? false;
-
-  ///
-  /// Create the appropriate [Trait] based on the the text.
-  ///
-  Trait parse(TraitComponents components) {
-    String specialization = components.specialties;
-    if (isSpecialized) {
-      if (components.specialties == null) {
-        // see if there are any alternate name formats with specialization
-        String pattern = _findMatchingAlternateName(components.name);
-        if (pattern != null) {
-          RegExp r = RegExp(pattern);
-          RegExpMatch match = r.firstMatch(components.name);
-          if (match.groupNames.contains('spec')) {
-            specialization = match.namedGroup('spec');
-          }
-        }
-      }
-    }
-    if (type == TemplateType.leveled) {
-      return LeveledTrait(
-          template: this,
-          level: components.level ?? 1,
-          specialization: specialization);
-    } else if (type == TemplateType.innateAttack) {
-      return InnateAttack(
-          template: this,
-          type: InnateAttack._tryParseTypeFromText(components.name),
-          dice: InnateAttack._tryParseDiceFromText(components.damage));
-    }
-    return Trait(
-        template: this,
-        description: components.name,
-        specialization: specialization);
-  }
-
-  ///
-  /// Return [true] if the text matches either the reference name or any of the alternate
-  /// regular expressions.
-  ///
-  bool _isMatch(String text) =>
-      (text == reference) ? true : _findMatchingAlternateName(text) != null;
-
-  ///
-  /// For the given text, return the first alternate name regexp that matches.
-  /// If none match, return null.
-  ///
-  String _findMatchingAlternateName(String text) => alternateNames
-      ?.firstWhere((it) => RegExp(it).hasMatch(text), orElse: () => null);
-
-  static TraitTemplate buildTemplate(Map<String, dynamic> json) {
-    return TraitTemplate(
-        reference: json['reference'],
-        cost: json['cost'],
-        type: convertToTemplateTypeEnum(json['type']),
-        isSpecialized: json['isSpecialized'],
-        alternateNames: json['alternateNames'] == null
-            ? null
-            : (json['alternateNames'] as List<dynamic>)
-                .map((it) => it.toString())
-                .toList());
+  static InnateAttack copyWith(InnateAttack t, {DieRoll dice}) {
+    return InnateAttack(
+        type: t.type, dice: dice ?? t.dice, template: t.template);
   }
 }
 
-class Category {
-  final String name;
-  final int cost;
-  final List<String> items;
-
-  Category({this.name, this.cost, this.items});
-
-  @override
-  bool operator ==(dynamic other) {
-    if (identical(this, other)) return true;
-    return other is Category &&
-        this.name == other.name &&
-        this.cost == other.cost &&
-        _listEquals(this.items, other.items);
-  }
-
-  @override
-  int get hashCode => name.hashCode ^ cost.hashCode ^ items.hashCode;
-
-  factory Category.fromJSON(Map<String, dynamic> json) {
-    List<String> items =
-        (json['items'] as List<dynamic>).map((it) => it.toString()).toList();
-
-    return Category(name: json['name'], cost: json['cost'], items: items);
-  }
-
-  static List<Category> listFromJSON(List<dynamic> list) {
-    var x = list.map((it) => Category.fromJSON(it)).toList();
-    return x;
-  }
-}
-
-class CategorizedTemplate extends TraitTemplate {
-  final List<Category> categories;
-
-  CategorizedTemplate(
-      {String reference,
-      TemplateType type,
-      List<String> alternateNames,
-      this.categories})
-      : super(
-            reference: reference,
-            alternateNames: alternateNames,
-            type: type,
-            isSpecialized: true);
-
-  @override
-  Trait parse(TraitComponents components) {
-    String pattern = _findMatchingAlternateName(components.name);
-
-    String category;
-    if (components.specialties == null) {
-      if (pattern != null) {
-        category =
-            LeveledTrait._tryParseSpecialization(pattern, components.name);
-      }
-    } else {
-      category = components.specialties;
-    }
-
-    if (type == TemplateType.categorizedLeveled) {
-      return CategorizedLeveledTrait(
-          template: this,
-          level: components.level == null ? 1 : components.level,
-          item: category);
-    }
-
-    // ...else default to CategorizedTrait
-    return CategorizedTrait(template: this, item: category);
-  }
-
-  static CategorizedTemplate buildTemplate(Map<String, dynamic> json) {
-    List<Category> categories = Category.listFromJSON(json['categories']);
-
-    return CategorizedTemplate(
-        reference: json['reference'],
-        type: convertToTemplateTypeEnum(json['type']),
-        categories: categories,
-        alternateNames: json['alternateNames'] == null
-            ? null
-            : (json['alternateNames'] as List<dynamic>)
-                .map((it) => it.toString())
-                .toList());
-  }
-}
-
-typedef TraitTemplate BuildTemplate(Map<String, dynamic> map);
-
-///
-/// This class acts as the central collection of Traits.
-///
 class Traits {
   static Map<TemplateType, BuildTemplate> _router = {
     TemplateType.simple: TraitTemplate.buildTemplate,
@@ -528,7 +287,7 @@ class Traits {
     }
 
     TraitTemplate template = _templates
-        .firstWhere((it) => it._isMatch(components.name), orElse: () => null);
+        .firstWhere((it) => it.isMatch(components.name), orElse: () => null);
 
     return template?.parse(components);
   }
