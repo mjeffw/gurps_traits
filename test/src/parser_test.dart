@@ -1,5 +1,4 @@
-import 'package:sorcery_parser/src/parser.dart';
-import 'package:sorcery_parser/src/util/exceptions.dart';
+import 'package:gurps_traits/gurps_traits.dart';
 import 'package:test/test.dart';
 
 void main() {

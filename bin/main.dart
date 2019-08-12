@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:sorcery_parser/src/process.dart';
+import '../example/process.dart';
 
 Future main(List<String> args) async {
   var files = [

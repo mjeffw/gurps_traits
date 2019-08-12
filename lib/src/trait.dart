@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:sorcery_parser/src/data/trait_data.dart';
-import 'package:sorcery_parser/src/parser.dart';
-import 'package:sorcery_parser/src/util/die_roll.dart';
-import 'package:sorcery_parser/src/util/exceptions.dart';
+import '../gurps_traits.dart';
+import 'data/trait_data.dart';
+import 'util/die_roll.dart';
+import 'util/exceptions.dart';
 
 // Some helper constants and declarations.
 

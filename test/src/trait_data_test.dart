@@ -1,4 +1,4 @@
-import 'package:sorcery_parser/src/trait.dart';
+import 'package:gurps_traits/src/trait.dart';
 import 'package:test/test.dart';
 
 void main() {

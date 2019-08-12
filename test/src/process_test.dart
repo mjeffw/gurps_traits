@@ -1,7 +1,6 @@
 import 'dart:io';
 
-import 'package:sorcery_parser/src/parser.dart';
-import 'package:sorcery_parser/src/process.dart';
+import 'package:gurps_traits/src/parser.dart';
 import 'package:test/test.dart';
 
 class CodePointCharacter {
@@ -28,13 +27,6 @@ class CodePointCharacter {
 }
 
 main() {
-  test('description', () {
-    var contents = '''
-Statistics: Toxic Attack 10 points (Accessibility, On-ly on living IQ 1+ beings, −10%; Damage cannot exceed margin of victory, −50%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%) [20].    ''';
-
-    ProcessTraitText().process(contents.split('\n'));
-  });
-
   test('modifier', () {
     var content = '''
 Statistics: Affliction 1 (Will; Accessibility, Only sa-pient beings, −10%; Area Effect, 2 yards, +50%; Based on Will, +20%; Disadvantage, Pacifism, Self-Defense Only, +15%; Fixed Duration, +0%; Male-diction 2, +150%; Negated Disadvantage, Berserk, +200%; No Signature, +20%; Reduced Duration, 1/3, −10%; Runecasting, −30%; Terminal Condi-tion, Injury, −10%; Variable Area, +5%) [53]. 

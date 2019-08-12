@@ -1,7 +1,6 @@
 import 'dart:math';
 
-import 'parser.dart';
-import 'trait.dart';
+import 'package:gurps_traits/gurps_traits.dart';
 
 class ProcessTraitText {
   final keywords = <String>[
