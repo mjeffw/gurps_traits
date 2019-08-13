@@ -582,6 +582,30 @@ void main() {
           expect(t.cost, 5);
         });
 
+        test('Solid 2', () {
+          TraitComponents parse = Parser().parse('Create Solid 2');
+          LeveledTrait t = Traits.buildTrait(parse) as LeveledTrait;
+          expect(t.cost, 80);
+        });
+
+        test('Earth 2', () {
+          LeveledTrait t = Traits.buildTrait(Parser().parse('Create Earth 2'))
+              as LeveledTrait;
+          expect(t.cost, 40);
+        });
+
+        test('Rock 3', () {
+          LeveledTrait t = Traits.buildTrait(Parser().parse('Create Rock 3'))
+              as LeveledTrait;
+          expect(t.cost, 30);
+        });
+
+        test('Iron 4', () {
+          LeveledTrait t = Traits.buildTrait(Parser().parse('Create Iron 4'))
+              as LeveledTrait;
+          expect(t.cost, 20);
+        });
+
         test('Missing', () {
           LeveledTrait t = Traits.buildTrait(Parser().parse('Create Missing 1'))
               as LeveledTrait;

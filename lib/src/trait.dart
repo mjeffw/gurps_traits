@@ -49,6 +49,9 @@ class Trait {
   const Trait({this.template, String description, this.specialization})
       : this._description = description;
 
+  ///
+  /// internal methodification used by the HasCategory mixin.
+  ///
   String _getSpecialization() => specialization;
 }
 
@@ -58,6 +61,9 @@ class Trait {
 /// The cost of a level is fixed and is calculated as (CostPerLevel × Levels).
 ///
 class LeveledTrait extends Trait {
+  ///
+  /// Level of this trait.
+  ///
   final int _level;
 
   ///
@@ -90,6 +96,9 @@ class LeveledTrait extends Trait {
       RegExpEx.getNamedGroup(RegExp(pattern).firstMatch(traitText), 'spec');
 }
 
+///
+/// This mixin uses a list of [Category] to calculate its cost.
+///
 abstract class HasCategory {
   List<Category> _getCategories();
 
@@ -134,7 +143,7 @@ class CategorizedLeveledTrait extends LeveledTrait with HasCategory {
   CategorizedTemplate get template => super.template as CategorizedTemplate;
 
   @override
-  int get cost => getCost();
+  int get cost => getCost() * level;
 
   const CategorizedLeveledTrait(
       {TraitTemplate template, int level, String item})
@@ -269,16 +278,11 @@ class Traits {
     TemplateType.innateAttack: TraitTemplate.buildTemplate,
   };
 
-  static TraitTemplate buildTemplate(String text) {
-    var map = json.decode(text);
+  static TraitTemplate buildTemplate(String text) =>
+      _buildTemplateFromJson(json.decode(text));
 
-    return _buildTemplateFromJson(map);
-  }
-
-  static TraitTemplate _buildTemplateFromJson(Map<String, dynamic> json) {
-    var type = convertToTemplateTypeEnum(json['type']);
-    return _router[type].call(json);
-  }
+  static TraitTemplate _buildTemplateFromJson(Map<String, dynamic> json) =>
+      _router[convertToTemplateTypeEnum(json['type'])].call(json);
 
   static Trait buildTrait(TraitComponents components) {
     if (_templates.isEmpty) {
