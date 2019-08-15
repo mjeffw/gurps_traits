@@ -65,14 +65,14 @@ Duration: Instantaneous.
 Frostburn 
 Keywords: Missile, Obvious. 
 Rune/Effect: Úr/Weather [4] + Create (−2).
-Full Cost: 36 points. 
+Full Cost: 35 points. 
 Casting Roll: Use Innate Attack (Projectile) to hit. 
 Range: 100 yards. 
 Duration: Instantaneous. 
   This spell conjures an orb of frost, which will adhere to and freeze any creature it strikes. Use Innate Attack (Projectile) to hit, applying normal range penalties. It does 1d−1 burning damage. This damage comes from extreme cold, not heat, so it cannot set anything on fire. The frost sticks to the target, damaging him again every second for 9 seconds. The cycles can be stopped only by taking a point of burning damage from fire. 
   If your foe is within one yard of you, he may attempt to parry this attack (actually parrying your hand). If such a parry is successful, you must roll against DX to avoid hitting yourself with your own orb of frostburn! 
-  Statistics: Burning Attack 1d−1 (Cyclic, 9 cycles, 1 second intervals, +800%; No Incendiary Effect, −10%; Nuisance Effect, Dangerous to be parried, −5%; Runecasting, −30%) [36].
-  The cost of 2 cycles is 8 points. Each +1 Cycle is +4 points.
+  Statistics: Burning Attack 1d−1 (Cyclic, 9 cycles, 1 second intervals, +800%; No Incendiary Effect, −10%; Nuisance Effect, Dangerous to be parried, −5%; Runecasting, −30%) [35].
+  The cost of 2 cycles is 7 points. Each +1 Cycle is +4 points.
   Could be maintained? Add Variable, Cycles? And a cost of 1 FP per cycle? And requires Concentrate?
 Lightning Armor
 Keywords: Buff.

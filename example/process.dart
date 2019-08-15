@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:gurps_traits/gurps_traits.dart';
 
 class ProcessTraitText {
@@ -15,8 +13,6 @@ class ProcessTraitText {
   void process(List<String> contents) {
     mayPrint('The file is ${contents.length} lines long.');
 
-    var statistics = '';
-
     contents.forEach((line) {
       if (!isStartsWithKeyword(line, keywords)) {
         if (!line.startsWith(r'*') && !line.startsWith(' ')) {
@@ -26,17 +22,17 @@ class ProcessTraitText {
         var statisticsLabel = RegExp(r'^\s*Statistics:');
 
         if (line.startsWith(statisticsLabel)) {
-
-          List<TraitComponents> components = Parser().parse(statistics);
+          List<TraitComponents> components = Parser().parse(line);
 
           components
-              .forEach((f) => mayPrint('${f.name} ${f.parentheticalNotes})'));
+              .forEach((f) => mayPrint('${f.name} (${f.parentheticalNotes})'));
 
           // create the Trait from the traitText
           List<Trait> traits =
               components.map((it) => Traits.buildTrait(it)).toList();
 
-          traits.forEach((f) => mayPrint('  Trait: ${f.reference}'));
+          traits.forEach((f) => mayPrint(
+              '  Trait: ${f.reference} (${f.baseCost}:${f.modifierTotal}%) [${f.cost}]'));
 
           int calculatedTotal =
               traits.map((f) => f.cost).reduce((a, b) => a + b);
@@ -55,16 +51,6 @@ class ProcessTraitText {
         }
       }
     });
-  }
-
-  double _getModifierFactor(TraitComponents components) {
-    List<ModifierComponents> values =
-        components.modifiersText.map((it) => ModifierComponents.parse(it)).toList();
-
-    int modifierTotal = values.map((it) => it.value).fold(0, (a, b) => a + b);
-
-    double modifierFactor = max(modifierTotal.toDouble() / 100.0, -0.8);
-    return modifierFactor;
   }
 
   bool isStartsWithKeyword(String line, List<String> keywords) {

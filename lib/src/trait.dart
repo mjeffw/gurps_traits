@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:dart_utils/dart_util.dart';
 import 'package:gurps_dice/gurps_dice.dart';
@@ -35,21 +36,23 @@ class Trait {
   ///
   final List<ModifierComponents> modifiers;
 
-  double get _modifierFactor =>
-      modifiers.map((it) => it.value).fold(0, (a, b) => a + b) / 100.0;
-
   ///
   /// Return the canonical reference name of the [Trait].
   ///
   get reference => template.reference;
 
+  int get baseCost => template.cost;
+
+  get modifierTotal =>
+      max(-80, modifiers.map((it) => it.value).fold(0, (a, b) => a + b) as int);
+
+  double get _modifierFactor => modifierTotal / 100.0;
+
   ///
   /// Return the effective cost of the [Trait], including any levels or
   /// variations.
   ///
-  int get cost {
-    return template.cost + (template.cost * _modifierFactor).ceil();
-  }
+  int get cost => (baseCost * (1 + _modifierFactor)).ceil();
 
   ///
   /// Return the description of the [Trait] as used in a statistics block.
@@ -59,15 +62,11 @@ class Trait {
   const Trait(
       {this.template,
       String description,
-      this.specialization,
+      String specialization,
       List<ModifierComponents> modifiers})
       : this._description = description,
+        this.specialization = specialization,
         this.modifiers = modifiers ?? const [];
-
-  ///
-  /// internal methodification used by the HasCategory mixin.
-  ///
-  String _getSpecialization() => specialization;
 }
 
 ///
@@ -85,9 +84,7 @@ class LeveledTrait extends Trait {
   /// Return the effective cost of the [Trait], including the level.
   ///
   @override
-  int get cost {
-    return super.cost * _level;
-  }
+  int get cost => super.cost * _level;
 
   ///
   /// Return the description of the [Trait] as used in a statistics block. For
@@ -123,30 +120,25 @@ class LeveledTrait extends Trait {
 /// This mixin uses a list of [Category] to calculate its cost.
 ///
 abstract class HasCategory {
-  List<Category> _getCategories();
+  List<Category> get _categories;
 
-  String _getSpecialization();
+  String get specialization;
 
-  int getCost() => _getCategories()
-      .firstWhere((it) => it.items.contains(_getSpecialization()),
+  int get baseCost => _categories
+      .firstWhere((it) => it.items.contains(specialization),
           orElse: () => throw ValueNotFoundException(
-              'Element not found in category', _getSpecialization()))
+              'Element not found in category', specialization))
       .cost;
 }
 
 class CategorizedTrait extends Trait with HasCategory {
-  List<Category> _getCategories() => template.categories;
-
   @override
   CategorizedTemplate get template => super.template as CategorizedTemplate;
 
   @override
-  int get cost {
-    var cost = getCost();
-    return cost + (cost * _modifierFactor).ceil();
-  }
+  List<Category> get _categories => template.categories;
 
-  const CategorizedTrait(
+  CategorizedTrait(
       {TraitTemplate template, String item, List<ModifierComponents> modifiers})
       : super(template: template, specialization: item);
 }
@@ -170,12 +162,9 @@ class CategorizedLeveledTrait extends LeveledTrait with HasCategory {
   CategorizedTemplate get template => super.template as CategorizedTemplate;
 
   @override
-  int get cost {
-    var cost = getCost();
-    return (cost + (cost * _modifierFactor)).ceil() * level;
-  }
+  List<Category> get _categories => template.categories;
 
-  const CategorizedLeveledTrait(
+  CategorizedLeveledTrait(
       {TraitTemplate template,
       int level,
       String item,
@@ -185,8 +174,6 @@ class CategorizedLeveledTrait extends LeveledTrait with HasCategory {
             level: level,
             specialization: item,
             modifiers: modifiers);
-
-  List<Category> _getCategories() => template.categories;
 }
 
 ///
@@ -225,7 +212,7 @@ class InnateAttack extends Trait {
   ///
   /// Map the [InnateAttackType] to a cost per die.
   ///
-  final Map<InnateAttackType, int> _costPerDie = const {
+  static final Map<InnateAttackType, int> _costPerDie = const {
     InnateAttackType.burning: 5,
     InnateAttackType.corrosion: 10,
     InnateAttackType.crushing: 5,
@@ -281,11 +268,13 @@ class InnateAttack extends Trait {
   /// 5. Round the cost up (again) to the nearest point.
   ///
   @override
-  int get cost {
+  int get baseCost {
+    double effectiveLevels = (dice.numberOfDice == 0)
+        ? (dice.adds * 0.25)
+        : (dice.numberOfDice + dice.adds * 0.3);
     var costPerDie = _costPerDie[type];
-    return (dice.numberOfDice == 0)
-        ? (costPerDie * (dice.adds * 0.25)).ceil()
-        : (_costPerDie[type] * (dice.numberOfDice + dice.adds * 0.3)).ceil();
+
+    return (costPerDie * effectiveLevels).ceil();
   }
 
   static InnateAttackType tryParseTypeFromText(String traitText) {

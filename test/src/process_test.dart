@@ -51,9 +51,7 @@ main() {
 
     Trait t = Traits.buildTrait(c);
 
-    var cost = t.cost + (t.cost * (reduce / 100.0).ceil());
-
-    expect(cost, 36);
+    expect(t.cost, 35); // 7, 11, 15, 19,
   });
 
   test('codeunits', () {
