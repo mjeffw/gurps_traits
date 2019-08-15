@@ -269,6 +269,11 @@
       "type": "leveled"
     },
     {
+      "reference": "Perk",
+      "cost": 1,
+      "isSpecialized": true
+    },
+    {
       "reference": "Permeation",
       "type": "categorized",
       "categories": [
@@ -333,6 +338,11 @@
     },
     {
       "reference": "Telescopic Vision",
+      "cost": 5,
+      "type": "leveled"
+    },
+    {
+      "reference": "Temperature Control",
       "cost": 5,
       "type": "leveled"
     },

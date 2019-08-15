@@ -228,6 +228,17 @@ class InnateAttack extends Trait {
   ///
   /// Cost is calculated as cost per die x die including partial dice.
   ///
+  /// The value of an Innate Attack that causes partial dice of damage (see
+  /// p.B62 for details) is calculated as follows.
+  /// 
+  /// 1. Figure out how many effective levels of the Innate Attack are
+  ///    being bought (e.g., a 3d-2 attack equates to buying 2.4 levels).
+  /// 2. Multiply the per-level cost of the Innate Attack by the effective
+  ///    number of levels.
+  /// 3. Round the cost up to the nearest point.
+  /// 4. Apply the net value of all modifiers.
+  /// 5. Round the cost up (again) to the nearest point.
+  ///
   @override
   int get cost => (dice.numberOfDice == 0)
       ? (_costPerDie[type] * (dice.adds * 0.25)).ceil()

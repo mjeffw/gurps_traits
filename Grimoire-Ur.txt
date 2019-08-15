@@ -1,0 +1,145 @@
+﻿Ur (Weather) Spells
+Air Jet
+Keywords: Jet, Obvious.
+Rune/Effect: Úr/Weather [4] + Control (−1).
+Full Cost: 6 points/level.
+Casting Roll: Innate Attack (Beam) (+ Rune Talent) to hit.
+Range: 20 yards.
+Duration: Instantaneous.
+  Shoots a thin jet of air from one finger. A hit does 2d damage for knockback purposes only (Exploits, p. 53) – not actual injury – per energy point in the spell. Treat this as actual crushing damage to swarms or vaporous beings, however! 
+  Statistics: Crushing Attack 1d (Blockable, −5%; Cosmic, Does knockback-based damage against diffuse targets, +50%; Double Knockback, +20%; Increased 1/2D, 2×, +5%; Increased Range, 2×, +10%; Jet, +0%; No Blunt Trauma, −20%; No Wounding*, −25%; Runecasting, −30%) [6/level].
+  * Except versus diffuse targets, an exception which halves the value of this limitation.
+Call Lightning
+Keywords: Missile, Obvious.
+Rune/Effect: Úr/Weather [4] + Strengthen (+1).
+Full Cost: 10 points per level.
+Casting Roll: Innate Attack (Gaze). 
+Range: 100 yards. 
+Duration: Instantaneous.
+  When you have storm clouds above your head, you can cause a lightning to strike your victim, dealing 1d burning surge damage per level. Metallic armor counts as DR 1 against this attack, but nonmetallic armor protects normally. Targets stuck by this attack must make an HT roll, at −1 per 2 points of penetrating damage, or be physically stunned. On subsequent turns, they can roll HT to recover. Lightning behaves unpredictably around conductors.
+  This spell bypasses any cover that does not provide overhead protection, and negates attack penalties to hit crouching, kneeling, sitting, or prone targets. 
+  Once used, the storm clouds need a minimum of 5 seconds to rebuild their electrical charge before the caster can call lightning again.
+  Statistics: Burning Attack 1d (Environmental, Storm, −40%; Nuisance Effect, Behaves erratically around conductors, −5%; Overhead, +30%; Runecasting, −30%; Surge, Arcing, +100%; Side Effect, Stunning, +50%; Takes Recharge, 5 seconds, −10%) [10/level].
+Chain Lightning
+Keywords: Missile, Obvious.
+Rune/Effect: Úr/Weather [4] + Create (−2).
+Full Cost: 15 points per level.
+Casting Roll: Innate Attack (Beam). 
+Range: 100 yards. 
+Duration: Instantaneous.
+  You fire a coruscating discharge of electricity that does 1d burning surge damage per level.  The discharge leaps to other available targets after hitting the initial target! If that attack succeeds, immediately consult your margin of success. If the margin is high enough to hit a separate target after accounting for range penalties plus −2, the next target is struck unless they make an appropriate active defense. If the target is hit then check the margin again until the attack fails to hit or seven targets (the maximum) are hit.
+  Metallic armor counts as DR 1 against this attack, but nonmetallic armor protects normally. Targets stuck by this attack must make an HT roll, at −1 per 2 points of penetrating damage, or be physically stunned. On subsequent turns, they can roll HT to recover. Chain Lightning behaves unpredictably around conductors.
+  Statistics: Burning Attack 1d (Nuisance Effect, Behaves erratically around conductors, −5%; Rapid Fire, Chaining, 7 targets, +70%; Runecasting, −30%; Surge, Arcing, +100%; Side Effect, Stunning, +50%) [15/level]
+Cool
+Keywords: Area (Leveled).
+Rune/Effect: Úr/Weather [4] + Control (−1).
+Full Cost: 6 points for level 1 + 5 points/additional level (or more).
+Casting Roll: None. 
+Range: 100 yards. 
+Duration: Indefinite.
+  This spell lowers the ambient temperature of the area. The basic version can reduce the temperature in a two-yard radius by up to 40°F. This occurs at a rate of 4° per level per second of concentration. This will never do damage directly, but see Cold (Exploits, p. 70) for effects.
+  More potent versions of Cool exist. Increasing the full cost of the spell increases the degree of potential temperature change by the same factor, as indicated by the table below.
+Spell StrengthFull CostCool (40°F)6 for level 1 + 5 pts/additional level.Cool (80°F)12 for level 1 + 10 pts/additional level.Cool (120°F)18 for level 1 + 15 pts/additional level.Cool (160°F)24 for level 1 + 20 pts/additional level.Cool (200°F)30 for level 1 + 25 pts/additional level.  Statistics: Temperature Control 2 (Cold, −50%; Increased Range, 10×, +30%; Runecasting, −30%; Variable, Area, +5%) [6]. 
+  Additional levels add Area Effect (+50%) [+5]. 
+  The expanded versions raise the Temperature Control level.
+Fan
+Keywords: Jet, Obvious.
+Rune/Effect: Ur/Weather [3] + Strengthen (+1).
+Full Cost: 1 point.
+Casting Roll: Use Innate Attack (Beam) to hit.
+Range: 2 yards.
+Duration: Instantaneous.
+  You can project a stream of air strong enough to scatter dust and extinguish candles at two yards. It has no combat effect.
+  Statistics: Perk (Create breeze; Runecasting, −30%) [1].
+Frostbite
+Keywords: Resisted (HT).
+Rune/Effect: Ur/Weather [3] + Strengthen (+1).
+Full Cost: 10 points/level.
+Casting Roll: Use Innate Attack (Gaze) to aim.
+Range: Unlimited.
+Duration: Instantaneous.
+  Lowers the temperature of the subject’s body, causing 1d cr (freezing*) injury per level to living beings and any entity that can freeze (e.g., water elementals) or needs warmth (creatures of fire qualify). Cast from a distance, it affects the whole victim; cast by touch, harm is limited to the part touched. Armor and DR doesn’t protect!
+  Use the range modifiers from the Size and Speed/Range table if cast from a distance.
+  Statistics: Crushing Attack (HT; Accessibility, Only living creatures or entities that can freeze or needs heat, −10%; No Blunt Trauma, −20%; No Knockback, −10%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%) [10/level].
+  * Freezing attack is treated as if it were Crushing with the Accessibility, Only living creatures or entities that can freeze/need heat, No Blunt Trauma, and No Knockback limitations.
+Frostburn 
+Keywords: Missile, Obvious. 
+Rune/Effect: Úr/Weather [4] + Create (−2).
+Full Cost: 36 points. 
+Casting Roll: Use Innate Attack (Projectile) to hit. 
+Range: 100 yards. 
+Duration: Instantaneous. 
+  This spell conjures an orb of frost, which will adhere to and freeze any creature it strikes. Use Innate Attack (Projectile) to hit, applying normal range penalties. It does 1d−1 burning damage. This damage comes from extreme cold, not heat, so it cannot set anything on fire. The frost sticks to the target, damaging him again every second for 9 seconds. The cycles can be stopped only by taking a point of burning damage from fire. 
+  If your foe is within one yard of you, he may attempt to parry this attack (actually parrying your hand). If such a parry is successful, you must roll against DX to avoid hitting yourself with your own orb of frostburn! 
+  Statistics: Burning Attack 1d−1 (Cyclic, 9 cycles, 1 second intervals, +800%; No Incendiary Effect, −10%; Nuisance Effect, Dangerous to be parried, −5%; Runecasting, −30%) [36].
+  The cost of 2 cycles is 8 points. Each +1 Cycle is +4 points.
+  Could be maintained? Add Variable, Cycles? And a cost of 1 FP per cycle? And requires Concentrate?
+Lightning Armor
+Keywords: Buff.
+Rune/Effect: Úr/Weather [4] + Create (−2).
+Full Cost: 10 points.
+Casting Roll: None. 
+Range: Self. 
+Duration: 3 minutes.
+  The caster is sheathed in crackling lightning that deals 1d−1 burning surge damage to enemies who touch his body or attack him with a conductive weapon. Metallic armor counts as DR 1 against this attack, but nonmetallic armor protects normally. Targets stuck by this attack must make an HT roll, at −1 per 2 points of penetrating damage, or be physically stunned. On subsequent turns, they can roll HT to recover.
+  Statistics: Burning Attack 1d−1 (Always On, −40%; Aura, +80%; Runecasting, −30%; Melee Attack, Reach C, −30%; Surge, Arcing, +100%; Side Effect, Stunning, +50%) [10].
+Lightning Stare
+Keywords: Buff.
+Rune/Effect: Úr/Weather [4] + Create (−2).
+Full Cost: 10 points/level.
+Casting Roll: Innate Attack (Beam). 
+Range: 10 yards. 
+Duration: Instantaneous.
+  A 10-yard jet of lightning erupts from your eyes. Use Innate Attack (Beam) to hit. Don’t apply range penalties; treat this as a long melee weapon rather than a ranged attack. It does burning surge damage with dice equal to your level of this spell. Metallic armor counts as DR 1 against this attack, but nonmetallic armor protects normally. Targets stuck by this attack must make an HT roll, at −1 per 2 points of penetrating damage, or be physically stunned. On subsequent turns, they can roll HT to recover. Lightning behaves unpredictably around conductors.
+  Statistics: Burning Attack 1d (Jet, +0%; Nuisance Effect, Behaves erratically around conductors, −5%; Runecasting, −30%; Surge, Arcing, +100%; Side Effect, Stunning, +50%) [11/level].
+Lightning Weapon
+Keywords: Weapon Buff.
+Rune/Effect: Ur/Weather [4] + Create (−2).
+Full Cost: 13 points.
+Casting Roll: None.
+Range: Touch.
+Duration: Three minutes.
+  Once cast upon a weapon, this spell causes it to do an additional 1d of follow-up burning surge damage. The weapon must be at least partly metallic; weapons made entirely of wood and/or stone will not hold the spell. The weapon will visibly crackle with electricity. 
+  Statistics: Affliction 1 (HT; Accessibility, Only on metallic weapons, −40%; Advantage, Lightning Weapon, +50%; Fixed Duration, +0%; Increased 1/2D, 10x, +15%; No Signature, +20%; Sorcery, −15%) [13]. 
+  Notes: “Lightning Weapon” is Burning Attack 1d (Follow-Up, This weapon, +0%; Magical, −10%; Surge, +20%; Visible, −10%) [5].
+Rinse 
+Keywords: None. 
+Rune/Effect: Úr/Weather [4] + Control (−1).
+Full Cost: 1 point. 
+Casting Roll: None. 
+Range: Self. 
+Duration: Instantaneous. 
+  You can moisten the exterior of your body, becoming damp enough to negate ongoing damage due to contact effects. You can extinguish flame if you’re on fire, flush away acid or poison, and so on. The spell pulls natural humidity from the air; if there is no humidity – in an extremely dry climate, for example – the spell simply doesn’t work.
+  Statistics: Perk (Rinse; Runecasting, −30%) [1].
+Shocking Touch
+Keywords: Obvious.
+Rune/Effect: Úr/Weather [4] + Create (−2).
+Full Cost: 10 points/level.
+Casting Roll: Use unarmed combat skill or DX to hit. 
+Range: Touch. 
+Duration: Instantaneous.
+  This spell charges the caster’s hand with electricity. The caster must touch the subject to trigger this spell. The touch deals 1d burning surge damage per level of this spell. Metallic armor counts as DR 1 against this attack, but nonmetallic armor protects normally. Targets stuck by this attack must make an HT roll, at −1 per 2 points of penetrating damage, or be physically stunned. On subsequent turns, they can roll HT to recover.
+  Statistics: Burning Attack 1d (Melee Attack, Reach C, Cannot Parry, −35%; Runecasting, −30%; Surge, Arcing, +100%; Side Effect, Stunning, +50%) [10/level].
+Stroke of Lightning
+Keywords: Missile, Obvious.
+Rune/Effect: Ur/Weather [4] + Create (−2).
+Full Cost: 10 points/level.
+Casting Roll: Use Innate Attack (Beam) to aim.
+Range: 50 yards.
+Duration: Instantaneous.
+  You fire a stream of electricity that does 1d burning surge damage per level. The spell strikes all targets in a 50-yard line. On a hit, the line is on target; otherwise, use the Scatter rule (see Exploits, p.45) to determine a new target point. Once you know the target point, trace a line between the caster and that point. 
+  Targets stuck by this attack suffer 1d burning surge damage per level and must make an HT roll, at −1 per 2 points of penetrating damage, or be physically stunned. On subsequent turns, they can roll HT to recover. Lightning behaves unpredictably around conductors. This attack has the 1/2D range of 5 yards.
+  Statistics: Burning Attack 1d (Cone 1, +60%; Nuisance Effect, Behaves erratically around conductors, −5%; Reduced Range, 1/2x, −10%; Sorcery, −15%; Surge, +20%; Side Effect, Stunning, +50%) [10/level].
+Wall of Wind 
+Keywords: Obvious. 
+Rune/Effect: Úr/Weather [4] + Control (−1).
+Full Cost: 78 pts for level 1 + 10/additional level. 
+Casting Roll: Use Innate Attack (Gaze) to aim. 
+Range: 100 yards. 
+Duration: Five minutes. 
+  This spell conjures a wall of wind. You do not have to concentrate to maintain it, Wall of Wind is “fire and forget.” It can be cast repeatedly, allowing the sorcerer to put up multiple walls as needed, but each wall dissipates once the duration runs out. 
+  Wall of Wind 1 has a maximum area of six square yards, with each additional level doubling that cumulatively. For example, Wall of Wind 3 has a limit of 24 square yards, allowing the sorcerer to conjure a wall six yards long by four yards high, 12 yards long by two yards high, or any other valid combination. The caster may form this into any shape he wishes. 
+  Low-tech missiles are buffeted off course as they cross the wall and suffer a −6 penalty to hit. High-tech bullets suffer a −2 penalty to hit. Any creature trying to cross the wall takes 4d knockback damage in a random direction. The wall also churns up loose ground material, such as dust, small leaves, insects, and twigs, if there are any in the area. Thus, any creatures crossing the wall must make a HT roll or be blinded for 3 seconds. Simply closing the eyes protects against this effect. 
+  Statistics: Affliction 1 (HT; Area Effect, 2 yards, +50%; Disadvantage, Blindness, +50%; Environmental, Debris present, −20%; Extended Duration, 30x, +60%; Fixed Duration, +0%; Link, +10%; Persistent, +40%; Reduced Duration, 1/60, -35%; Runecasting, −30%; Variable, Area, +5%; Vision-Based, +150%; Wall, Shapeable, +60%) [44] + Crushing Attack 2d (Area Effect, 2 yards, +50%; Cosmic, Impedes Missile, +50%; Double Knockback, +20%; Extended Duration, 30x, +60%; Link, +10%; Magical, −10%; No Wounding, −50%; Persistent, +40%; Variable, Area, +5%; Wall, Shapeable, +60%) [34]. 
+  Additional levels increase Area Effect (+50%) to both advantages [+10]. 
+  

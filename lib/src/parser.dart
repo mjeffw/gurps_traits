@@ -215,16 +215,26 @@ class Parser {
   /// or dice or points of damage for Traits like Innate Attack.
   ///
   void _updateForLevelsOrDamage(TraitComponents components) {
-    if (regExpLevel.hasMatch(components.name)) {
-      RegExpMatch match = regExpLevel.firstMatch(components.name);
+    List<RegExp> regexpsForLevelsOrDamage = [
+      RegExp(r'^(?<name>.+?)\s+(?<dieroll>\d+d(?:[-|−|+]\d+)?)$'),
+      RegExp(r'^(?<name>.+?)\s+(?<points>\d+) point(?:s)?$'),
+      RegExp(r'^(?<name>.+?)\s+(?<level>\d+)$'),
+    ];
 
-      if (RegExpEx.hasNamedGroup(match, 'level')) {
-        components.level = int.tryParse(match.namedGroup('level'));
-      } else if (RegExpEx.hasNamedGroup(match, 'dieroll')) {
-        components.damage = match.namedGroup('dieroll');
-      } else if (RegExpEx.hasNamedGroup(match, 'points')) {
-        components.damage = match.namedGroup('points');
-      }
+    RegExpMatch match = regexpsForLevelsOrDamage
+        .firstWhere((regex) => regex.hasMatch(components.name),
+            orElse: () => null)
+        ?.firstMatch(components.name);
+
+    if (RegExpEx.hasNamedGroup(match, 'level')) {
+      components.level = int.tryParse(match.namedGroup('level'));
+    } else if (RegExpEx.hasNamedGroup(match, 'dieroll')) {
+      components.damage = match.namedGroup('dieroll').replaceAll('−', '-');
+    } else if (RegExpEx.hasNamedGroup(match, 'points')) {
+      components.damage = match.namedGroup('points');
+    }
+
+    if (match != null) {
       components.name = match.namedGroup('name');
     }
   }
