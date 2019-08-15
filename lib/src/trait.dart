@@ -31,6 +31,14 @@ class Trait {
   final String specialization;
 
   ///
+  /// Modifiers.
+  ///
+  final List<ModifierComponents> modifiers;
+
+  double get _modifierFactor =>
+      modifiers.map((it) => it.value).fold(0, (a, b) => a + b) / 100.0;
+
+  ///
   /// Return the canonical reference name of the [Trait].
   ///
   get reference => template.reference;
@@ -39,15 +47,22 @@ class Trait {
   /// Return the effective cost of the [Trait], including any levels or
   /// variations.
   ///
-  int get cost => template.cost;
+  int get cost {
+    return template.cost + (template.cost * _modifierFactor).ceil();
+  }
 
   ///
   /// Return the description of the [Trait] as used in a statistics block.
   ///
   get description => _description ?? reference;
 
-  const Trait({this.template, String description, this.specialization})
-      : this._description = description;
+  const Trait(
+      {this.template,
+      String description,
+      this.specialization,
+      List<ModifierComponents> modifiers})
+      : this._description = description,
+        this.modifiers = modifiers ?? const [];
 
   ///
   /// internal methodification used by the HasCategory mixin.
@@ -70,7 +85,9 @@ class LeveledTrait extends Trait {
   /// Return the effective cost of the [Trait], including the level.
   ///
   @override
-  int get cost => template.cost * _level;
+  int get cost {
+    return super.cost * _level;
+  }
 
   ///
   /// Return the description of the [Trait] as used in a statistics block. For
@@ -87,10 +104,16 @@ class LeveledTrait extends Trait {
   get level => _level;
 
   const LeveledTrait(
-      {TraitTemplate template, int level = 1, String specialization})
+      {TraitTemplate template,
+      int level = 1,
+      String specialization,
+      List<ModifierComponents> modifiers})
       : assert(level != null && level > 0),
         _level = level,
-        super(template: template, specialization: specialization);
+        super(
+            template: template,
+            specialization: specialization,
+            modifiers: modifiers);
 
   static String tryParseSpecialization(String pattern, String traitText) =>
       RegExpEx.getNamedGroup(RegExp(pattern).firstMatch(traitText), 'spec');
@@ -118,9 +141,13 @@ class CategorizedTrait extends Trait with HasCategory {
   CategorizedTemplate get template => super.template as CategorizedTemplate;
 
   @override
-  int get cost => getCost();
+  int get cost {
+    var cost = getCost();
+    return cost + (cost * _modifierFactor).ceil();
+  }
 
-  const CategorizedTrait({TraitTemplate template, String item})
+  const CategorizedTrait(
+      {TraitTemplate template, String item, List<ModifierComponents> modifiers})
       : super(template: template, specialization: item);
 }
 
@@ -143,11 +170,21 @@ class CategorizedLeveledTrait extends LeveledTrait with HasCategory {
   CategorizedTemplate get template => super.template as CategorizedTemplate;
 
   @override
-  int get cost => getCost() * level;
+  int get cost {
+    var cost = getCost();
+    return (cost + (cost * _modifierFactor)).ceil() * level;
+  }
 
   const CategorizedLeveledTrait(
-      {TraitTemplate template, int level, String item})
-      : super(template: template, level: level, specialization: item);
+      {TraitTemplate template,
+      int level,
+      String item,
+      List<ModifierComponents> modifiers})
+      : super(
+            template: template,
+            level: level,
+            specialization: item,
+            modifiers: modifiers);
 
   List<Category> _getCategories() => template.categories;
 }
@@ -215,8 +252,12 @@ class InnateAttack extends Trait {
   ///
   final InnateAttackType type;
 
-  const InnateAttack({TraitTemplate template, this.dice, this.type})
-      : super(template: template);
+  const InnateAttack(
+      {TraitTemplate template,
+      this.dice,
+      this.type,
+      List<ModifierComponents> modifiers})
+      : super(template: template, modifiers: modifiers);
 
   ///
   /// Return the description of the [Trait] as used in a statistics block. For
@@ -230,7 +271,7 @@ class InnateAttack extends Trait {
   ///
   /// The value of an Innate Attack that causes partial dice of damage (see
   /// p.B62 for details) is calculated as follows.
-  /// 
+  ///
   /// 1. Figure out how many effective levels of the Innate Attack are
   ///    being bought (e.g., a 3d-2 attack equates to buying 2.4 levels).
   /// 2. Multiply the per-level cost of the Innate Attack by the effective
@@ -240,9 +281,12 @@ class InnateAttack extends Trait {
   /// 5. Round the cost up (again) to the nearest point.
   ///
   @override
-  int get cost => (dice.numberOfDice == 0)
-      ? (_costPerDie[type] * (dice.adds * 0.25)).ceil()
-      : (_costPerDie[type] * (dice.numberOfDice + dice.adds * 0.3)).ceil();
+  int get cost {
+    var costPerDie = _costPerDie[type];
+    return (dice.numberOfDice == 0)
+        ? (costPerDie * (dice.adds * 0.25)).ceil()
+        : (_costPerDie[type] * (dice.numberOfDice + dice.adds * 0.3)).ceil();
+  }
 
   static InnateAttackType tryParseTypeFromText(String traitText) {
     var r = RegExp(r'^(.*) Attack');

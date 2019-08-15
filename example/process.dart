@@ -26,28 +26,22 @@ class ProcessTraitText {
         var statisticsLabel = RegExp(r'^\s*Statistics:');
 
         if (line.startsWith(statisticsLabel)) {
-          // remove the label from the start of the line
-          statistics = line.replaceFirst(statisticsLabel, '');
 
-          double calculatedTotal = 0;
-          double statedTotal = 0;
+          List<TraitComponents> components = Parser().parse(statistics);
 
-          // multiple abilities are separated by ' + ' - split them out
-          statistics.split(' + ').forEach((String stat) {
-            var ability = stat.trim();
+          components
+              .forEach((f) => mayPrint('${f.name} ${f.parentheticalNotes})'));
 
-            TraitComponents components = Parser().parse(ability);
-            mayPrint(components.name);
-            mayPrint(components.parentheticalNotes);
+          // create the Trait from the traitText
+          List<Trait> traits =
+              components.map((it) => Traits.buildTrait(it)).toList();
 
-            // create the Trait from the traitText
-            Trait trait = Traits.buildTrait(components);
-            mayPrint('  Trait: ${trait.reference}');
+          traits.forEach((f) => mayPrint('  Trait: ${f.reference}'));
 
-            calculatedTotal +=
-                trait.cost + (trait.cost * _getModifierFactor(components));
-            statedTotal += components.cost;
-          });
+          int calculatedTotal =
+              traits.map((f) => f.cost).reduce((a, b) => a + b);
+          double statedTotal =
+              components.map((f) => f.cost).reduce((a, b) => a + b);
 
           mayPrint('  '
               'Stated Cost: ${statedTotal.ceil()} (${statedTotal})\n'
@@ -65,7 +59,7 @@ class ProcessTraitText {
 
   double _getModifierFactor(TraitComponents components) {
     List<ModifierComponents> values =
-        components.modifiers.map((it) => ModifierComponents.parse(it)).toList();
+        components.modifiersText.map((it) => ModifierComponents.parse(it)).toList();
 
     int modifierTotal = values.map((it) => it.value).fold(0, (a, b) => a + b);
 

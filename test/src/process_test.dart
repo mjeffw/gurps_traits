@@ -31,7 +31,7 @@ main() {
     var content = '''
   Burning Attack 1d−1 (Cyclic, 9 cycles, 1 second intervals, +800%; No Incendiary Effect, −10%; Nuisance Effect, Dangerous to be parried, −5%; Runecasting, −30%) [34].
   ''';
-    TraitComponents c = Parser().parse(content);
+    TraitComponents c = Parser().parse(content).first;
 
     // expect(c.notes, hasLength(6));
     // String x = c.notes[2];
@@ -42,8 +42,8 @@ main() {
     // });
 
     // expect(c.modifiers, hasLength(6));
-    c.modifiers.forEach((f) => print(f));
-    var reduce = c.modifiers
+    c.modifiersText.forEach((f) => print(f));
+    var reduce = c.modifiersText
         .map((it) => ModifierComponents.parse(it))
         .map((f) => f.value)
         .reduce((a, b) => a + b);
@@ -53,7 +53,7 @@ main() {
 
     var cost = t.cost + (t.cost * (reduce / 100.0).ceil());
 
-    expect(cost, 34);
+    expect(cost, 36);
   });
 
   test('codeunits', () {

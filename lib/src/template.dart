@@ -86,17 +86,20 @@ class TraitTemplate {
       return LeveledTrait(
           template: this,
           level: components.level ?? 1,
-          specialization: specialization);
+          specialization: specialization,
+          modifiers: components.modifiers);
     } else if (type == TemplateType.innateAttack) {
       return InnateAttack(
           template: this,
           type: InnateAttack.tryParseTypeFromText(components.name),
-          dice: InnateAttack.tryParseDiceFromText(components.damage));
+          dice: InnateAttack.tryParseDiceFromText(components.damage),
+          modifiers: components.modifiers);
     }
     return Trait(
         template: this,
         description: components.name,
-        specialization: specialization);
+        specialization: specialization,
+        modifiers: components.modifiers);
   }
 
   ///
@@ -207,8 +210,12 @@ class CategorizedTemplate extends TraitTemplate {
 
     return (type == TemplateType.categorizedLeveled)
         ? CategorizedLeveledTrait(
-            template: this, level: components.level ?? 1, item: category)
-        : CategorizedTrait(template: this, item: category);
+            template: this,
+            level: components.level ?? 1,
+            item: category,
+            modifiers: components.modifiers)
+        : CategorizedTrait(
+            template: this, item: category, modifiers: components.modifiers);
   }
 
   String _getCategory(TraitComponents components, String pattern) {

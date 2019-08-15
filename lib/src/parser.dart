@@ -123,8 +123,11 @@ class TraitComponents {
   ///
   /// Parse out any modifiers from the parenthetical notes.
   ///
-  List<String> get modifiers =>
+  List<String> get modifiersText =>
       notes.where(ModifierComponents.hasMatch).toList();
+
+  List<ModifierComponents> get modifiers =>
+      modifiersText.map((it) => ModifierComponents.parse(it)).toList();
 
   ///
   /// Trait specialties, named varieties or degrees of advantages or disad-
@@ -177,7 +180,19 @@ class Parser {
   ///
   /// Given some text, parse and return the Trait components.
   ///
-  TraitComponents parse(String text) {
+  List<TraitComponents> parse(String input) {
+    String text = _cleanInput(input);
+
+    // multiple abilities are separated by ' + ' - split them out
+    List<TraitComponents> components = text
+        .split(' + ')
+        .map((input) => _parseSingleTraitComponent(input))
+        .toList();
+
+    return components;
+  }
+
+  TraitComponents _parseSingleTraitComponent(String text) {
     RegExpMatch match = firstMatch(regExps, _cleanInput(text));
 
     var components = TraitComponents(
@@ -208,7 +223,13 @@ class Parser {
   ///
   /// Sanitize input for processing. This includes replacing the minus symbol with a dash.
   ///
-  String _cleanInput(String input) => input.trim().replaceAll('—', '-');
+  String _cleanInput(String input) {
+    var label = 'Statistics:';
+    if (input.contains(label)) {
+      input = input.substring(input.indexOf(label) + label.length);
+    }
+    return input.trim().replaceAll('—', '-');
+  }
 
   ///
   /// The name portion of the trait may contain text that describes the level,

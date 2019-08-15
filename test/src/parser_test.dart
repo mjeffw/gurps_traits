@@ -15,7 +15,7 @@ void main() {
     });
 
     test('Multi-Word Name', () {
-      var digest = Parser().parse('360° Vision [25].');
+      var digest = Parser().parse('360° Vision [25].').first;
       expect(digest.rawText, '360° Vision [25]');
       expect(digest.name, '360° Vision');
       expect(digest.cost, 25);
@@ -25,7 +25,7 @@ void main() {
     });
 
     test('Alpha-only, Single Word Name', () {
-      var digest = Parser().parse('Amphibious [10].');
+      var digest = Parser().parse('Amphibious [10].').first;
       expect(digest.rawText, 'Amphibious [10]');
       expect(digest.name, 'Amphibious');
       expect(digest.cost, 10);
@@ -35,7 +35,7 @@ void main() {
     });
 
     test('Level 1', () {
-      var digest = Parser().parse('Altered Time Rate 1 [100].');
+      var digest = Parser().parse('Altered Time Rate 1 [100].').first;
       expect(digest.rawText, 'Altered Time Rate 1 [100]');
       expect(digest.name, 'Altered Time Rate');
       expect(digest.cost, 100);
@@ -45,7 +45,7 @@ void main() {
     });
 
     test('Level 2', () {
-      var digest = Parser().parse('Altered Time Rate 2 [200].');
+      var digest = Parser().parse('Altered Time Rate 2 [200].').first;
       expect(digest.rawText, 'Altered Time Rate 2 [200]');
       expect(digest.name, 'Altered Time Rate');
       expect(digest.cost, 200);
@@ -55,7 +55,8 @@ void main() {
     });
 
     test('Single Parenthetical Note', () {
-      var digest = Parser().parse('Night Vision 4 (Runecasting, −30%) [3]. ');
+      var digest =
+          Parser().parse('Night Vision 4 (Runecasting, −30%) [3]. ').first;
       expect(digest.rawText, 'Night Vision 4 (Runecasting, −30%) [3]');
       expect(digest.name, 'Night Vision');
       expect(digest.cost, 3);
@@ -65,8 +66,10 @@ void main() {
     });
 
     test('Multiple Parenthetical Notes', () {
-      var digest = Parser().parse(
-          'Clairsentience (Clairvoyance, -10%; ESP, -10%; Visible, -10%) [35]');
+      var digest = Parser()
+          .parse(
+              'Clairsentience (Clairvoyance, -10%; ESP, -10%; Visible, -10%) [35]')
+          .first;
       expect(digest.name, 'Clairsentience');
       expect(digest.cost, 35);
       expect(digest.level, isNull);
@@ -79,8 +82,10 @@ void main() {
     // Affliction 1 (HT; Advantage, Hide, +30%; Fixed Duration, +0%; Increased 1/2D, 10x, +15%; No Signature, +20%; Sorcery, −30%) [14].
 
     test('Notes with modifiers', () {
-      var digest = Parser().parse(
-          'Affliction 1 (HT; Advantage, Hide, +30%; Fixed Duration, +0%; Increased 1/2D, 10x, +15%; No Signature, +20%; Sorcery, −30%) [14]');
+      var digest = Parser()
+          .parse(
+              'Affliction 1 (HT; Advantage, Hide, +30%; Fixed Duration, +0%; Increased 1/2D, 10x, +15%; No Signature, +20%; Sorcery, −30%) [14]')
+          .first;
       expect(digest.name, 'Affliction');
       expect(digest.cost, 14);
       expect(digest.level, 1);
@@ -98,7 +103,7 @@ void main() {
           ]));
 
       expect(
-          digest.modifiers,
+          digest.modifiersText,
           orderedEquals([
             'Advantage, Hide, +30%',
             'Fixed Duration, +0%',
