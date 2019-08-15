@@ -29,7 +29,7 @@ class CodePointCharacter {
 main() {
   test('modifier', () {
     var content = '''
-  Burning Attack 1d−1 (Cyclic, 9 cycles, 1 second intervals, +800%; No Incendiary Effect, −10%; Nuisance Effect, Dangerous to be parried, −5%; Runecasting, −30%) [34].
+Statistics: Penetrating Vision 1 (Runecasting, −30%; Specific, Earth, −40%) [3/level].
   ''';
     TraitComponents c = Parser().parse(content).first;
 

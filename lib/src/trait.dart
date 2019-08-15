@@ -78,13 +78,13 @@ class LeveledTrait extends Trait {
   ///
   /// Level of this trait.
   ///
-  final int _level;
+  final int level;
 
   ///
   /// Return the effective cost of the [Trait], including the level.
   ///
   @override
-  int get cost => super.cost * _level;
+  int get cost => (baseCost * level * (_modifierFactor + 1.0)).ceil();
 
   ///
   /// Return the description of the [Trait] as used in a statistics block. For
@@ -93,12 +93,7 @@ class LeveledTrait extends Trait {
   /// E.g.: Damage Resistance 2 or Affliction 1.
   ///
   @override
-  get description => '$reference $_level';
-
-  ///
-  /// Number of levels of the [Trait].
-  ///
-  get level => _level;
+  get description => '$reference $level';
 
   const LeveledTrait(
       {TraitTemplate template,
@@ -106,7 +101,7 @@ class LeveledTrait extends Trait {
       String specialization,
       List<ModifierComponents> modifiers})
       : assert(level != null && level > 0),
-        _level = level,
+        level = level,
         super(
             template: template,
             specialization: specialization,
