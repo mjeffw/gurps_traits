@@ -31,6 +31,10 @@ class ProcessTraitText {
           List<Trait> traits =
               components.map((it) => Traits.buildTrait(it)).toList();
 
+          // if (traits.first.reference.startsWith('Penetrating Vision')) {
+          //   print('hey!');
+          // }
+
           traits.forEach((f) => mayPrint(
               '  Trait: ${f.reference} (${f.baseCost}:${f.modifierTotal}%) [${f.cost}]'));
 
@@ -39,16 +43,15 @@ class ProcessTraitText {
           double statedTotal =
               components.map((f) => f.cost).reduce((a, b) => a + b);
 
-          assert(calculatedTotal == statedTotal.ceil());
+          // assert(calculatedTotal == statedTotal.ceil());
 
-          mayPrint('  '
-              'Stated Cost: ${statedTotal.ceil()} (${statedTotal})\n'
-              '  '
-              'Calculated : ${calculatedTotal.ceil()} (${calculatedTotal})'); 
+          mayPrint(//
+              '  Stated Cost: ${statedTotal.ceil()} (${statedTotal})\n'
+              '  Calculated : ${calculatedTotal.ceil()} (${calculatedTotal})');
 
-          // if (calculatedTotal.ceil() != statedTotal.ceil()) {
-          output.forEach((line) => print(line));
-          // }
+          if (calculatedTotal.ceil() != statedTotal.ceil()) {
+            output.forEach((line) => print(line));
+          }
           output.clear();
         }
       }

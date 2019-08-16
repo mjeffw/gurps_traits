@@ -52,7 +52,8 @@ class Trait {
   /// Return the effective cost of the [Trait], including any levels or
   /// variations.
   ///
-  int get cost => (baseCost * (1 + _modifierFactor)).ceil();
+  int get cost =>
+      Maths.setPrecision(baseCost * (1 + _modifierFactor), 4).ceil();
 
   ///
   /// Return the description of the [Trait] as used in a statistics block.
@@ -84,7 +85,8 @@ class LeveledTrait extends Trait {
   /// Return the effective cost of the [Trait], including the level.
   ///
   @override
-  int get cost => (baseCost * level * (_modifierFactor + 1.0)).ceil();
+  int get cost =>
+      Maths.setPrecision(baseCost * level * (_modifierFactor + 1.0), 4).ceil();
 
   ///
   /// Return the description of the [Trait] as used in a statistics block. For
@@ -135,7 +137,7 @@ class CategorizedTrait extends Trait with HasCategory {
 
   CategorizedTrait(
       {TraitTemplate template, String item, List<ModifierComponents> modifiers})
-      : super(template: template, specialization: item);
+      : super(template: template, specialization: item, modifiers: modifiers);
 }
 
 ///
@@ -268,7 +270,6 @@ class InnateAttack extends Trait {
         ? (dice.adds * 0.25)
         : (dice.numberOfDice + dice.adds * 0.3);
     var costPerDie = _costPerDie[type];
-
     return (costPerDie * effectiveLevels).ceil();
   }
 

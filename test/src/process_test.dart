@@ -29,17 +29,17 @@ class CodePointCharacter {
 main() {
   test('modifier', () {
     var content = '''
-Statistics: Penetrating Vision 1 (Runecasting, −30%; Specific, Earth, −40%) [3/level].
+  Statistics: Permeation (Earth; Can Carry Objects, Light Encumbrance, +20%; Runecasting, −30%) [44]. 
   ''';
     TraitComponents c = Parser().parse(content).first;
 
     // expect(c.notes, hasLength(6));
     // String x = c.notes[2];
-    // int index = 0;
-    // x.codeUnits.forEach((c) {
-    //   print('${x.substring(index, index + 1)} : $c');
-    //   index++;
-    // });
+    int index = 0;
+    content.codeUnits.forEach((c) {
+      print('${content.substring(index, index + 1)} : $c');
+      index++;
+    });
 
     // expect(c.modifiers, hasLength(6));
     c.modifiersText.forEach((f) => print(f));
@@ -51,7 +51,7 @@ Statistics: Penetrating Vision 1 (Runecasting, −30%; Specific, Earth, −40%) 
 
     Trait t = Traits.buildTrait(c);
 
-    expect(t.cost, 35); // 7, 11, 15, 19,
+    expect(t.cost, 4); // 7, 11, 15, 19,
   });
 
   test('codeunits', () {
