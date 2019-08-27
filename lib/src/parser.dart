@@ -177,6 +177,14 @@ class Parser {
     RegExp(namePattern),
   ];
 
+  List<TraitComponents> tryParse(String input) {
+    try {
+      return parse(input);
+    } catch (exception) {
+      return [];
+    }
+  }
+
   ///
   /// Given some text, parse and return the Trait components.
   ///
