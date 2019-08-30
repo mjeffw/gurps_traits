@@ -56,13 +56,20 @@ class TraitTemplate {
   ///
   final bool isSpecialized;
 
+  ///
+  /// Page number of the trait description.
+  ///
+  final String page;
+
   const TraitTemplate(
       {this.reference,
       this.cost,
       List<String> alternateNames,
       TemplateType type = TemplateType.simple,
-      bool isSpecialized = false})
+      bool isSpecialized = false,
+      String page})
       : type = type,
+        page = page,
         alternateNames = alternateNames ?? const [],
         isSpecialized = isSpecialized ?? false;
 
@@ -85,6 +92,7 @@ class TraitTemplate {
     if (type == TemplateType.leveled) {
       return LeveledTrait(
           template: this,
+          name: components.name,
           level: components.level ?? 1,
           specialization: specialization,
           modifiers: components.modifiers);
@@ -125,6 +133,7 @@ class TraitTemplate {
         cost: json['cost'],
         type: convertToTemplateTypeEnum(json['type']),
         isSpecialized: json['isSpecialized'],
+        page: json['page'],
         alternateNames: json['alternateNames'] == null
             ? null
             : (json['alternateNames'] as List<dynamic>)
@@ -196,9 +205,11 @@ class CategorizedTemplate extends TraitTemplate {
       {String reference,
       TemplateType type,
       List<String> alternateNames,
-      this.categories})
+      this.categories,
+      page})
       : super(
             reference: reference,
+            page: page,
             alternateNames: alternateNames,
             type: type,
             isSpecialized: true);
@@ -215,7 +226,11 @@ class CategorizedTemplate extends TraitTemplate {
             item: category,
             modifiers: components.modifiers)
         : CategorizedTrait(
-            template: this, item: category, modifiers: components.modifiers);
+            template: this,
+            item: category,
+            modifiers: components.modifiers,
+            name: components.name,
+          );
   }
 
   String _getCategory(TraitComponents components, String pattern) {
@@ -234,6 +249,7 @@ class CategorizedTemplate extends TraitTemplate {
           reference: json['reference'],
           type: convertToTemplateTypeEnum(json['type']),
           categories: Category.listFromJSON(json['categories']),
+          page: json['page'],
           alternateNames: json['alternateNames'] == null
               ? null
               : JsonEx.toListOfStrings(json['alternateNames']));

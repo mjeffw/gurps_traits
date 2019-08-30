@@ -2,16 +2,94 @@
   "traits": [
     {
       "reference": "360° Vision",
+      "page": "B34",
       "cost": 25
     },
     {
       "reference": "Absolute Direction",
+      "page": "B34",
       "cost": 5
     },
     {
+      "reference": "Absolute Direction",
+      "cost": 10,
+      "page": "B34",
+      "alternateNames": [
+        "^3D Spatial Sense$"
+      ]
+    },
+    {
+      "reference": "Absolute Timing",
+      "page": "B35",
+      "cost": 2
+    },
+    {
+      "reference": "Absolute Timing",
+      "page": "B35",
+      "cost": 5,
+      "alternateNames": [
+        "^Chronolocation$"
+      ]
+    },
+    {
+      "reference": "Acute Senses",
+      "page": "B35",
+      "cost": 2,
+      "type": "leveled",
+      "alternateNames": [
+        "^Acute Hearing$",
+        "^Acute Taste and Smell$",
+        "^Acute Touch$",
+        "^Acute Vision$"
+      ]
+    },
+    {
       "reference": "Affliction",
+      "page": "B35",
       "cost": 10,
       "type": "leveled"
+    },
+    {
+      "reference": "Altered Time Rate",
+      "page": "B38",
+      "cost": 100,
+      "type": "leveled"
+    },
+    {
+      "reference": "Alternate Identity",
+      "page": "B39",
+      "type": "categorized",
+      "alternateNames": [
+        "^Alternate Identity (?<spec>.+)$"
+      ],
+      "categories": [
+        {
+          "name": "Legal",
+          "cost": 5,
+          "items": ["Legal"]
+        },
+        {
+          "name": "Illegal",
+          "cost": 15,
+          "items": ["Illegal"]
+        }
+      ]
+    },
+    {
+      "reference": "Ambidexterity",
+      "page": "B39",
+      "cost": 5
+    },
+    {
+      "reference": "Animal Empathy",
+      "page": "B40",
+      "cost": 5
+    },
+    {
+      "reference": "Binding",
+      "page": "B40",
+      "type": "leveled",
+      "cost": 2
     },
     {
       "reference": "Charisma",

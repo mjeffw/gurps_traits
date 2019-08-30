@@ -76,6 +76,11 @@ class Trait {
   ///
   String get description => name ?? reference;
 
+  ///
+  /// Page number of the trait.
+  ///
+  String get page => template.page;
+
   const Trait(
       {this.template,
       String name,
@@ -117,10 +122,12 @@ class LeveledTrait extends Trait {
       {TraitTemplate template,
       int level = 1,
       String specialization,
-      List<ModifierComponents> modifiers})
+      List<ModifierComponents> modifiers,
+      String name})
       : assert(level != null && level > 0),
         level = level,
         super(
+            name: name,
             template: template,
             specialization: specialization,
             modifiers: modifiers);
@@ -151,9 +158,19 @@ class CategorizedTrait extends Trait with HasCategory {
   @override
   List<Category> get _categories => template.categories;
 
+  @override
+  String get name => '${super.name} ($specialization)';
+
   CategorizedTrait(
-      {TraitTemplate template, String item, List<ModifierComponents> modifiers})
-      : super(template: template, specialization: item, modifiers: modifiers);
+      {TraitTemplate template,
+      String item,
+      List<ModifierComponents> modifiers,
+      String name})
+      : super(
+            template: template,
+            specialization: item,
+            modifiers: modifiers,
+            name: name);
 }
 
 ///
