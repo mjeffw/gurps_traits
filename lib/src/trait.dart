@@ -24,12 +24,15 @@ class Trait {
   ///
   final TraitTemplate template;
 
-  final String _description;
-
   ///
   /// Any parenthetical notes for this [Trait].
   ///
   final String specialization;
+
+  ///
+  /// Name of the trait.
+  ///
+  final String name;
 
   ///
   /// Modifiers.
@@ -37,15 +40,27 @@ class Trait {
   final List<ModifierComponents> modifiers;
 
   ///
-  /// Return the canonical reference name of the [Trait].
+  /// The canonical reference name of the [Trait].
   ///
-  get reference => template.reference;
+  String get reference => template.reference;
 
+  ///
+  /// The cost of the trait before levels or modifiers are applied.
+  ///
   int get baseCost => template.cost;
 
-  get modifierTotal =>
+  ///
+  /// The integer value that is the sum of all modifiers. Negative modifiers
+  /// are limited to -80 or greater.
+  ///
+  int get modifierTotal =>
       max(-80, modifiers.map((it) => it.value).fold(0, (a, b) => a + b) as int);
 
+  ///
+  /// The modifier total as a fraction. Modifiers are written as percentages;
+  /// this returns the value as a decimal. (E.g., a 45% modifier would be
+  /// returned as 0.45).
+  ///
   double get _modifierFactor => modifierTotal / 100.0;
 
   ///
@@ -56,16 +71,17 @@ class Trait {
       Maths.setPrecision(baseCost * (1 + _modifierFactor), 4).ceil();
 
   ///
-  /// Return the description of the [Trait] as used in a statistics block.
+  /// Textual description as found in a stat block, "Burning Attack 1d" or
+  /// "Create 2 (Water)", for example.
   ///
-  get description => _description ?? reference;
+  String get description => name ?? reference;
 
   const Trait(
       {this.template,
-      String description,
+      String name,
       String specialization,
       List<ModifierComponents> modifiers})
-      : this._description = description,
+      : this.name = name,
         this.specialization = specialization,
         this.modifiers = modifiers ?? const [];
 }

@@ -656,7 +656,8 @@ void main() {
         var first2 = Parser().parse('$text ($parenth)').first;
         Trait t = Traits.buildTrait(first2);
         expect(t.specialization, 'Earth');
-        expect(t.cost, 40);
+        expect(t.baseCost, 40);
+        expect(t.cost, 44);
       });
     });
   }, skip: false);

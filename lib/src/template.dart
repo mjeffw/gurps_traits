@@ -97,7 +97,7 @@ class TraitTemplate {
     }
     return Trait(
         template: this,
-        description: components.name,
+        name: components.name,
         specialization: specialization,
         modifiers: components.modifiers);
   }
