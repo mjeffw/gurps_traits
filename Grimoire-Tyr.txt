@@ -1,381 +1,3 @@
-﻿Grimoire of Týr (ᛏ)
-Mind Spells
-  As a reminder, any spell with a duration of Indefinite has a base duration of 3 minutes, which may be extended for an additional 3 minutes per FP spent (no roll necessary), unless otherwise noted. The runecaster doesn’t have to decide up front how long to extend the spell, they can wait until the spell is about to end and then extend it for another three minutes. This can be continued indefinitely until the caster allows the spell to end normally, he loses consciousness, or runs out of FP.
-  To make it easier to optimize some spells either to lower the cost or increase its efficacy, this version introduces Variable spells. 
-  Variable spells allow the player to either buy a bare-bones version of the spell for a relatively low point cost, or to modify the base version of the spell to make it more powerful and therefore cost more. Options are listed below the spell and marked with the o symbol.
-  In addition, some spells have been rewritten to have a “Self” version, which only affects the caster, in addition to the normal version that can be cast on others.
-  Any spell variation, whether it is moving from a “Self” version to being castable on others, or adding variations or levels, can be bought by paying the difference between the version currently possessed and the one desired.
-  And as always, the runecaster is NOT limited to the spells in this Grimoire. Any spell that they can imagine that involves earth and metal, or interdimensional gates, can be created with this system. Use the existing spells as guidelines. For example, Blink could be cast on a person other than the caster for additional cost. Collaborate with the GM to create new spells.
-  
-  
-Awe 
-Keywords: Area (Fixed). 
-Rune/Effect: Tyr/Mind [4] + Control (−1).
-Full Cost: 41 points for level 1 + 15 points/additional level. 
-Casting Roll: Use Innate Attack (Gaze) to aim. 
-Range: 100 yards. 
-Duration: Instantaneous. 
-  You strike awe into the hearts of others. You can target any area within 100 yards and affect everyone within a 10-yard radius	this is not selective and (unlike most Area spells) you cannot reduce the area! Those in the area must roll a Fright Check, applying any Magic Resistance as a bonus. Your victims get +1 per Fright Check after the first within 24 hours, and anyone who succeeds is immune to this spell for an hour. Use the Awe variant table from GURPS Powers, page 85. 
-  Each additional level of this spell imposes −1 to the Fright Check. For example, with Terror 4, the subjects must make Fright Checks at −3. 
-  This spell is not Resisted; the chance to succeed at the Fright Check takes the place of a normal resistance roll. 
-  Statistics: Terror (Awe; Presence, +25%; Ranged, +40%; Runecasting, −30%) [41]. 
-  Additional levels add −1 to the Fright Check [+15].
-Berserker
-Keywords: Resisted (Will).
-Rune/Effect: Tyr/Mind [4] + Control (−1).
-Full Cost: 27 points.
-Casting Roll: Will.
-Range: Unlimited.
-Duration: 3 minutes.
-  The victim gains the Berserk disadvantage (Adventurers, p.57) for the duration of this spell. He goes berserk in any combat situation, regardless of whether he was wounded or not.
-  Statistics: Affliction 1 (Will; Based on Will, +20%; Disadvantage, Berserk, +10%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%) [27]. 
-Bravery
-Keywords: Buff.
-Rune/Effect: Tyr/Mind [4] + Strengthen (+1).
-Full Cost: 18 points.
-Casting Roll: Innate Attack (Gaze) to aim. 
-Range: 100 yards. 
-Duration: 3 minutes.
-  You make the subject braver. The subject adds 4 levels to his Will whenever he makes a Fright Check or must resist the Intimidation skill (Adventurers, p.79) or a supernatural power that induces fear. He also subtracts 1 from all Intimidation rolls made against him. However, this bravery makes the subject overconfident. Treat this as having Overconfidence (Adventurers, p.64) with a self-control number of 12.
-  Statistics: Affliction (Advantage, Bravery, +70%; Fixed Duration, +0%; Increased 1/2D, 10x, +15%; No Signature, +20%; Runecasting, −30%) [18]. 
-  “Bravery” is Fearlessness 4 (Magical, −10%; Temporary Disadvantage, Overconfidence (12), −5%) [7].
-Coma 
-Keywords: Resisted (Will). 
-Rune/Effect: Tyr/Mind [4] + Destroy (−1).
-Full Cost: 51 points. 
-Casting Roll: Will. 
-Range: Unlimited. 
-Duration: Instantaneous. 
-  This spell induces a coma. The victim collapses, profoundly unconscious, and will likely die in days unless treated; see Mortal Conditions (p. B429). 
-  Statistics: Affliction 1 (Will; Based on Will, +20%; Coma, +250%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%) [51].
-Calm Emotions
-Keywords: Resisted (Will).
-Rune/Effect: Tyr/Mind [4] + Strengthen (+1).
-Full Cost: 25 points.
-Casting Roll: Will. 
-Range: Unlimited. 
-Duration: 3 minutes.
-  You can calm down a single creature. Only creatures with a racial IQ 6+ or less can be affected. This spell stops Berserk and prevents the subject from doing any destructive actions (he can still defend himself). Should the creature be attacked or injured, the compulsion breaks.
-  Statistics: Mind Control (Accessibility, IQ 6+ creatures only, −10%; Accessibility, Only to calm down, −30%; Emotion Control, −50%; Independent, +70%; Runecasting, −30%) [25].
-Command
-Keywords: Resisted (Will).
-Rune/Effect: Tyr/Mind [4] + Control (−1).
-Full Cost: 20 points.
-Casting Roll: Quick Contest of Will vs. Will. 
-Range: Unlimited. 
-Duration: 1 second.
-  Give a subject one immediate command	a word and a gesture, or at most two words	which the subject must obey. If the subject is unable to fulfill the command immediately or on his next turn, the spell has no effect. You must be able to see or touch the subject and the command must be spoken in a language the subject understands to cast this spell. To use this ability, concentrate for one second and then roll a Quick Contest: your Will vs. your subject’s Will, applying the range penalties from the Speed and Size/Range Table.
-  Examples:
-  “Drop it!”	the subject drops whatever he was holding.
-  “Look!”	the subject looks in the direction the caster indicates.
-  “Wait!”	the subject takes the Wait maneuver on his next turn.
-  If you win, your charmed subject will obey your command. If you attempt to force the subject to act against its principles (e.g., commit suicide or harm a loved one), roll another Quick Contest. If the subject wins, the spell has no effect.
-  If you lose, you cannot attempt to control that subject again for 24 hours, and he feels a sense of mental coercion emanating from you.
-  Statistics: Mind Control (Accessibility, At most two words, −20%; Accessibility, Must be able to understand command, −20%; Fixed Duration, +0%; Independent, +70%; Reduced Duration, 1/180, −40%; Runecasting, −30%; Sense-based, Hearing, −20%) [20].
-Confusion 
-Keywords: Area (Fixed). 
-Rune/Effect: Tyr/Mind [4] + Destroy (−1).
-Full Cost: 41 points for level 1 + 15 points/additional level. 
-Casting Roll: None. Use Innate Attack (Gaze) to aim. 
-Range: 100 yards. 
-Duration: Instantaneous. 
-  You confuse the minds of others. You can target any area within 100 yards and affect everyone within a 10-yard radius	this is not selective and (unlike most Area spells) you cannot reduce the area! Those in the area must roll a Fright Check, applying any Magic Resistance as a bonus. Your victims get +1 per Fright Check after the first within 24 hours, and anyone who succeeds is immune to this spell for an hour. Use the Confusion variant table from GURPS Powers, page 85. 
-  Each additional level of this spell imposes −1 to the Fright Check. For example, with Terror 4, the subjects must make Fright Checks at −3. 
-  This spell is not Resisted; the chance to succeed at the Fright Check takes the place of a normal resistance roll. 
-  Statistics: Terror (Confusion; Presence, +25%; Ranged, +40%; Runecasting, −30%) [41]. 
-  Additional levels add −1 to the Fright Check [+15].
-Detect Minds
-Keywords: Information.
-Rune/Effect: Tyr/Mind [4] + Sense (+2).
-Full Cost: 14 points for basic, 34 for improved.
-Casting Roll: Will. 
-Range: Unlimited. 
-Duration: Instantaneous.
-  By taking a Concentrate maneuver and making a Will roll (adjusted by the range to any possible subjects), you can detect the direction and general number of IQ 1+ beings in your vicinity. If any are detected, you can make an IQ roll to get more details. On a critical success, the GM tells you most if not all of the details of what you could detect.
-  The Improved version gives you the details of a critical success on any success.
-  Statistics: Detect (Minds; Runecasting, −30%) [14].
-  Improved version adds Precise (+100%) [34].
-Discord 
-Keywords: Area (Leveled), Resisted (Will). 
-Rune/Effect: Tyr/Mind [4] + Control (−1).
-Full Cost: 33 pts for level 1 + 5/additional level. 
-Casting Roll: Will. 
-Range: Unlimited. 
-Duration: 1 minute. 
-  Every sapient (IQ 6+) being in the area when the spell is cast must resist or be overcome with hostility. In effect, they acquire the Bully (9) (p. B125) and Intolerance (Total) disadvantages (p. B148). 
-  The basic (34-point) version of this spell covers a two-yard radius. For each additional 5 points, you may double this radius; e.g., four yards for 39 points, 8 yards for 44 points, or 16 yards for 49 points. The GM must determine the maximum level allowed; 128 yards is recommended. You may always choose to affect a lesser area. 
-  Statistics: Affliction 1 (Will; Accessibility, Only sapient beings, −10%; Area Effect, 2 yards, +50%; Based on Will, +20%; Disadvantage, Bully, 9, +20%; Disadvantage, Intolerance, Total, +10%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Reduced Duration, 1/3, −10%; Runecasting, −30%; Variable Area, +5%) [33]. 
-  Additional levels add Area Effect (+50%) [+5].
-Disorient
-Keywords: Resisted (Will).
-Rune/Effect: Tyr/Mind [4] + Destroy (−1).
-Full Cost: 28 points.
-Casting Roll: Will.
-Range: Unlimited.
-Duration: Permanent until restored.
-  The subject loses his bearings. He will not immediately feel lost, but as soon as it becomes necessary to remember the path he has taken, or remember his position relative to a landmark, he will draw a blank. Subjects with Absolute Direction resist at +5. The subject can regain his bearings in the usual fashion (Navigation roll, back-tracking, comparing notes, etc.)
-  Statistics: Affliction 1 (Will; Based on Will, +20%; Disadvantage, Total Amnesia, Only about the location, −80%, +5%; Extended Duration, Permanent, +150%; Malediction 2, +150%; No Signature, +20%; Nuisance Effect, Can be restored normally, −40%; Runecasting, −30%) [38].
-Drunkenness 
-Keywords: Resisted (Will). 
-Rune/Effect: Tyr/Mind [4] + Destroy (−1).
-Full Cost: 27 points or 28 points. 
-Casting Roll: Will. 
-Range: Unlimited. 
-Duration: 3 minutes. 
-  You intoxicate the subject for 3 minutes. The basic (29-point) version makes the subject tipsy. He gets −1 to DX and IQ, and −2 to self-control rolls except those to resist Cowardice. Reduce Shyness by one level, if he has it. The improved (30-point) version makes the subject drunk. He gets −2 to DX and IQ, and −4 to self-control rolls except those to resist Cowardice. Reduce Shyness by two levels, if he has it. 
-  Statistics: Affliction 1 (Will; Based on Will, +20%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%; Tipsy, +10%) [27]. 
-  The improved version replaces Tipsy, +10% with Drunk, +20% [+1].
-Encrypt 
-Keywords: Buff. 
-Rune/Effect: Tyr/Mind [4] + Destroy (−1).
-Full Cost: 47 points. 
-Casting Roll: None. Use Innate Attack (Gaze) to aim. 
-Range: 100 yards. 
-Duration: 3 weeks. 
-  When cast on any writing or other visual information medium, this spell makes it unreadable to any but the caster. Anyone can see the writing, but they will be convinced that it is hopelessly arcane, complex, or foreign. 
-  Statistics: Affliction 1 (HT; Accessibility, Only on visual information mediums, −60%; Advantage, Encrypt, +260%; Extended Duration, 10,000x, +160%; Fixed Duration, +0%; Increased 1/2D, 10x, +15%; No Signature, +20%; Runecasting, −30%) [47]. 
-  Note: “Encrypt” is Obscure 10 (Reading; Magical, −10%; No Area of Effect, −50%; Selective Effect, Does not affect the caster, +10%; Stealthy, +100%) [26].
-Ecstasy 
-Keywords: Resisted (Will). 
-Rune/Effect: Tyr/Mind [4] + Control (−1).
-Full Cost: 34 points. 
-Casting Roll: Will. 
-Range: Unlimited. 
-Duration: 10 seconds. 
-  The subject is incapacitated with overwhelming pleasure. Treat as Agony (p. B428), but neither Low Pain Threshold nor High Pain Threshold has any effect — and instead of a bonus for torture, someone offering to continue the pleasure gets +3 to any Influence roll! If the subject has Killjoy, he is immune. 
-  Statistics: Affliction 1 (Will; Based on Will, +20%; Ecstasy, +100%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Reduced Duration, 1/10, −20%; Runecasting, −30%) [34].
-Fascinate
-Keywords: Resisted (Will).
-Rune/Effect: Tyr/Mind [4] + Control (−1).
-Full Cost: 30 points.
-Casting Roll: Will. 
-Range: Unlimited. 
-Duration: 3 minutes.
-  Holds the subject (a sapient being) motionless and unaware of the passage of time as long as the caster maintains eye contact and concentration.
-  Statistics: Affliction 1 (Will; Accessibility, Sapient beings only, −10%; Based on Will, +20%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Nuisance Effect, Have to maintain eye contact, −15%; Daze, Variant, +100%; Requires Concentrate, −15%; Runecasting, −30%; Vision-Based, −20%) [30].
-Fearful Speech
-Keywords: Resisted (Will).
-Rune/Effect: Tyr/Mind [4] + Strengthen (+1).
-Full Cost: 3 points.
-Casting Roll: Quick Contest of Will vs. Will. 
-Range: Self. 
-Duration: 3 minutes.
-  The caster can radiate an aura of fear when they actively interact with IQ 6+ beings. Everyone he wishes to affect resists with Will, at a bonus based on their distance from the caster	use the Size and Speed/Range Table (Exploits, p.97). If a subject resists, the caster has his attention, but he reacts normally. Those the caster chooses not to affect see nothing special about the caster.
-  Anyone who fails rolls on the Reaction Table with a +3 bonus -- or the caster can add +3 to an Influence Roll against that person. All other modifiers, such as situational modifiers, apply. This bonus can be used only in situations where threats are effective (such as potential combat situations). In other situations, it may even provide a −3 penalty!
-  Statistics: Charisma 3 (Accessibility, Only in situations where threats are effective, −35%; Accessibility, Only influences via fear	Fearlessness resists, −20%; Nuisance Effect, May provide a penalty in inappropriate situations, −15%; Requires Will vs. Will Roll, −15%; Selective Area, +20%; Short-Range 2, −20%; Runecasting, −30%) [3].
-Forgetfulness
-Keywords: Resisted (Will).
-Rune/Effect: Tyr/Mind [4] + Destroy (−1).
-Full Cost: 29 points for basic, 40 for improved.
-Casting Roll: None. 
-Range: Unlimited. 
-Duration: 30 minutes or permanent.
-  You cause the subject to forget one fact for 30 minutes.  The improved version erases the fact permanently.
-  Statistics: Affliction 1 (Will; Accessibility, One fact at a time, −10%; Based on Will, +20%; Disadvantage, Total Amnesia, +25%; Extended Duration, 10x, +40%; Malediction, +100%; No Signature, +20%; Selective Effect, +20%; Runecasting, −30%) [29].
-  The improved version replaces Extended Duration, 10x, +40% with Extended Duration, Permanent, 150%. [40]. 
-Glib Tongue 
-Keywords: Resisted (Will). 
-Rune/Effect: Tyr/Mind [4] + Strengthen (+1).
-Full Cost: 6 points. 
-Casting Roll: Will. 
-Range: Self. 
-Duration: 1 minute. 
-  The caster can mystically make anything he says be what the subject wants to hear. Whatever the caster says, even total gibberish, will find hearty agreement. However, the caster won’t have a clue what the target thinks he’s saying... GMs may give up to +3 on reaction rolls, depending on how cleverly the PC roleplays this. Everyone he wishes to affect resists with Will, at a bonus based on their distance from the caster (use the bonus under Size on the Size and Speed/Range Table, p. B550). If a subject resists, the caster have his attention, but he hears what he wants to hear from the caster. 
-  Anyone who fails rolls on the Reaction Table (p. B560) with a +3 bonus	or the caster can add +3 to an Influence Roll (p. B359) against that person. All other modifiers, such as situational modifiers, apply. 
-  Statistics: Charisma 3 (Nuisance Effect, Caster is unaware of what he is saying, −20%; Requires Will vs. Will Roll, −15%; Selective Area, +20%; Short-Range 2, −20%; Runecasting, −30%) [6].
-Great Geas 
-Keywords: Resisted (Will). 
-Rune/Effect: Tyr/Mind [4] + Control (−1).
-Full Cost: 59 points. 
-Casting Roll: Will. 
-Range: Unlimited. 
-Duration: Permanent (until fulfilled). 
-  Give a subject a command to do one specific thing. It can even be something a person could not feasibly, realistically accomplish; “destroy every tree in the world” would be valid. 
-  If the subject fails to resist, he must make this command his first priority at all times. He is free to decide how to go about it, however, and may approach the situation intelligently; e.g., rather than grabbing an axe, he could contact a temp agency to hire a small army of woodcutters. In effect, he has an Obsession (p. B146) with no self-control roll. 
-  Once the subject accomplishes the goal, the geas ends. The only way to remove the geas before then is with Remove Curse (GURPS Thaumatology - Sorcery, p. 21); Dispel Magic (GURPS Thaumatology - Sorcery, p. 21) has no effect. 
-  Statistics: Affliction 1 (Will; Based on Will, +20%; Cosmic, Immune to Dispel Magic, +50%; Extended Duration, Permanent, +150%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%; Variable Enhancement, +125%) [59]. 
-  Note: Variable Enhancement provides +13% of enhancements (+250%) but is limited by “Accessibility, Only for Obsession with no self-control roll” (−50%) for a net +125%.
-Great Hallucination 
-Keywords: Resisted (Will). 
-Rune/Effect: Tyr/Mind [4] + Control (−1).
-Full Cost: 42 points. 
-Casting Roll: IQ. 
-Range: Unlimited. 
-Duration: Indefinite. 
-  The caster can hijack a subject’s senses, controlling what he sees, hears, smells, etc. If the caster wins a Quick Contest of IQ vs. the subject’s Will (using normal range penalties), he can feed him any images he wishes. The subject might see himself stranded on a cliff side, in a crowded city street, in the middle of a lake, etc. The only limits are the fiendishness of the caster’s imagination and the judgment of the GM. The caster doesn’t control his subject’s thoughts, however; the subject may choose to act on what he believes were his last correct sensory impressions (at −10 to any actions if he can’t see the real world). 
-  This spell requires constant concentration. When the caster stops, the subject regains his senses immediately. The caster can affect more than one person at once, but he is at −1 for every subject already under his control. 
-  At level 1, Sensory Control requires skin-to-skin contact to initiate (but not to maintain). At level 2, you can use it at range; you are at −1 per yard of distance to the target. Replace this with normal range penalties (p. B550) at level 3, long-distance modifiers (p. B241) at level 4, and no range penalties at all at level 5. 
-  Statistics: Illusion (Mental, +100%; Short-Range 2, −20%; Runecasting, −15%) [42].
-Hallucination 
-Keywords: Resisted (Will). 
-Rune/Effect: Tyr/Mind [4] + Control (−1).
-Full Cost: 30 points. 
-Casting Roll: Will. 
-Range: Unlimited. 
-Duration: 1 minute. 
-  The subject hallucinates (p. B429) for 1 minute. 
-  Statistics: Affliction 1 (Will; Based on Will, +20%; Fixed Duration, +0%; Hallucinating, +50%; Malediction 2, +150%; No Signature, +20%; Reduced Duration, 1/3, −10%; Runecasting, −30%) [30].
-Hideous Laughter 
-Keywords: Resisted (Will). 
-Rune/Effect: Tyr/Mind [4] + Control (−1).
-Full Cost: 28 points. 
-Casting Roll: Will. 
-Range: Unlimited. 
-Duration: 3 minutes. 
-  You cause the subject to laugh uncontrollably for 3 minutes. He is at −3 to DX and −1 to IQ, Per, and Will and cannot use Stealth or any ability that requires speech.
-  Statistics: Affliction 1 (Will; Based on Will, +20%; Coughing, Variant, +20%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%) [28].
-Loyalty
-Keywords: Resisted (Will).
-Rune/Effect: Tyr/Mind [4] + Control (−1).
-Full Cost: 36 points.
-Casting Roll: Quick Contest of Will vs. Will. 
-Range: Unlimited. 
-Duration: 3 minutes.
-  You can temporarily make the subject your loyal friend, giving him the Sense of Duty (Caster) disadvantage (see Adventurers, p.65). If the subject is willing, no resistance roll is needed. If not, he resists with Will and must be completely immobilized or otherwise under your control while you cast the spell. Successful casting gets you inside of his head. You must then win a second Quick Contest of Will vs. Will	or make another unopposed Will roll, for a willing subject. 
-  Statistics: Mind Control (Accessibility, Only to add Sense of Duty, Caster, −50%; Accessibility, Subject must be immobilized or controlled, −20%; Conditioning Only, −50%; Fixed Duration, +0%; Runecasting, −30%) [10].
-Madness
-Keywords: Resisted (Will).
-Rune/Effect: Tyr/Mind [4] + Destroy (−1).
-Full Cost: 10 points.
-Casting Roll: IQ. Use IQ to add the disadvantages.
-Range: Unlimited.
-Duration: Three days.
-  You can cause the subject to temporarily go insane, adding to him the appropriate disadvantages (for example, Berserk, Bestial, Chronic Depression, Confused, Delusions, Flashbacks, Paranoia, Phantom Voices, Phobia, etc.). If the subject is willing, no resistance roll is needed. If not, he resists with Will and must be completely immobilized or otherwise under your control while you cast the spell. Successful casting gets you inside of his head. You must then win a second Quick Contest of IQ vs. Will — or make another unopposed IQ roll, for a willing subject. You are at −1 per full −5 points of disadvantages applied.
-  Statistics: Mind Control (Accessibility, Only to cause insanity, −20%; Conditioning Only, −50%; Fixed Duration, +0%; Runecasting, −30%) [10].
-Mass Daze
-Keywords: Area (Leveled), Resisted (Will).
-Rune/Effect: Tyr/Mind [4] + Destroy (−1).
-Full Cost: 38 points for level 1 + 5 points/additional level.
-Casting Roll: Will.
-Range: Unlimited.
-Duration: 3 minutes.
-  Creatures in the area are dazed for 3 minutes. If a subject is standing, he remains upright, but can do nothing. If the subject is struck, slapped, or shaken, he recovers on his next turn. After that the subject is stunned (Exploits, p.60) for 3 minutes and may roll vs. Will once per second to recover. You can omit any creatures from the effect.
-  Statistics: Affliction 1 (Will; Area Effect, 2 yards, +50%; Based on Will, +20%; Daze, +50%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Selective Area, +20%; Runecasting, −30%) [38]. 
-  Additional levels add Area Effect (+50%) [+5].
-Mass Hallucination 
-Keywords: Area (Leveled), Resisted (Will). 
-Rune/Effect: Tyr/Mind [4] + Control (−1).
-Full Cost: 37 pts for level 1 + 5/additional level. 
-Casting Roll: Will. 
-Range: Unlimited. 
-Duration: 1 minute. 
-  The subjects in the area hallucinate (p. B429) for 1 minute. 
-  The basic (39-point) version of this spell covers a two-yard radius. For each additional 5 points, you may double this radius; e.g., four yards for 44 points, 8 yards for 49 points, or 16 yards for 54 points. The GM must determine the maximum level allowed; 128 yards is recommended. You may exclude any subject in the area you do not wish to affect. 
-  Statistics: Affliction 1 (Will; Area Effect, 2 yards, +50%; Based on Will, +20%; Fixed Duration, +0%; Hallucinating, +50%; Malediction 2, +150%; No Signature, +20%; Reduced Duration, 1/3, −10%; Selective Area, +20%; Runecasting, −30%) [37]. 
-  Additional levels add Area Effect (+50%) [+5].
-Mass Sleep 
-Keywords: Area (Leveled), Resisted (Will). 
-Rune/Effect: Tyr/Mind [4] + Control (−1).
-Full Cost: 48 points for level 1 + 5 points/additional level. 
-Casting Roll: Will. 
-Range: Unlimited. 
-Duration: 3 minutes. 
-  Creatures in the area fall asleep for 3 minutes, if they fail a Will roll. After this, they can be woken normally, but they will not necessarily wake up right away, especially if already tired. You can omit any creatures from the effect. 
-  Statistics: Affliction 1 (Will; Area Effect, 2 yards, +50%; Based on Will, +20%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Selective Area, +20%; Sleep, +150%; Runecasting, −30%) [48]. 
-  Additional levels add Area Effect (+50%) [+5].
-Mindlessness 
-Keywords: Resisted (Will). 
-Rune/Effect: Tyr/Mind [4] + Destroy (−1).
-Full Cost: 38 points. 
-Casting Roll: Will. 
-Range: Unlimited. 
-Duration: 3 minutes. 
-  Reduces the subject’s IQ to 1 temporarily, reducing him to babbling idiocy. The subject cannot cast or maintain spells, use skills, talk, or other actions determined by the GM. The subject can walk, laugh, cry, drool, eat with his hands, react to heat and cold, etc. He has a very short attention span and notices only colors, pretty things, movement, and other things that a baby would be curious about. If the subject has IQ 15 or more, he is immune to this spell. 
-  Statistics: Affliction 1 (Will; All-or-Nothing, −10%; Attribute Penalty, IQ−13, +130%; Based on Will, +20%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%) [38].
-Mind-Whip
-Keywords: Resisted (Will).
-Rune/Effect: Tyr/Mind [4] + Destroy (−1).
-Full Cost: 18 points.
-Casting Roll: Will. 
-Range: Unlimited. 
-Duration: Instantaneous.
-  You can deliver a no-frills telepathic stab to a living creature with a mind (IQ 1+), causing actual damage. If the subject fails to resist, they take damage equal to their margin of failure (maximum 10 points)! DR does not protect against this damage.
-  Statistics: Toxic Attack 10 points (Accessibility, Only on living IQ 1+ beings, −10%; Damage cannot exceed margin of victory, −50%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%) [18].
-  (Should this be resisted, a quick contest of will, or no roll -- damage is equal to runecasters’ margin of victory?)
-Oath 
-Keywords: Resisted (Will). 
-Rune/Effect: Tyr/Mind [4] + Strengthen (+1).
-Full Cost: 57 points. 
-Casting Roll: Will. 
-Range: Unlimited. 
-Duration: Permanent (until fulfilled). 
-  Give a willing subject a command to do one specific thing. It can even be something a person could not feasibly, realistically accomplish; “destroy every tree in the world” would be valid, but the subject must speak the oath. 
-  The subject must make this command his first priority at all times. He is free to decide how to go about it, however, and may approach the situation intelligently; e.g., rather than grabbing an axe, he could contact a temp agency to hire a small army of woodcutters. In effect, he has an Obsession (p. B146) with no self-control roll. 
-  Once the subject accomplishes the goal, the oath ends. The only way to remove the oath before then is with Remove Curse (GURPS Thaumatology - Sorcery, p. 21); Dispel Magic (GURPS Thaumatology - Sorcery, p. 21) has no effect. 
-  Statistics: Affliction 1 (Will; Accessibility, Only on willing subjects, −30%; Based on Will, +20%; Cosmic, Immune to Dispel Magic, +50%; Extended Duration, Permanent, +150%; Malediction 2, +150%; No Signature, +20%; Runecasting, −15%; Variable Enhancement, +125%) [57]. 
-  Note: Variable Enhancement provides +13% of enhancements (+250%) but is limited by “Accessibility, Only for Obsession with no self-control roll” (−50%) for a net +125%.
-Pacify 
-Keywords: Area (Leveled), Resisted (Will). 
-Full Cost: 50 points for level 1 + 5 points/additional level. 
-Casting Roll: Will. 
-Range: Unlimited. 
-Duration: 1 minute. 
-  Every sapient (IQ 6+) being in the area when the spell is cast must resist or become unwilling to take further offensive action unless first subjected to it, which breaks the spell. In effect, they acquire the Pacifism (Self-Defense Only) disadvantage (p. B148), recover instantly from all aggressive traits (including Berserk), stop interpreting mental disadvantages in ways that demand violence, and ignore orders to engage in hostilities. 
-  For the purposes of this spell, “offensive action” — on behalf of both the subjects and those who interact with them — constitutes not merely attacks but any use of items or abilities that could inflict FP or HP loss, affliction, or inconvenience. Those under the spell’s influence are free to use active defenses, assist unaffected allies with helpful items or abilities, leave, summon aid, etc. Provided that a subject is left in peace, he’ll return the favor, but if he’s offered violence, this ends the spell on him, though not on others. To exploit this to get a friend to “snap out of it” calls for actual injury (at least 1 HP), as the magic gives the perception that any lesser hurt was a forgivable accident. 
-  The basic (52-point) version of this spell covers a two-yard radius. For each additional 5 points, you may double this radius; e.g., four yards for 57 points, 8 yards for 62 points, or 16 yards for 67 points. The GM must determine the maximum level allowed; 128 yards is recommended. You may always choose to affect a lesser area. 
-  Statistics: Affliction 1 (Will; Accessibility, Only sapient beings, −10%; Area Effect, 2 yards, +50%; Based on Will, +20%; Disadvantage, Pacifism, Self-Defense Only, +15%; Fixed Duration, +0%; Malediction 2, +150%; Negated Disadvantage, Berserk, +200%; No Signature, +20%; Reduced Duration, 1/3, −10%; Runecasting, −30%; Terminal Condition, Injury, −10%; Variable Area, +5%) [50]. 
-  Additional levels add Area Effect (+50%) [+5].
-Panic 
-Keywords: Area (Leveled), Resisted (IQ). 
-Rune/Effect: Tyr/Mind [4] + Control (−1).
-Full Cost: 34 pts for level 1 + 5/additional level. 
-Casting Roll: Will. 
-Range: Unlimited. 
-  Duration: 3 minutes. 
-  Those in the area leave the area immediately and become unwilling to enter it. You may reduce the area effect if you wish to. 
-  Statistics: Affliction 1 (IQ; Area Effect, 2 yards, +50%; Based on IQ, +20%; Disadvantage, Dread, +30%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%) [34]. 
-  Additional levels add Area Effect (+50%) [+5].
-Peaceful Sleep 
-Keywords: Buff. 
-Rune/Effect: Tyr/Mind [4] + Strengthen (+1).
-Full Cost: 56 points. 
-Casting Roll: Use Innate Attack (Gaze) to aim. 
-Range: 100 yards. 
-Duration: 1 day. 
-  The subject becomes able to get a night of peaceful sleep regardless of any condition. He loses such advantages as Insomniac, Light Sleeper, and Nightmares, and becomes immune to effects that impose such advantages. In addition, he never suffers any ill effects due to the quality of his sleep. He gets an IQ roll to notice disturbances and awaken, just like anyone else; success is automatic if he has Combat Reflexes. 
-  Statistics: Affliction 1 (HT; Advantage, Peaceful Sleep, +10%; Extended Duration, 1,000x, +120%; Fixed Duration, +0%; Increased 1/2D, 10x, +15%; Negated Disadvantage, Insomniac, +150%; Negated Disadvantage, Light Sleeper, +50%; Negated Disadvantage, Nightmares, +120%; No Signature, +20%; Runecasting, −30%) [56]. 
-  Notes: “Peaceful Sleep” is Deep Sleeper (Magical, −10%) [1].
-Sleep
-Keywords: Resisted (Will).
-Rune/Effect: Tyr/Mind [4] + Control (−1).
-Full Cost: 36 points.
-Casting Roll: Innate Attack (Gaze) to aim. 
-Range: 100 yards. 
-Duration: 3 minutes.
-  The subject falls asleep for 3 minutes, if he fails a Will roll. After this, he can be woken normally, but he will not necessarily wake up right away, especially if already tired. The Innate Attack (Gaze) roll is at −1 per yard distance from caster to subject.
-  Statistics: Affliction 1 (Will; Based on Will, +20%; Fixed Duration, +0%; Malediction, +100%; No Signature, +20%; Sleep, +150%; Runecasting, −30%) [36].
-Strengthen Will
-Keywords: Buff.
-Rune/Effect: Tyr/Mind [4] + Strengthen (+1).
-Full Cost: 16 pts for level 1 + 5/additional level.
-Casting Roll: Use Innate Attack (Gaze) to aim.
-Range: 100 yards.
-Duration: 3 minutes.
-  You increase the target’s Will by 1 per level of this spell for 3 minutes for all purposes except Runecasting.
-  Statistics: Affliction (Advantage, Strengthen Will, +50%; Fixed Duration, +0%; Increased 1/2D, 10x, +15%; No Signature, +20%; Runecasting, −30%) [16]. 
-  Notes: Additional levels add further Strengthen Will to the Advantage enhancement (+50%) [+5]. 
-  Notes: Each level of “Strengthen Will” is Will 1 (Magical, −10%) [5].
-Vigil
-Keywords: Resisted (Will).
-Rune/Effect: Tyr/Mind [4] + Strengthen (+1).
-Full Cost: 34 points.
-Casting Roll: None.
-Range: Touch. 
-Duration: 1 day.
-  This spell allows the subject to go without sleep for a day with no ill effects.
-  Statistics: Affliction 1 (HT; Advantage, Vigil, +180%; Extended Duration, 1,000x, +120%; Fixed Duration, +0%; Melee Attack, Range C, −30%; Runecasting, −30%) [34]. 
-  Notes: “Vigil” is Doesn’t Sleep (Magical, −10%) [18].
-Weaken Will 
-Keywords: Resisted (Will). 
-Rune/Effect: Tyr/Mind [4] + Destroy (−1).
-Full Cost: 26 points. 
-Casting Roll: Will. 
-Range: Unlimited. 
-Duration: 3 minutes. 
-  The victim suffers temporary Will loss equal to your margin of victory (maximum −10). Lower all skills based on Will by a like amount including Runecasting.
-  Statistics: Affliction 1 (Will; Based on Will, +20%; Disadvantage, Will−10, +50%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Penalty cannot exceed margin of victory, −50%; Runecasting, −30%) [26].
-  
-  
-Awe and Confusion Check Table 
-  When you fail an Awe or Confusion Check, roll 3d, add your margin of failure on the Check, and consult the table below. Many entries give different outcomes for Awe and Confusion	read carefully. If new quirks or disadvantages result, the GM chooses these traits, which should suit the circumstances of the Check. 
-4, 5Stunned for one second, then recover automatically. 6, 7Stunned for one second. Every second after that, roll vs. Will to snap out of it. 8, 9Stunned for 1d seconds. Every second after that, roll vs. Will to snap out of it. 10, 11Stunned for 2d seconds. Every second after that, roll vs. Will to snap out of it. 12, 13Awe causes (25 − Will) seconds of ecstasy. Confusion causes (25 − IQ) seconds of daze. See Incapacitating Conditions (p. B428). After that time, roll vs. Will each second to recover. 14, 15Acquire a new mental quirk. Awe inspires quirks that reflect admiration. Confusion leads to quirks that suggest bafflement or perplexity. 16Stunned for 1d seconds, as per 8, and acquire a new quirk, as per 14. 17, 18Awe causes 1d minutes of ecstasy. Confusion causes 1d minutes of hallucinating. See Incapacitating Conditions (p. B428). After that time, roll vs. Will each minute to recover. 19As 17, but effects last 2d minutes.20As 17, but effects last 4d minutes.21Awe causes you to worship at the feet of the one who awed you -- you must obey his every command as if you had Slave Mentality! Confusion causes you to hallucinate (the GM specifies the details, which should fit the situation); you can try to act, but you’re out of touch with reality and at −5 on all success rolls. Either lasts 3d minutes; then roll vs. Will once per minute to snap out of it. 22, 23Acquire a −10-point mental disadvantage. Awe might impel you to adopt one of your new idol’s self-imposed mental disadvantages (see p. B121) out of solidarity, turn you into his servant (Reprogrammable), or make you feel inferior (Low Self-Image). Confusion “blows your mind,” most likely resulting in one of Confused (12), Delusion (Major), Indecisive (12), or Short Attention Span (12) rolls to resist distraction when taking monsters that the Concentrate maneuver to use this through solid.24, 25As 22, except that if you already have a −5 to −10-point disadvantage that could result from Awe or Confusion, it worsens to a −15-point trait!26, 27Experience 1d minutes of ecstasy or hallucinating, as per 17, and acquire a new −10-point disadvantage, as per 22.28, 29Experience 2d minutes of ecstasy or hallucinating, as per 19, and acquire a new −10- point disadvantage, as per 22.30, 31Experience 4d minutes of ecstasy or hallucinating, as per 20, and acquire a new −10- point disadvantage, as per 22.32, 33Awe overcomes you. You immediately collapse in a helpless, ecstatic fit that lasts 1d minutes and costs 1d FP. After that time, roll vs. Will each minute to recover. Any critical failure costs you 1 Will permanently. Confusion drives you completely mad. You might do anything! The GM rolls 3d -- the higher the roll, the more dangerous the action. For instance, you might believe you can fly and leap to your doom. Should you survive your first reaction, roll vs. Will to recover. If you fail, the GM rolls for another insane action, and so on. 34, 35As 22, but the disadvantage is worth −15 points. Awe usually results in Fanaticism -- either for the one who awed you or his cause. Confusion tends to cause Confused (9), Delusion (Severe), Indecisive (9), On the Edge (12), or Short Attention Span (9). 36As 22, but the disadvantage is worth −20 points. 37As 22, but the disadvantage is worth −30 points. To make up −30 points, the GM may have to select more than one trait.38Experience 1d minutes of ecstasy or hallucinating, as per 17, and acquire a new −15-point disadvantage, as per 34.39Experience 2d minutes of ecstasy or hallucinating, as per 19, and acquire a new −20-point disadvantage, as per 36.40+As 39, but Awe costs you 1 point of Will and Confusion robs you of 1 point of IQ. These losses are permanent! 
+﻿Grimoire of Týr (ᛏ)Mind Spells  As a reminder, any spell with a duration of Indefinite has a base duration of 3 minutes, which may be extended for an additional 3 minutes per FP spent (no roll necessary), unless otherwise noted. The runecaster doesn’t have to decide up front how long to extend the spell, they can wait until the spell is about to end and then extend it for another three minutes. This can be continued indefinitely until the caster allows the spell to end normally, he loses consciousness, or runs out of FP.  To make it easier to optimize some spells either to lower the cost or increase its efficacy, this version introduces Variable spells.   Variable spells allow the player to either buy a bare-bones version of the spell for a relatively low point cost, or to modify the base version of the spell to make it more powerful and therefore cost more. Options are listed below the spell and marked with the o symbol.  In addition, some spells have been rewritten to have a “Self” version, which only affects the caster, in addition to the normal version that can be cast on others.  Any spell variation, whether it is moving from a “Self” version to being castable on others, or adding variations or levels, can be bought by paying the difference between the version currently possessed and the one desired.  And as always, the runecaster is NOT limited to the spells in this Grimoire. Any spell that they can imagine that involves earth and metal, or interdimensional gates, can be created with this system. Use the existing spells as guidelines. For example, Blink could be cast on a person other than the caster for additional cost. Collaborate with the GM to create new spells.    
+Awe Keywords: Area (Fixed).Rune/Effect: Tyr/Mind [4] + Control (−4). Full Cost: 41 for level 1 + 15 pts/additional level.Casting Roll: Use Innate Attack (Gaze) to aim. Range: 100 yards.Duration: Instantaneous.   You strike awe into the hearts of others. You can target any area within 100 yards and affect every- one within a 10-yard radius this is not selective and (unlike most Area spells) you cannot reduce the area! Those in the area must roll a Fright Check, applying any Magic Resistance as a bonus. Your victims get +1 per Fright Check after the first within 24 hours, and anyone who succeeds is immune to this spell for an hour. Use the Awe table from the end of this document.   Each additional level of this spell imposes −1 to the Fright Check. For example, with Terror 4, the subjects must make Fright Checks at −3.   This spell is not Resisted; the chance to succeed at the Fright Check takes the place of a normal resistance roll.   Statistics: Terror (Awe; Presence, +25%; Ranged, +40%; Runecasting, −30%) [41].   Additional levels add −1 to the Fright Check [+15]. Berserker Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Control (−4). Full Cost: 27 points.Casting Roll: Will.Range: Unlimited.Duration: 3 minutes.   The victim gains the Berserk disadvantage (Adventurers, p.57) for the duration of this spell. He goes berserk in any combat situation, regardless of whether he was wounded or not.   Statistics: Affliction 1 (Will; Based on Will, +20%; Disadvantage, Berserk, +10%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Rune- casting, −30%) [27]. Bravery Keywords: Buff.Rune/Effect: Tyr/Mind [4] + Strengthen (−1). Full Cost: 18 points.Casting Roll: Innate Attack (Gaze) to aim. Range: 100 yards.Duration: 3 minutes.   You make the subject braver. The subject adds 4 levels to his Will whenever he makes a Fright Check or must resist the Intimidation skill (Adventurers, p.79) or a supernatural power that induces fear. He also subtracts 1 from all Intimidation rolls made against him. However, this bravery makes the subject overconfident. Treat this as having Overconfidence (Adventurers, p.64) with a self-control number of 12.   Statistics: Affliction (Advantage, Bravery, +70%; Fixed Duration, +0%; Increased 1/2D, 10x, +15%; No Signature, +20%; Runecasting, −30%) [18].   “Bravery” is Fearlessness 4 (Magical, −10%; Temporary Disadvantage, Overconfidence (12), −5%) [7]. Coma Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Destroy (−4). Full Cost: 51 points.Casting Roll: Will.Range: Unlimited.Duration: Instantaneous.   This spell induces a coma. The victim collapses, profoundly unconscious, and will likely die in days unless treated; see Mortal Conditions (Exploits, p. 66).   Statistics: Affliction 1 (Will; Based on Will, +20%; Coma, +250%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%) [51]. Calm Emotions Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Strengthen (−1). Full Cost: 25 points.Casting Roll: Will.Range: Unlimited.Duration: 3 minutes.   You can calm down a single creature. Only creatures with a racial IQ 6+ or less can be affected. This spell stops Berserk and prevents the subject from doing any destructive actions (he can still defend himself). Should the creature be attacked or injured, the compulsion breaks.   Statistics: Mind Control (Accessibility, IQ 6+ creatures only, −10%; Accessibility, Only to calm down, −30%; Emotion Control, −50%; Independent, +70%; Runecasting, −30%) [25]. Command Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Control (−4). Full Cost: 20 points.Casting Roll: Quick Contest of Will vs. Will. Range: Unlimited.Duration: 1 second.   Give a subject one immediate command – a word and a gesture, or at most two words – which the subject must obey. If the subject is unable to fulfill the command immediately or on his next turn, the spell has no effect. You must be able to see or touch the subject and the command must be spoken in a language the subject understands to cast this spell. To use this ability, concentrate for one second and then roll a Quick Contest: your Will vs. your subject’s Will, applying the range penalties from the Speed and Size/Range Table.   Examples:   “Drop it!” — the subject drops whatever he was holding.  “Look!” — the subject looks in the direction the caster indicates.    “Wait!” — the subject takes the Wait maneuver on his next turn.   If you win, your charmed subject will obey your command. If you attempt to force the subject to act against its principles (e.g., commit suicide or harm a loved one), roll another Quick Contest. If the subject wins, the spell has no effect.   If you lose, you cannot attempt to control that subject again for 24 hours, and he feels a sense of mental coercion emanating from you.   Statistics: Mind Control (Accessibility, At most two words, −20%; Accessibility, Must be able to under- stand command, −20%; Fixed Duration, +0%; Independent, +70%; Reduced Duration, 1/180, −40%; Runecasting, −30%; Sense-based, Hearing, −20%) [20]. Confusion Keywords: Area (Fixed).Rune/Effect: Tyr/Mind [4] + Destroy (−4). Full Cost: 41 for level 1 + 15 pts/additional level.Casting Roll: Use Innate Attack (Gaze) to aim.Range: 100 yards. Duration: Instantaneous.   You confuse the minds of others. You can target any area within 100 yards and affect everyone with- in a 10-yard radius — this is not selective and (unlike most Area spells) you cannot reduce the area! Those in the area must roll a Fright Check, applying any Magic Resistance as a bonus. Your victims get +1 per Fright Check after the first within 24 hours, and anyone who succeeds is immune to this spell for an hour. Use the Confusion variant table from GURPS Powers, page 85.   Each additional level of this spell imposes −1 to the Fright Check. For example, with Terror 4, the subjects must make Fright Checks at −3.   This spell is not Resisted; the chance to succeed at the Fright Check takes the place of a normal resistance roll.   Statistics: Terror (Confusion; Presence, +25%; Ranged, +40%; Runecasting, −30%) [41].   Additional levels add −1 to the Fright Check [+15]. Detect Minds Keywords: Information.Rune/Effect: Tyr/Mind [4] + Sense (+0).Full Cost: 14 points for basic, 34 for improved. Casting Roll: Will.Range: Unlimited.Duration: Instantaneous.   By taking a Concentrate maneuver and making a Will roll (adjusted by the range to any possible sub- jects), you can detect the direction and general number of IQ 1+ beings in your vicinity. If any are detected, you can make an IQ roll to get more de- tails. On a critical success, the GM tells you most if not all of the details of what you could detect.   The Improved version gives you the details of a critical success on any success.   Statistics: Detect (Minds; Runecasting, −30%) [14].   Improved version adds Precise (+100%) [34]. Discord Keywords: Area (Leveled), Resisted (Will). Rune/Effect: Tyr/Mind [4] + Control (−4).Full Cost: 33 pts for level 1 + 5/additional level. Casting Roll: Will.Range: Unlimited.Duration: 1 minute.   Every sapient (IQ 6+) being in the area when the spell is cast must resist or be overcome with hostility. In effect, they acquire the Bully (CR:9) (Adventurers, p.57) and Intolerance (Broad) (Adventurers, p.61) disadvantages.   The basic (34-point) version of this spell covers a two-yard radius. For each additional 5 points, you may double this radius; e.g., four yards for 39 points, 8 yards for 44 points, or 16 yards for 49 points. The GM must determine the maximum level allowed; 128 yards is recommended. You may always choose to affect a lesser area.   Statistics: Affliction 1 (Will; Accessibility, Only sapient beings, −10%; Area Effect, 2 yards, +50%; Based on Will, +20%; Disadvantage, Bully, 9, +20%; Disadvantage, Intolerance, Total, +10%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Reduced Duration, 1/3, −10%; Runecasting, −30%; Variable Area, +5%) [33].   Additional levels add Area Effect (+50%) [+5]. Disorient Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Destroy (−4). Full Cost: 28 points.Casting Roll: Will.Range: Unlimited.Duration: Permanent until restored.   The subject loses his bearings. He will not immediately feel lost, but as soon as it becomes necessary to remember the path he has taken, or remember his position relative to a landmark, he will draw a blank. Subjects with Absolute Direction resist at +5. The subject can regain his bearings in the usual fashion (Navigation roll, back-tracking, comparing notes, etc.)   Statistics: Affliction 1 (Will; Based on Will, +20%; Disadvantage, Total Amnesia, Only about the location, −80%, +5%; Extended Duration, Permanent, +150%; Malediction 2, +150%; No Signature, +20%; Nuisance Effect, Can be restored normally, −40%; Runecasting, −30%) [38]. Drunkenness Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Destroy (−4). Full Cost: 27 points or 28 points.Casting Roll: Will.Range: Unlimited.Duration: 3 minutes.   You intoxicate the subject for 3 minutes. The basic (29-point) version makes the subject tipsy. He gets −1 to DX and IQ, and −2 to self-control rolls except those to resist Cowardice. The improved (30-point) version makes the subject drunk. He gets −2 to DX and IQ, and −4 to self-control rolls except those to resist Cowardice.   Statistics: Affliction 1 (Will; Based on Will, +20%; Fixed Duration, +0%; Malediction 2, +150%; No Sig- nature, +20%; Runecasting, −30%; Tipsy, +10%) [27].   The improved version replaces Tipsy, +10% with Drunk, +20% [+1]. Encrypt Keywords: Buff.Rune/Effect: Tyr/Mind [4] + Destroy (−4).Full Cost: 47 points.Casting Roll: Innate Attack (Gaze) to aim.Range: 100 yards. Duration: 3 weeks.   When cast on any writing or other visual information medium, this spell makes it unreadable to any but the caster. Anyone can see the writing, but they will be convinced that it is hopelessly arcane, complex, or foreign.   Statistics: Affliction 1 (HT; Accessibility, Only on visual information mediums, −60%; Advantage, Encrypt, +260%; Extended Duration, 10,000x, +160%; Fixed Duration, +0%; Increased 1/2D, 10x, +15%; No Signature, +20%; Runecasting, −30%) [47].   Note: “Encrypt” is Obscure 10 (Reading; Magical, −10%; No Area of Effect, −50%; Selective Effect, Does not affect the caster, +10%; Stealthy, +100%) [26]. Ecstasy Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Control (−4). Full Cost: 34 points.Casting Roll: Will.Range: Unlimited.Duration: 10 seconds.   The subject is incapacitated with overwhelming pleasure. Treat as Agony (Exploits, p.66), but neither Low Pain Threshold nor High Pain Threshold has any effect — and instead of a bonus for torture, someone offering to continue the pleasure gets +3 to any Influence roll!   Statistics: Affliction 1 (Will; Based on Will, +20%; Ecstasy, +100%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Reduced Duration, 1/10, −20%; Runecasting, −30%) [34]. Fascinate Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Control (−4). Full Cost: 30 points.Casting Roll: Will.Range: Unlimited.Duration: 3 minutes.   Holds the subject (a sapient being) motionless and unaware of the passage of time as long as the caster maintains eye contact and concentration.   Statistics: Affliction 1 (Will; Accessibility, Sapient beings only, −10%; Based on Will, +20%; Fixed Du- ration, +0%; Malediction 2, +150%; No Signature, +20%; Nuisance Effect, Have to maintain eye con- tact, −15%; Daze, Variant, +100%; Requires Concentrate, −15%; Runecasting, −30%; Vision-Based, −20%) [30]. Fearful Speech Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Strengthen (−1). Full Cost: 3 points.Casting Roll: Quick Contest of Will vs. Will. Range: Self.Duration: 3 minutes.   The caster can radiate an aura of fear when they actively interact with IQ 6+ beings. Everyone he wishes to affect resists with Will, at a bonus based on their distance from the caster — use the Size and Speed/Range Table (Exploits, p.97). If a subject resists, the caster has his attention, but he reacts normally. Those the caster chooses not to affect see nothing special about the caster.   Anyone who fails, rolls on the Reaction Table with a +3 bonus -- or the caster can add +3 to an Influence Roll against that person. All other modifiers, such as situational modifiers, apply. This bonus can be used only in situations where threats are effective (such as potential combat situations). In other situations, it may even provide a −3 penalty!   Statistics: Charisma 3 (Accessibility, Only in situations where threats are effective, −35%; Accessibility, Only influences via fear Fearlessness resists, −20%; Nuisance Effect, May provide a penalty in inappropriate situations, −15%; Requires Will vs. Will Roll, −15%; Selective Area, +20%; Short-Range 2, −20%; Runecasting, −30%) [3]. Forgetfulness Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Destroy (−4). Full Cost: 29 points for basic, 40 for improved. Casting Roll: None. Range: Unlimited.Duration: 30 minutes or permanent.   You cause the subject to forget one fact for 30 minutes. The improved version erases the fact permanently.   Statistics: Affliction 1 (Will; Accessibility, One fact at a time, −10%; Based on Will, +20%; Disadvantage, Total Amnesia, +25%; Extended Duration, 10x, +40%; Malediction, +100%; No Signature, +20%; Selective Effect, +20%; Runecasting, −30%) [29].   The improved version replaces Extended Duration, 10x, +40% with Extended Duration, Permanent, 150%. [40]. Glib Tongue Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Strengthen (−1). Full Cost: 6 points.Casting Roll: Will.Range: Self.Duration: 1 minute.   The caster can mystically make anything he says be what the subject wants to hear. Whatever the caster says, even total gibberish, will find hearty agreement. However, the caster won’t have a clue what the target thinks he’s saying... GMs may give up to +3 on reaction rolls, depending on how cleverly the PC roleplays this. Everyone he wishes to affect resists with Will, at a bonus based on their distance from the caster (use the modifier under Size on the Size and Speed/Range Table). If a subject resists, the caster have his attention, but he hears what he wants to hear from the caster.   Anyone who fails rolls on the Reaction Table (p. B560) with a +3 bonus or the caster can add +3 to an Influence Roll (p. B359) against that person. All other modifiers, such as situational modifiers, apply.   Statistics: Charisma 3 (Nuisance Effect, Caster is unaware of what he is saying, −20%; Requires Will vs. Will Roll, −15%; Selective Area, +20%; Short- Range 2, −20%; Runecasting, −30%) [6]. Great Geas Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Control (−4). Full Cost: 59 points.Casting Roll: Will.Range: Unlimited.Duration: Permanent (until fulfilled).   Give a subject a command to do one specific thing. It can even be something a person could not feasibly, realistically accomplish; “destroy every tree in the world” would be valid.   If the subject fails to resist, he must make this command his first priority at all times. He is free to decide how to go about it, however, and may approach the situation intelligently; e.g., rather than grabbing an axe, he could contact a temp agency to hire a small army of woodcutters. In effect, he has an Obsession (Adventurers, p.63) with no self-control roll.   Once the subject accomplishes the goal, the geas ends. The only way to remove the geas before then is with Remove Curse; Dispel Magic has no effect.   Statistics: Affliction 1 (Will; Based on Will, +20%; Cosmic, Immune to Dispel Magic, +50%; Extended Duration, Permanent, +150%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%; Variable Enhancement, +125%) [59].   Note: Variable Enhancement provides +13% of enhancements (+250%) but is limited by “Accessibility, Only for Obsession with no self-control roll” (−50%) for a net +125%. Great Hallucination Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Control (−4). Full Cost: 42 points.Casting Roll: IQ.Range: Unlimited.Duration: Indefinite.   The caster can hijack a subject’s senses, control- ling what he sees, hears, smells, etc. If the caster wins a Quick Contest of IQ vs. the subject’s Will (using normal range penalties), he can feed him any images he wishes. The subject might see himself stranded on a cliff side, in a crowded city street, in the middle of a lake, etc. The only limits are the fiendishness of the caster’s imagination and the judgment of the GM. The caster doesn’t control his subject’s thoughts, however; the subject may choose to act on what he believes were his last correct sensory impressions (at −10 to any actions if he can’t see the real world).   This spell requires constant concentration. When the caster stops, the subject regains his senses im- mediately. The caster can affect more than one per- son at once, but he is at −1 for every subject already under his control.   At level 1, Sensory Control requires skin-to-skin contact to initiate (but not to maintain). At level 2, you can use it at range; you are at −1 per yard of   distance to the target. Replace this with normal range penalties (p. B550) at level 3, long-distance modifiers (p. B241) at level 4, and no range penal- ties at all at level 5.   Statistics: Illusion (Mental, +100%; Short-Range 2, −20%; Runecasting, −15%) [42]. Hallucination Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Control (−4). Full Cost: 30 points.Casting Roll: Will.Range: Unlimited.Duration: 1 minute.   The subject hallucinates (Exploits, p.66) for 1 minute.   Statistics: Affliction 1 (Will; Based on Will, +20%; Fixed Duration, +0%; Hallucinating, +50%; Malediction 2, +150%; No Signature, +20%; Reduced Duration, 1/3, −10%; Runecasting, −30%) [30]. Hideous Laughter Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Control (−4). Full Cost: 28 points.Casting Roll: Will.Range: Unlimited.Duration: 3 minutes.   You cause the subject to laugh uncontrollably for 3 minutes. He is at −3 to DX and −1 to IQ, Per, and Will and cannot use Stealth or any ability that requires speech.   Statistics: Affliction 1 (Will; Based on Will, +20%; Coughing, Variant, +20%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%) [28]. Loyalty Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Control (−4). Full Cost: 36 points.Casting Roll: Quick Contest of Will vs. Will. Range: Unlimited.Duration: 3 minutes.   You can temporarily make the subject your loyal friend, giving him the Sense of Duty (Caster) disadvantage (see Adventurers, p.65). If the subject is willing, no resistance roll is needed. If not, he resists with Will and must be completely immobilized or otherwise under your control while you cast the spell. Successful casting gets you inside of his head. You must then win a second Quick Contest of Will vs.   Will or make another unopposed Will roll, for a willing subject.   Statistics: Mind Control (Accessibility, Only to add Sense of Duty, Caster, −50%; Accessibility, Subject must be immobilized or controlled, −20%; Conditioning Only, −50%; Fixed Duration, +0%; Runecasting, −30%) [10]. Madness Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Destroy (−4).Full Cost: 10 points.Casting Roll: IQ. Use IQ to add the disadvantages. Range: Unlimited.Duration: Three days.   You can cause the subject to temporarily go in- sane, adding to him the appropriate disadvantages (for example, Berserk, Bestial, Chronic Depression, Confused, Delusions, Flashbacks, Paranoia, Phantom Voices, Phobia, etc.). If the subject is willing, no resistance roll is needed. If not, he resists with Will and must be completely immobilized or otherwise under your control while you cast the spell. Successful casting gets you inside of his head. You must then win a second Quick Contest of IQ vs. Will — or make another unopposed IQ roll, for a willing subject. You are at −1 per full −5 points of disadvantages applied.   Statistics: Mind Control (Accessibility, Only to cause insanity, −20%; Conditioning Only, −50%; Fixed Duration, +0%; Runecasting, −30%) [10]. Mass Daze Keywords: Area (Leveled), Resisted (Will). Rune/Effect: Tyr/Mind [4] + Destroy (−4). Full Cost: 38 points for level 1 + 5 points/additional level. Casting Roll: Will.Range: Unlimited. Duration: 3 minutes.   Creatures in the area are dazed for 3 minutes. If a subject is standing, he remains upright, but can do nothing. If the subject is struck, slapped, or shaken, he recovers on his next turn. After that the subject is stunned (Exploits, p.60) for 3 minutes and may roll vs. Will once per second to recover. You can omit any creatures from the effect.   Statistics: Affliction 1 (Will; Area Effect, 2 yards, +50%; Based on Will, +20%; Daze, +50%; Fixed Du- ration, +0%; Malediction 2, +150%; No Signature, +20%; Selective Area, +20%; Runecasting, −30%) [38].   Additional levels add Area Effect (+50%) [+5]. Mass Hallucination Keywords: Area (Leveled), Resisted (Will). Rune/Effect: Tyr/Mind [4] + Control (−4).Full Cost: 37 pts for level 1 + 5/additional level. Casting Roll: Will.Range: Unlimited.Duration: 1 minute.   The subjects in the area hallucinate (Exploits, p.66) for 1 minute.   The basic (39-point) version of this spell covers a two-yard radius. For each additional 5 points, you may double this radius; e.g., four yards for 44 points, 8 yards for 49 points, or 16 yards for 54 points. The GM must determine the maximum level allowed; 128 yards is recommended. You may exclude any subject in the area you do not wish to affect.   Statistics: Affliction 1 (Will; Area Effect, 2 yards, +50%; Based on Will, +20%; Fixed Duration, +0%; Hallucinating, +50%; Malediction 2, +150%; No Sig- nature, +20%; Reduced Duration, 1/3, −10%; Selective Area, +20%; Runecasting, −30%) [37].   Additional levels add Area Effect (+50%) [+5]. Mass Sleep Keywords: Area (Leveled), Resisted (Will). Rune/Effect: Tyr/Mind [4] + Control (−4). Full Cost: 48 for level 1 + 5 pts/additional level. Casting Roll: Will.Range: Unlimited. Duration: 3 minutes.   Creatures in the area fall asleep for 3 minutes, if they fail a Will roll. After this, they can be woken normally, but they will not necessarily wake up right away, especially if already tired. You can omit any creatures from the effect.   Statistics: Affliction 1 (Will; Area Effect, 2 yards, +50%; Based on Will, +20%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Selective Area, +20%; Sleep, +150%; Runecasting, −30%) [48].   Additional levels add Area Effect (+50%) [+5]. Mindlessness Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Destroy (−4). Full Cost: 38 points.Casting Roll: Will.Range: Unlimited.Duration: 3 minutes.   Reduces the subject’s IQ to 1 temporarily, reducing him to babbling idiocy. The subject cannot cast or maintain spells, use skills, talk, or other actions determined by the GM. The subject can walk, laugh, cry, drool, eat with his hands, react to heat and cold, etc. He has a very short attention span and notices only colors, pretty things, movement, and other things that a baby would be curious about. If the subject has IQ 15 or more, he is immune to this spell.   Statistics: Affliction 1 (Will; All-or-Nothing, −10%; Attribute Penalty, IQ−13, +130%; Based on Will, +20%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%) [38]. Mind-Whip Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Destroy (−4). Full Cost: 18 points.Casting Roll: Will.Range: Unlimited.Duration: Instantaneous.   You can deliver a no-frills telepathic stab to a living creature with a mind (IQ 1+), causing actual damage. If the subject fails to resist, they take dam- age equal to their margin of failure (maximum 10 points)! DR does not protect against this damage.   Statistics: Toxic Attack 10 points (Accessibility, Only on living IQ 1+ beings, −10%; Damage cannot exceed margin of victory, −50%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%) [18]. Oath Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Strengthen (−1). Full Cost: 57 points.Casting Roll: Will.Range: Unlimited.Duration: Permanent (until fulfilled).   Give a willing subject a command to do one specific thing. It can even be something a person could not feasibly, realistically accomplish; “destroy every tree in the world” would be valid, but the subject must speak the oath.   The subject must make this command his first priority at all times. He is free to decide how to go about it, however, and may approach the situation intelligently; e.g., rather than grabbing an axe, he could contact a temp agency to hire a small army of woodcutters. In effect, he has an Obsession (Adventurers, p.63) with no self-control roll.   Once the subject accomplishes the goal, the oath ends. The only way to remove the oath before then is with Remove Curse; Dispel Magic has no effect.   Statistics: Affliction 1 (Will; Accessibility, Only on willing subjects, −30%; Based on Will, +20%; Cos- mic, Immune to Dispel Magic, +50%; Extended Duration, Permanent, +150%; Malediction 2, +150%; No Signature, +20%; Runecasting, −15%; Variable Enhancement, +125%) [57].   Note: Variable Enhancement provides +13% of enhancements (+250%) but is limited by “Accessibility, Only for Obsession with no self-control roll” (−50%) for a net +125%. Pacify Keywords: Area (Leveled), Resisted (Will). Full Cost: 50 for level 1 + 5 pts/additional level. Casting Roll: Will.Range: Unlimited. Duration: 1 minute.   Every sapient (IQ 6+) being in the area when the spell is cast must resist or become unwilling to take further offensive action unless first subjected to it, which breaks the spell. In effect, they acquire the Pacifism (Self-Defense Only), recover instantly from all aggressive traits (including Berserk), stop interpreting mental disadvantages in ways that demand violence, and ignore orders to engage in hostilities.   For the purposes of this spell, “offensive action” — on behalf of both the subjects and those who inter- act with them — constitutes not merely attacks but any use of items or abilities that could inflict FP or HP loss, affliction, or inconvenience. Those under the spell’s influence are free to use active defenses, assist unaffected allies with helpful items or abilities, leave, summon aid, etc. Provided that a subject is left in peace, he’ll return the favor, but if he’s offered violence, this ends the spell on him, though not on others. To exploit this to get a friend to “snap out of it” calls for actual injury (at least 1 HP), as the magic gives the perception that any lesser hurt was a forgivable accident.   The basic (52-point) version of this spell covers a two-yard radius. For each additional 5 points, you may double this radius; e.g., four yards for 57 points, 8 yards for 62 points, or 16 yards for 67 points. The   GM must determine the maximum level allowed; 128 yards is recommended. You may always choose to affect a lesser area.   Statistics: Affliction 1 (Will; Accessibility, Only sapient beings, −10%; Area Effect, 2 yards, +50%; Based on Will, +20%; Disadvantage, Pacifism, Self- Defense Only, +15%; Fixed Duration, +0%; Malediction 2, +150%; Negated Disadvantage, Berserk, +200%; No Signature, +20%; Reduced Duration, 1/3, −10%; Runecasting, −30%; Terminal Condition, Injury, −10%; Variable Area, +5%) [50].   Additional levels add Area Effect (+50%) [+5]. Panic Keywords: Area (Leveled), Resisted (IQ). Rune/Effect: Tyr/Mind [4] + Control (−4).Full Cost: 34 pts for level 1 + 5/additional level. Casting Roll: Will.Range: Unlimited.Duration: 3 minutes.   Those in the area leave the area immediately and become unwilling to enter it. You may reduce the area effect if you wish to.   Statistics: Affliction 1 (IQ; Area Effect, 2 yards, +50%; Based on IQ, +20%; Disadvantage, Dread, +30%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Runecasting, −30%) [34].   Additional levels add Area Effect (+50%) [+5]. Peaceful Sleep Keywords: Buff.Rune/Effect: Tyr/Mind [4] + Strengthen (−1). Full Cost: 56 points.Casting Roll: Use Innate Attack (Gaze) to aim. Range: 100 yards.Duration: 1 day.   The subject becomes able to get a night of peaceful sleep regardless of any condition. He loses such ad- vantages as Insomniac, Light Sleeper, and Night- mares, and becomes immune to effects that impose such advantages. In addition, he never suffers any ill effects due to the quality of his sleep. He gets an IQ roll to notice disturbances and awaken, just like anyone else; success is automatic if he has Combat Re- flexes.   Statistics: Affliction 1 (HT; Advantage, Peaceful Sleep, +10%; Extended Duration, 1,000x, +120%; Fixed Duration, +0%; Increased 1/2D, 10x, +15%; Negated Disadvantage, Insomniac, +150%; Negated Disadvantage, Light Sleeper, +50%; Negated Disadvantage, Nightmares, +120%; No Signature, +20%; Runecasting, −30%) [56].   Notes: “Peaceful Sleep” is Deep Sleeper (Magical, −10%) [1]. Sleep SKeywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Control (−4). Full Cost: 36 points.Casting Roll: Innate Attack (Gaze) to aim. Range: 100 yards.Duration: 3 minutes.   The subject falls asleep for 3 minutes, if he fails a Will roll. After this, he can be woken normally, but he will not necessarily wake up right away, especially if already tired. The Innate Attack (Gaze) roll is at −1 per yard distance from caster to subject.   Statistics: Affliction 1 (Will; Based on Will, +20%; Fixed Duration, +0%; Malediction, +100%; No Signature, +20%; Sleep, +150%; Runecasting, −30%) [36]. * Get Over Here! Reduce the range penalties from −1 per yard, to using penalties from the Size and Speed/Range Table. (Replace Malediction 1, +100% with Malediction 2, +150%.) [+5 points].Strengthen Will Keywords: Buff.Rune/Effect: Tyr/Mind [4] + Strengthen (−1). Full Cost: 16 pts for level 1 + 5/additional level. Casting Roll: Use Innate Attack (Gaze) to aim. Range: 100 yards.Duration: 3 minutes.   You increase the target’s Will by 1 per level of this spell for 3 minutes for all purposes except Runecasting.   Statistics: Affliction (Advantage, Strengthen Will, +50%; Fixed Duration, +0%; Increased 1/2D, 10x, +15%; No Signature, +20%; Runecasting, −30%) [16].   Notes: Additional levels add further Strengthen Will to the Advantage enhancement (+50%) [+5].   Notes: Each level of “Strengthen Will” is Will 1 (Magical, −10%) [5]. Vigil Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Strengthen (−1). Full Cost: 34 points.Casting Roll: None.Range: Touch.Duration: 1 day.   This spell allows the subject to go without sleep for a day with no ill effects.   Statistics: Affliction 1 (HT; Advantage, Vigil, +180%; Extended Duration, 1,000x, +120%; Fixed Duration, +0%; Melee Attack, Range C, −30%; Rune- casting, −30%) [34].   Notes: “Vigil” is Doesn’t Sleep (Magical, −10%) [18]. Weaken Will Keywords: Resisted (Will).Rune/Effect: Tyr/Mind [4] + Destroy (−4). Full Cost: 26 points.Casting Roll: Will.Range: Unlimited.Duration: 3 minutes.   The victim suffers temporary Will loss equal to your margin of victory (maximum −10). Lower all skills based on Will by a like amount including Rune- casting.   Statistics: Affliction 1 (Will; Based on Will, +20%; Disadvantage, Will−10, +50%; Fixed Duration, +0%; Malediction 2, +150%; No Signature, +20%; Penalty cannot exceed margin of victory, −50%; Runecasting, −30%) [26].   
+  Awe and Confusion Check Table   When you fail an Awe or Confusion Check, roll 3d, add your margin of failure on the Check, and consult the table below. Many entries give different outcomes for Awe and Confusion read carefully. If new quirks or disadvantages result, the GM chooses these traits, which should suit the circumstances of the Check. 4, 5Stunned for one second, then recover automatically. 6, 7Stunned for one second. Every second after that, roll vs. Will to snap out of it. 8, 9Stunned for 1d seconds. Every second after that, roll vs. Will to snap out of it. 10, 11Stunned for 2d seconds. Every second after that, roll vs. Will to snap out of it. 12, 13Awe causes (25 − Will) seconds of ecstasy. Confusion causes (25 − IQ) seconds of daze. See Incapacitating Conditions (Exploits, p.66). After that time, roll vs. Will each second to recover. 14, 15Acquire a new mental quirk. Awe inspires quirks that reflect admiration. Confusion leads to quirks that suggest bafflement or perplexity. 16Stunned for 1d seconds, as per 8, and acquire a new quirk, as per 14. 17, 18Awe causes 1d minutes of ecstasy. Confusion causes 1d minutes of hallucinating. See Incapacitating Conditions (Exploits, p.66). After that time, roll vs. Will each minute to recover. 19As 17, but effects last 2d minutes. 20As 17, but effects last 4d minutes. 21Awe causes you to worship at the feet of the one who awed you -- you must obey his every command as if you had Slave Mentality! Confusion causes you to hallucinate (the GM specifies the details, which should fit the situation); you can try to act, but you’re out of touch with reality and at −5 on all success rolls. Either lasts 3d minutes; then roll vs. Will once per minute to snap out of it. 22, 23Acquire a −10-point mental disadvantage. Awe might impel you to adopt one of your new idol’s self-imposed mental disadvantages out of solidarity, turn you into his servant (Reprogrammable), or make you feel inferior (Low Self-Image). Confusion “blows your mind,” most likely resulting in one of Confused (12), Delusion (Major), Indecisive (12), or Short Attention Span (12) rolls to resist distraction when taking monsters that the Concentrate maneuver to use this through solid. 24, 25As 22, except that if you already have a −5 to −10-point disadvantage that could result from Awe or Confusion, it worsens to a −15-point trait! 26, 27Experience 1d minutes of ecstasy or hallucinating, as per 17, and acquire a new −10-point disadvantage, as per 22.28, 29Experience 2d minutes of ecstasy or hallucinating, as per 19, and acquire a new −10-point disadvantage, as per 22. 30, 31Experience 4d minutes of ecstasy or hallucinating, as per 20, and acquire a new −10- point disadvantage, as per 22.32, 33Awe overcomes you. You immediately collapse in a helpless, ecstatic fit that lasts 1d minutes and costs 1d FP. After that time, roll vs. Will each minute to recover. Any critical failure costs you 1 Will permanently. Confusion drives you completely mad. You might do anything! The GM rolls 3d -- the higher the roll, the more dangerous the action. For instance, you might believe you can fly and leap to your doom. Should you survive your first reaction, roll vs. Will to recover. If you fail, the GM rolls for another insane action, and so on. 34, 35As 22, but the disadvantage is worth −15 points. Awe usually results in Fanaticism -- either for the one who awed you or his cause. Confusion tends to cause Confused (9), Delusion (Severe), Indecisive (9), On the Edge (12), or Short Attention Span (9). 36As 22, but the disadvantage is worth −20 points.37As 22, but the disadvantage is worth −30 points. To make up −30 points, the GM may have to select more than one trait.38Experience 1d minutes of ecstasy or hallucinating, as per 17, and acquire a new −15-point disadvantage, as per 34. 39Experience 2d minutes of ecstasy or hallucinating, as per 19, and acquire a new −20-point disadvantage, as per 36.40+As 39, but Awe costs you 1 point of Will and Confusion robs you of 1 point of IQ. These losses are permanent! 
