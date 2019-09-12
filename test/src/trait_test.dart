@@ -49,7 +49,7 @@ void main() {
               as LeveledTrait;
       expect(t.reference, 'Obscure');
       expect(t.cost, 2);
-      expect(t.description, 'Obscure 1');
+      expect(t.description, 'Obscure 1 (Sense)');
       expect(t.level, 1);
     });
 
@@ -69,7 +69,7 @@ void main() {
           as LeveledTrait;
       expect(t.reference, 'Obscure');
       expect(t.cost, 2);
-      expect(t.description, 'Obscure 1');
+      expect(t.description, 'Obscure 1 (Vision)');
       expect(t.level, 1);
       expect(t.specialization, 'Vision');
     });
@@ -79,7 +79,7 @@ void main() {
       LeveledTrait t = Traits.buildTrait(parse) as LeveledTrait;
       expect(t.reference, 'Obscure');
       expect(t.cost, 2);
-      expect(t.description, 'Obscure 1');
+      expect(t.description, 'Obscure 1 (Vision)');
       expect(t.level, 1);
       expect(t.specialization, 'Vision');
     });
@@ -90,7 +90,7 @@ void main() {
               as LeveledTrait;
       expect(t.reference, 'Obscure');
       expect(t.cost, 10);
-      expect(t.description, 'Obscure 5');
+      expect(t.description, 'Obscure 5 (Dark Vision)');
       expect(t.level, 5);
       expect(t.specialization, 'Dark Vision');
     });
@@ -101,7 +101,7 @@ void main() {
               as LeveledTrait;
       expect(t.reference, 'Obscure');
       expect(t.cost, 4);
-      expect(t.description, 'Obscure 2');
+      expect(t.description, 'Obscure 2 (360° Vision)');
       expect(t.level, 2);
       expect(t.specialization, '360° Vision');
     });
@@ -575,14 +575,14 @@ void main() {
           LeveledTrait t =
               Traits.buildTrait(Parser().parse('Create Rock 1').first)
                   as LeveledTrait;
-          expect(t.description, 'Create 1');
+          expect(t.description, 'Create 1 (Rock)');
         });
 
         test('Create Iron 2', () {
           LeveledTrait t =
               Traits.buildTrait(Parser().parse('Create Iron 2').first)
                   as LeveledTrait;
-          expect(t.description, 'Create 2');
+          expect(t.description, 'Create 2 (Iron)');
         });
       }, skip: false);
 

@@ -85,6 +85,8 @@ class TraitTemplate {
         RegExpMatch match = RegExp(pattern).firstMatch(components.name);
         if (match.groupNames.contains('spec')) {
           specialization = match.namedGroup('spec');
+          components.name =
+              components.name.replaceFirst(specialization, '').trim();
         }
       }
     }

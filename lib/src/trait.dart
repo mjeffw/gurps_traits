@@ -74,7 +74,28 @@ class Trait {
   /// Textual description as found in a stat block, "Burning Attack 1d" or
   /// "Create 2 (Water)", for example.
   ///
-  String get description => name ?? reference;
+  String get description => (_hasParentheticalText())
+      ? nameAndLevel
+      : '$nameAndLevel $parentheticalText';
+
+  bool _hasParentheticalText() => modifiers.isEmpty && _specializationIsEmpty();
+
+  bool _specializationIsEmpty() =>
+      specialization == null || specialization.isEmpty;
+
+  String get nameAndLevel => '${name ?? reference}';
+
+  String get modifiersDescription =>
+      modifiers.map((it) => it.description).join('; ');
+
+  String get parentheticalText {
+    String temp = <String>[
+      if (specialization.isNotEmpty) specialization,
+      if (modifiers.isNotEmpty) modifiersDescription
+    ].join('; ');
+
+    return '($temp)';
+  }
 
   ///
   /// Page number of the trait.
@@ -116,7 +137,7 @@ class LeveledTrait extends Trait {
   /// E.g.: Damage Resistance 2 or Affliction 1.
   ///
   @override
-  get description => '$reference $level';
+  String get nameAndLevel => '${name ?? reference} $level';
 
   const LeveledTrait(
       {TraitTemplate template,

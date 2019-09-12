@@ -56,6 +56,12 @@ class ModifierComponents {
   int value;
 
   ModifierComponents({this.name, this.value, this.detail});
+
+  get description =>
+      '$name${detail == null || detail.isEmpty ? "" : ", " + detail}, $valueAsString';
+
+  get valueAsString =>
+      '${value < 0 ? value.toString() : "+" + value.toString()}%';
 }
 
 ///

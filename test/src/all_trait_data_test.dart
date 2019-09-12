@@ -10,6 +10,7 @@ void main() {
     expect(t.baseCost, 25);
     expect(t.reference, '360° Vision');
     expect(t.page, 'B34');
+    expect(t.description, '360° Vision');
   });
   group('Absolute Direction', () {
     test('3D Spatial Sense', () {
@@ -82,6 +83,7 @@ void main() {
       expect(t.page, 'B35');
       expect(t.baseCost, 2);
       expect(t.name, equals('Acute Vision'));
+      expect(t.description, equals('Acute Vision 1'));
     });
   });
 
@@ -107,7 +109,7 @@ void main() {
   // TODO Allies
 
   group('Alternate Identity', () {
-    test('Alternate Identity (Legal)', () {
+    test('(Legal)', () {
       Trait t =
           Traits.buildTrait(Parser().parse('Alternate Identity (Legal)').first);
       expect(t.runtimeType, CategorizedTrait);
@@ -116,7 +118,7 @@ void main() {
       expect(t.baseCost, 5);
       expect(t.name, equals('Alternate Identity (Legal)'));
     });
-    test('Alternate Identity (Illegal)', () {
+    test('(Illegal)', () {
       Trait t = Traits.buildTrait(
           Parser().parse('Alternate Identity (Illegal)').first);
       expect(t.runtimeType, CategorizedTrait);
@@ -147,7 +149,7 @@ void main() {
   // TODO: Arm DX
   // TODO: Arm ST
 
-  test('Binding', (){
+  test('Binding', () {
     Trait t = Traits.buildTrait(Parser().parse('Binding').first);
     expect(t.runtimeType, LeveledTrait);
     expect(t.reference, 'Binding');
@@ -161,7 +163,6 @@ void main() {
     // TODO: Enhancement: Unbreakable, +40%
     // TODO: Limitation: Environmental, variable
     // TODO: Limitation: One-Shot, -10%
-
   });
 
   // TODO: Animal Friend (Talent)

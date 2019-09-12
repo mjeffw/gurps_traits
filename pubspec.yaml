@@ -5,13 +5,13 @@ description: A sample command-line application.
 author: Wilson, Marvin (jw9615) <jw9615@att.com>
 
 environment:
-  sdk: '>=2.4.0 <3.0.0'
+  sdk: ">=2.5.0 <3.0.0"
 
 dependencies:
   decimal: ^0.3.0
   quiver: ^2.0.5
-  dart_utils: 
-    git: 
+  dart_utils:
+    git:
       url: https://github.com/mjeffw/dart_utils
   gurps_dice:
     git:
