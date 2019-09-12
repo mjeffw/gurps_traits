@@ -5,7 +5,7 @@ description: A sample command-line application.
 author: Wilson, Marvin (jw9615) <jw9615@att.com>
 
 environment:
-  sdk: ">=2.5.0 <3.0.0"
+  sdk: ">=2.3.0 <3.0.0"
 
 dependencies:
   decimal: ^0.3.0
