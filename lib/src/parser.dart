@@ -42,7 +42,7 @@ class ModifierComponents {
   /// first, not including the percentile value.
   ///
   static _detail(String match) =>
-      match.replaceFirst('${_name(match)}, ', '').trim();
+      match.split(',').map((it) => it.trim()).skip(1).join(', ');
 
   ///
   /// Value is the final component of the text, and is composed of a sign
