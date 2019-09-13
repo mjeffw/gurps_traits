@@ -85,8 +85,10 @@ class Trait {
 
   String get nameAndLevel => '${name ?? reference}';
 
-  String get modifiersDescription =>
-      modifiers.map((it) => it.description).join('; ');
+  String get modifiersDescription {
+    modifiers.sort((a, b) => a.description.compareTo(b.description));
+    return modifiers.map((it) => it.description).join('; ');
+  }
 
   String get parentheticalText {
     String temp = <String>[
