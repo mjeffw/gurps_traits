@@ -78,9 +78,9 @@ class Trait {
       ? nameAndLevel
       : '$nameAndLevel $parentheticalText';
 
-  bool _hasParentheticalText() => modifiers.isEmpty && _specializationIsEmpty();
+  bool _hasParentheticalText() => modifiers.isEmpty && _specializationIsEmpty;
 
-  bool _specializationIsEmpty() =>
+  bool get _specializationIsEmpty =>
       specialization == null || specialization.isEmpty;
 
   String get nameAndLevel => '${name ?? reference}';
@@ -92,7 +92,7 @@ class Trait {
 
   String get parentheticalText {
     String temp = <String>[
-      if (specialization.isNotEmpty) specialization,
+      if (!_specializationIsEmpty) specialization,
       if (modifiers.isNotEmpty) modifiersDescription
     ].join('; ');
 
@@ -103,6 +103,14 @@ class Trait {
   /// Page number of the trait.
   ///
   String get page => template.page;
+
+  factory Trait.copyWith(Trait source, {List<ModifierComponents> modifiers}) {
+    return Trait(
+        template: source.template,
+        name: source.name,
+        specialization: source.specialization,
+        modifiers: modifiers ?? []);
+  }
 
   const Trait(
       {this.template,
@@ -303,8 +311,11 @@ class InnateAttack extends Trait {
   /// Return the description of the [Trait] as used in a statistics block. For
   /// [InnateAttack] it consists of the Damage Type plus 'Attack' plus DieRoll.
   ///
-  @override
-  get description => '${StringEx.toTitleCase(enumToString(type))} Attack $dice';
+  // @override
+  // get description => '${StringEx.toTitleCase(enumToString(type))} Attack $dice';
+
+  String get nameAndLevel =>
+      '${StringEx.toTitleCase(enumToString(type))} Attack $dice';
 
   ///
   /// Cost is calculated as cost per die x die including partial dice.
