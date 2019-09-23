@@ -104,14 +104,6 @@ class Trait {
   ///
   String get page => template.page;
 
-  factory Trait.copyWith(Trait source, {List<ModifierComponents> modifiers}) {
-    return Trait(
-        template: source.template,
-        name: source.name,
-        specialization: source.specialization,
-        modifiers: modifiers ?? []);
-  }
-
   const Trait(
       {this.template,
       String name,
@@ -120,6 +112,14 @@ class Trait {
       : this.name = name,
         this.specialization = specialization,
         this.modifiers = modifiers ?? const [];
+
+  copyWith({List<ModifierComponents> modifiers}) {
+    return Trait(
+        template: this.template,
+        name: this.name,
+        specialization: this.specialization,
+        modifiers: modifiers ?? this.modifiers);
+  }
 }
 
 ///
@@ -163,6 +163,16 @@ class LeveledTrait extends Trait {
             specialization: specialization,
             modifiers: modifiers);
 
+  @override
+  copyWith({List<ModifierComponents> modifiers}) {
+    return LeveledTrait(
+        template: this.template,
+        level: this.level,
+        name: this.name,
+        specialization: this.specialization,
+        modifiers: modifiers ?? this.modifiers);
+  }
+
   static String tryParseSpecialization(String pattern, String traitText) =>
       RegExpEx.getNamedGroup(RegExp(pattern).firstMatch(traitText), 'spec');
 }
@@ -202,6 +212,15 @@ class CategorizedTrait extends Trait with HasCategory {
             specialization: item,
             modifiers: modifiers,
             name: name);
+
+  @override
+  copyWith({List<ModifierComponents> modifiers}) {
+    return CategorizedTrait(
+        template: this.template,
+        item: this.specialization,
+        name: this.name,
+        modifiers: modifiers ?? this.modifiers);
+  }
 }
 
 ///
@@ -235,6 +254,15 @@ class CategorizedLeveledTrait extends LeveledTrait with HasCategory {
             level: level,
             specialization: item,
             modifiers: modifiers);
+
+  @override
+  copyWith({List<ModifierComponents> modifiers}) {
+    return CategorizedLeveledTrait(
+        template: this.template,
+        level: this.level,
+        item: this.specialization,
+        modifiers: modifiers ?? this.modifiers);
+  }
 }
 
 ///
@@ -307,6 +335,15 @@ class InnateAttack extends Trait {
       List<ModifierComponents> modifiers})
       : super(template: template, modifiers: modifiers);
 
+  @override
+  copyWith({List<ModifierComponents> modifiers, DieRoll dice}) {
+    return InnateAttack(
+        template: this.template,
+        dice: dice ?? this.dice,
+        type: this.type,
+        modifiers: modifiers ?? this.modifiers);
+  }
+
   ///
   /// Return the description of the [Trait] as used in a statistics block. For
   /// [InnateAttack] it consists of the Damage Type plus 'Attack' plus DieRoll.
@@ -363,11 +400,6 @@ class InnateAttack extends Trait {
     }
 
     return DieRoll(dice: 1);
-  }
-
-  static InnateAttack copyWith(InnateAttack t, {DieRoll dice}) {
-    return InnateAttack(
-        type: t.type, dice: dice ?? t.dice, template: t.template);
   }
 }
 
