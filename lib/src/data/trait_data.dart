@@ -1,4 +1,5 @@
-String trait_data = r"""{
+String trait_data = r"""
+{
   "traits": [
     {
       "reference": "360° Vision",
@@ -65,13 +66,11 @@ String trait_data = r"""{
       "categories": [
         {
           "name": "Legal",
-          "cost": 5,
-          "items": ["Legal"]
+          "cost": 5
         },
         {
           "name": "Illegal",
-          "cost": 15,
-          "items": ["Illegal"]
+          "cost": 15
         }
       ]
     },
@@ -86,10 +85,95 @@ String trait_data = r"""{
       "cost": 5
     },
     {
+      "reference": "Appearance",
+      "page": "B21",
+      "type": "categorized",
+      "alternateNames": [
+        "^Appearance (?<spec>.+)$"
+      ],
+      "categories": [
+        {
+          "name": "Horrific",
+          "cost": -24
+        },
+        {
+          "name": "Monstrous",
+          "cost": -20
+        },
+        {
+          "name": "Hideous",
+          "cost": -16
+        },
+        {
+          "name": "Ugly",
+          "cost": -8
+        },
+        {
+          "name": "Unattractive",
+          "cost": -4
+        },
+        {
+          "name": "Average",
+          "cost": 0
+        },
+        {
+          "name": "Attractive",
+          "cost": 4
+        },
+        {
+          "name": "Handsome",
+          "cost": 12,
+          "items": [
+            "Beautiful"
+          ]
+        },
+        {
+          "name": "Very Handsome",
+          "cost": 16,
+          "items": [
+            "Very Beautiful"
+          ]
+        },
+        {
+          "name": "Transcendent",
+          "cost": 20
+        }
+      ]
+    },
+    {
       "reference": "Binding",
       "page": "B40",
       "type": "leveled",
       "cost": 2
+    },
+    {
+      "reference": "Blessed",
+      "page": "B40",
+      "type": "categorized",
+      "alternateNames": [
+        "^Blessed$",
+        "^Very Blessed$",
+        "^Heroic Feats (?<spec>.+)$"
+      ],
+      "categories": [
+        {
+          "name": "Blessed",
+          "cost": 10
+        },
+        {
+          "name": "Very Blessed",
+          "cost": 20
+        },
+        {
+          "name": "Heroic Feats",
+          "cost": 10,
+          "items": [
+            "Heroic Feats (ST)",
+            "Heroic Feats (DX)",
+            "Heroic Feats (HT)"
+          ]
+        }
+      ]
     },
     {
       "reference": "Charisma",
@@ -438,4 +522,5 @@ String trait_data = r"""{
       "cost": 100
     }
   ]
-}""";
+}
+""";

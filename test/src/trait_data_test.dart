@@ -126,16 +126,21 @@ void main() {
           Category(
               name: 'Very Common',
               cost: 40,
-              items: ["Earth", "Metal", "Stone", "Wood"]),
+              items: ["Earth", "Metal", "Stone", "Wood", "Very Common"]),
           Category(
               name: 'Common',
               cost: 20,
-              items: ["Concrete", "Plastic", "Steel"]),
+              items: ["Concrete", "Plastic", "Steel", "Common"]),
+          Category(name: 'Occasional', cost: 10, items: [
+            "Glass",
+            "Ice",
+            "Sand",
+            "Aluminum",
+            "Copper",
+            "Occasional"
+          ]),
           Category(
-              name: 'Occasional',
-              cost: 10,
-              items: ["Glass", "Ice", "Sand", "Aluminum", "Copper"]),
-          Category(name: 'Rare', cost: 5, items: ["Bone", "Flesh", "Paper"])
+              name: 'Rare', cost: 5, items: ["Bone", "Flesh", "Paper", "Rare"])
         ]));
   });
 
@@ -195,11 +200,17 @@ void main() {
           Category(
               name: 'Very Common',
               cost: 30,
-              items: ["Life", "Minerals", "Energy"]),
+              items: ["Life", "Minerals", "Energy", "Very Common"]),
           Category(
-              name: 'Common', cost: 20, items: ["Humans", "Minds", "Metals"]),
-          Category(name: 'Occasional', cost: 10, items: ["Magic", "Undead"]),
-          Category(name: 'Rare', cost: 5, items: ["Gold", "Radar", "Radio"])
+              name: 'Common',
+              cost: 20,
+              items: ["Humans", "Minds", "Metals", "Common"]),
+          Category(
+              name: 'Occasional',
+              cost: 10,
+              items: ["Magic", "Undead", "Occasional"]),
+          Category(
+              name: 'Rare', cost: 5, items: ["Gold", "Radar", "Radio", "Rare"])
         ]));
   });
 }

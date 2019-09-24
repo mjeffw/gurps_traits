@@ -182,10 +182,14 @@ class Category {
   ///
   /// Create a [Category] from JSON data
   ///
-  factory Category.fromJSON(Map<String, dynamic> json) => Category(
-      name: json['name'],
-      cost: json['cost'],
-      items: JsonEx.toListOfStrings(json['items']));
+  factory Category.fromJSON(Map<String, dynamic> json) {
+    var cat = Category(
+        name: json['name'],
+        cost: json['cost'],
+        items: JsonEx.toListOfStrings(json['items']));
+    cat.items.add(cat.name);
+    return cat;
+  }
 
   ///
   /// Create a list of [Category] from a JSON list.

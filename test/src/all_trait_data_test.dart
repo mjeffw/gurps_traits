@@ -96,7 +96,26 @@ void main() {
     expect(t.page, 'B35');
     expect(t.baseCost, 10);
     expect(t.name, equals('Affliction'));
+
+    // TODO Enhancements: Advantage
+    // TODO Enhancements: Attribute Penalty
+    // TODO Enhancements: Coma
+    // TODO Enhancements: Cumulative
+    // TODO Enhancements: Disadvantage
+    // TODO Enhancements: Heart Attack
+    // TODO Enhancements: Incapacitation (Daze, Hallucinating, Retching, Agony, Choking, Ecstasy, Seizure, Paralysis, Sleep, Unconsciousness)
+    // TODO Enhancements: Irritant (Tipsy, Coughing, Drunk, Moderate Pain, Euphoria, Nauseated, Severe Pain, Terrible Pain)
+    // TODO Enhancements: Negated Advantage
+    // TODO Enhancements: Stunning
   });
+
+  // TODO Allies
+  // TODO Enhancements: Minion
+  // TODO Enhancements: Special Abilities
+  // TODO Enhancements: Summonable
+  // TODO Enhancements: Sympathy
+  // TODO Enhancements: Unwilling
+
   test('Altered Time Rate', () {
     Trait t = Traits.buildTrait(Parser().parse('Altered Time Rate').first);
     expect(t.runtimeType, LeveledTrait);
@@ -105,9 +124,6 @@ void main() {
     expect(t.baseCost, 100);
     expect(t.name, equals('Altered Time Rate'));
   });
-
-  // TODO Allies
-
   group('Alternate Identity', () {
     test('(Legal)', () {
       Trait t =
@@ -145,12 +161,123 @@ void main() {
     expect(t.name, equals('Animal Empathy'));
   });
 
-  // TODO: Appearance
+  // TODO: Animal Friend (Talent)
+
+  group('Appearance', () {
+    test('Horrific', () {
+      Trait t =
+          Traits.buildTrait(Parser().parse('Appearance (Horrific)').first);
+      expect(t.runtimeType, CategorizedTrait);
+      expect(t.reference, 'Appearance');
+      expect(t.page, 'B21');
+      expect(t.baseCost, -24);
+      expect(t.name, 'Appearance (Horrific)');
+    });
+    test('Monstrous', () {
+      Trait t =
+          Traits.buildTrait(Parser().parse('Appearance (Monstrous)').first);
+      expect(t.runtimeType, CategorizedTrait);
+      expect(t.reference, 'Appearance');
+      expect(t.page, 'B21');
+      expect(t.baseCost, -20);
+      expect(t.name, 'Appearance (Monstrous)');
+    });
+    test('Hideous', () {
+      Trait t = Traits.buildTrait(Parser().parse('Appearance (Hideous)').first);
+      expect(t.runtimeType, CategorizedTrait);
+      expect(t.reference, 'Appearance');
+      expect(t.page, 'B21');
+      expect(t.baseCost, -16);
+      expect(t.name, 'Appearance (Hideous)');
+    });
+    test('Ugly', () {
+      Trait t = Traits.buildTrait(Parser().parse('Appearance (Ugly)').first);
+      expect(t.runtimeType, CategorizedTrait);
+      expect(t.reference, 'Appearance');
+      expect(t.page, 'B21');
+      expect(t.baseCost, -8);
+      expect(t.name, 'Appearance (Ugly)');
+    });
+    test('Unattractive', () {
+      Trait t =
+          Traits.buildTrait(Parser().parse('Appearance (Unattractive)').first);
+      expect(t.runtimeType, CategorizedTrait);
+      expect(t.reference, 'Appearance');
+      expect(t.page, 'B21');
+      expect(t.baseCost, -4);
+      expect(t.name, 'Appearance (Unattractive)');
+    });
+    test('Average', () {
+      Trait t = Traits.buildTrait(Parser().parse('Appearance (Average)').first);
+      expect(t.runtimeType, CategorizedTrait);
+      expect(t.reference, 'Appearance');
+      expect(t.page, 'B21');
+      expect(t.baseCost, 0);
+      expect(t.name, 'Appearance (Average)');
+    });
+    test('Attractive', () {
+      Trait t =
+          Traits.buildTrait(Parser().parse('Appearance (Attractive)').first);
+      expect(t.runtimeType, CategorizedTrait);
+      expect(t.reference, 'Appearance');
+      expect(t.page, 'B21');
+      expect(t.baseCost, 4);
+      expect(t.name, 'Appearance (Attractive)');
+    });
+    test('Handsome', () {
+      Trait t =
+          Traits.buildTrait(Parser().parse('Appearance (Handsome)').first);
+      expect(t.runtimeType, CategorizedTrait);
+      expect(t.reference, 'Appearance');
+      expect(t.page, 'B21');
+      expect(t.baseCost, 12);
+      expect(t.name, 'Appearance (Handsome)');
+    });
+    test('Beautiful', () {
+      Trait t =
+          Traits.buildTrait(Parser().parse('Appearance (Beautiful)').first);
+      expect(t.runtimeType, CategorizedTrait);
+      expect(t.reference, 'Appearance');
+      expect(t.page, 'B21');
+      expect(t.baseCost, 12);
+      expect(t.name, 'Appearance (Beautiful)');
+    });
+    test('Very Handsome', () {
+      Trait t =
+          Traits.buildTrait(Parser().parse('Appearance (Very Handsome)').first);
+      expect(t.runtimeType, CategorizedTrait);
+      expect(t.reference, 'Appearance');
+      expect(t.page, 'B21');
+      expect(t.baseCost, 16);
+      expect(t.name, 'Appearance (Very Handsome)');
+    });
+    test('Very Beautiful', () {
+      Trait t = Traits.buildTrait(
+          Parser().parse('Appearance (Very Beautiful)').first);
+      expect(t.runtimeType, CategorizedTrait);
+      expect(t.reference, 'Appearance');
+      expect(t.page, 'B21');
+      expect(t.baseCost, 16);
+      expect(t.name, 'Appearance (Very Beautiful)');
+    });
+    test('Transcendent', () {
+      Trait t =
+          Traits.buildTrait(Parser().parse('Appearance (Transcendent)').first);
+      expect(t.runtimeType, CategorizedTrait);
+      expect(t.reference, 'Appearance');
+      expect(t.page, 'B21');
+      expect(t.baseCost, 20);
+      expect(t.name, 'Appearance (Transcendent)');
+    });
+  });
+
   // TODO: Arm DX
   // TODO: Arm ST
+  // TODO: Artificer (Talent)
 
   test('Binding', () {
-    Trait t = Traits.buildTrait(Parser().parse('Binding').first);
+    var input = 'Binding';
+    Trait t = buildTrait(input);
     expect(t.runtimeType, LeveledTrait);
     expect(t.reference, 'Binding');
     expect(t.page, 'B40');
@@ -164,7 +291,13 @@ void main() {
     // TODO: Limitation: Environmental, variable
     // TODO: Limitation: One-Shot, -10%
   });
-
-  // TODO: Animal Friend (Talent)
-  // TODO: Artificer (Talent)
+  group('Blessed', () {
+    test('Blessed', () {
+      Trait t = buildTrait('Blessed');
+      expect(t.runtimeType, CategorizedTrait);
+    });
+  });
 }
+
+Trait buildTrait(String input) =>
+    Traits.buildTrait(Parser().parse(input).first);
