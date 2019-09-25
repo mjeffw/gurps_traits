@@ -294,9 +294,56 @@ void main() {
   group('Blessed', () {
     test('Blessed', () {
       Trait t = buildTrait('Blessed');
-      expect(t.runtimeType, CategorizedTrait);
+      expect(t.runtimeType, Trait);
+      expect(t.reference, 'Blessed');
+      expect(t.page, 'B40');
+      expect(t.baseCost, 10);
+      expect(t.name, 'Blessed');
+    });
+    test('Very Blessed', () {
+      Trait t = buildTrait('Very Blessed');
+      expect(t.runtimeType, Trait);
+      expect(t.reference, 'Blessed');
+      expect(t.page, 'B40');
+      expect(t.baseCost, 20);
+      expect(t.name, 'Very Blessed');
+    });
+    test('Heroic Feats (DX)', () {
+      Trait t = buildTrait('Heroic Feats (DX)');
+      expect(t.runtimeType, Trait);
+      expect(t.reference, 'Blessed');
+      expect(t.page, 'B40');
+      expect(t.baseCost, 10);
+      expect(t.name, 'Heroic Feats');
+      expect(t.specialization, 'DX');
+    });
+    test('Heroic Feats (ST)', () {
+      Trait t = buildTrait('Heroic Feats (ST)');
+      expect(t.runtimeType, Trait);
+      expect(t.reference, 'Blessed');
+      expect(t.page, 'B40');
+      expect(t.baseCost, 10);
+      expect(t.name, 'Heroic Feats');
+      expect(t.specialization, 'ST');
+    });
+    test('Heroic Feats (HT)', () {
+      Trait t = buildTrait('Heroic Feats (HT)');
+      expect(t.runtimeType, Trait);
+      expect(t.reference, 'Blessed');
+      expect(t.page, 'B40');
+      expect(t.baseCost, 10);
+      expect(t.name, 'Heroic Feats');
+      expect(t.specialization, 'HT');
     });
   });
+test('Brachiator', () {
+      Trait t = buildTrait('Brachiator');
+      expect(t.runtimeType, Trait);
+      expect(t.reference, 'Brachiator');
+      expect(t.page, 'B41');
+      expect(t.baseCost, 5);
+      expect(t.name, 'Brachiator');
+    });
 }
 
 Trait buildTrait(String input) =>

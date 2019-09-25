@@ -149,30 +149,23 @@ String trait_data = r"""
     {
       "reference": "Blessed",
       "page": "B40",
-      "type": "categorized",
+      "cost": 10
+    },
+    {
+      "reference": "Blessed",
+      "page": "B40",
+      "cost": 20,
       "alternateNames": [
-        "^Blessed$",
-        "^Very Blessed$",
-        "^Heroic Feats (?<spec>.+)$"
-      ],
-      "categories": [
-        {
-          "name": "Blessed",
-          "cost": 10
-        },
-        {
-          "name": "Very Blessed",
-          "cost": 20
-        },
-        {
-          "name": "Heroic Feats",
-          "cost": 10,
-          "items": [
-            "Heroic Feats (ST)",
-            "Heroic Feats (DX)",
-            "Heroic Feats (HT)"
-          ]
-        }
+        "^Very Blessed$"
+      ]
+    },
+    {
+      "reference": "Blessed",
+      "page": "B40",
+      "cost": 10,
+      "isSpecialized": true,
+      "alternateNames": [
+        "^Heroic Feats$"
       ]
     },
     {
@@ -522,5 +515,4 @@ String trait_data = r"""
       "cost": 100
     }
   ]
-}
-""";
+}""";
