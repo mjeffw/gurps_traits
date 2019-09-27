@@ -196,7 +196,7 @@ class LeveledTrait extends TemplateTrait {
             modifiers: modifiers);
 
   @override
-  copyWith({List<Modifier> modifiers}) {
+  Trait copyWith({List<Modifier> modifiers}) {
     return LeveledTrait(
         template: this.template,
         level: this.level,
@@ -246,7 +246,7 @@ class CategorizedTrait extends TemplateTrait with HasCategory {
             name: name);
 
   @override
-  copyWith({List<Modifier> modifiers}) {
+  Trait copyWith({List<Modifier> modifiers}) {
     return CategorizedTrait(
         template: this.template,
         item: this.specialization,
@@ -288,7 +288,7 @@ class CategorizedLeveledTrait extends LeveledTrait with HasCategory {
             modifiers: modifiers);
 
   @override
-  copyWith({List<Modifier> modifiers}) {
+  Trait copyWith({List<Modifier> modifiers}) {
     return CategorizedLeveledTrait(
         template: this.template,
         level: this.level,
@@ -365,7 +365,7 @@ class InnateAttack extends TemplateTrait {
       : super(template: template, modifiers: modifiers);
 
   @override
-  copyWith({List<Modifier> modifiers, DieRoll dice}) {
+  Trait copyWith({List<Modifier> modifiers, DieRoll dice}) {
     return InnateAttack(
         template: this.template,
         dice: dice ?? this.dice,
