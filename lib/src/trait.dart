@@ -19,12 +19,6 @@ import 'util/exceptions.dart';
 ///
 class Trait {
   ///
-  /// Some of the behavior or state of a [Trait] is based on the corresponding
-  /// [TraitTemplate].
-  ///
-  final TraitTemplate template;
-
-  ///
   /// Any parenthetical notes for this [Trait].
   ///
   final String specialization;
@@ -42,12 +36,17 @@ class Trait {
   ///
   /// The canonical reference name of the [Trait].
   ///
-  String get reference => template.reference;
+  final String reference;
 
   ///
   /// The cost of the trait before levels or modifiers are applied.
   ///
-  int get baseCost => template.cost;
+  final int baseCost;
+
+  ///
+  /// Page number of the trait.
+  ///
+  final String page;
 
   ///
   /// The integer value that is the sum of all modifiers. Negative modifiers
@@ -99,22 +98,54 @@ class Trait {
     return '($temp)';
   }
 
+  const Trait(
+      {this.name,
+      this.specialization,
+      List<ModifierComponents> modifiers,
+      this.baseCost,
+      this.page,
+      this.reference})
+      : this.modifiers = modifiers ?? const [];
+
+  copyWith({List<ModifierComponents> modifiers}) {
+    return TraitWithTemplate(
+        name: this.name,
+        specialization: this.specialization,
+        modifiers: modifiers ?? this.modifiers);
+  }
+}
+
+class TraitWithTemplate extends Trait {
+  ///
+  /// Some of the behavior or state of a [TraitWithTemplate] is based on the corresponding
+  /// [TraitTemplate].
+  ///
+  final TraitTemplate template;
+
+  ///
+  /// The canonical reference name of the [TraitWithTemplate].
+  ///
+  String get reference => template.reference;
+
+  ///
+  /// The cost of the trait before levels or modifiers are applied.
+  ///
+  int get baseCost => template.cost;
+
   ///
   /// Page number of the trait.
   ///
   String get page => template.page;
 
-  const Trait(
+  const TraitWithTemplate(
       {this.template,
       String name,
       String specialization,
       List<ModifierComponents> modifiers})
-      : this.name = name,
-        this.specialization = specialization,
-        this.modifiers = modifiers ?? const [];
+      : super(name: name, specialization: specialization, modifiers: modifiers);
 
   copyWith({List<ModifierComponents> modifiers}) {
-    return Trait(
+    return TraitWithTemplate(
         template: this.template,
         name: this.name,
         specialization: this.specialization,
@@ -123,25 +154,25 @@ class Trait {
 }
 
 ///
-/// A [LeveledTrait] is a [Trait] that increases in effects and cost in 'levels'.
+/// A [LeveledTrait] is a [TraitWithTemplate] that increases in effects and cost in 'levels'.
 ///
 /// The cost of a level is fixed and is calculated as (CostPerLevel × Levels).
 ///
-class LeveledTrait extends Trait {
+class LeveledTrait extends TraitWithTemplate {
   ///
   /// Level of this trait.
   ///
   final int level;
 
   ///
-  /// Return the effective cost of the [Trait], including the level.
+  /// Return the effective cost of the [TraitWithTemplate], including the level.
   ///
   @override
   int get cost =>
       Maths.setPrecision(baseCost * level * (_modifierFactor + 1.0), 4).ceil();
 
   ///
-  /// Return the description of the [Trait] as used in a statistics block. For
+  /// Return the description of the [TraitWithTemplate] as used in a statistics block. For
   /// [LeveledTrait]s this is the reference name plus level.
   ///
   /// E.g.: Damage Resistance 2 or Affliction 1.
@@ -192,7 +223,7 @@ abstract class HasCategory {
       .cost;
 }
 
-class CategorizedTrait extends Trait with HasCategory {
+class CategorizedTrait extends TraitWithTemplate with HasCategory {
   @override
   CategorizedTemplate get template => super.template as CategorizedTemplate;
 
@@ -292,12 +323,12 @@ String enumToString(InnateAttackType it) => it
     .replaceAll('_', ' ');
 
 ///
-/// The [Trait] that represents an Innate Attack instance.
+/// The [TraitWithTemplate] that represents an Innate Attack instance.
 ///
 /// The cost of an [InnateAttack] depends on the type of damage and the number
 /// of Dice of damage (including partial dice).
 ///
-class InnateAttack extends Trait {
+class InnateAttack extends TraitWithTemplate {
   ///
   /// Map the [InnateAttackType] to a cost per die.
   ///
@@ -345,7 +376,7 @@ class InnateAttack extends Trait {
   }
 
   ///
-  /// Return the description of the [Trait] as used in a statistics block. For
+  /// Return the description of the [TraitWithTemplate] as used in a statistics block. For
   /// [InnateAttack] it consists of the Damage Type plus 'Attack' plus DieRoll.
   ///
   // @override
@@ -423,7 +454,7 @@ class Traits {
   static TraitTemplate _buildTemplateFromJson(Map<String, dynamic> json) =>
       _router[convertToTemplateTypeEnum(json['type'])].call(json);
 
-  static Trait buildTrait(TraitComponents components) {
+  static TraitWithTemplate buildTrait(TraitComponents components) {
     if (_templates.isEmpty) {
       var data = json.decode(trait_data);
       var traits = data['traits'] as List<dynamic>;

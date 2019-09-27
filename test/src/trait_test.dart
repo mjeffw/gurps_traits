@@ -10,14 +10,14 @@ void main() {
       // Canon: 'Protected Sense (%s1, %s2; modifiers...) [10]'
       // Alternatively: 'Protected %s (modifiers...) [5]'
       test('Sense', () {
-        Trait t = Traits.buildTrait(Parser().parse('Protected Sense').first);
+        TraitWithTemplate t = Traits.buildTrait(Parser().parse('Protected Sense').first);
         expect(t.reference, 'Protected Sense');
         expect(t.cost, 5);
         expect(t.description, 'Protected Sense');
       });
 
       test('Vision', () {
-        Trait t =
+        TraitWithTemplate t =
             Traits.buildTrait(Parser().parse('Protected Vision [5].').first);
         expect(t.reference, 'Protected Sense');
         expect(t.cost, 5);
@@ -25,7 +25,7 @@ void main() {
       });
 
       test('Hearing', () {
-        Trait t =
+        TraitWithTemplate t =
             Traits.buildTrait(Parser().parse('Protected Hearing [5]').first);
         expect(t.reference, 'Protected Sense');
         expect(t.cost, 5);
@@ -34,7 +34,7 @@ void main() {
     }, skip: false);
 
     test('Dark Vision', () {
-      Trait t = Traits.buildTrait(Parser().parse('Dark Vision [25]').first);
+      TraitWithTemplate t = Traits.buildTrait(Parser().parse('Dark Vision [25]').first);
       expect(t.reference, 'Dark Vision');
       expect(t.cost, 25);
       expect(t.description, 'Dark Vision');
@@ -654,7 +654,7 @@ void main() {
         var parenth =
             'Earth; Can Carry Objects, Light Encumbrance, +20%; Runecasting, −10%';
         var first2 = Parser().parse('$text ($parenth)').first;
-        Trait t = Traits.buildTrait(first2);
+        TraitWithTemplate t = Traits.buildTrait(first2);
         expect(t.specialization, 'Earth');
         expect(t.baseCost, 40);
         expect(t.cost, 44);

@@ -49,7 +49,7 @@ main() {
         .reduce((a, b) => a + b);
     print('${reduce}');
 
-    Trait t = Traits.buildTrait(c);
+    TraitWithTemplate t = Traits.buildTrait(c);
 
     print(t.cost); // 7, 11, 15, 19,
   });

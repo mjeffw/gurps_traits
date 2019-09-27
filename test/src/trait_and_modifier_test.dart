@@ -8,7 +8,7 @@ Burning Attack 1d (Environmental, Storm, −40%; Nuisance Effect, Behaves errati
     ''';
 
     TraitComponents c = Parser().parse(text).first;
-    Trait t = Traits.buildTrait(c);
+    TraitWithTemplate t = Traits.buildTrait(c);
     String description = t.description;
 
     expect(description,

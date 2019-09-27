@@ -169,6 +169,11 @@ String trait_data = r"""
       ]
     },
     {
+      "reference": "Brachiator",
+      "page": "B41",
+      "cost": 5
+    },
+    {
       "reference": "Charisma",
       "cost": 5,
       "type": "leveled"
