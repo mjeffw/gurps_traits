@@ -5,19 +5,36 @@ import 'package:gurps_traits/src/util/exceptions.dart';
 import 'package:test/test.dart';
 
 void main() {
+  group('blank trait', () {
+    test('copyWith', () {
+      Trait t = Trait(
+          name: 'Bar',
+          baseCost: 5,
+          page: 'B4',
+          reference: 'Bar',
+          modifiers: [Modifier(name: 'Baz', value: -20)]);
+      expect(t.modifiers, containsAll([Modifier(name: 'Baz', value: -20)]));
+      Trait u = t.copyWith(modifiers: []);
+      expect(u.modifiers, isEmpty);
+      expect(t.copyWith().modifiers,
+          containsAll([Modifier(name: 'Baz', value: -20)]));
+    });
+  });
+
   group('flat cost', () {
     group('Protected Sense', () {
       // Canon: 'Protected Sense (%s1, %s2; modifiers...) [10]'
       // Alternatively: 'Protected %s (modifiers...) [5]'
       test('Sense', () {
-        TraitWithTemplate t = Traits.buildTrait(Parser().parse('Protected Sense').first);
+        TemplateTrait t =
+            Traits.buildTrait(Parser().parse('Protected Sense').first);
         expect(t.reference, 'Protected Sense');
         expect(t.cost, 5);
         expect(t.description, 'Protected Sense');
       });
 
       test('Vision', () {
-        TraitWithTemplate t =
+        TemplateTrait t =
             Traits.buildTrait(Parser().parse('Protected Vision [5].').first);
         expect(t.reference, 'Protected Sense');
         expect(t.cost, 5);
@@ -25,7 +42,7 @@ void main() {
       });
 
       test('Hearing', () {
-        TraitWithTemplate t =
+        TemplateTrait t =
             Traits.buildTrait(Parser().parse('Protected Hearing [5]').first);
         expect(t.reference, 'Protected Sense');
         expect(t.cost, 5);
@@ -34,14 +51,40 @@ void main() {
     }, skip: false);
 
     test('Dark Vision', () {
-      TraitWithTemplate t = Traits.buildTrait(Parser().parse('Dark Vision [25]').first);
+      TemplateTrait t =
+          Traits.buildTrait(Parser().parse('Dark Vision [25]').first);
       expect(t.reference, 'Dark Vision');
       expect(t.cost, 25);
       expect(t.description, 'Dark Vision');
     });
+
+    test('copyWith', () {
+      Trait t = Traits.buildTrait(Parser().parse('Dark Vision [25]').first);
+      expect(t.modifiers, isEmpty);
+
+      Trait u = t.copyWith(modifiers: [Modifier(name: 'Bar', value: 15)]);
+      expect(u.modifiers, containsAll([Modifier(name: 'Bar', value: 15)]));
+      var copyWith = u.copyWith();
+      expect(
+          copyWith.modifiers, containsAll([Modifier(name: 'Bar', value: 15)]));
+    });
   });
 
   group('leveled', () {
+    test('copyWith', () {
+      var parse = Parser().parse('Obscure 3').first;
+      LeveledTrait t = Traits.buildTrait(parse) as LeveledTrait;
+      expect(t.modifiers, isEmpty);
+
+      var u = t.copyWith(modifiers: [Modifier(name: 'Foo', value: -10)]);
+      expect(
+          u.modifiers, containsAllInOrder([Modifier(name: 'Foo', value: -10)]));
+
+      var v = u.copyWith();
+      expect(
+          v.modifiers, containsAllInOrder([Modifier(name: 'Foo', value: -10)]));
+    });
+
     test('Obscure', () {
       // Canon: 'Obscure (Sense)'
       LeveledTrait t =
@@ -216,6 +259,14 @@ void main() {
     }, skip: false);
 
     group('Cost per die', () {
+      test('No change of dice', () {
+        var parse = Parser().parse('Burning Attack 1d').first;
+        InnateAttack t = Traits.buildTrait(parse) as InnateAttack;
+        expect(t.cost, 5);
+        t = t.copyWith();
+        expect(t.cost, 5);
+      });
+
       test('Burning', () {
         var parse = Parser().parse('Burning Attack 1d').first;
         InnateAttack t = Traits.buildTrait(parse) as InnateAttack;
@@ -490,6 +541,24 @@ void main() {
 
   group('Variable', () {
     group('Categorized trait', () {
+      group('copyWith', () {
+        test('modifiers', () {
+          var t = Traits.buildTrait(Parser().parse('Create').first)
+              as CategorizedLeveledTrait;
+          expect(t.modifiers, isEmpty);
+          var u = t.copyWith(modifiers: [Modifier(name: 'Foo', value: 10)]);
+          expect(u.modifiers,
+              containsAllInOrder([Modifier(name: 'Foo', value: 10)]));
+        });
+        test('no modifiers', () {
+          var t = Traits.buildTrait(Parser().parse('Create').first)
+              as CategorizedLeveledTrait;
+          expect(t.modifiers, isEmpty);
+          var u = t.copyWith();
+          expect(u.modifiers, isEmpty);
+        });
+      });
+
       group('Set reference', () {
         test('Create', () {
           var t = Traits.buildTrait(Parser().parse('Create').first);
@@ -654,10 +723,43 @@ void main() {
         var parenth =
             'Earth; Can Carry Objects, Light Encumbrance, +20%; Runecasting, −10%';
         var first2 = Parser().parse('$text ($parenth)').first;
-        TraitWithTemplate t = Traits.buildTrait(first2);
+        TemplateTrait t = Traits.buildTrait(first2);
         expect(t.specialization, 'Earth');
         expect(t.baseCost, 40);
         expect(t.cost, 44);
+      });
+    });
+
+    group('Categorized', () {
+      group('copyWith', () {
+        test('modifiers', () {
+          var t =
+              Traits.buildTrait(Parser().parse('Appearance (Horrific)').first);
+          expect(t.modifiers, isEmpty);
+          var u = t.copyWith(modifiers: [
+            Modifier(
+                name: 'Accessibility',
+                detail: 'Only in alternate form',
+                value: -30)
+          ]);
+          expect(
+              u.modifiers,
+              containsAllInOrder([
+                Modifier(
+                    name: 'Accessibility',
+                    detail: 'Only in alternate form',
+                    value: -30)
+              ]));
+          var v = u.copyWith();
+          expect(
+              v.modifiers,
+              containsAllInOrder([
+                Modifier(
+                    name: 'Accessibility',
+                    detail: 'Only in alternate form',
+                    value: -30)
+              ]));
+        });
       });
     });
   }, skip: false);

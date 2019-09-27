@@ -44,12 +44,12 @@ main() {
     // expect(c.modifiers, hasLength(6));
     c.modifiersText.forEach((f) => print(f));
     var reduce = c.modifiersText
-        .map((it) => ModifierComponents.parse(it))
+        .map((it) => Modifier.parse(it))
         .map((f) => f.value)
         .reduce((a, b) => a + b);
     print('${reduce}');
 
-    TraitWithTemplate t = Traits.buildTrait(c);
+    TemplateTrait t = Traits.buildTrait(c);
 
     print(t.cost); // 7, 11, 15, 19,
   });

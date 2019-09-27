@@ -28,7 +28,7 @@ class ProcessTraitText {
               .forEach((f) => mayPrint('${f.name} (${f.parentheticalNotes})'));
 
           // create the Trait from the traitText
-          List<TraitWithTemplate> traits =
+          List<TemplateTrait> traits =
               components.map((it) => Traits.buildTrait(it)).toList();
 
           // if (traits.first.reference.startsWith('Penetrating Vision')) {

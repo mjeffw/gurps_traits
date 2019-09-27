@@ -7,7 +7,7 @@ import 'package:quiver/core.dart';
 import '../gurps_traits.dart';
 
 ///
-/// Enumeration of the types of [TraitWithTemplate]s handled by this code. The string
+/// Enumeration of the types of [TemplateTrait]s handled by this code. The string
 /// value of a [TemplateType] is used when externalizing the list of Traits.
 ///
 enum TemplateType {
@@ -26,7 +26,7 @@ String _unqualifiedStringValue(TemplateType type) =>
     type.toString().replaceFirst('TemplateType.', '');
 
 ///
-/// Each instance of a [TraitWithTemplate] of a particular type has a single template,
+/// Each instance of a [TemplateTrait] of a particular type has a single template,
 /// which defines its cost and its reference name.
 ///
 class TraitTemplate {
@@ -74,9 +74,9 @@ class TraitTemplate {
         isSpecialized = isSpecialized ?? false;
 
   ///
-  /// Create the appropriate [TraitWithTemplate] based on the the text.
+  /// Create the appropriate [TemplateTrait] based on the the text.
   ///
-  TraitWithTemplate buildTraitFrom(TraitComponents components) {
+  TemplateTrait buildTraitFrom(TraitComponents components) {
     String specialization = components.specialties;
     if (isSpecialized && components.specialties == null) {
       // see if there are any alternate name formats with specialization
@@ -105,7 +105,7 @@ class TraitTemplate {
           dice: InnateAttack.tryParseDiceFromText(components.damage),
           modifiers: components.modifiers);
     }
-    return TraitWithTemplate(
+    return TemplateTrait(
         template: this,
         name: components.name,
         specialization: specialization,
@@ -155,7 +155,7 @@ class Category {
   final String name;
 
   ///
-  /// Cost of the [TraitWithTemplate] if its specialties match one of the items in this
+  /// Cost of the [TemplateTrait] if its specialties match one of the items in this
   /// category.
   ///
   final int cost;
@@ -169,6 +169,7 @@ class Category {
 
   @override
   bool operator ==(dynamic other) {
+    
     if (identical(this, other)) return true;
     return other is Category &&
         this.name == other.name &&
@@ -221,7 +222,7 @@ class CategorizedTemplate extends TraitTemplate {
             isSpecialized: true);
 
   @override
-  TraitWithTemplate buildTraitFrom(TraitComponents components) {
+  TemplateTrait buildTraitFrom(TraitComponents components) {
     String category =
         _getCategory(components, _findMatchingAlternateName(components.name));
 

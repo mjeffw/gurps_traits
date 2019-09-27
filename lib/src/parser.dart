@@ -1,10 +1,11 @@
 import 'package:dart_utils/dart_util.dart';
 import 'package:gurps_dice/gurps_dice.dart';
+import 'package:quiver/core.dart';
 
 import 'util/exceptions.dart';
 
 ///
-/// [ModifierComponents] represent the various components of a modifier, as
+/// [Modifier] represent the various components of a modifier, as
 /// found in the parenthetical notes portion of the trait text.
 ///
 /// Modifiers formally fit the format "<name>, (<details>,) <sign><value>%",
@@ -12,14 +13,14 @@ import 'util/exceptions.dart';
 /// notes for this modifier, and <sign><value>% is the integer value of the
 /// modifier, in percentile form.
 ///
-class ModifierComponents {
+class Modifier {
   static final regExpModifier =
       RegExp('^(?<name>.+),\\s+(?<sign>$R_SIGN)(?<value>$R_DIGITS)%\$');
 
-  static ModifierComponents parse(String input) {
+  static Modifier parse(String input) {
     if (regExpModifier.hasMatch(input)) {
       RegExpMatch match = regExpModifier.firstMatch(input);
-      return ModifierComponents(
+      return Modifier(
         name: _name(match.namedGroup('name')),
         value: _value(match.namedGroup('sign'), match.namedGroup('value')),
         detail: _detail(match.namedGroup('name')),
@@ -29,8 +30,7 @@ class ModifierComponents {
     }
   }
 
-  static bool hasMatch(String s) =>
-      ModifierComponents.regExpModifier.hasMatch(s);
+  static bool hasMatch(String s) => Modifier.regExpModifier.hasMatch(s);
 
   ///
   /// Name is the first comma-separated component of the text.
@@ -55,13 +55,23 @@ class ModifierComponents {
   String detail;
   int value;
 
-  ModifierComponents({this.name, this.value, this.detail});
+  Modifier({this.name, this.value, this.detail});
 
   get description =>
       '$name${detail == null || detail.isEmpty ? "" : ", " + detail}, $valueAsString';
 
   get valueAsString =>
       '${value < 0 ? value.toString() : "+" + value.toString()}%';
+
+  @override
+  int get hashCode => hash3(detail, name, value);
+
+  bool operator ==(dynamic other) {
+    return other is Modifier &&
+        this.name == name &&
+        this.detail == detail &&
+        this.value == value;
+  }
 }
 
 ///
@@ -129,11 +139,10 @@ class TraitComponents {
   ///
   /// Parse out any modifiers from the parenthetical notes.
   ///
-  List<String> get modifiersText =>
-      notes.where(ModifierComponents.hasMatch).toList();
+  List<String> get modifiersText => notes.where(Modifier.hasMatch).toList();
 
-  List<ModifierComponents> get modifiers =>
-      modifiersText.map((it) => ModifierComponents.parse(it)).toList();
+  List<Modifier> get modifiers =>
+      modifiersText.map((it) => Modifier.parse(it)).toList();
 
   ///
   /// Trait specialties, named varieties or degrees of advantages or disad-
@@ -145,7 +154,7 @@ class TraitComponents {
   ///
   /// Return ```true``` if text matches the modifier pattern.
   ///
-  bool isModifier(String text) => ModifierComponents.hasMatch(text);
+  bool isModifier(String text) => Modifier.hasMatch(text);
 }
 
 // == Regular Expression patterns for parsing ==
@@ -156,9 +165,7 @@ const _NOTES = r'\s+\((?<notes>.*)\)'; // space + ( + any  + )
 const _COST =
     r'(?:\s+\[(?<cost>\d+(?:\.\d{0,2})?)(?:/level)?\])'; // space + [ + digits + ]
 
-const String _LEVEL = '(?<level>$R_DIGITS)';
 const String DICE_PATTERN = '(?<dieroll>$dieRollPattern)';
-// '(?<dice>${R_DIGITS}d($R_NUMBER)?)';
 const String POINTS_PATTERN = '(?:(?<points>$R_DIGITS)\\s+point(?:s)?)';
 
 ///
@@ -170,9 +177,6 @@ class Parser {
   static String nameNotesPattern = '^$_TRAIT$_NOTES';
   static String nameNotesCostPattern = '^$_TRAIT$_NOTES$_COST';
 
-  static RegExp regExpLevel =
-      RegExp('^$_TRAIT(?:\\s+$_LEVEL|$DICE_PATTERN|$POINTS_PATTERN)\$');
-
   ///
   /// Ordered list of regular expressions to try matching against input.
   ///
@@ -182,14 +186,6 @@ class Parser {
     RegExp(nameCostPattern),
     RegExp(namePattern),
   ];
-
-  List<TraitComponents> tryParse(String input) {
-    try {
-      return parse(input);
-    } catch (exception) {
-      return [];
-    }
-  }
 
   ///
   /// Given some text, parse and return the Trait components.

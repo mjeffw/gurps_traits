@@ -31,7 +31,7 @@ class Trait {
   ///
   /// Modifiers.
   ///
-  final List<ModifierComponents> modifiers;
+  final List<Modifier> modifiers;
 
   ///
   /// The canonical reference name of the [Trait].
@@ -101,29 +101,29 @@ class Trait {
   const Trait(
       {this.name,
       this.specialization,
-      List<ModifierComponents> modifiers,
+      List<Modifier> modifiers,
       this.baseCost,
       this.page,
       this.reference})
       : this.modifiers = modifiers ?? const [];
 
-  copyWith({List<ModifierComponents> modifiers}) {
-    return TraitWithTemplate(
+  Trait copyWith({List<Modifier> modifiers}) {
+    return Trait(
         name: this.name,
         specialization: this.specialization,
         modifiers: modifiers ?? this.modifiers);
   }
 }
 
-class TraitWithTemplate extends Trait {
+class TemplateTrait extends Trait {
   ///
-  /// Some of the behavior or state of a [TraitWithTemplate] is based on the corresponding
+  /// Some of the behavior or state of a [TemplateTrait] is based on the corresponding
   /// [TraitTemplate].
   ///
   final TraitTemplate template;
 
   ///
-  /// The canonical reference name of the [TraitWithTemplate].
+  /// The canonical reference name of the [TemplateTrait].
   ///
   String get reference => template.reference;
 
@@ -137,15 +137,16 @@ class TraitWithTemplate extends Trait {
   ///
   String get page => template.page;
 
-  const TraitWithTemplate(
+  const TemplateTrait(
       {this.template,
       String name,
       String specialization,
-      List<ModifierComponents> modifiers})
+      List<Modifier> modifiers})
       : super(name: name, specialization: specialization, modifiers: modifiers);
 
-  copyWith({List<ModifierComponents> modifiers}) {
-    return TraitWithTemplate(
+  @override
+  Trait copyWith({List<Modifier> modifiers}) {
+    return TemplateTrait(
         template: this.template,
         name: this.name,
         specialization: this.specialization,
@@ -154,25 +155,25 @@ class TraitWithTemplate extends Trait {
 }
 
 ///
-/// A [LeveledTrait] is a [TraitWithTemplate] that increases in effects and cost in 'levels'.
+/// A [LeveledTrait] is a [TemplateTrait] that increases in effects and cost in 'levels'.
 ///
 /// The cost of a level is fixed and is calculated as (CostPerLevel × Levels).
 ///
-class LeveledTrait extends TraitWithTemplate {
+class LeveledTrait extends TemplateTrait {
   ///
   /// Level of this trait.
   ///
   final int level;
 
   ///
-  /// Return the effective cost of the [TraitWithTemplate], including the level.
+  /// Return the effective cost of the [TemplateTrait], including the level.
   ///
   @override
   int get cost =>
       Maths.setPrecision(baseCost * level * (_modifierFactor + 1.0), 4).ceil();
 
   ///
-  /// Return the description of the [TraitWithTemplate] as used in a statistics block. For
+  /// Return the description of the [TemplateTrait] as used in a statistics block. For
   /// [LeveledTrait]s this is the reference name plus level.
   ///
   /// E.g.: Damage Resistance 2 or Affliction 1.
@@ -184,7 +185,7 @@ class LeveledTrait extends TraitWithTemplate {
       {TraitTemplate template,
       int level = 1,
       String specialization,
-      List<ModifierComponents> modifiers,
+      List<Modifier> modifiers,
       String name})
       : assert(level != null && level > 0),
         level = level,
@@ -195,7 +196,7 @@ class LeveledTrait extends TraitWithTemplate {
             modifiers: modifiers);
 
   @override
-  copyWith({List<ModifierComponents> modifiers}) {
+  copyWith({List<Modifier> modifiers}) {
     return LeveledTrait(
         template: this.template,
         level: this.level,
@@ -223,7 +224,7 @@ abstract class HasCategory {
       .cost;
 }
 
-class CategorizedTrait extends TraitWithTemplate with HasCategory {
+class CategorizedTrait extends TemplateTrait with HasCategory {
   @override
   CategorizedTemplate get template => super.template as CategorizedTemplate;
 
@@ -236,7 +237,7 @@ class CategorizedTrait extends TraitWithTemplate with HasCategory {
   CategorizedTrait(
       {TraitTemplate template,
       String item,
-      List<ModifierComponents> modifiers,
+      List<Modifier> modifiers,
       String name})
       : super(
             template: template,
@@ -245,7 +246,7 @@ class CategorizedTrait extends TraitWithTemplate with HasCategory {
             name: name);
 
   @override
-  copyWith({List<ModifierComponents> modifiers}) {
+  copyWith({List<Modifier> modifiers}) {
     return CategorizedTrait(
         template: this.template,
         item: this.specialization,
@@ -279,7 +280,7 @@ class CategorizedLeveledTrait extends LeveledTrait with HasCategory {
       {TraitTemplate template,
       int level,
       String item,
-      List<ModifierComponents> modifiers})
+      List<Modifier> modifiers})
       : super(
             template: template,
             level: level,
@@ -287,7 +288,7 @@ class CategorizedLeveledTrait extends LeveledTrait with HasCategory {
             modifiers: modifiers);
 
   @override
-  copyWith({List<ModifierComponents> modifiers}) {
+  copyWith({List<Modifier> modifiers}) {
     return CategorizedLeveledTrait(
         template: this.template,
         level: this.level,
@@ -323,12 +324,12 @@ String enumToString(InnateAttackType it) => it
     .replaceAll('_', ' ');
 
 ///
-/// The [TraitWithTemplate] that represents an Innate Attack instance.
+/// The [TemplateTrait] that represents an Innate Attack instance.
 ///
 /// The cost of an [InnateAttack] depends on the type of damage and the number
 /// of Dice of damage (including partial dice).
 ///
-class InnateAttack extends TraitWithTemplate {
+class InnateAttack extends TemplateTrait {
   ///
   /// Map the [InnateAttackType] to a cost per die.
   ///
@@ -360,14 +361,11 @@ class InnateAttack extends TraitWithTemplate {
   final InnateAttackType type;
 
   const InnateAttack(
-      {TraitTemplate template,
-      this.dice,
-      this.type,
-      List<ModifierComponents> modifiers})
+      {TraitTemplate template, this.dice, this.type, List<Modifier> modifiers})
       : super(template: template, modifiers: modifiers);
 
   @override
-  copyWith({List<ModifierComponents> modifiers, DieRoll dice}) {
+  copyWith({List<Modifier> modifiers, DieRoll dice}) {
     return InnateAttack(
         template: this.template,
         dice: dice ?? this.dice,
@@ -376,7 +374,7 @@ class InnateAttack extends TraitWithTemplate {
   }
 
   ///
-  /// Return the description of the [TraitWithTemplate] as used in a statistics block. For
+  /// Return the description of the [TemplateTrait] as used in a statistics block. For
   /// [InnateAttack] it consists of the Damage Type plus 'Attack' plus DieRoll.
   ///
   // @override
@@ -454,7 +452,7 @@ class Traits {
   static TraitTemplate _buildTemplateFromJson(Map<String, dynamic> json) =>
       _router[convertToTemplateTypeEnum(json['type'])].call(json);
 
-  static TraitWithTemplate buildTrait(TraitComponents components) {
+  static TemplateTrait buildTrait(TraitComponents components) {
     if (_templates.isEmpty) {
       var data = json.decode(trait_data);
       var traits = data['traits'] as List<dynamic>;
