@@ -1,5 +1,3 @@
-// Some helper constants and declarations.
-
 import 'package:dart_utils/dart_util.dart';
 import 'package:quiver/collection.dart';
 import 'package:quiver/core.dart';
@@ -126,6 +124,21 @@ class TraitTemplate {
   String _findMatchingAlternateName(String text) => alternateNames
       ?.firstWhere((it) => RegExp(it).hasMatch(text), orElse: () => null);
 
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is TraitTemplate &&
+            this.reference == other.reference &&
+            this.cost == other.cost &&
+            this.type == other.type &&
+            this.isSpecialized == other.isSpecialized &&
+            listsEqual(this.alternateNames, other.alternateNames));
+  }
+
+  @override
+  int get hashCode =>
+      hashObjects([reference, cost, type, isSpecialized, alternateNames]);
+
   ///
   /// Create a [TraitTemplate] from the given JSON.
   ///
@@ -169,7 +182,6 @@ class Category {
 
   @override
   bool operator ==(dynamic other) {
-    
     if (identical(this, other)) return true;
     return other is Category &&
         this.name == other.name &&
@@ -239,6 +251,22 @@ class CategorizedTemplate extends TraitTemplate {
             name: components.name,
           );
   }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is CategorizedTemplate &&
+            this.reference == other.reference &&
+            this.cost == other.cost &&
+            this.type == other.type &&
+            this.isSpecialized == other.isSpecialized &&
+            listsEqual(this.alternateNames, other.alternateNames) &&
+            listsEqual(this.categories, other.categories));
+  }
+
+  @override
+  int get hashCode => hashObjects(
+      [reference, cost, type, isSpecialized, alternateNames, categories]);
 
   String _getCategory(TraitComponents components, String pattern) {
     if (components.specialties == null) {

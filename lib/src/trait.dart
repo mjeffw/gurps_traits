@@ -3,6 +3,8 @@ import 'dart:math';
 
 import 'package:dart_utils/dart_util.dart';
 import 'package:gurps_dice/gurps_dice.dart';
+import 'package:quiver/collection.dart';
+import 'package:quiver/core.dart';
 
 import '../gurps_traits.dart';
 import 'data/trait_data.dart';
@@ -113,6 +115,22 @@ class Trait {
         specialization: this.specialization,
         modifiers: modifiers ?? this.modifiers);
   }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is Trait &&
+            this.name == other.name &&
+            this.page == other.page &&
+            this.reference == other.reference &&
+            this.specialization == other.specialization &&
+            this.baseCost == other.baseCost &&
+            listsEqual(this.modifiers, other.modifiers));
+  }
+
+  @override
+  int get hashCode =>
+      hashObjects([name, page, reference, specialization, baseCost, modifiers]);
 }
 
 class TemplateTrait extends Trait {
@@ -152,6 +170,18 @@ class TemplateTrait extends Trait {
         specialization: this.specialization,
         modifiers: modifiers ?? this.modifiers);
   }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is TemplateTrait &&
+            this.template == other.template &&
+            this.specialization == other.specialization &&
+            listsEqual(this.modifiers, other.modifiers));
+  }
+
+  @override
+  int get hashCode => hash3(template, specialization, modifiers);
 }
 
 ///
@@ -205,6 +235,19 @@ class LeveledTrait extends TemplateTrait {
         modifiers: modifiers ?? this.modifiers);
   }
 
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is LeveledTrait &&
+            this.template == other.template &&
+            this.level == other.level &&
+            this.specialization == other.specialization &&
+            listsEqual(this.modifiers, other.modifiers));
+  }
+
+  @override
+  int get hashCode => hash4(template, specialization, modifiers, level);
+
   static String tryParseSpecialization(String pattern, String traitText) =>
       RegExpEx.getNamedGroup(RegExp(pattern).firstMatch(traitText), 'spec');
 }
@@ -253,6 +296,18 @@ class CategorizedTrait extends TemplateTrait with HasCategory {
         name: this.name,
         modifiers: modifiers ?? this.modifiers);
   }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is CategorizedTrait &&
+            this.template == other.template &&
+            this.specialization == other.specialization &&
+            listsEqual(this.modifiers, other.modifiers));
+  }
+
+  @override
+  int get hashCode => hash3(template, specialization, modifiers);
 }
 
 ///
@@ -295,6 +350,19 @@ class CategorizedLeveledTrait extends LeveledTrait with HasCategory {
         item: this.specialization,
         modifiers: modifiers ?? this.modifiers);
   }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is CategorizedLeveledTrait &&
+            this.template == other.template &&
+            this.level == other.level &&
+            this.specialization == other.specialization &&
+            listsEqual(this.modifiers, other.modifiers));
+  }
+
+  @override
+  int get hashCode => hash4(template, specialization, modifiers, level);
 }
 
 ///
@@ -405,6 +473,19 @@ class InnateAttack extends TemplateTrait {
     var costPerDie = _costPerDie[type];
     return (costPerDie * effectiveLevels).ceil();
   }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is InnateAttack &&
+            this.template == other.template &&
+            this.dice == other.dice &&
+            this.specialization == other.specialization &&
+            listsEqual(this.modifiers, other.modifiers));
+  }
+
+  @override
+  int get hashCode => hash4(template, specialization, modifiers, dice);
 
   static InnateAttackType tryParseTypeFromText(String traitText) {
     var r = RegExp(r'^(.*) Attack');
