@@ -67,10 +67,11 @@ class Modifier {
   int get hashCode => hash3(detail, name, value);
 
   bool operator ==(dynamic other) {
+    if (identical(this, other)) return true;
     return other is Modifier &&
-        this.name == name &&
-        this.detail == detail &&
-        this.value == value;
+        this.name == other.name &&
+        this.detail == other.detail &&
+        this.value == other.value;
   }
 }
 
